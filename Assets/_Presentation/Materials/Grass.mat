@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Grass
+  m_Shader: {fileID: -6465566751694194690, guid: 48e310a8b0f921c47ba61a72a26be66e, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2450
+  stringTagMap: {}
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainText:
+        m_Texture: {fileID: 2800000, guid: d8b6d6a6e0a94464a862f483facdf70a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _WindTexture:
+        m_Texture: {fileID: 2800000, guid: 7a9aaf92e3c80df459e77decac5fc8fc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BendStrength: 0.19999999
+    - _HeightBlend: 0.8
+    - _NoiseScale: 0.53
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _Roundness: 0.008
+    - _Smoothness: 0
+    - _SwingDistance: 0
+    - _SwingForce: 0.025
+    - _SwingSpeed: 8
+    - _VerticleBendStrength: -0.7
+    - _WindHeight: 0.5
+    - _WindIntensity: 0.4
+    - _WindNoiseScale: 43.3
+    - _WindNoiseSpeed: 6
+    m_Colors:
+    - _BottomColor: {r: 0.035294127, g: 0.42745098, b: 0.1887003, a: 0}
+    - _FarColor: {r: 0.6039216, g: 0.90588236, b: 0.3647059, a: 0}
+    - _NearColor: {r: 0.6039216, g: 0.9058824, b: 0.36470586, a: 0}
+    - _NearFarRange: {r: 3.1, g: 17.79, b: 0, a: 0}
+    - _ShadowColor: {r: 0.49056602, g: 0.3724334, b: 0.18743324, a: 0}
+    - _WindDirection: {r: 1, g: 1, b: 0, a: 0}
+    - _WindNoiseContrast: {r: 0.24, g: 1, b: 0, a: 0}
+    - _WindNoiseScale: {r: 0.01, g: 0.01, b: 0, a: 0}
+    - _WindVelocity: {r: 0.3, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!114 &2298065672369463626
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Editor::UnityEditor.Rendering.Universal.AssetVersion
+  version: 10
