@@ -35,9 +35,8 @@ namespace Game.Runtime.Planet.Generation
                 {
                     TerrainChunk terrainChunk = GetBiomePool(biomes[(int)(i / biomeSizeInChunks), (int)(j / biomeSizeInChunks)]).Get();
                     terrainChunk.gameObject.SetActive(true);
-                    terrainChunk.SetSize(chunkSize);
                     terrainChunk.transform.position = new Vector3(i * chunkSize, 0, j * chunkSize);
-                    
+                    terrainChunk.gameObject.name = $"TerrainChunk({i},{j})";
                     _terrainChunks[i ,j] = terrainChunk;
                 }
             }

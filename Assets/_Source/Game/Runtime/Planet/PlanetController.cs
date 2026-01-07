@@ -11,6 +11,7 @@ namespace Game.Runtime.Planet
         [Inject] private readonly IPlanetGenerator _planetGenerator;
         [Inject] private readonly PlanetMap _planetMap;
         [Inject] private readonly PlanetMover _planetMover;
+        [Inject] private readonly TerrainBiomeBlender _terrainBiomeBlender;
         
         private float _biomeSizeInChunks;
         private float _biomeSize;

@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Game.Runtime.Planet
 {
@@ -7,17 +6,19 @@ namespace Game.Runtime.Planet
     {
         [SerializeField] private Terrain _terrain;
 
-        public void SetSize(float size)
+        private Material _grassMaterial; 
+        
+        public Material GrassMaterial
         {
-            /* not working...
-            var terrainData = _terrain.terrainData;
-            
-            int newHeightmapResolution = Mathf.ClosestPowerOfTwo(
-                Mathf.RoundToInt(terrainData.heightmapResolution * (size / terrainData.size.x))) + 1;
-            Vector3 newSize = new Vector3(size, terrainData.size.y, size);
-            
-            terrainData.size = newSize;
-            terrainData.heightmapResolution = newHeightmapResolution;*/
+            get
+            {
+                if(_grassMaterial == null)
+                    _grassMaterial = _terrain.terrainData.detailPrototypes[^1].prototype.GetComponent<Renderer>().sharedMaterial;
+                
+                return _grassMaterial;
+            }
         }
+
+        public Material TerrainMaterial => _terrain.materialTemplate;
     }
 }

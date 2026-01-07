@@ -71,6 +71,18 @@ namespace Game.Runtime.Planet.Movement
             _currentChunk.Value = _chunks.CurrentValue[newChunk.x, newChunk.y];
         }
 
+        public Vector2Int GetBiomeIndexByChunk(Vector2Int chunkIndex) 
+            => new(chunkIndex.x / _biomeSizeInChunks.CurrentValue, chunkIndex.y / _biomeSizeInChunks.CurrentValue);
+        
+        public Biome GetBiomeByChunk(Vector2Int chunkIndex) 
+            => Biomes.CurrentValue[chunkIndex.x / _biomeSizeInChunks.CurrentValue, chunkIndex.y / _biomeSizeInChunks.CurrentValue];
+        
+        public Vector3 GetChunkCenterPosition(Vector2Int chunkIndex)
+        {
+            return _chunks.CurrentValue[chunkIndex.x, chunkIndex.y].transform.position +
+            new Vector3(_chunkSize.CurrentValue / 2, 0, _chunkSize.CurrentValue / 2);
+        }
+        
         private bool IsOnChunk(Vector3 point, Vector3 chunkPosition)
         {
             return MathUtils.InRange(point.x, chunkPosition.x + _chunkSize.CurrentValue / 2, _chunkSize.CurrentValue / 2)

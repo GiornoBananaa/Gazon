@@ -1,4 +1,5 @@
-﻿using Game.Runtime.Planet.Generation;
+﻿using Game.Runtime.Planet;
+using Game.Runtime.Planet.Generation;
 using Game.Runtime.Planet.Movement;
 using Reflex.Core;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace Game.Runtime.DependencyInjection
             builder.AddSingleton(typeof(PlanetGenerator), typeof(IPlanetGenerator));
             builder.AddSingleton(typeof(PlanetMover));
             builder.AddSingleton(typeof(PlanetMap));
+            builder.AddSingleton(typeof(TerrainBiomeBlender));
         }
     }
 }

@@ -55,11 +55,26 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _BiomeBlend: 0.1
+    - _BiomeBlendDistance: 4
+    - _OtherX_Coordinate: 50
+    - _OtherY_Coordinate: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Roundness: 0.008
     - _Scale: 1
     - _Smoothness: 0
-    m_Colors: []
+    m_Colors:
+    - _BiomeCenter: {r: 62.5, g: 37.5, b: 0, a: 0}
+    - _MainColor: {r: 0.03529412, g: 0.42745098, b: 0.18823525, a: 1}
+    - _OtherXBack_MainColor: {r: 0.12549013, g: 0.3764705, b: 0.22352934, a: 0}
+    - _OtherXBack_ShadowColor: {r: 0.47058815, g: 0.39215684, b: 0.26666665, a: 0}
+    - _OtherX_MainColor: {r: 0.03529412, g: 0.42745095, b: 0.18823522, a: 1}
+    - _OtherX_ShadowColor: {r: 0.490196, g: 0.3725489, b: 0.18823522, a: 1}
+    - _OtherYBack_MainColor: {r: 0.12549013, g: 0.3764705, b: 0.22352934, a: 0}
+    - _OtherYBack_ShadowColor: {r: 0.47058815, g: 0.39215684, b: 0.26666665, a: 0}
+    - _OtherY_MainColor: {r: 0.03529412, g: 0.42745095, b: 0.18823522, a: 1}
+    - _OtherY_ShadowColor: {r: 0.490196, g: 0.3725489, b: 0.18823522, a: 1}
+    - _ShadowColor: {r: 0.49019605, g: 0.37254897, b: 0.18823525, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
