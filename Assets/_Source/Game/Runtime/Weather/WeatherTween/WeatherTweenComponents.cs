@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Runtime.Weather.WeatherTween
 {
@@ -14,12 +15,35 @@ namespace Game.Runtime.Weather.WeatherTween
     [Serializable]
     public class WeatherProperty
     {
-        public WeatherEntityType Entity;
-        public WeatherPropertyType Property;
+        [FormerlySerializedAs("Entity")] public WeatherEntityType EntityType;
+        [FormerlySerializedAs("Property")] public WeatherPropertyType PropertyType;
         
         public float FloatValue;
         public Vector2 VectorValue;
         public Color ColorValue;
+    }
+    
+    [Serializable]
+    public struct WeatherEntityPropertyType : IEquatable<WeatherEntityPropertyType>
+    {
+        public WeatherEntityType Entity;
+        public WeatherPropertyType Property;
+
+        public WeatherEntityPropertyType(WeatherEntityType entity , WeatherPropertyType property)
+        {
+            Entity = entity;
+            Property = property;
+        }
+        
+        public bool Equals(WeatherEntityPropertyType other)
+        {
+            return Entity == other.Entity && Property == other.Property;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine((int)Entity, (int)Property);
+        }
     }
 
     public interface ITweenTarget<T>

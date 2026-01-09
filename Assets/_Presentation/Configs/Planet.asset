@@ -24,3 +24,4 @@ MonoBehaviour:
     - row:
       - {fileID: 11400000, guid: 5202fc817d675c549a9be4232771f904, type: 2}
       - {fileID: 11400000, guid: 2a93df1a2c2bfd647b7a7748fb6da546, type: 2}
+  ChunkWeatherBlendDistance: 10

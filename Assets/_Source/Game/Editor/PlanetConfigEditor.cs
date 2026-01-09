@@ -11,12 +11,14 @@ namespace Game.Editor
         private SerializedProperty _biomeSize;
         private SerializedProperty _biomeSizeInChunks;
         private SerializedProperty _biomes;
+        private SerializedProperty _chunkWeatherBlendDistance;
 
         private void OnEnable()
         {
             _biomeSize = serializedObject.FindProperty("BiomeSize");
             _biomeSizeInChunks = serializedObject.FindProperty("BiomeSizeInChunks");
             _biomes = serializedObject.FindProperty("Biomes");
+            _chunkWeatherBlendDistance = serializedObject.FindProperty("ChunkWeatherBlendDistance");
         }
 
         public override void OnInspectorGUI()
@@ -46,6 +48,8 @@ namespace Game.Editor
             }
             
             EditorGUILayout.PropertyField(_biomes);
+            
+            EditorGUILayout.PropertyField(_chunkWeatherBlendDistance);
         }
     }
 }
