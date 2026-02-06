@@ -1,5 +1,7 @@
-﻿using Game.Runtime.Array2D.Array2DTypes.ObjectTypes;
-using Game.Runtime.Planet.Configs;
+﻿using Game.Runtime.Array2D;
+using Game.Runtime.Array2D.Array2DTypes.ObjectTypes;
+using Game.Runtime.PlanetSystem.Configs;
+using Game.Runtime.Plugins.Array2D;
 using UnityEditor;
 using UnityEngine;
 

@@ -1,4 +1,4 @@
-using Game.Runtime.Weather.WeatherTween;
+using Game.Runtime.WeatherSystem.WeatherTween;
 using PrimeTween;
 using UnityEngine;
 

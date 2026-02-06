@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Game.Runtime.PlanetSystem;
+using UnityEngine;
 
 namespace Game.Runtime.Utils
 {
@@ -12,7 +13,7 @@ namespace Game.Runtime.Utils
         public static Vector3 ConvertToRoundWorldPosition(Vector3 position, Vector3 cameraPosition)
         {
             Vector3 local = position - cameraPosition;
-            float heightOffset = local.x * local.x * -Planet.GlobalConstants.ROUND_WORLD_VALUE + local.z * local.z * -Planet.GlobalConstants.ROUND_WORLD_VALUE;
+            float heightOffset = local.x * local.x * -GlobalConstants.ROUND_WORLD_VALUE + local.z * local.z * -GlobalConstants.ROUND_WORLD_VALUE;
             return new Vector3(position.x, position.y + heightOffset, position.z);
         }
         

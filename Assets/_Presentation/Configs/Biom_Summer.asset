@@ -15,7 +15,10 @@ MonoBehaviour:
   WeatherState:
     Properties:
     - Entity: 1
-      Property: 1
+      Parameter: 1
+      Type:
+        Entity: 1
+        Parameter: 1
       FloatValue: 0.6
       VectorValue: {x: 0, y: 0}
       ColorValue: {r: 0, g: 0, b: 0, a: 0}

@@ -1,5 +1,6 @@
 ﻿using System;
-using Game.Runtime.Weather.WeatherTween;
+using Game.Runtime.WeatherSystem;
+using Game.Runtime.WeatherSystem.WeatherTween;
 using UnityEditor;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ namespace Game.Editor
     {
         private static float LineHeight => EditorGUIUtility.singleLineHeight;
         
+        private SerializedProperty PropertyType;
         private SerializedProperty Entity;
         private SerializedProperty Property;
         private SerializedProperty FloatValue;
@@ -18,14 +20,15 @@ namespace Game.Editor
 
         private int _currentPropertyIndex = 0;
         private WeatherEntityType _currentEntityType;
-        private WeatherPropertyType _currentPropertyType;
-        private WeatherPropertyType[] _currentPropertyTypeList;
-        private string[] _currentPropertyList;
+        private WeatherParameterType _currentParameterType;
+        private WeatherParameterType[] _currentParametersTypeList;
+        private string[] _currentParametersNameList;
         
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-            Entity = property.FindPropertyRelative("Entity");
-            Property = property.FindPropertyRelative("Property");
+            PropertyType = property.FindPropertyRelative("Type");
+            Entity = PropertyType.FindPropertyRelative("Entity");
+            Property = PropertyType.FindPropertyRelative("Parameter");
             FloatValue = property.FindPropertyRelative("FloatValue");
             VectorValue = property.FindPropertyRelative("VectorValue");
             ColorValue = property.FindPropertyRelative("ColorValue");
@@ -37,7 +40,7 @@ namespace Game.Editor
                 height = LineHeight
             };
             
-            property.isExpanded = EditorGUI.BeginFoldoutHeaderGroup(foldoutRect, property.isExpanded, $"{_currentEntityType.ToString()} - {_currentPropertyType.ToString()}");
+            property.isExpanded = EditorGUI.BeginFoldoutHeaderGroup(foldoutRect, property.isExpanded, $"{_currentEntityType.ToString()} - {_currentParameterType.ToString()}");
             EditorGUI.EndFoldoutHeaderGroup();
             
             if(property.isExpanded)
@@ -45,26 +48,33 @@ namespace Game.Editor
                 EditorGUILayout.PropertyField(Entity);
 
                 var entityType = (WeatherEntityType)Entity.enumValueIndex;
-                if (entityType != _currentEntityType)
+                if (_currentParametersTypeList == null 
+                    || _currentParametersNameList == null 
+                    || _currentParametersTypeList.Length == 0 
+                    || _currentParametersNameList.Length == 0 
+                    || entityType != _currentEntityType)
                 {
                     _currentEntityType = entityType;
-                    _currentPropertyTypeList = _currentEntityType.GetProperties();
+                    _currentParametersTypeList = _currentEntityType.GetProperties();
 
-                    _currentPropertyList = new string[_currentPropertyTypeList.Length];
-                    for (int i = 0; i < _currentPropertyTypeList.Length; i++)
+                    _currentParametersNameList = new string[_currentParametersTypeList.Length];
+                    for (int i = 0; i < _currentParametersTypeList.Length; i++)
                     {
-                        _currentPropertyList[i] = _currentPropertyTypeList[i].ToString();
+                        _currentParametersNameList[i] = _currentParametersTypeList[i].ToString();
                     }
                 }
 
-                _currentPropertyIndex =
-                    EditorGUILayout.Popup(Property.displayName, _currentPropertyIndex, _currentPropertyList);
-
-                Property.enumValueIndex = (int)_currentPropertyTypeList[_currentPropertyIndex];
-
-                _currentPropertyType = _currentPropertyTypeList[_currentPropertyIndex];
+                if (_currentPropertyIndex > _currentParametersNameList.Length - 1)
+                    _currentPropertyIndex = 0;
                 
-                var propertyType = _currentPropertyTypeList[_currentPropertyIndex].GetPropertyType();
+                _currentPropertyIndex =
+                    EditorGUILayout.Popup(Property.displayName, _currentPropertyIndex, _currentParametersNameList);
+                
+                Property.enumValueIndex = (int)_currentParametersTypeList[_currentPropertyIndex];
+
+                _currentParameterType = _currentParametersTypeList[_currentPropertyIndex];
+                
+                var propertyType = _currentParametersTypeList[_currentPropertyIndex].GetPropertyType();
                 if (propertyType == typeof(float))
                     EditorGUILayout.PropertyField(FloatValue);
                 else if (propertyType == typeof(Vector2))
