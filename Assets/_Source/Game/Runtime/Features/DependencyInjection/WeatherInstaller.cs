@@ -1,5 +1,4 @@
-﻿using System;
-using Game.Runtime.WeatherFeature;
+﻿using Game.Runtime.WeatherFeature;
 using Game.Runtime.WeatherSystem;
 using Game.Runtime.WeatherSystem.WeatherTween;
 using Reflex.Core;

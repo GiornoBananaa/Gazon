@@ -1,4 +1,4 @@
-﻿namespace Game.Runtime.PlanetSystem
+﻿namespace Game.Runtime.TerrainChunkSystem
 {
     public static class GlobalConstants
     {

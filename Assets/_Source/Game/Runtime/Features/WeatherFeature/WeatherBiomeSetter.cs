@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Game.Runtime.CameraSystem;
-using Game.Runtime.PlanetSystem;
-using Game.Runtime.PlanetSystem.Movement;
+using Game.Runtime.ServiceSystem;
+using Game.Runtime.TerrainChunkSystem;
 using Game.Runtime.Utils;
 using Game.Runtime.WeatherSystem;
 using Game.Runtime.WeatherSystem.WeatherTween;
@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace Game.Runtime.WeatherFeature
 {
-    public class WeatherBiomeSetter : IWeatherPropertySetter
+    public class WeatherBiomeSetter : IUpdatable, IWeatherPropertySetter
     {
         private class BlendProperty
         {
@@ -25,19 +25,27 @@ namespace Game.Runtime.WeatherFeature
         private readonly Dictionary<Biome, float> _biomesBlend = new();
         private readonly Dictionary<WeatherPropertyType, BlendProperty> _properties = new();
         private readonly Dictionary<WeatherPropertyType, BlendProperty> _lastProperties = new();
-        private readonly Dictionary<Biome, WeatherState> _biomeWeatherStates;
-        private readonly float _blendDistance;
+        private readonly Dictionary<Biome, WeatherState> _biomeWeatherStates = new();
         
-        public WeatherBiomeSetter(WeatherPropertyBlender weatherPropertyBlender, PlanetMap planetMap, ICurrentCamera camera, Dictionary<Biome, WeatherState> biomeWeatherStates, float blendDistance)
+        private float _blendDistance;
+        
+        public WeatherBiomeSetter(WeatherPropertyBlender weatherPropertyBlender, PlanetMap planetMap, ICurrentCamera camera)
         {
-            _biomeWeatherStates = biomeWeatherStates;
-            _blendDistance = blendDistance;
             _weatherPropertyBlender = weatherPropertyBlender;
             _planetMap = planetMap;
             _currentCamera = camera;
         }
 
-        public void UpdateBiomeWeather()
+        public void SetData(Dictionary<Biome, WeatherState> biomeWeatherStates, float blendDistance)
+        {
+            foreach (var state in biomeWeatherStates)
+            {
+                _biomeWeatherStates.Add(state.Key, state.Value);
+            }
+            _blendDistance = blendDistance;
+        }
+        
+        public void Update(float deltaTime)
         {
             _biomesBlend.Clear();
             

@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Game.Runtime.ObjectCullingSystem;
+using Game.Runtime.ObjectCullingSystem.CullingRules;
 using R3;
 using Reflex.Attributes;
 using UnityEngine;
 
-namespace Game.Runtime.ObjectCulling
+namespace Game.Runtime.PlanetFeature.ObjectCulling
 {
     public class TerrainCullingTarget : MonoBehaviour
     {

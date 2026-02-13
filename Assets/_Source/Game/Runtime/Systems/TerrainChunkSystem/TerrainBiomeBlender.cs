@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Game.Runtime.PlanetSystem.Movement;
 using Game.Runtime.Utils;
 using R3;
 using UnityEngine;
 
-namespace Game.Runtime.PlanetSystem
+namespace Game.Runtime.TerrainChunkSystem
 {
     public class TerrainBiomeBlender
     {

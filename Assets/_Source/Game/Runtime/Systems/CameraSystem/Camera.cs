@@ -1,10 +1,5 @@
 ﻿namespace Game.Runtime.CameraSystem
 {
-    public interface ICurrentCamera
-    {
-        UnityEngine.Camera GetCurrentCamera();
-    }
-    
     public class CurrentCamera : ICurrentCamera
     {
         private UnityEngine.Camera _currentCamera;

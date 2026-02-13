@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Game.Runtime.PlanetSystem
+namespace Game.Runtime.TerrainChunkSystem
 {
     public class TerrainChunk : MonoBehaviour
     {

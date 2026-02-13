@@ -27,7 +27,7 @@ namespace Game.Runtime.WeatherSystem.WeatherTween
             if (target is ITweenTarget<Color> targetColor) 
                 return DOTween.To(() => targetColor.GetWeatherTweenValue(), v => targetColor.SetWeatherTweenValue(v), ColorSettings.To, FloatSettings.Duration);
             
-            throw new ArgumentException("Invalid weather property type");
+            throw new ArgumentException($"{target.GetType()} has invalid weather property type");
         }
     }
 }

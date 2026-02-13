@@ -1,6 +1,4 @@
-﻿using Game.Runtime.PlanetSystem;
-using Game.Runtime.PlanetSystem.Generation;
-using Game.Runtime.PlanetSystem.Movement;
+﻿using Game.Runtime.TerrainChunkSystem;
 using Reflex.Core;
 using UnityEngine;
 

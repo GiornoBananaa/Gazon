@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Pool;
 
-namespace Game.Runtime.PlanetSystem.Generation
+namespace Game.Runtime.TerrainChunkSystem
 {
     public class PlanetGenerator : IPlanetGenerator
     {

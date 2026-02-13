@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Game.Runtime.CameraSystem;
 using Game.Runtime.Configs;
-using Game.Runtime.PlanetSystem;
 using Game.Runtime.PlanetSystem.Configs;
-using Game.Runtime.PlanetSystem.Generation;
-using Game.Runtime.PlanetSystem.Movement;
+using Game.Runtime.TerrainChunkSystem;
 using Game.Runtime.WeatherFeature;
 using Game.Runtime.WeatherSystem;
 using Game.Runtime.WeatherSystem.WeatherTween;
@@ -13,7 +12,7 @@ using UnityEngine;
 
 namespace Game.Runtime.PlanetFeature
 {
-    public class PlanetController : MonoBehaviour
+    public class PlanetInitializer : MonoBehaviour
     {
         [Inject] private readonly IPlanetGenerator _planetGenerator;
         [Inject] private readonly PlanetMap _planetMap;
@@ -21,22 +20,19 @@ namespace Game.Runtime.PlanetFeature
         [Inject] private readonly TerrainBiomeBlender _terrainBiomeBlender;
         [Inject] private readonly ICurrentCamera _camera;
         [Inject] private readonly WeatherPropertyBlender _weatherPropertyBlender;
-        
-        private WeatherBiomeSetter _weatherBiomeSetter;
+        [Inject] private readonly WeatherBiomeSetter _weatherBiomeSetter;
         
         private void Awake()
         {
-            InitializePlanet();
+            Initialize();
         }
 
-        private void InitializePlanet()
+        private void Initialize()
         {
             var biomesMap = RootConfig.Instance.PlanetConfig.Biomes;
             
             Biome[,] biomes = new Biome[biomesMap.GridSize.x, biomesMap.GridSize.y];
-            
             Dictionary<Biome, WeatherState> biomeWeatherStates = new Dictionary<Biome, WeatherState>();
-            
             Dictionary<BiomeConfig, Biome> biomeInstances = new Dictionary<BiomeConfig, Biome>();
             
             for (int x = 0; x < biomesMap.GridSize.x; x++)
@@ -59,26 +55,16 @@ namespace Game.Runtime.PlanetFeature
             float biomeSize = RootConfig.Instance.PlanetConfig.BiomeSize;
             float biomeSizeInChunks = RootConfig.Instance.PlanetConfig.BiomeSizeInChunks;
             float chunkSize = biomeSize / biomeSizeInChunks;
+            float biomeBlendDistance = RootConfig.Instance.PlanetConfig.ChunkWeatherBlendDistance;
             
             TerrainChunk[,] chunks = _planetGenerator.Generate(biomes, biomeSize, chunkSize);
-            
             foreach (var chunk in chunks)
             {
                 chunk.transform.parent = transform;
             }
             
             _planetMap.SetMapData(biomes, chunks, biomeSize, chunkSize);
-            
-            
-            float biomeBlendDistance = RootConfig.Instance.PlanetConfig.ChunkWeatherBlendDistance;
-            _weatherBiomeSetter = new WeatherBiomeSetter(_weatherPropertyBlender, _planetMap, _camera, biomeWeatherStates, biomeBlendDistance);
-        }
-        
-        public void Update()
-        {
-            _planetMap.UpdatePlayerLocation();
-            _weatherBiomeSetter.UpdateBiomeWeather();
-            _planetMover.Update();
+            _weatherBiomeSetter.SetData(biomeWeatherStates, biomeBlendDistance);
         }
     }
 }

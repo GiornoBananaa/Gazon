@@ -1,11 +1,12 @@
 ﻿using Game.Runtime.CameraSystem;
+using Game.Runtime.ServiceSystem;
 using Game.Runtime.Utils;
 using R3;
 using UnityEngine;
 
-namespace Game.Runtime.PlanetSystem.Movement
+namespace Game.Runtime.TerrainChunkSystem
 {
-    public class PlanetMap
+    public class PlanetMap : IUpdatable
     {
         public ReadOnlyReactiveProperty<Biome> CurrentBiome => _currentBiome;
         public ReadOnlyReactiveProperty<TerrainChunk> CurrentChunk => _currentChunk;
@@ -43,10 +44,10 @@ namespace Game.Runtime.PlanetSystem.Movement
             _currentBiome.Value = null;
             _currentChunk.Value = null;
             
-            UpdatePlayerLocation();
+            Update(0);
         }
 
-        public void UpdatePlayerLocation()
+        public void Update(float deltaTime)
         {
             if(_chunks.CurrentValue == null || _chunks.CurrentValue.Length == 0) return;
             

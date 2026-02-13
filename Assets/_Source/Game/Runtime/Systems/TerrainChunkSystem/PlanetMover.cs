@@ -1,9 +1,10 @@
 ﻿using Game.Runtime.CameraSystem;
+using Game.Runtime.ServiceSystem;
 using UnityEngine;
 
-namespace Game.Runtime.PlanetSystem.Movement
+namespace Game.Runtime.TerrainChunkSystem
 {
-    public class PlanetMover
+    public class PlanetMover : IUpdatable
     {
         private readonly ICurrentCamera _currentCamera;
         private readonly PlanetMap _planetMap;
@@ -14,7 +15,7 @@ namespace Game.Runtime.PlanetSystem.Movement
             _currentCamera = currentCamera;
         }
         
-        public void Update()
+        public void Update(float deltaTime)
         {
             TerrainChunk[,] chunks = _planetMap.Chunks.CurrentValue;
             float chunkSize = _planetMap.ChunkSize.CurrentValue;

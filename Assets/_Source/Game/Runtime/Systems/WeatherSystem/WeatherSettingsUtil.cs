@@ -26,9 +26,8 @@ namespace Game.Runtime.WeatherSystem
                 case WeatherEntityType.Stars:
                     return new[]{WeatherParameterType.Force, WeatherParameterType.Color};
                 default:
-                    return new[]{WeatherParameterType.None};
+                    return Array.Empty<WeatherParameterType>();
             }
-            return Array.Empty<WeatherParameterType>();
         }
         
         public static Type GetPropertyType(this WeatherParameterType entityType)

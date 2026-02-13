@@ -3,7 +3,7 @@ using Game.Runtime.Utils;
 using Reflex.Attributes;
 using UnityEngine;
 
-namespace Game.Runtime.ObjectCulling
+namespace Game.Runtime.PlanetFeature.ObjectCulling
 {
     [RequireComponent(typeof(Renderer))]
     public class RoundWorldCullingBounds : MonoBehaviour

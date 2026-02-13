@@ -1,5 +1,5 @@
 ﻿using Game.Runtime.CameraSystem;
-using Game.Runtime.ObjectCulling;
+using Game.Runtime.ObjectCullingSystem;
 using Game.Runtime.ServiceSystem;
 using Reflex.Core;
 using UnityEngine;
