@@ -1,4 +1,5 @@
-﻿using Game.Runtime.WeatherFeature;
+﻿using Game.Runtime.ServiceSystem;
+using Game.Runtime.WeatherFeature;
 using Game.Runtime.WeatherSystem;
 using Game.Runtime.WeatherSystem.WeatherTween;
 using Reflex.Core;
@@ -12,7 +13,7 @@ namespace Game.Runtime.DependencyInjection
         {
             builder.AddSingleton(typeof(WeatherTweener));
             builder.AddSingleton(typeof(WeatherPropertyBlender));
-            builder.AddSingleton(typeof(WeatherBiomeSetter));
+            builder.AddSingleton(typeof(WeatherBiomeSetter), typeof(WeatherBiomeSetter), typeof(IUpdatable));
         }
     }
 }

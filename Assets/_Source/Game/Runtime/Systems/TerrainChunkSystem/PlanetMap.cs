@@ -44,10 +44,10 @@ namespace Game.Runtime.TerrainChunkSystem
             _currentBiome.Value = null;
             _currentChunk.Value = null;
             
-            Update(0);
+            Update();
         }
 
-        public void Update(float deltaTime)
+        public void Update()
         {
             if(_chunks.CurrentValue == null || _chunks.CurrentValue.Length == 0) return;
             

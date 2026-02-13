@@ -15,7 +15,7 @@ namespace Game.Runtime.TerrainChunkSystem
             _currentCamera = currentCamera;
         }
         
-        public void Update(float deltaTime)
+        public void Update()
         {
             TerrainChunk[,] chunks = _planetMap.Chunks.CurrentValue;
             float chunkSize = _planetMap.ChunkSize.CurrentValue;

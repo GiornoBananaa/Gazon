@@ -14,11 +14,11 @@ namespace Game.Runtime.PlanetFeature
 {
     public class PlanetInitializer : MonoBehaviour
     {
+        [Inject] private readonly ICurrentCamera _camera;
         [Inject] private readonly IPlanetGenerator _planetGenerator;
         [Inject] private readonly PlanetMap _planetMap;
         [Inject] private readonly PlanetMover _planetMover;
         [Inject] private readonly TerrainBiomeBlender _terrainBiomeBlender;
-        [Inject] private readonly ICurrentCamera _camera;
         [Inject] private readonly WeatherPropertyBlender _weatherPropertyBlender;
         [Inject] private readonly WeatherBiomeSetter _weatherBiomeSetter;
         

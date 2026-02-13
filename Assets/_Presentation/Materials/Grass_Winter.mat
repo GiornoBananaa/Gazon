@@ -46,7 +46,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BendStrength: 0.593931
+    - _BendStrength: 0.59577155
     - _BiomeBlend: 0.5
     - _BiomeBlendDistance: 4
     - _HeightBlend: 0.8

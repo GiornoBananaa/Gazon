@@ -45,7 +45,7 @@ namespace Game.Runtime.WeatherFeature
             _blendDistance = blendDistance;
         }
         
-        public void Update(float deltaTime)
+        public void Update()
         {
             _biomesBlend.Clear();
             

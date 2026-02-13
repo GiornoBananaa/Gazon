@@ -12,7 +12,7 @@ namespace Game.Runtime.ServiceSystem
         {
             foreach (var updatable in _updatables)
             {
-                updatable.Update(Time.deltaTime);
+                updatable.Update();
             }
         }
     }

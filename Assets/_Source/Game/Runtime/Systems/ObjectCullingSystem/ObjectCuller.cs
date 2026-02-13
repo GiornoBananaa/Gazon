@@ -27,7 +27,7 @@ namespace Game.Runtime.ObjectCullingSystem
                 _observedObjects.Remove(observable);
         }
 
-        public void Update(float deltaTime)
+        public void Update()
         {
             Camera camera = _currentCamera.GetCurrentCamera();
             
