@@ -3,6 +3,16 @@ Casual relaxing rhythm game with a piano in the middle of the field that control
 >[!NOTE]
 >Project is in progress on start stage
 
+### Done:
+- Endless chunks system
+- Biomes system with 2 biomes, each with different weather properties
+- Weather change system with the example of wind
+- Grass, terrain and round world shaders
+
+### Demo video
+[![Demo Video](./Assets/_Presentation/Textures/DemoImage.png)](https://drive.google.com/file/d/1XbOMAG58Nsbwd79SWd65S3FjyNlXy6m9/view?usp=drive_link)
+
+
 ## Project settings
 ```
 Unity version - 6000.2.6f2
