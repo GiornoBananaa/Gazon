@@ -38,6 +38,11 @@ namespace Game.Runtime.WeatherFeature
 
         public void SetData(Dictionary<Biome, WeatherState> biomeWeatherStates, float blendDistance)
         {
+            _biomeWeatherStates.Clear();
+            _biomesBlend.Clear();
+            _properties.Clear();
+            _lastProperties.Clear();
+
             foreach (var state in biomeWeatherStates)
             {
                 _biomeWeatherStates.Add(state.Key, state.Value);
@@ -47,6 +52,9 @@ namespace Game.Runtime.WeatherFeature
         
         public void Update()
         {
+            var camera = _currentCamera.GetCurrentCamera();
+            if (camera == null) return;
+
             _biomesBlend.Clear();
             
             float size = _planetMap.ChunkSize.CurrentValue / 2;
@@ -55,8 +63,8 @@ namespace Game.Runtime.WeatherFeature
             foreach (var neighbor in ArrayUtils.GetNeighborIndexesWithoutBorders(_planetMap.Chunks.CurrentValue.GetLength(0), _planetMap.Chunks.CurrentValue.GetLength(1),
                          _planetMap.CurrentChunkIndex.CurrentValue.x, _planetMap.CurrentChunkIndex.CurrentValue.y, true))
             {
-                float distanceX = Mathf.Abs(_planetMap.GetChunkCenterPosition(neighbor).x - _currentCamera.GetCurrentCamera().transform.position.x);
-                float distanceY = Mathf.Abs(_planetMap.GetChunkCenterPosition(neighbor).z - _currentCamera.GetCurrentCamera().transform.position.z);
+                float distanceX = Mathf.Abs(_planetMap.GetChunkCenterPosition(neighbor).x - camera.transform.position.x);
+                float distanceY = Mathf.Abs(_planetMap.GetChunkCenterPosition(neighbor).z - camera.transform.position.z);
 
                 float blend = Mathf.InverseLerp(size + _blendDistance, size - _blendDistance, MathF.Max(distanceX, distanceY));
 
@@ -71,6 +79,8 @@ namespace Game.Runtime.WeatherFeature
                 
                 _biomesBlend[biome] = blend;
             }
+
+            if (blendSum <= Mathf.Epsilon) return;
             
             foreach (var property in _properties.Values)
             {

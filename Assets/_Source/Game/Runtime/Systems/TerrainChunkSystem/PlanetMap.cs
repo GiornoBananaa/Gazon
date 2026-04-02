@@ -50,21 +50,28 @@ namespace Game.Runtime.TerrainChunkSystem
         public void Update()
         {
             if(_chunks.CurrentValue == null || _chunks.CurrentValue.Length == 0) return;
-            
-            Vector3 cameraPosition = _currentCamera.GetCurrentCamera().transform.position;
+            var camera = _currentCamera.GetCurrentCamera();
+            if (camera == null) return;
+
+            Vector3 cameraPosition = camera.transform.position;
             
             if (CurrentChunk.CurrentValue != null && IsOnChunk(cameraPosition, CurrentChunk.CurrentValue.transform.position))
                 return;
             
             Vector2Int newChunk = Vector2Int.zero;
+            bool foundChunk = false;
             for (int i = 0; i < _chunks.CurrentValue.GetLength(0); i++)
             {
                 for (int j = 0; j < _chunks.CurrentValue.GetLength(1); j++)
                 {
                     if(!IsOnChunk(cameraPosition, _chunks.CurrentValue[i, j].transform.position)) continue;
                     newChunk = new Vector2Int(i, j);
+                    foundChunk = true;
                     break;
                 }
+
+                if (foundChunk)
+                    break;
             }
             
             _currentChunkIndex.Value = newChunk;

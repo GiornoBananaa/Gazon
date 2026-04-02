@@ -8,6 +8,8 @@ namespace Game.Runtime.WeatherSystem.WeatherTween.Tweeners
 {
     public class WindTweener : WeatherEntityTweener
     {
+        public override WeatherEntityType EntityType => WeatherEntityType.Wind;
+
         private readonly IEnumerable<ITweenTarget<float>> _windForceTarget;
         private readonly IEnumerable<ITweenTarget<Vector2>> _windDirectionTarget;
 

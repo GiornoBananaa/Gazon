@@ -23,9 +23,9 @@ namespace Game.Runtime.WeatherSystem.WeatherTween
                 return DOTween.To(() => targetFloat.GetWeatherTweenValue(), v => targetFloat.SetWeatherTweenValue(v), FloatSettings.To, FloatSettings.Duration);
             }
             if (target is ITweenTarget<Vector2> targetVector) 
-                return DOTween.To(() => targetVector.GetWeatherTweenValue(), v => targetVector.SetWeatherTweenValue(v), VectorSettings.To, FloatSettings.Duration);
+                return DOTween.To(() => targetVector.GetWeatherTweenValue(), v => targetVector.SetWeatherTweenValue(v), VectorSettings.To, VectorSettings.Duration);
             if (target is ITweenTarget<Color> targetColor) 
-                return DOTween.To(() => targetColor.GetWeatherTweenValue(), v => targetColor.SetWeatherTweenValue(v), ColorSettings.To, FloatSettings.Duration);
+                return DOTween.To(() => targetColor.GetWeatherTweenValue(), v => targetColor.SetWeatherTweenValue(v), ColorSettings.To, ColorSettings.Duration);
             
             throw new ArgumentException($"{target.GetType()} has invalid weather property type");
         }

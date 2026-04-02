@@ -6,6 +6,8 @@ namespace Game.Runtime.WeatherSystem.WeatherTween
 {
     public abstract class WeatherEntityTweener
     {
+        public abstract WeatherEntityType EntityType { get; }
+
         public Tween Apply(WeatherTween tween)
         {
             switch (tween.Type.Parameter)

@@ -35,15 +35,15 @@ namespace Game.Runtime.ObjectCullingSystem
             
             foreach (var target in _observedObjects)
             {
-                bool isVisible = true;
+                bool isCulled = true;
                 foreach (IObjectCullingRule rule in target.CullingRules)
                 {
                     if (rule.IsCullObject(camera, target)) continue;
-                    isVisible = false;
+                    isCulled = false;
                     break;
                 }
                 
-                target.IsCulled.Value = isVisible;
+                target.IsCulled.Value = isCulled;
             }
         }
     }

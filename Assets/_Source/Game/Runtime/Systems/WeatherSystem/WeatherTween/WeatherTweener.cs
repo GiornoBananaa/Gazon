@@ -1,25 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using DG.Tweening;
-using Game.Runtime.WeatherSystem.WeatherTween.Tweeners;
 
 namespace Game.Runtime.WeatherSystem.WeatherTween
 {
     public class WeatherTweener : IDisposable
     {
         private readonly Dictionary<WeatherEntityType, Dictionary<WeatherParameterType, Tween>> _currentTweens = new();
-        private readonly Dictionary<WeatherEntityType, WeatherEntityTweener> _entityTweeners = new()
+        private readonly Dictionary<WeatherEntityType, WeatherEntityTweener> _entityTweeners = new();
+
+        public WeatherTweener(IEnumerable<WeatherEntityTweener> entityTweeners)
         {
-            { WeatherEntityType.Wind, new WindTweener() }
-        };
+            foreach (var tweener in entityTweeners)
+            {
+                _entityTweeners[tweener.EntityType] = tweener;
+            }
+        }
 
         public Tween Apply(WeatherTween weatherTween)
         {
+            if (!_entityTweeners.TryGetValue(weatherTween.Type.Entity, out var entityTweener))
+                throw new InvalidOperationException($"No tweener registered for weather entity {weatherTween.Type.Entity}");
+
             if (!_currentTweens.ContainsKey(weatherTween.Type.Entity))
                 _currentTweens[weatherTween.Type.Entity] = new Dictionary<WeatherParameterType, Tween>();
             if(_currentTweens[weatherTween.Type.Entity].ContainsKey(weatherTween.Type.Parameter))
                 _currentTweens[weatherTween.Type.Entity][weatherTween.Type.Parameter].Kill();
-            Tween tween = _entityTweeners[weatherTween.Type.Entity].Apply(weatherTween);
+            Tween tween = entityTweener.Apply(weatherTween);
             _currentTweens[weatherTween.Type.Entity][weatherTween.Type.Parameter] = tween;
             return tween;
         }

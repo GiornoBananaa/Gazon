@@ -8,7 +8,6 @@ namespace Game.Runtime.PlanetFeature.ObjectCulling
 {
     public class RoundWorldCullingTarget : MonoBehaviour
     {
-        [SerializeField] private float _distance; 
         [SerializeField] private Renderer _renderer; 
         
         [Inject] private ObjectCuller _culler;

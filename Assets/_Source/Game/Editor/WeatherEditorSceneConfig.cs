@@ -1,4 +1,5 @@
 using Game.Runtime.WeatherSystem.WeatherTween;
+using Game.Runtime.WeatherSystem.WeatherTween.Tweeners;
 using PrimeTween;
 using UnityEngine;
 
@@ -29,7 +30,7 @@ namespace Game.Editor
         public void PlayTween()
         {
             if (_weatherTweener == null)
-                _weatherTweener = new WeatherTweener();
+                _weatherTweener = new WeatherTweener( new WeatherEntityTweener[]{ new WindTweener() });
             _weatherTweener.Apply(WeatherTween);
         }
 
