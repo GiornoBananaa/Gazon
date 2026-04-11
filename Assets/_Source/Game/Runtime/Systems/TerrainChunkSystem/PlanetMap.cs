@@ -43,11 +43,11 @@ namespace Game.Runtime.TerrainChunkSystem
             
             _currentBiome.Value = null;
             _currentChunk.Value = null;
-            
-            Update();
+
+            ((IUpdatable)this).Update();
         }
 
-        public void Update()
+        void IUpdatable.Update()
         {
             if(_chunks.CurrentValue == null || _chunks.CurrentValue.Length == 0) return;
             var camera = _currentCamera.GetCurrentCamera();

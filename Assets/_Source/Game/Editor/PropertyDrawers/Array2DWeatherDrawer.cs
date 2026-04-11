@@ -1,4 +1,4 @@
-﻿using Game.Runtime.PlanetSystem.Configs;
+﻿using Game.Runtime.Configs;
 using Game.Runtime.Plugins.Array2D;
 using UnityEditor;
 

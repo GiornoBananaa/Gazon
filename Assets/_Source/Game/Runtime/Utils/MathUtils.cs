@@ -1,5 +1,4 @@
-﻿using Game.Runtime.PlanetSystem;
-using Game.Runtime.TerrainChunkSystem;
+﻿using Game.Runtime.TerrainChunkSystem;
 using UnityEngine;
 
 namespace Game.Runtime.Utils

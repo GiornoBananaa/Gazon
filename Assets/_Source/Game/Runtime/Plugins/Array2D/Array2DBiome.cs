@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using Game.Runtime.Array2D;
-using Game.Runtime.PlanetSystem.Configs;
+using Game.Runtime.Configs;
 using JetBrains.Annotations;
 using UnityEngine;
 

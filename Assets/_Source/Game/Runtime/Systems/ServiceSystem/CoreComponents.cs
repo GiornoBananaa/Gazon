@@ -4,4 +4,14 @@
     {
         public void Update();
     }
+    
+    public interface IFixedUpdatable
+    {
+        public void FixedUpdate();
+    }
+    
+    public interface ILateUpdatable
+    {
+        public void LateUpdate();
+    }
 }

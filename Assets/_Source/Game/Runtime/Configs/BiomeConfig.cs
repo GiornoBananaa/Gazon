@@ -2,7 +2,7 @@
 using Game.Runtime.WeatherSystem.WeatherTween;
 using UnityEngine;
 
-namespace Game.Runtime.PlanetSystem.Configs
+namespace Game.Runtime.Configs
 {
     [CreateAssetMenu(fileName = "Biome", menuName = "Game/Biome")]
     public class BiomeConfig : ScriptableObject

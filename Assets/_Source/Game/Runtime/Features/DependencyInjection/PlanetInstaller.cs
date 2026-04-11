@@ -1,7 +1,9 @@
 ﻿using Game.Runtime.ServiceSystem;
 using Game.Runtime.TerrainChunkSystem;
 using Reflex.Core;
+using Reflex.Enums;
 using UnityEngine;
+using Resolution = Reflex.Enums.Resolution;
 
 namespace Game.Runtime.DependencyInjection
 {
@@ -9,10 +11,10 @@ namespace Game.Runtime.DependencyInjection
     {
         public void InstallBindings(ContainerBuilder builder)
         {
-            builder.AddSingleton(typeof(PlanetGenerator), typeof(IPlanetGenerator));
-            builder.AddSingleton(typeof(PlanetMover), typeof(PlanetMover), typeof(IUpdatable));
-            builder.AddSingleton(typeof(PlanetMap), typeof(PlanetMap), typeof(IUpdatable));
-            builder.AddSingleton(typeof(TerrainBiomeBlender));
+            builder.RegisterType(typeof(PlanetGenerator), new[] { typeof(IPlanetGenerator) }, Lifetime.Singleton, Resolution.Lazy);
+            builder.RegisterType(typeof(PlanetMover), new[] { typeof(PlanetMover), typeof(IUpdatable) }, Lifetime.Singleton, Resolution.Lazy);
+            builder.RegisterType(typeof(PlanetMap), new[] { typeof(PlanetMap), typeof(IUpdatable) }, Lifetime.Singleton, Resolution.Lazy);
+            builder.RegisterType(typeof(TerrainBiomeBlender), Lifetime.Singleton, Resolution.Lazy);
         }
     }
 }

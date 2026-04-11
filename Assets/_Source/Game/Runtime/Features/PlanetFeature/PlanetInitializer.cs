@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Game.Runtime.CameraSystem;
 using Game.Runtime.Configs;
-using Game.Runtime.PlanetSystem.Configs;
 using Game.Runtime.TerrainChunkSystem;
 using Game.Runtime.WeatherFeature;
 using Game.Runtime.WeatherSystem;

@@ -9,6 +9,13 @@
       },
       "hash": "24d04125d68719816e24dfb79c60dd97ca396038"
     },
+    "com.cysharp.unitask": {
+      "version": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "a9e27c03d411d2fca01cc7410c24c97cd77cb539"
+    },
     "com.github-glitchenzo.nugetforunity": {
       "version": "https://github.com/GlitchEnzo/NuGetForUnity.git?path=/src/NuGetForUnity",
       "depth": 0,
@@ -17,11 +24,11 @@
       "hash": "34432703a177c97631a4eb1d908f086037c67969"
     },
     "com.gustavopsantos.reflex": {
-      "version": "https://github.com/gustavopsantos/reflex.git?path=/Assets/Reflex/#13.0.1",
+      "version": "https://github.com/gustavopsantos/reflex.git?path=/Assets/Reflex/#14.3.0",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "f16cd084f26e1c17329f18a432f3f530270dd5ce"
+      "hash": "86569ca217b989a8cec9db1e37f81c44130d23f1"
     },
     "com.kyrylokuzyk.primetween": {
       "version": "file:../Assets/Plugins/PrimeTween/internal/com.kyrylokuzyk.primetween.tgz",

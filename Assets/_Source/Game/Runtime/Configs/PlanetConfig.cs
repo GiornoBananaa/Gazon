@@ -1,7 +1,7 @@
 ﻿using Game.Runtime.Plugins.Array2D;
 using UnityEngine;
 
-namespace Game.Runtime.PlanetSystem.Configs
+namespace Game.Runtime.Configs
 {
     [CreateAssetMenu(fileName = "Planet", menuName = "Game/Planet")]
     public class PlanetConfig : ScriptableObject

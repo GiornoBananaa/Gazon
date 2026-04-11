@@ -1,5 +1,3 @@
-using Game.Runtime.PlanetSystem.Configs;
-using Game.Runtime.WeatherSystem.Configs;
 using UnityEngine;
 
 namespace Game.Runtime.Configs

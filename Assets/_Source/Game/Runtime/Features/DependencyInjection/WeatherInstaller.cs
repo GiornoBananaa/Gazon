@@ -4,7 +4,9 @@ using Game.Runtime.WeatherSystem;
 using Game.Runtime.WeatherSystem.WeatherTween;
 using Game.Runtime.WeatherSystem.WeatherTween.Tweeners;
 using Reflex.Core;
+using Reflex.Enums;
 using UnityEngine;
+using Resolution = Reflex.Enums.Resolution;
 
 namespace Game.Runtime.DependencyInjection
 {
@@ -12,10 +14,10 @@ namespace Game.Runtime.DependencyInjection
     {
         public void InstallBindings(ContainerBuilder builder)
         {
-            builder.AddSingleton(typeof(WindTweener), typeof(WeatherEntityTweener));
-            builder.AddSingleton(typeof(WeatherTweener));
-            builder.AddSingleton(typeof(WeatherPropertyBlender));
-            builder.AddSingleton(typeof(WeatherBiomeSetter), typeof(WeatherBiomeSetter), typeof(IUpdatable));
+            builder.RegisterType(typeof(WindTweener), new[] { typeof(WeatherEntityTweener) }, Lifetime.Singleton, Resolution.Lazy);
+            builder.RegisterType(typeof(WeatherTweener), Lifetime.Singleton, Resolution.Lazy);
+            builder.RegisterType(typeof(WeatherPropertyBlender), Lifetime.Singleton, Resolution.Lazy);
+            builder.RegisterType(typeof(WeatherBiomeSetter),  new[] { typeof(WeatherBiomeSetter), typeof(IUpdatable) }, Lifetime.Singleton, Resolution.Lazy);
         }
     }
 }

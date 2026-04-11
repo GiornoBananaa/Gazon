@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Game.Runtime.WeatherSystem.Configs
+namespace Game.Runtime.Configs
 {
     [CreateAssetMenu(fileName = "WeatherAssets", menuName = "Game/Weather/WeatherAssets")]
     public class WeatherAssetsConfig : ScriptableObject
