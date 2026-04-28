@@ -8,6 +8,8 @@ Casual relaxing rhythm game with a piano in the middle of the field that control
 - Biomes system with 2 biomes, each with different weather properties
 - Weather change system with the example of wind
 - Grass, terrain and round world shaders
+- Player movement
+- Playable piano with 88 keys
 
 ### Demo video
 [![Demo Video](./Assets/_Presentation/Textures/DemoImage.png)](https://drive.google.com/file/d/1XbOMAG58Nsbwd79SWd65S3FjyNlXy6m9/view?usp=drive_link)
