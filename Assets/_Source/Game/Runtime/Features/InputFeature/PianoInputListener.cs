@@ -6,10 +6,12 @@ namespace Game.Runtime.InputFeature
     public class PianoInputListener : IInputListener
     {
         private readonly InputAction[] _noteActions;
-        private readonly PianoKeysPressPresenter _keysPresser;
+        private readonly PianoKeysPressFacade _keysPresser;
         private GameInputActions.PianoActions _pianoActions;
+
+        private bool _enabled = true;
         
-        public PianoInputListener(GameInputActions actionMap, PianoKeysPressPresenter keysPresser)
+        public PianoInputListener(GameInputActions actionMap, PianoKeysPressFacade keysPresser)
         {
             _pianoActions = actionMap.Piano;
             _keysPresser = keysPresser;
@@ -48,11 +50,6 @@ namespace Game.Runtime.InputFeature
                 _noteActions[i].started += c => OnKeyStarted(c, keyIndex);
                 _noteActions[i].canceled += c => OnKeyCanceled(c, keyIndex);
             }
-
-            _pianoActions.OctaveUp.performed += OnOctaveUp;
-            _pianoActions.OctaveDown.performed += OnOctaveDown;
-            _pianoActions.Pedal.started += OnPressPedal;
-            _pianoActions.Pedal.canceled += OnReleasePedal;
             
             DisableInput();
         }
@@ -60,11 +57,23 @@ namespace Game.Runtime.InputFeature
         public void EnableInput()
         {
             _pianoActions.Enable();
+            if(_enabled) return;
+            _pianoActions.OctaveUp.performed += OnOctaveUp;
+            _pianoActions.OctaveDown.performed += OnOctaveDown;
+            _pianoActions.Pedal.started += OnPressPedal;
+            _pianoActions.Pedal.canceled += OnReleasePedal;
+            _enabled = true;
         }
     
         public void DisableInput()
         {
             _pianoActions.Disable();
+            if(!_enabled) return;
+            _pianoActions.OctaveUp.performed -= OnOctaveUp;
+            _pianoActions.OctaveDown.performed -= OnOctaveDown;
+            _pianoActions.Pedal.started -= OnPressPedal;
+            _pianoActions.Pedal.canceled -= OnReleasePedal;
+            _enabled = false;
         }
 
         private void OnKeyStarted(InputAction.CallbackContext context, int keyNumber)

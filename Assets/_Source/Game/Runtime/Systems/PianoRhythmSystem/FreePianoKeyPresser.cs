@@ -39,14 +39,6 @@ namespace Game.Runtime.PianoRhythmSystem
             _noteTweener.EndNote(index);
         }
         
-        public void SetKeysCount(int count)
-        {
-            _keysCount = count;
-            int firstOctaveKeysCount = _octaveNotesCount - _startKeyInFirstOctave;
-            _octavesCount = (_notes.Length - firstOctaveKeysCount) / _octaveNotesCount;
-            _octavesInKeysCount = _keysCount / _octaveNotesCount;
-        }
-
         public void OctaveUp()
         {
             if(_startOctave + _octavesInKeysCount > _octavesCount) return;
@@ -55,7 +47,7 @@ namespace Game.Runtime.PianoRhythmSystem
 
         public void OctaveDown()
         {
-            if(_startOctave - 1 < 0) return;
+            if(_startOctave - 1 < (_octaveNotesCount - _startKeyInFirstOctave > 0 ? -1 : 0)) return;
             SetOctave(_startOctave - 1);
         }
         
@@ -67,6 +59,14 @@ namespace Game.Runtime.PianoRhythmSystem
         public void ReleasePedal()
         {
             _noteTweener.DisableSustain();
+        }
+        
+        private void SetKeysCount(int count)
+        {
+            _keysCount = count;
+            int firstOctaveKeysCount = _octaveNotesCount - _startKeyInFirstOctave;
+            _octavesCount = (_notes.Length - firstOctaveKeysCount) / _octaveNotesCount;
+            _octavesInKeysCount = _keysCount / _octaveNotesCount;
         }
         
         private void SetOctave(int octave)

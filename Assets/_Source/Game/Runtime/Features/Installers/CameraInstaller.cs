@@ -9,7 +9,7 @@ using Reflex.Enums;
 using UnityEngine;
 using Resolution = Reflex.Enums.Resolution;
 
-namespace Game.Runtime.DependencyInjection
+namespace Game.Runtime.Installers
 {
     public class CameraInstaller: MonoBehaviour, IInstaller
     {
@@ -24,6 +24,7 @@ namespace Game.Runtime.DependencyInjection
             builder.RegisterType(typeof(ObjectCuller), new[] { typeof(ObjectCuller), typeof(IUpdatable) }, Lifetime.Singleton, Resolution.Lazy);
             builder.RegisterType(typeof(CameraInputRotator), new[] { typeof(ICameraRotator), typeof(CameraInputRotator) }, Lifetime.Singleton, Resolution.Lazy);
             builder.RegisterType(typeof(CameraFollowTargetMover), new[] { typeof(ILateUpdatable), typeof(CameraFollowTargetMover) }, Lifetime.Singleton, Resolution.Lazy);
+            builder.RegisterType(typeof(CameraPianoState), Lifetime.Scoped, Resolution.Lazy);
         }
     }
 }

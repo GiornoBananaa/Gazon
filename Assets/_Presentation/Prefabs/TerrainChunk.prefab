@@ -90,7 +90,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1293957768469718058
 Transform:
@@ -129,12 +129,12 @@ Terrain:
   m_HeightmapMaximumLOD: 0
   m_ShadowCastingMode: 0
   m_DrawHeightmap: 1
-  m_DrawInstanced: 0
+  m_DrawInstanced: 1
   m_DrawTreesAndFoliage: 1
   m_StaticShadowCaster: 0
   m_IgnoreQualitySettings: 0
   m_ReflectionProbeUsage: 0
-  m_MaterialTemplate: {fileID: 2100000, guid: 4f3e257c60496fc418e263382f0b0e18, type: 2}
+  m_MaterialTemplate: {fileID: -876546973899608171, guid: 5effde3d5635c884fb73cebd6d8a4a08, type: 3}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 1

@@ -3,7 +3,7 @@
 namespace Game.Runtime.StateMachineSystem
 {
     public class BaseStateMachine<T> : IDisposable, IStateMachine<T> where T : IState
-    { 
+    {
         private T _currentState;
         private bool _hasState;
         

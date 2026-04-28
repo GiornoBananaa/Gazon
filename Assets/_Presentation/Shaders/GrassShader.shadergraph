@@ -154,9 +154,6 @@
             "m_Id": "94790dff7f1d437f83ad2a4367f1ba7f"
         },
         {
-            "m_Id": "f78d39a68b114109a87293a77f1a06df"
-        },
-        {
             "m_Id": "ad1c23d6002f416cbd8be4b741fd4de0"
         },
         {
@@ -599,6 +596,9 @@
         },
         {
             "m_Id": "f8b030e0e6234df9a4a62044df622a83"
+        },
+        {
+            "m_Id": "5390bb4d8cbd4c8cbed84ecab5d41772"
         }
     ],
     "m_GroupDatas": [
@@ -3150,7 +3150,7 @@
                 "m_Id": "94790dff7f1d437f83ad2a4367f1ba7f"
             },
             {
-                "m_Id": "f78d39a68b114109a87293a77f1a06df"
+                "m_Id": "5390bb4d8cbd4c8cbed84ecab5d41772"
             }
         ]
     },
@@ -6883,8 +6883,8 @@
     "m_ObjectId": "2caa7c550e4f4f6487a3663558985244",
     "m_Title": "HeightBlend",
     "m_Position": {
-        "x": -2605.000244140625,
-        "y": 904.0001220703125
+        "x": -2605.0,
+        "y": 904.0
     }
 }
 
@@ -8072,8 +8072,8 @@
     "m_ObjectId": "3d0ac08ec0d34c6c9fd7d89605b04858",
     "m_Title": "Depth",
     "m_Position": {
-        "x": -2447.000244140625,
-        "y": -244.00003051757813
+        "x": -2447.0,
+        "y": -244.0
     }
 }
 
@@ -9096,8 +9096,8 @@
     "m_ObjectId": "4f01e8d9cf6b448daa9f8bafaa932010",
     "m_Title": "Grass Swing",
     "m_Position": {
-        "x": -4759.00048828125,
-        "y": -2403.000244140625
+        "x": -4759.0,
+        "y": -2403.0
     }
 }
 
@@ -9475,6 +9475,40 @@
     "m_Property": {
         "m_Id": "0311b69c2e054237b8ab274b0b35f6b9"
     }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.BlockNode",
+    "m_ObjectId": "5390bb4d8cbd4c8cbed84ecab5d41772",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "SurfaceDescription.AlphaClipThreshold",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": 0.0,
+            "y": 0.0,
+            "width": 0.0,
+            "height": 0.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "b63689f56a4d4626aa68e1498cb25aab"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_DismissedVersion": 0,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_SerializedDescriptor": "SurfaceDescription.AlphaClipThreshold"
 }
 
 {
@@ -11999,8 +12033,8 @@
     "m_ObjectId": "70216b50f67847a9bff956fc7826f92b",
     "m_Title": "Round normal",
     "m_Position": {
-        "x": -2139.000244140625,
-        "y": 1445.0001220703125
+        "x": -2139.0,
+        "y": 1445.0
     }
 }
 
@@ -14540,21 +14574,6 @@
 
 {
     "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
-    "m_ObjectId": "93bc566e5beb41ac98691a7fc2923943",
-    "m_Id": 0,
-    "m_DisplayName": "Alpha Clip Threshold",
-    "m_SlotType": 0,
-    "m_Hidden": false,
-    "m_ShaderOutputName": "AlphaClipThreshold",
-    "m_StageCapability": 2,
-    "m_Value": 0.5,
-    "m_DefaultValue": 0.5,
-    "m_Labels": []
-}
-
-{
-    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.AddNode",
     "m_ObjectId": "93dfef5ee0a848c390583f09b1c45cd2",
     "m_Group": {
@@ -15006,8 +15025,8 @@
     "m_ObjectId": "9a4033a62bf34d6a8c003c7e9aa34560",
     "m_Title": "Biome Color Blend",
     "m_Position": {
-        "x": -5241.00048828125,
-        "y": -205.00003051757813
+        "x": -5241.0,
+        "y": -205.0
     }
 }
 
@@ -16855,7 +16874,7 @@
     "m_ObjectId": "b339817f6ab3432f91e3b6e0ce54a21d",
     "m_Title": "Shadow or Bottom color",
     "m_Position": {
-        "x": -1873.0001220703125,
+        "x": -1873.0,
         "y": 331.0
     }
 }
@@ -17001,6 +17020,21 @@
     "m_CustomColors": {
         "m_SerializableColors": []
     }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "b63689f56a4d4626aa68e1498cb25aab",
+    "m_Id": 0,
+    "m_DisplayName": "Alpha Clip Threshold",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "AlphaClipThreshold",
+    "m_StageCapability": 2,
+    "m_Value": 0.5,
+    "m_DefaultValue": 0.5,
+    "m_Labels": []
 }
 
 {
@@ -19051,7 +19085,7 @@
     "m_ObjectId": "d1657fe2edc5440dbe5cf95917809aea",
     "m_Title": "Grass Wave",
     "m_Position": {
-        "x": -4528.00048828125,
+        "x": -4528.0,
         "y": -1451.0
     }
 }
@@ -21779,40 +21813,6 @@
         "e32": 0.0,
         "e33": 1.0
     }
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.BlockNode",
-    "m_ObjectId": "f78d39a68b114109a87293a77f1a06df",
-    "m_Group": {
-        "m_Id": ""
-    },
-    "m_Name": "SurfaceDescription.AlphaClipThreshold",
-    "m_DrawState": {
-        "m_Expanded": true,
-        "m_Position": {
-            "serializedVersion": "2",
-            "x": 0.0,
-            "y": 0.0,
-            "width": 0.0,
-            "height": 0.0
-        }
-    },
-    "m_Slots": [
-        {
-            "m_Id": "93bc566e5beb41ac98691a7fc2923943"
-        }
-    ],
-    "synonyms": [],
-    "m_Precision": 0,
-    "m_PreviewExpanded": true,
-    "m_DismissedVersion": 0,
-    "m_PreviewMode": 0,
-    "m_CustomColors": {
-        "m_SerializableColors": []
-    },
-    "m_SerializedDescriptor": "SurfaceDescription.AlphaClipThreshold"
 }
 
 {

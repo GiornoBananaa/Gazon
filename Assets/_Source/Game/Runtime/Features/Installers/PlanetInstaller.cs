@@ -5,7 +5,7 @@ using Reflex.Enums;
 using UnityEngine;
 using Resolution = Reflex.Enums.Resolution;
 
-namespace Game.Runtime.DependencyInjection
+namespace Game.Runtime.Installers
 {
     public class PlanetInstaller: MonoBehaviour, IInstaller
     {

@@ -1,19 +1,20 @@
 ﻿using Game.Runtime.CameraSystem;
+using Game.Runtime.PlayerFeature;
 using UnityEngine;
 
 namespace Game.Runtime.CameraFeature
 {
-    public class FreeCameraState : ICameraState
+    public class CameraFreeState : ICameraState
     {
         private readonly CameraFollowTargetMover _mover;
         private readonly CameraInputRotator _rotator;
         private readonly Transform _targetTransform;
         
-        public FreeCameraState(CameraFollowTargetMover mover, CameraInputRotator rotator, Transform targetTransform)
+        public CameraFreeState(CameraFollowTargetMover mover, CameraInputRotator rotator, Player player)
         {
             _mover = mover;
             _rotator = rotator;
-            _targetTransform = targetTransform;
+            _targetTransform = player.CameraPoint;
         }
         
         public void Enter()

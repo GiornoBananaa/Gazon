@@ -1,23 +1,22 @@
 ﻿using Game.Runtime.CameraSystem;
+using Game.Runtime.PianoFeature;
 using UnityEngine;
 
 namespace Game.Runtime.CameraFeature
 {
-    public class PianoCameraState : ICameraState
+    public class CameraPianoState : ICameraState
     {
         private readonly CameraFollowTargetMover _mover;
         private readonly CameraInputRotator _rotator;
         private readonly Transform _targetTransform;
-        private readonly Transform _forwardLimitYTransform;
         private readonly float _rotationLimitY;
         
-        public PianoCameraState(CameraFollowTargetMover mover, CameraInputRotator rotator, Transform targetTransform, Transform forwardLimitYTransform, float rotationLimitY)
+        public CameraPianoState(CameraFollowTargetMover mover, CameraInputRotator rotator, Piano piano)
         {
             _mover = mover;
             _rotator = rotator;
-            _targetTransform = targetTransform;
-            _forwardLimitYTransform = forwardLimitYTransform;
-            _rotationLimitY = rotationLimitY;
+            _targetTransform = piano.SeatPoint;
+            _rotationLimitY = piano.MaxViewAngle;
         }
         
         public void Enter()
@@ -26,7 +25,7 @@ namespace Game.Runtime.CameraFeature
             _rotator.Enable();
             
             _mover.SetTarget(_targetTransform);
-            _rotator.SetLimitY(_forwardLimitYTransform, _rotationLimitY);
+            _rotator.SetLimitY(_targetTransform, _rotationLimitY);
             
         }
 

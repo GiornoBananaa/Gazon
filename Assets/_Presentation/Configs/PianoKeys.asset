@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91e191f222524ed78601a9c2923fbd97, type: 3}
   m_Name: PianoKeys
   m_EditorClassIdentifier: Game.Runtime::Game.Runtime.PianoRhythmSystem.PianoKeysConfig
-  FreeKeysCount: 14
+  FreeKeysCount: 24
   PedalNoteEndDuration: 6
   MinRhythmKeys: 4
   MaxRhythmKeys: 7

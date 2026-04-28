@@ -22,57 +22,41 @@ namespace Game.Runtime.PianoRhythmSystem
         {
             _noteTweener = noteTweener;
             _notes = pianoKeysConfig.Notes;
-            _startKeyInFirstOctave = pianoKeysConfig.StartKeyInFirstOctave;
-            SetKeysCount(pianoKeysConfig.FreeKeysCount);
-            SetOctave(_octavesCount / 2 - _octavesCount % 2);
-        } 
-        
+        }
+
         public void PressKey(int index)
         {
-            index = Mathf.Clamp(index + _startIndex, 0, _notes.Length - 1);
-            _noteTweener.StartNote(index, _notes[index]);
+            throw new System.NotImplementedException();
         }
-        
+
         public void ReleaseKey(int index)
         {
-            index = Mathf.Clamp(index + _startIndex, 0, _notes.Length - 1);
-            _noteTweener.EndNote(index);
+            throw new System.NotImplementedException();
         }
-        
+
         public void SetKeysCount(int count)
         {
-            _keysCount = count;
-            int firstOctaveKeysCount = _octaveNotesCount - _startKeyInFirstOctave;
-            _octavesCount = (_notes.Length - firstOctaveKeysCount) / _octaveNotesCount;
-            _octavesInKeysCount = _keysCount / _octaveNotesCount;
+            throw new System.NotImplementedException();
         }
 
         public void OctaveUp()
         {
-            if(_startOctave + _octavesInKeysCount > _octavesCount) return;
-            SetOctave(_startOctave + 1);
+            throw new System.NotImplementedException();
         }
 
         public void OctaveDown()
         {
-            if(_startOctave - 1 < 0) return;
-            SetOctave(_startOctave - 1);
+            throw new System.NotImplementedException();
         }
-        
+
         public void PressPedal()
         {
-            _noteTweener.EnableSustain();
+            throw new System.NotImplementedException();
         }
-        
+
         public void ReleasePedal()
         {
-            _noteTweener.DisableSustain();
-        }
-        
-        private void SetOctave(int octave)
-        {
-            _startOctave = Mathf.Clamp(octave, 0, _octavesCount);
-            _startIndex = octave * _octaveNotesCount + (_octaveNotesCount - _startKeyInFirstOctave) + 1;
+            throw new System.NotImplementedException();
         }
     }
 }
