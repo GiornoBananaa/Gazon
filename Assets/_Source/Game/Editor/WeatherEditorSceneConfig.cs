@@ -1,6 +1,5 @@
 using Game.Runtime.WeatherSystem.WeatherTween;
 using Game.Runtime.WeatherSystem.WeatherTween.Tweeners;
-using PrimeTween;
 using UnityEngine;
 
 namespace Game.Editor
@@ -25,7 +24,6 @@ namespace Game.Editor
         public WeatherTween WeatherTween;
 
         private WeatherTweener _weatherTweener;
-        private Tween _tween;
         
         public void PlayTween()
         {
@@ -36,7 +34,7 @@ namespace Game.Editor
 
         public void StopTween()
         {
-            _tween.Stop();
+            _weatherTweener.Stop(WeatherTween.Type.Entity);
         }
     }
 }
