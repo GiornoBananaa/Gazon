@@ -7,18 +7,6 @@ namespace Game.Editor
     [CreateAssetMenu(fileName = "WeatherEditorScene", menuName = "Editor/Weather/WeatherEditorScene")]
     public class WeatherEditorSceneConfig : ScriptableObject
     {
-        public Vector2 WindDirection;
-        public float WindForce;
-        [Space(10)]
-        public Vector2 SunDirection;
-        public Color SunLightColor;
-        public Vector2 MoonDirection;
-        [Space(10)]
-        public Color EnvironmentLightColor;
-        [Space(10)]
-        public Material GrassMaterial;
-        public Material SkyMaterial;
-        
         [Space()]
         [Header("Test")]
         public WeatherTween WeatherTween;

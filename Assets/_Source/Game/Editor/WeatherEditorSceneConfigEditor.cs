@@ -18,7 +18,7 @@ namespace Game.Editor
                 if (GUILayout.Button("Play"))
                     config.PlayTween();
                 if (GUILayout.Button("Stop"))
-                    config.PlayTween();
+                    config.StopTween();
             }
         }
     }

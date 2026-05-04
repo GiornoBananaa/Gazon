@@ -10,10 +10,10 @@ namespace Game.Runtime.Utils
             return Mathf.Abs(target - center) <= range;
         }
         
-        public static Vector3 ConvertToRoundWorldPosition(Vector3 position, Vector3 cameraPosition)
+        public static Vector3 ConvertToRoundWorldPosition(Vector3 position, Vector3 cameraPosition, float roundWorldValue = GlobalConstants.ROUND_WORLD_VALUE)
         {
             Vector3 local = position - cameraPosition;
-            float heightOffset = local.x * local.x * -GlobalConstants.ROUND_WORLD_VALUE + local.z * local.z * -GlobalConstants.ROUND_WORLD_VALUE;
+            float heightOffset = local.x * local.x * -roundWorldValue + local.z * local.z * -roundWorldValue;
             return new Vector3(position.x, position.y + heightOffset, position.z);
         }
         

@@ -48,7 +48,7 @@ Material:
     m_Floats:
     - _AlphaClip: 1
     - _AlphaToMask: 1
-    - _BendStrength: 0.40452665
+    - _BendStrength: 0.4
     - _BiomeBlend: 0.5
     - _BiomeBlendDistance: 4
     - _Blend: 0
@@ -70,9 +70,9 @@ Material:
     - _SrcBlendAlpha: 1
     - _Surface: 0
     - _SwingDistance: 0
-    - _SwingForce: 0.025
+    - _SwingForce: 0.02
     - _SwingSpeed: 8
-    - _VerticleBendStrength: -0.7
+    - _VerticleBendStrength: -0.5
     - _WindHeight: 0.5
     - _WindIntensity: 0.4
     - _WindNoiseScale: 43.3

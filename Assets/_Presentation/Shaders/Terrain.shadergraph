@@ -3678,8 +3678,8 @@
     "m_ObjectId": "9bc520bd098d4293845115524fd5f211",
     "m_Title": "Shadow or Bottom color",
     "m_Position": {
-        "x": -1690.0001220703125,
-        "y": 258.0000305175781
+        "x": -1690.000244140625,
+        "y": 258.0
     }
 }
 
@@ -3891,7 +3891,7 @@
     "m_ObjectId": "a3fbf9127d6340b3a125516620fa38b5",
     "m_Title": "Biom Color Blending",
     "m_Position": {
-        "x": -3618.000244140625,
+        "x": -3618.0,
         "y": -593.0
     }
 }

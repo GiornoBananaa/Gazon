@@ -959,6 +959,77 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0155423b3a49bb40a4d8e69f93b7c75, type: 3}
+--- !u!1 &1101818748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1101818750}
+  - component: {fileID: 1101818749}
+  - component: {fileID: 1101818751}
+  m_Layer: 0
+  m_Name: BirdsBoids
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1101818749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101818748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 167ed8ca80ee473f8e8d1708e9c8d5a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game.Runtime::Game.Runtime.BoidsSystem.BirdBoidsManager
+  _prefab: {fileID: 3635072320504227306, guid: 3878dbac4012a4a4ea93efb334b5adee, type: 3}
+  _areaSize: {x: 250, y: 20, z: 250}
+  _maxCount: 40
+  _maxYVelocity: 0.2
+  _maxVelocity: 12
+  _rotationSpeed: 5
+  _nearEntitiesMaxRadius: 5
+  _spreadWeight: 0.05
+  _velocityWeight: 1
+  _positionWeight: 0.05
+  _separationWeight: 1.5
+  _maxSeparationDistance: 2
+  _spatialHashCellSize: 10
+--- !u!4 &1101818750
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101818748}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 50, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1101818751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101818748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 268eab4452f6499f9fab5251ee4b125e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game.Runtime::Game.Runtime.BoidsFeature.BoidsRoundWorldRender
+  _boids: {fileID: 1101818749}
 --- !u!1001 &1264259486
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1603,7 +1674,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9078960142557899127, guid: 18f2df5e27cb16c4ca7bd207f82d093e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9078960142557899127, guid: 18f2df5e27cb16c4ca7bd207f82d093e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1611,7 +1682,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9078960142557899127, guid: 18f2df5e27cb16c4ca7bd207f82d093e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 22.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9078960142557899127, guid: 18f2df5e27cb16c4ca7bd207f82d093e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1659,3 +1730,4 @@ SceneRoots:
   - {fileID: 8649912610386203470}
   - {fileID: 1576700652}
   - {fileID: 304230415}
+  - {fileID: 1101818750}
