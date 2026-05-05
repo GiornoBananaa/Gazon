@@ -185,6 +185,9 @@
         },
         {
             "m_Id": "cd84e0ca4a3b466abab8f3a68f36b2c2"
+        },
+        {
+            "m_Id": "274c9577e130429c9a88807b152a2f31"
         }
     ],
     "m_GroupDatas": [
@@ -884,10 +887,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -3553.0,
-            "y": -399.00006103515627,
-            "width": 145.0,
-            "height": 34.000030517578128
+            "x": -3573.000244140625,
+            "y": -403.0000305175781,
+            "width": 192.0,
+            "height": 34.0
         }
     },
     "m_Slots": [
@@ -1386,6 +1389,43 @@
         "e32": 0.0,
         "e33": 1.0
     }
+}
+
+{
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.ShaderGraph.PositionNode",
+    "m_ObjectId": "274c9577e130429c9a88807b152a2f31",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "Position",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": -1589.75439453125,
+            "y": 519.3013305664063,
+            "width": 206.0,
+            "height": 129.99996948242188
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "7f321a6d8e8948c4844204bd0cf5f331"
+        }
+    ],
+    "synonyms": [
+        "location"
+    ],
+    "m_Precision": 1,
+    "m_PreviewExpanded": false,
+    "m_DismissedVersion": 0,
+    "m_PreviewMode": 2,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_Space": 2,
+    "m_PositionSource": 0
 }
 
 {
@@ -3089,6 +3129,29 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector3MaterialSlot",
+    "m_ObjectId": "7f321a6d8e8948c4844204bd0cf5f331",
+    "m_Id": 0,
+    "m_DisplayName": "Out",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 3,
+    "m_Value": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "846b1c600fa84158870bb769a1465f58",
     "m_Id": 0,
@@ -3678,7 +3741,7 @@
     "m_ObjectId": "9bc520bd098d4293845115524fd5f211",
     "m_Title": "Shadow or Bottom color",
     "m_Position": {
-        "x": -1690.000244140625,
+        "x": -1690.0,
         "y": 258.0
     }
 }
@@ -5367,10 +5430,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -317.0,
-            "y": 200.0,
-            "width": 129.99998474121095,
-            "height": 118.0
+            "x": -306.0000305175781,
+            "y": 200.00001525878907,
+            "width": 134.99993896484376,
+            "height": 117.99998474121094
         }
     },
     "m_Slots": [

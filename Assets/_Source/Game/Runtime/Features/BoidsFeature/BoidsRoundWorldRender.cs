@@ -53,7 +53,7 @@ namespace Game.Runtime.BoidsFeature
             
             int batchIndex = 0;
             
-            while (_boids.Entities != null && !token.IsCancellationRequested)
+            while (gameObject != null && _boids.Entities != null && !token.IsCancellationRequested)
             {
                 await UniTask.WaitForSeconds(nextBatchTime, cancellationToken: token);
                 

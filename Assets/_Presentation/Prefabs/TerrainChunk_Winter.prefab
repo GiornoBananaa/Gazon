@@ -13,6 +13,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 15600000, guid: 9c4e10d21406e914d9748b17b139a52a, type: 2}
     - target: {fileID: 585119102525099780, guid: d01680bc3945f834b88afff5d00b78e2, type: 3}
+      propertyPath: m_DrawInstanced
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 585119102525099780, guid: d01680bc3945f834b88afff5d00b78e2, type: 3}
       propertyPath: m_MaterialTemplate
       value: 
       objectReference: {fileID: 2100000, guid: 3067121268a3fda47aef099c7786d27a, type: 2}

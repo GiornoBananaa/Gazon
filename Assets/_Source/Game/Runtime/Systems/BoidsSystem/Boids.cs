@@ -136,7 +136,7 @@ namespace Game.Runtime.BoidsSystem
         
         private async UniTaskVoid UpdateNearEntities(CancellationToken token)
         {
-            while (_spatialHash != null && !token.IsCancellationRequested)
+            while (gameObject != null && _spatialHash != null && !token.IsCancellationRequested)
             {
                 if(_nearEntitiesUpdateTime > 0)
                     await UniTask.WaitForSeconds(_nearEntitiesUpdateTime, cancellationToken: token);

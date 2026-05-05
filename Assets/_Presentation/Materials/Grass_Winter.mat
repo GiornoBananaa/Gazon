@@ -48,7 +48,7 @@ Material:
     m_Floats:
     - _AlphaClip: 1
     - _AlphaToMask: 1
-    - _BendStrength: 0.4
+    - _BendStrength: 0.37676123
     - _BiomeBlend: 0.5
     - _BiomeBlendDistance: 4
     - _Blend: 0
