@@ -1,4 +1,5 @@
-﻿using Game.Runtime.PianoRhythmSystem;
+﻿using Game.Runtime.PianoFeature;
+using Game.Runtime.PianoRhythmSystem;
 using UnityEngine.InputSystem;
 
 namespace Game.Runtime.InputFeature

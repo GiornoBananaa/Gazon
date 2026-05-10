@@ -17,7 +17,7 @@ MonoBehaviour:
   MinRhythmKeys: 4
   MaxRhythmKeys: 7
   NoteEndDuration: 1.5
-  NoteTransitionFadingDuration: 0.3
+  NoteTransitionFadingDuration: 1
   StartKeyInFirstOctave: 10
   Notes:
   - {fileID: 11400000, guid: 8f61ff4cfccacf24faa94944433adf9e, type: 2}
@@ -108,3 +108,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d9059f0ef891100449ff6750c6e2e4b5, type: 2}
   - {fileID: 11400000, guid: 1f0efdac42d31ee41b0668f4d7589dce, type: 2}
   - {fileID: 11400000, guid: 7fe4babfff9a9374eaf505b591deddba, type: 2}
+  StatisticTimeSpan: 1

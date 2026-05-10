@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using DOTweenConfigs;
 using Game.Runtime.WeatherSystem.WeatherTween;
 using UnityEngine;
 
@@ -81,9 +80,10 @@ namespace Game.Runtime.WeatherSystem
             _weatherTweener.Apply(new WeatherSystem.WeatherTween.WeatherTween()
             {
                 Type = result.Type,
-                FloatSettings = new ToTweenConfig<float>(result.FloatValue, _defaultTweenSettings),
-                ColorSettings = new ToTweenConfig<Color>(result.ColorValue, _defaultTweenSettings),
-                VectorSettings = new ToTweenConfig<Vector2>(result.VectorValue, _defaultTweenSettings),
+                TweenConfig = _defaultTweenSettings,
+                FloatValue = result.FloatValue,
+                ColorValue = result.ColorValue,
+                VectorValue = result.VectorValue,
             });
         }
         

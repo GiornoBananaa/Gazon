@@ -110,7 +110,7 @@ Material:
     - _Metallic1: 0
     - _Metallic2: 0
     - _Metallic3: 0
-    - _OtherX_Coordinate: 0
+    - _OtherX_Coordinate: 50
     - _OtherY_Coordinate: 0
     - _QueueControl: 0
     - _QueueOffset: 0

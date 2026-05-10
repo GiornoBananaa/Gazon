@@ -6,8 +6,8 @@ namespace Game.Runtime.WeatherSystem.WeatherTween
 {
     public interface ITweenTarget<T>
     {
-        public T GetWeatherTweenValue();
-        public void SetWeatherTweenValue(T value);
+        public T GetTweenValue();
+        public void SetTweenValue(T value);
     }
     
     [Serializable]

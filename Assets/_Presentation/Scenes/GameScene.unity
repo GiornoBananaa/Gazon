@@ -1373,6 +1373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Game.Runtime::Game.Runtime.Installers.PianoInstaller
   _pianoKeysConfig: {fileID: 11400000, guid: 1f1573fbd315c3f4a9c49de293d8f6c5, type: 2}
+  _weatherPianoBindConfig: {fileID: 11400000, guid: b6a5e04d99d95b245b80bd07c9fabf5d, type: 2}
 --- !u!4 &1612621125 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6431885408251773575, guid: c0155423b3a49bb40a4d8e69f93b7c75, type: 3}

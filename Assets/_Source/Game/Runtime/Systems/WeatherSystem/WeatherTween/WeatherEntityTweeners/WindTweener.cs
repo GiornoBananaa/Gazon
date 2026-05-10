@@ -10,18 +10,60 @@ namespace Game.Runtime.WeatherSystem.WeatherTween.Tweeners
     {
         public override WeatherEntityType EntityType => WeatherEntityType.Wind;
 
-        private readonly IEnumerable<ITweenTarget<float>> _windForceTarget;
-        private readonly IEnumerable<ITweenTarget<Vector2>> _windDirectionTarget;
-
-        public WindTweener()
+        private readonly IEnumerable<ITweenTarget<float>> _grassBendForceTarget;
+        private readonly ITweenTarget<float> _windSpeedTarget;
+        private readonly ITweenTarget<Quaternion> _windAngleTarget;
+        private readonly float _minSpeed;
+        private readonly float _maxSpeed;
+        private readonly WeatherTween _speedTween = new();
+        
+        public WindTweener(WindPositionMover windPositionsMover, WeatherPianoBindConfig weatherPianoBindConfig)
         {
             Material[] materials = RootConfig.Instance.WeatherAssets.GrassMaterial;
-            _windForceTarget = materials.Select(m => new MaterialFloatTarget(m, "_BendStrength"));
-            _windDirectionTarget = materials.Select(m => new MaterialVectorTarget(m, "_WindDirection"));
+            _grassBendForceTarget = materials.Select(m => new MaterialFloatTarget(m, "_BendStrength"));
+            _windSpeedTarget = new WindSpeedTarget(windPositionsMover);
+            _windAngleTarget = new WindDirectionTarget(windPositionsMover);
+            _minSpeed = weatherPianoBindConfig.MinSpeed;
+            _maxSpeed = weatherPianoBindConfig.MaxSpeed;
         }
 
-        protected override Tween TweenForce(WeatherTween tween) => GetSequence(tween, _windForceTarget);
+        protected override Tween TweenForce(WeatherTween tween)
+        {
+            var sequence = GetSequence(tween, _grassBendForceTarget);
+            _speedTween.Type = tween.Type;
+            _speedTween.TweenConfig = tween.TweenConfig;
+            _speedTween.FloatValue = Mathf.Lerp(_minSpeed, _maxSpeed, tween.FloatValue);
+            return sequence.Join(_speedTween.ApplyTo(_windSpeedTarget));
+        }
 
-        protected override Tween TweenDirection(WeatherTween tween) => GetSequence(tween, _windDirectionTarget);
+        protected override Tween TweenDirection(WeatherTween tween) => tween.ApplyTo(_windAngleTarget);
+        
+        private class WindSpeedTarget : ITweenTarget<float>
+        {
+            private readonly WindPositionMover _mover;
+            public WindSpeedTarget(WindPositionMover mover) => _mover = mover;
+            
+            public float GetTweenValue() => _mover.WindSpeed;
+            public void SetTweenValue(float value) => _mover.SetWindSpeed(value);
+        }
+        
+        private class WindDirectionTarget : ITweenTarget<Quaternion>
+        {
+            private readonly WindPositionMover _mover;
+            private Quaternion _windDirection;
+            
+            public WindDirectionTarget(WindPositionMover mover)
+            {
+                _mover = mover;
+            }
+
+            public Quaternion GetTweenValue() => _windDirection;
+
+            public void SetTweenValue(Quaternion value)
+            {
+                _windDirection = value; 
+                _mover.SetWindDirection(Quaternion.Inverse(value) * Vector2.up);
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Game.Runtime.AudioSystem;
+﻿using System;
+using Game.Runtime.AudioSystem;
 using Game.Runtime.Configs;
 using UnityEngine;
 
@@ -24,12 +25,15 @@ namespace Game.Runtime.PianoRhythmSystem
             _notes = pianoKeysConfig.Notes;
         }
 
-        public void PressKey(int index)
+        public event Action<int, int> OnPressedKeyNoteIndexes;
+        public event Action<int, int> OnReleasedKeyNoteIndexes;
+
+        public void PressKey(int keyIndex)
         {
             throw new System.NotImplementedException();
         }
 
-        public void ReleaseKey(int index)
+        public void ReleaseKey(int keyIndex)
         {
             throw new System.NotImplementedException();
         }

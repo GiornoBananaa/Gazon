@@ -2,6 +2,7 @@
 using Game.Runtime.InputFeature;
 using Game.Runtime.PianoFeature;
 using Game.Runtime.PianoRhythmSystem;
+using Game.Runtime.ServiceSystem;
 using Game.Runtime.StateMachineSystem;
 using Reflex.Core;
 using Reflex.Enums;
@@ -13,10 +14,12 @@ namespace Game.Runtime.Installers
     public class PianoInstaller: MonoBehaviour, IInstaller
     {
         [SerializeField] private PianoKeysConfig _pianoKeysConfig;
+        [SerializeField] private WeatherPianoBindConfig _weatherPianoBindConfig;
         
         public void InstallBindings(ContainerBuilder builder)
         {
             builder.RegisterValue(_pianoKeysConfig);
+            builder.RegisterValue(_weatherPianoBindConfig);
             builder.RegisterType(typeof(BaseStateMachine<IPianoState>), new[] { typeof(IStateMachine<IPianoState>) }, Lifetime.Scoped, Resolution.Lazy);
             builder.RegisterType(typeof(PianoKeysPressFacade), Lifetime.Scoped, Resolution.Lazy);
             builder.RegisterType(typeof(PianoInputListener), new[] { typeof(IInputListener), typeof(PianoInputListener) }, Lifetime.Scoped, Resolution.Lazy);
@@ -24,6 +27,7 @@ namespace Game.Runtime.Installers
             builder.RegisterType(typeof(RhythmGamePianoKeyPresser), new[] { typeof(IPianoKeyPresser), typeof(RhythmGamePianoKeyPresser) }, Lifetime.Scoped, Resolution.Lazy);
             builder.RegisterType(typeof(PianoNoteTweener), new[] { typeof(IPianoNoteTweener) }, Lifetime.Scoped, Resolution.Lazy);
             builder.RegisterType(typeof(FreePianoState), Lifetime.Scoped, Resolution.Lazy);
+            builder.RegisterType(typeof(PianoKeyPressStatistics),  new[] { typeof(PianoKeyPressStatistics), typeof(IUpdatable) }, Lifetime.Singleton, Resolution.Lazy);
         }
     }
 }

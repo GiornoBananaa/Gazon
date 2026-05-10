@@ -19,5 +19,8 @@ namespace Game.Runtime.Configs
         public float NoteTransitionFadingDuration = 0.05f;
         [Range(1, 12)] public int StartKeyInFirstOctave = 10;
         public AudioSound[] Notes;
+
+        [Header("Statistics")]
+        public float StatisticTimeSpan;
     }
 }

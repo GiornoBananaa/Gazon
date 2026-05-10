@@ -25,7 +25,7 @@ namespace Game.Runtime.WeatherSystem.WeatherTween
         protected virtual Tween TweenPosition(WeatherTween tween) => throw new NotImplementedException($"Position tween for {tween.Type.Entity} is not implemented");
         protected virtual Tween TweenColor(WeatherTween tween) => throw new NotImplementedException($"Color tween for {tween.Type.Entity} is not implemented");
         
-        protected Tween GetSequence<T>(WeatherTween tween, IEnumerable<ITweenTarget<T>> targets)
+        protected Sequence GetSequence<T>(WeatherTween tween, IEnumerable<ITweenTarget<T>> targets)
         {
             var sequence = DOTween.Sequence();
             foreach (var target in targets)

@@ -1,4 +1,5 @@
-﻿using Game.Runtime.AudioSystem;
+﻿using System;
+using Game.Runtime.AudioSystem;
 using Game.Runtime.Configs;
 using UnityEngine;
 
@@ -18,6 +19,9 @@ namespace Game.Runtime.PianoRhythmSystem
         private int _octavesCount;
         private int _octavesInKeysCount;
         
+        public event Action<int, int> OnPressedKeyNoteIndexes;
+        public event Action<int, int> OnReleasedKeyNoteIndexes;
+        
         public FreePianoKeyPresser(IPianoNoteTweener noteTweener, PianoKeysConfig pianoKeysConfig)
         {
             _noteTweener = noteTweener;
@@ -27,16 +31,18 @@ namespace Game.Runtime.PianoRhythmSystem
             SetOctave(_octavesCount / 2 - _octavesCount % 2);
         } 
         
-        public void PressKey(int index)
+        public void PressKey(int keyIndex)
         {
-            index = Mathf.Clamp(index + _startIndex, 0, _notes.Length - 1);
-            _noteTweener.StartNote(index, _notes[index]);
+            int noteIndex = Mathf.Clamp(keyIndex + _startIndex, 0, _notes.Length - 1);
+            _noteTweener.StartNote(noteIndex, _notes[noteIndex]);
+            OnPressedKeyNoteIndexes?.Invoke(keyIndex, noteIndex);
         }
         
-        public void ReleaseKey(int index)
+        public void ReleaseKey(int keyIndex)
         {
-            index = Mathf.Clamp(index + _startIndex, 0, _notes.Length - 1);
-            _noteTweener.EndNote(index);
+            int noteIndex = Mathf.Clamp(keyIndex + _startIndex, 0, _notes.Length - 1);
+            _noteTweener.EndNote(noteIndex);
+            OnReleasedKeyNoteIndexes?.Invoke(keyIndex, noteIndex); //TODO: key == note after octave move
         }
         
         public void OctaveUp()
