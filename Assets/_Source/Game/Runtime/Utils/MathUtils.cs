@@ -26,5 +26,10 @@ namespace Game.Runtime.Utils
         {
             return new Vector3(position.x, 0, position.y);
         }
+        
+        public static float Repeat(float t, float min, float max)
+        {
+            return Mathf.Repeat(t - min, max - min) + min;
+        }
     }
 }

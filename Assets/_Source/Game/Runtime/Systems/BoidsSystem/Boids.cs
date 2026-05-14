@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Game.Runtime.SpatialHashing;
@@ -28,8 +29,8 @@ namespace Game.Runtime.BoidsSystem
         [SerializeField] private float _positionWeight = 0.05f;
         [SerializeField] private float _separationWeight = 0.1f;
         [SerializeField] private float _maxSeparationDistance = 0.5f;
-        [Header("SpatialHashing")]
-        [SerializeField] private float _spatialHashCellSize = 5f; 
+        [Header("Spatial Hashing")]
+        [SerializeField] private float _spatialHashCellSize = 5f;
         
         private List<BoidsEntity> _boidsEntities;
         private SpatialHash<BoidsEntity> _spatialHash;
@@ -44,6 +45,8 @@ namespace Game.Runtime.BoidsSystem
         
         public IReadOnlyList<BoidsEntity> Entities => _boidsEntities;
         
+        public event Action OnBoidsGenerated;
+        
         private void Start()
         {
             GenerateBoids();
@@ -51,7 +54,7 @@ namespace Game.Runtime.BoidsSystem
             _cancellationTokenSource = new CancellationTokenSource();
             _ = UpdateNearEntities(_cancellationTokenSource.Token);
         }
-        
+
         public void Update()
         {
             if(_boidsEntities == null) return;
@@ -132,6 +135,8 @@ namespace Game.Runtime.BoidsSystem
             
             if(_spatialHash != null) _spatialHash.Dispose();
             _spatialHash = new SpatialHash<BoidsEntity>(_boidsEntities, _spatialHashCellSize);
+            
+            OnBoidsGenerated?.Invoke();
         }
         
         private async UniTaskVoid UpdateNearEntities(CancellationToken token)
@@ -156,6 +161,47 @@ namespace Game.Runtime.BoidsSystem
         private void OnDrawGizmos()
         {
             Gizmos.DrawWireCube(transform.position, _areaSize);
+        }
+        
+        [RequireComponent(typeof(Boids))]
+        public abstract class BoidsComponent : MonoBehaviour
+        {
+            [SerializeField] protected Boids Boids;
+
+            protected NativeArray<float3> Positions;
+            protected NativeArray<float3> Velocities;
+            protected NativeArray<float3> Accelerations;
+            
+            private void Awake()
+            {
+                Boids.OnBoidsGenerated += OnGenerated;
+            }
+
+            private void OnDestroy()
+            {
+                if(Positions.IsCreated)
+                    Positions.Dispose();
+                if(Velocities.IsCreated)
+                    Velocities.Dispose();
+                if(Accelerations.IsCreated)
+                    Accelerations.Dispose();
+                Boids.OnBoidsGenerated -= OnGenerated;
+            }
+
+            private void OnGenerated()
+            {
+                Positions = Boids._positions;
+                Velocities = Boids._velocities;
+                Accelerations = Boids._accelerations;
+                OnBoidsGenerated();
+            }
+            
+            protected virtual void OnBoidsGenerated()
+            {
+                Positions = Boids._positions;
+                Velocities = Boids._velocities;
+                Accelerations = Boids._accelerations;
+            }
         }
     }
 }

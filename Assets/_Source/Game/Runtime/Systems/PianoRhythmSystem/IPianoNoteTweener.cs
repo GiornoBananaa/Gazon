@@ -6,7 +6,7 @@ namespace Game.Runtime.PianoRhythmSystem
     public interface IPianoNoteTweener
     {
         void SetMaxVolume(float value);
-        void SetPianoWorldPosition(Vector3 position);
+        void SetPianoWorldPosition(Vector3 start, Vector3 end);
         void SetSpatialBlend(float spatialBlend);
         void StartNote(int id, AudioSound sound);
         void EndNote(int id);

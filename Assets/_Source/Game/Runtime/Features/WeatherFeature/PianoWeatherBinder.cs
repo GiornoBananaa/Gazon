@@ -4,7 +4,7 @@ using Game.Runtime.WeatherSystem.WeatherTween;
 
 namespace Game.Runtime.WeatherFeature
 {
-    public abstract class PianoWeatherBinder
+    public abstract class PianoWeatherBinder : IPianoStatisticBinder
     {
         protected readonly PianoKeyPressStatistics PianoStatistics;
         protected readonly WeatherPianoBindConfig WeatherPianoBindConfig;
@@ -17,7 +17,7 @@ namespace Game.Runtime.WeatherFeature
             _weatherTweener = weatherTweener;
         }
 
-        protected virtual void OnPianoStop()
+        public virtual void OnPianoStop()
         {
             
         }

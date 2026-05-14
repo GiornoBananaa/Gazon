@@ -15,8 +15,10 @@ namespace Game.Runtime.PianoRhythmSystem
         private readonly float _noteEndDuration;
         private readonly float _noteEndSustainDuration;
         private readonly float _noteTransitionFadingDuration;
+        private readonly int _notesCount;
         
-        private Vector3 _pianoPosition;
+        private Vector3 _pianoLineStart;
+        private Vector3 _pianoLineEnd;
         private float _spatialBlend;
         private float _maxVolume;
         private bool _sustain;
@@ -27,6 +29,7 @@ namespace Game.Runtime.PianoRhythmSystem
             _noteEndDuration = data.NoteEndDuration;
             _noteEndSustainDuration = data.PedalNoteEndDuration;
             _noteTransitionFadingDuration = data.NoteTransitionFadingDuration;
+            _notesCount = data.Notes.Length;
         }
 
         public void SetMaxVolume(float value)
@@ -39,9 +42,10 @@ namespace Game.Runtime.PianoRhythmSystem
             }
         }
 
-        public void SetPianoWorldPosition(Vector3 position)
+        public void SetPianoWorldPosition(Vector3 start, Vector3 end)
         {
-            _pianoPosition = position;
+            _pianoLineStart = start;
+            _pianoLineEnd = end;
         }
         
         public void SetSpatialBlend(float spatialBlend)
@@ -74,7 +78,7 @@ namespace Game.Runtime.PianoRhythmSystem
                 });
                 _sourceTweens[pressedSourceCopy] = tween;
             }
-            AudioSoundSource source = _audioPlayer.Play(sound, _pianoPosition, _maxVolume, _spatialBlend);
+            AudioSoundSource source = _audioPlayer.Play(sound, Vector3.Lerp(_pianoLineStart, _pianoLineEnd, (float)id/_notesCount), _maxVolume, _spatialBlend);
             
             _pressedSources[id] = source;
         }

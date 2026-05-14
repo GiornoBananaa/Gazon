@@ -110,8 +110,8 @@ Material:
     - _Metallic1: 0
     - _Metallic2: 0
     - _Metallic3: 0
-    - _OtherX_Coordinate: 50
-    - _OtherY_Coordinate: 0
+    - _OtherX_Coordinate: 40
+    - _OtherY_Coordinate: 40
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Roundness: 0.008
@@ -123,15 +123,15 @@ Material:
     - _Smoothness3: 1
     m_Colors:
     - _BiomeCenter: {r: 87.5, g: 62.5, b: 0, a: 0}
-    - _MainColor: {r: 0.12549016, g: 0.37647057, b: 0.22352937, a: 0}
-    - _OtherXBack_MainColor: {r: 0.03529412, g: 0.42745095, b: 0.18823522, a: 1}
-    - _OtherXBack_ShadowColor: {r: 0.490196, g: 0.3725489, b: 0.18823522, a: 1}
-    - _OtherX_MainColor: {r: 0.03529412, g: 0.42745095, b: 0.18823522, a: 1}
-    - _OtherX_ShadowColor: {r: 0.490196, g: 0.3725489, b: 0.18823522, a: 1}
-    - _OtherYBack_MainColor: {r: 0.03529412, g: 0.42745095, b: 0.18823522, a: 1}
-    - _OtherYBack_ShadowColor: {r: 0.490196, g: 0.3725489, b: 0.18823522, a: 1}
-    - _OtherY_MainColor: {r: 0.03529412, g: 0.42745095, b: 0.18823522, a: 1}
-    - _OtherY_ShadowColor: {r: 0.490196, g: 0.3725489, b: 0.18823522, a: 1}
+    - _MainColor: {r: 0.24705882, g: 0.40392157, b: 0.3137255, a: 0}
+    - _OtherXBack_MainColor: {r: 0.12549013, g: 0.3764705, b: 0.22352934, a: 0}
+    - _OtherXBack_ShadowColor: {r: 0.47058815, g: 0.39215684, b: 0.26666665, a: 0}
+    - _OtherX_MainColor: {r: 0.12549013, g: 0.3764705, b: 0.22352934, a: 0}
+    - _OtherX_ShadowColor: {r: 0.47058815, g: 0.39215684, b: 0.26666665, a: 0}
+    - _OtherYBack_MainColor: {r: 0.12549013, g: 0.3764705, b: 0.22352934, a: 0}
+    - _OtherYBack_ShadowColor: {r: 0.47058815, g: 0.39215684, b: 0.26666665, a: 0}
+    - _OtherY_MainColor: {r: 0.12549013, g: 0.3764705, b: 0.22352934, a: 0}
+    - _OtherY_ShadowColor: {r: 0.47058815, g: 0.39215684, b: 0.26666665, a: 0}
     - _ShadowColor: {r: 0.47058824, g: 0.39215687, b: 0.26666668, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

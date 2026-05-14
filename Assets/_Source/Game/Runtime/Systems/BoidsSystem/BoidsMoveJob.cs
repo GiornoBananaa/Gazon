@@ -21,8 +21,9 @@ namespace Game.Runtime.BoidsSystem
             var velocity = Velocities[index] + Accelerations[index] * DeltaTime;
             var direction = math.normalize(velocity);
             velocity = direction * math.clamp(math.length(velocity), 1,  MaxVelocity);
-            transform.position += Vector3.RotateTowards(Velocities[index], velocity, RotationSpeed * DeltaTime, 0) * DeltaTime;
-            transform.rotation = Quaternion.LookRotation(direction);
+            velocity = Vector3.RotateTowards(Velocities[index], velocity, RotationSpeed * DeltaTime, 0);
+            transform.position += (Vector3)velocity * DeltaTime;
+            transform.rotation = Quaternion.LookRotation(direction, math.up());
             
             Positions[index] = transform.position;
             Velocities[index] = velocity;

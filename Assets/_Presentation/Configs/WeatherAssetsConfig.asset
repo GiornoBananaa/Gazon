@@ -15,5 +15,7 @@ MonoBehaviour:
   GrassMaterial:
   - {fileID: 2100000, guid: 91152bdc7f1ce904889d952442882dd7, type: 2}
   - {fileID: 2100000, guid: e8ab2a7b60580c842a350dab9d553881, type: 2}
+  - {fileID: 2100000, guid: d06f8ddbca439f94db608eda2c580074, type: 2}
+  - {fileID: 2100000, guid: fc6d03b6dc3ffad47aca673c5989045d, type: 2}
   SkyMaterial:
   - {fileID: 2100000, guid: 386c32c920778ae45a187754afc402ba, type: 2}

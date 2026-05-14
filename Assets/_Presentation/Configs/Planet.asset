@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 588b48cc659c4c60b86a9f8fc0932662, type: 3}
   m_Name: Planet
   m_EditorClassIdentifier: Game.Runtime::Game.Runtime.Planet.Configs.PlanetConfig
-  BiomeSize: 50
+  BiomeSize: 40
   BiomeSizeInChunks: 2
   Biomes:
     gridSize: {x: 2, y: 2}
@@ -20,8 +20,8 @@ MonoBehaviour:
     cells:
     - row:
       - {fileID: 11400000, guid: 2a93df1a2c2bfd647b7a7748fb6da546, type: 2}
-      - {fileID: 11400000, guid: 2a93df1a2c2bfd647b7a7748fb6da546, type: 2}
+      - {fileID: 11400000, guid: 7a8e6cc773593fa4c9e82ac8a1ce97f2, type: 2}
     - row:
+      - {fileID: 11400000, guid: 1a7987dff2a1f8a478883a681df3baa5, type: 2}
       - {fileID: 11400000, guid: 5202fc817d675c549a9be4232771f904, type: 2}
-      - {fileID: 11400000, guid: 2a93df1a2c2bfd647b7a7748fb6da546, type: 2}
   ChunkWeatherBlendDistance: 10

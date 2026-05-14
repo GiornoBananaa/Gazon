@@ -1,4 +1,5 @@
-﻿using Game.Runtime.Configs;
+﻿using Game.Runtime.BoidsFeature;
+using Game.Runtime.Configs;
 using Game.Runtime.InputFeature;
 using Game.Runtime.PianoFeature;
 using Game.Runtime.PianoRhythmSystem;
@@ -28,6 +29,7 @@ namespace Game.Runtime.Installers
             builder.RegisterType(typeof(PianoNoteTweener), new[] { typeof(IPianoNoteTweener) }, Lifetime.Scoped, Resolution.Lazy);
             builder.RegisterType(typeof(FreePianoState), Lifetime.Scoped, Resolution.Lazy);
             builder.RegisterType(typeof(PianoKeyPressStatistics),  new[] { typeof(PianoKeyPressStatistics), typeof(IUpdatable) }, Lifetime.Singleton, Resolution.Lazy);
+            builder.RegisterType(typeof(BirdsPianoBinder),  new[] { typeof(IPianoStatisticBinder) }, Lifetime.Singleton, Resolution.Eager);
         }
     }
 }

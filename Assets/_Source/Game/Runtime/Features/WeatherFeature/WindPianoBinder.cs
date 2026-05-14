@@ -32,7 +32,7 @@ namespace Game.Runtime.WeatherFeature
             ApplyTweener(_windDirectionTween);
         }
 
-        protected override void OnPianoStop()
+        public override void OnPianoStop()
         {
             
         }

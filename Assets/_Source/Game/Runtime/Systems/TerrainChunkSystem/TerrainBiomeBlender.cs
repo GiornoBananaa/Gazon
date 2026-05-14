@@ -59,7 +59,7 @@ namespace Game.Runtime.TerrainChunkSystem
             _planetMap = planetMap;
             _planetMap.CurrentChunkIndex.Skip(1).Subscribe(OnCurrentChunkIndexChanged);
         }
-
+        
         private void OnCurrentChunkIndexChanged(Vector2Int index)
         {
             foreach (var materialGrouping in ArrayUtils.GetNeighborIndexesWithoutBorders(
@@ -75,34 +75,32 @@ namespace Game.Runtime.TerrainChunkSystem
             float xBlendBorder = 0;
             float yBlendBorder = 0;
             
-            Vector2Int nearChunkY = currentIndex;
-            Vector2Int nearChunkX = currentIndex;
-            
             float minXDistance = float.MaxValue;
             float minYDistance = float.MaxValue;
             
             bool currentIsNearX = false;
             bool currentIsNearY = false;
             
-            Vector3 currentChunkPosition = _planetMap.GetChunkCenterPosition(currentIndex);
-            
             Vector2Int materialIndex = currentIndex;
+            Vector3 currentChunkPos = _planetMap.GetChunkCenterPosition(currentIndex);
             
             foreach (var chunk in group)
             {
                 materialIndex = chunk;
                 
-                Vector3 chunkPosition = _planetMap.GetChunkCenterPosition(chunk);
+                Vector2Int relativePos = _planetMap.GetChunkRelativePosition(chunk, currentIndex);
+                Vector3 chunkPosition = currentChunkPos + new Vector3(relativePos.x, 0, relativePos.y) * _planetMap.ChunkSize.CurrentValue;
                 
-                foreach (Vector2Int nearIndex in ArrayUtils.GetNeighborIndexesWithoutBorders(
+                foreach(Vector2Int nearIndex in ArrayUtils.GetNeighborIndexesWithoutBorders(
                              _planetMap.Chunks.CurrentValue.GetLength(0), _planetMap.Chunks.CurrentValue.GetLength(1),
                              chunk.x, chunk.y))
                 {
                     if (_planetMap.GetBiomeByChunk(nearIndex) == _planetMap.GetBiomeByChunk(chunk)) continue;
-                    
-                    Vector3 nearChunkPosition = _planetMap.GetChunkCenterPosition(nearIndex);
 
-                    float currentChunkDistance = Vector3.Distance(nearChunkPosition, currentChunkPosition);
+                    Vector2Int nearRelativePos = _planetMap.GetChunkRelativePosition(nearIndex, currentIndex);
+                    Vector3 nearChunkPosition = currentChunkPos + new Vector3(nearRelativePos.x, 0, nearRelativePos.y) * _planetMap.ChunkSize.CurrentValue;
+                    
+                    float currentChunkDistance = nearRelativePos.sqrMagnitude;
                     
                     if (chunk.y == nearIndex.y 
                         && !(currentIsNearX && nearIndex != currentIndex) 
@@ -110,7 +108,6 @@ namespace Game.Runtime.TerrainChunkSystem
                     {
                         minXDistance = currentChunkDistance;
                         xBlendBorder = Mathf.Lerp(chunkPosition.x, nearChunkPosition.x, 0.5f);
-                        nearChunkY = nearIndex;
                         if (nearIndex == currentIndex)
                             currentIsNearX = true;
                     }
@@ -121,44 +118,23 @@ namespace Game.Runtime.TerrainChunkSystem
                     {
                         minYDistance = currentChunkDistance;
                         yBlendBorder = Mathf.Lerp(chunkPosition.z, nearChunkPosition.z, 0.5f);
-                        nearChunkX = nearIndex;
                         if (nearIndex == currentIndex)
                             currentIsNearY = true;
                     }
                 }
             }
-
             
-            bool nearChunkIsForwardX = _planetMap.GetChunkCenterPosition(nearChunkX).z > yBlendBorder; // z
-            bool nearChunkIsForwardY = _planetMap.GetChunkCenterPosition(nearChunkY).x > xBlendBorder; // x
-
-            Vector2Int oppositeChunkX;
-            Vector2Int oppositeChunkY;
+            Vector2Int biome = _planetMap.GetBiomeFromChunk(materialIndex);
+            Vector2Int forwardNearChunkX = _planetMap.GetBiomeClampedIndex(biome + new Vector2Int(0, 1));
+            Vector2Int forwardNearChunkY = _planetMap.GetBiomeClampedIndex(biome + new Vector2Int(1, 0));
+            Vector2Int backNearChunkX = _planetMap.GetBiomeClampedIndex(biome + new Vector2Int(0, -1));
+            Vector2Int backNearChunkY = _planetMap.GetBiomeClampedIndex(biome + new Vector2Int(-1, 0));
             
-            if(nearChunkY == nearChunkX)
-            {
-                oppositeChunkX = ArrayUtils.GetIndexWithoutBorders(_planetMap.Chunks.CurrentValue,
-                    nearChunkX.x + (_planetMap.GetChunkCenterPosition(nearChunkX).x > xBlendBorder ? -1 : 1), nearChunkX.y + (_planetMap.GetChunkCenterPosition(nearChunkX).z > yBlendBorder ? -1 : 1));
-                oppositeChunkY = oppositeChunkX;
-            }
-            else
-            {
-                oppositeChunkX = ArrayUtils.GetIndexWithoutBorders(_planetMap.Chunks.CurrentValue,
-                    nearChunkX.x + (_planetMap.GetChunkCenterPosition(nearChunkX).x > xBlendBorder ? -1 : 1), nearChunkX.y + (_planetMap.GetChunkCenterPosition(nearChunkX).z > yBlendBorder ? -1 : 1));
-                oppositeChunkY = ArrayUtils.GetIndexWithoutBorders(_planetMap.Chunks.CurrentValue,
-                    nearChunkY.x + (_planetMap.GetChunkCenterPosition(nearChunkY).x > xBlendBorder ? -1 : 1), nearChunkY.y + (_planetMap.GetChunkCenterPosition(nearChunkY).z > yBlendBorder ? -1 : 1));
-            }
-            
-            Vector2Int forwardNearChunkX = nearChunkIsForwardY ? nearChunkX : oppositeChunkX;
-            Vector2Int forwardNearChunkY = nearChunkIsForwardX ? nearChunkY : oppositeChunkY;
-            Vector2Int backNearChunkX = nearChunkIsForwardY ? oppositeChunkX : nearChunkX;
-            Vector2Int backNearChunkY = nearChunkIsForwardX ? oppositeChunkY : nearChunkY;
-            
-            Material grassMaterial = _planetMap.Chunks.CurrentValue[materialIndex.x, materialIndex.y].GrassMaterial;
-            Material borderXGrassMaterial = _planetMap.Chunks.CurrentValue[forwardNearChunkX.x, forwardNearChunkX.y].GrassMaterial;
-            Material borderYGrassMaterial = _planetMap.Chunks.CurrentValue[forwardNearChunkY.x, forwardNearChunkY.y].GrassMaterial;
-            Material borderXBackGrassMaterial = _planetMap.Chunks.CurrentValue[backNearChunkX.x, backNearChunkX.y].GrassMaterial;
-            Material borderYBackGrassMaterial = _planetMap.Chunks.CurrentValue[backNearChunkY.x, backNearChunkY.y].GrassMaterial;
+            Material grassMaterial = _planetMap.Biomes.CurrentValue[biome.x, biome.y].TerrainPrefab.GrassMaterial;
+            Material borderXGrassMaterial = _planetMap.Biomes.CurrentValue[forwardNearChunkX.x, forwardNearChunkX.y].TerrainPrefab.GrassMaterial;
+            Material borderYGrassMaterial = _planetMap.Biomes.CurrentValue[forwardNearChunkY.x, forwardNearChunkY.y].TerrainPrefab.GrassMaterial;
+            Material borderXBackGrassMaterial = _planetMap.Biomes.CurrentValue[backNearChunkX.x, backNearChunkX.y].TerrainPrefab.GrassMaterial;
+            Material borderYBackGrassMaterial = _planetMap.Biomes.CurrentValue[backNearChunkY.x, backNearChunkY.y].TerrainPrefab.GrassMaterial;
             
             grassMaterial.SetFloat(_grassBorderXProperty, xBlendBorder);
             grassMaterial.SetFloat(_grassBorderYProperty, yBlendBorder);
@@ -184,11 +160,11 @@ namespace Game.Runtime.TerrainChunkSystem
             grassMaterial.SetColor(_grassBottomColorYBackProperty, borderYBackGrassMaterial.GetColor(_grassBottomColorProperty));
             
             
-            Material terrainMaterial = _planetMap.Chunks.CurrentValue[materialIndex.x, materialIndex.y].TerrainMaterial;
-            Material borderXTerrainMaterial = _planetMap.Chunks.CurrentValue[forwardNearChunkX.x, forwardNearChunkX.y].TerrainMaterial;
-            Material borderYTerrainMaterial = _planetMap.Chunks.CurrentValue[forwardNearChunkY.x, forwardNearChunkY.y].TerrainMaterial;
-            Material borderXBackTerrainMaterial = _planetMap.Chunks.CurrentValue[backNearChunkX.x, backNearChunkX.y].TerrainMaterial;
-            Material borderYBackTerrainMaterial = _planetMap.Chunks.CurrentValue[backNearChunkY.x, backNearChunkY.y].TerrainMaterial;
+            Material terrainMaterial = _planetMap.Biomes.CurrentValue[biome.x, biome.y].TerrainPrefab.TerrainMaterial;
+            Material borderXTerrainMaterial = _planetMap.Biomes.CurrentValue[forwardNearChunkX.x, forwardNearChunkX.y].TerrainPrefab.TerrainMaterial;
+            Material borderYTerrainMaterial = _planetMap.Biomes.CurrentValue[forwardNearChunkY.x, forwardNearChunkY.y].TerrainPrefab.TerrainMaterial;
+            Material borderXBackTerrainMaterial = _planetMap.Biomes.CurrentValue[backNearChunkX.x, backNearChunkX.y].TerrainPrefab.TerrainMaterial;
+            Material borderYBackTerrainMaterial = _planetMap.Biomes.CurrentValue[backNearChunkY.x, backNearChunkY.y].TerrainPrefab.TerrainMaterial;
             
             terrainMaterial.SetFloat(_terrainBorderXProperty, xBlendBorder);
             terrainMaterial.SetFloat(_terrainBorderYProperty, yBlendBorder);

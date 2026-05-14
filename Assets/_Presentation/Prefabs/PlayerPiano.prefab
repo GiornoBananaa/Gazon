@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6676756033157340511}
   m_Layer: 0
-  m_Name: AudioPoint
+  m_Name: AudioLineStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1466637759773450997}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.25, y: 1, z: -0.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -131,6 +131,37 @@ MonoBehaviour:
   _interactableCollider: {fileID: 8690514684305040866}
   _seatPoint: {fileID: 6900599144064576124}
   _maxViewAngle: 90
+--- !u!1 &6682756943511209460
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5491463481077806391}
+  m_Layer: 0
+  m_Name: AudioLineEnd
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5491463481077806391
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6682756943511209460}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.25, y: 1, z: -0.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6755010014020937343}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7375928872577882350
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,6 +302,7 @@ GameObject:
   - component: {fileID: 2039091135873492254}
   - component: {fileID: 4057738522254542008}
   - component: {fileID: 4836826627123332466}
+  - component: {fileID: 1930057597457010043}
   m_Layer: 0
   m_Name: PlayerPiano
   m_TagString: Untagged
@@ -296,6 +328,7 @@ Transform:
   - {fileID: 3240027358453638748}
   - {fileID: 6900599144064576124}
   - {fileID: 6676756033157340511}
+  - {fileID: 5491463481077806391}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4186220437574716835
@@ -350,10 +383,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c281d7dabe2349c3a858a2972b3dcc92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game.Runtime::Game.Runtime.PianoFeature.PianoWorldSpaceSound
-  _audioPoint: {fileID: 2214449926077747949}
+  _audioLineStart: {fileID: 6676756033157340511}
+  _audioLineEnd: {fileID: 5491463481077806391}
   _minAudioDistance: 1
   _maxAudioDistance: 20
   _minVolume: 0.2
+--- !u!114 &1930057597457010043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8013183114595760909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 058aae33754f4ba4bc85371fb210d717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game.Runtime::Game.Runtime.TerrainChunkSystem.AllBiomesLinker
+  _animatedTeleport: 1
+  _hideHeight: -2
+  _animationTime: 1
 --- !u!1 &8204978698710402619
 GameObject:
   m_ObjectHideFlags: 0
