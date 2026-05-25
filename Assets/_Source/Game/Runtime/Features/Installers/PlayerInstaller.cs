@@ -26,7 +26,7 @@ namespace Game.Runtime.Installers
             builder.RegisterType(typeof(PlayerRaycastInteraction), new[] { typeof(IPlayerInteraction) }, Lifetime.Singleton, Resolution.Lazy);
             builder.RegisterType(typeof(CameraFreeState), Lifetime.Singleton, Resolution.Lazy);
             builder.RegisterType(typeof(PlayerFreeWalkState), Lifetime.Singleton, Resolution.Lazy);
-            builder.RegisterType(typeof(PlayerPianoSeatState), Lifetime.Scoped, Resolution.Lazy);
+            builder.RegisterType(typeof(PlayerInstrumentSeatState), Lifetime.Scoped, Resolution.Lazy);
         }
     }
 }

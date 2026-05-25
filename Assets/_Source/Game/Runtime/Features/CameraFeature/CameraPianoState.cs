@@ -11,12 +11,12 @@ namespace Game.Runtime.CameraFeature
         private readonly Transform _targetTransform;
         private readonly float _rotationLimitY;
         
-        public CameraPianoState(CameraFollowTargetMover mover, CameraInputRotator rotator, Piano piano)
+        public CameraPianoState(CameraFollowTargetMover mover, CameraInputRotator rotator, MusicInstrument musicInstrument)
         {
             _mover = mover;
             _rotator = rotator;
-            _targetTransform = piano.SeatPoint;
-            _rotationLimitY = piano.MaxViewAngle;
+            _targetTransform = musicInstrument.SeatPoint;
+            _rotationLimitY = musicInstrument.MaxViewAngle;
         }
         
         public void Enter()

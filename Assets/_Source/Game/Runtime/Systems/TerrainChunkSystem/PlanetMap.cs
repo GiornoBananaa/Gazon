@@ -114,8 +114,8 @@ namespace Game.Runtime.TerrainChunkSystem
         public bool IsOnChunk(Vector3 point, Vector2Int chunk)
         {
             Vector3 chunkPosition = GetChunkCenterPosition(chunk);
-            return MathUtils.InRange(point.x, chunkPosition.x, _chunkSize.CurrentValue / 2)
-                   && MathUtils.InRange(point.z, chunkPosition.z, _chunkSize.CurrentValue / 2);
+            return MathUtils.InRadius(point.x, chunkPosition.x, _chunkSize.CurrentValue / 2)
+                   && MathUtils.InRadius(point.z, chunkPosition.z, _chunkSize.CurrentValue / 2);
         }
 
         public Vector2Int GetChunkClampedIndex(Vector2Int chunk)

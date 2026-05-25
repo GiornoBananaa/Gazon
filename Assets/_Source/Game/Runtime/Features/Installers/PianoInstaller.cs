@@ -1,8 +1,10 @@
-﻿using Game.Runtime.BoidsFeature;
+﻿using System;
+using Game.Runtime.BoidsFeature;
 using Game.Runtime.Configs;
 using Game.Runtime.InputFeature;
+using Game.Runtime.MusicInstrumentSystem;
 using Game.Runtime.PianoFeature;
-using Game.Runtime.PianoRhythmSystem;
+using Game.Runtime.RhythmSystem;
 using Game.Runtime.ServiceSystem;
 using Game.Runtime.StateMachineSystem;
 using Reflex.Core;
@@ -21,15 +23,31 @@ namespace Game.Runtime.Installers
         {
             builder.RegisterValue(_pianoKeysConfig);
             builder.RegisterValue(_weatherPianoBindConfig);
+            
+            builder.RegisterType(typeof(MusicLibrary), Lifetime.Singleton, Resolution.Lazy);
+            builder.RegisterType(typeof(MidiFileReader), new[] { typeof(IMusicFileReader) }, Lifetime.Singleton, Resolution.Lazy);
+            builder.RegisterType(typeof(NotesPlayer), new[] { typeof(NotesPlayer) }, Lifetime.Scoped, Resolution.Lazy);
+            builder.RegisterType(typeof(InstrumentNoteTweener), new[] { typeof(IInstrumentNoteTweener) }, Lifetime.Scoped, Resolution.Lazy);
+            builder.RegisterType(typeof(Orchestra), Lifetime.Singleton, Resolution.Lazy);
             builder.RegisterType(typeof(BaseStateMachine<IPianoState>), new[] { typeof(IStateMachine<IPianoState>) }, Lifetime.Scoped, Resolution.Lazy);
-            builder.RegisterType(typeof(PianoKeysPressFacade), Lifetime.Scoped, Resolution.Lazy);
-            builder.RegisterType(typeof(PianoInputListener), new[] { typeof(IInputListener), typeof(PianoInputListener) }, Lifetime.Scoped, Resolution.Lazy);
-            builder.RegisterType(typeof(FreePianoKeyPresser), new[] { typeof(IPianoKeyPresser), typeof(FreePianoKeyPresser) }, Lifetime.Scoped, Resolution.Lazy);
-            builder.RegisterType(typeof(RhythmGamePianoKeyPresser), new[] { typeof(IPianoKeyPresser), typeof(RhythmGamePianoKeyPresser) }, Lifetime.Scoped, Resolution.Lazy);
-            builder.RegisterType(typeof(PianoNoteTweener), new[] { typeof(IPianoNoteTweener) }, Lifetime.Scoped, Resolution.Lazy);
-            builder.RegisterType(typeof(FreePianoState), Lifetime.Scoped, Resolution.Lazy);
-            builder.RegisterType(typeof(PianoKeyPressStatistics),  new[] { typeof(PianoKeyPressStatistics), typeof(IUpdatable) }, Lifetime.Singleton, Resolution.Lazy);
-            builder.RegisterType(typeof(BirdsPianoBinder),  new[] { typeof(IPianoStatisticBinder) }, Lifetime.Singleton, Resolution.Eager);
+            
+            //Free mode
+            builder.RegisterType(typeof(FreeInstrumentState), Lifetime.Scoped, Resolution.Lazy);
+            builder.RegisterType(typeof(FreeInstrumentInputListener), new[] { typeof(IInputListener), typeof(FreeInstrumentInputListener) }, Lifetime.Scoped, Resolution.Lazy);
+            builder.RegisterType(typeof(FreeInstrumentKeyPresser), new[] { typeof(IInstrumentKeyPresser), typeof(FreeInstrumentKeyPresser) }, Lifetime.Scoped, Resolution.Lazy);
+            
+            //Rhythm mode
+            builder.RegisterType(typeof(RhythmInstrumentInputListener), new[] { typeof(IInputListener), typeof(RhythmInstrumentInputListener) }, Lifetime.Scoped, Resolution.Lazy);
+            builder.RegisterType(typeof(RhythmGameInstrumentKeyPresser), new[] { typeof(IInstrumentKeyPresser), typeof(RhythmGameInstrumentKeyPresser) }, Lifetime.Scoped, Resolution.Lazy);
+            builder.RegisterType(typeof(RhythmGameController), Lifetime.Scoped, Resolution.Lazy);
+            builder.RegisterType(typeof(RhythmInstrumentState), Lifetime.Scoped, Resolution.Lazy);
+            builder.RegisterType(typeof(RhythmKeyGenerator), new[] { typeof(IRhythmKeyGenerator) }, Lifetime.Singleton, Resolution.Lazy);
+            builder.RegisterType(typeof(RhythmSheet), new[] { typeof(IRhythmSheet) }, Lifetime.Scoped, Resolution.Lazy);
+            builder.RegisterType(typeof(RhythmPianoSettings), Lifetime.Singleton, Resolution.Lazy);
+            
+            //Music magic
+            builder.RegisterType(typeof(InstrumentPlayStatistics),  new[] { typeof(InstrumentPlayStatistics), typeof(IUpdatable) }, Lifetime.Singleton, Resolution.Lazy);
+            builder.RegisterType(typeof(BirdsInstrumentBinder),  new[] { typeof(IInstrumentStatisticBinder) }, Lifetime.Singleton, Resolution.Eager);
         }
     }
 }

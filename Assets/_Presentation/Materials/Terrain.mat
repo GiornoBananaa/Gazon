@@ -105,8 +105,8 @@ Material:
     - _Metallic1: 0
     - _Metallic2: 0
     - _Metallic3: 0
-    - _OtherX_Coordinate: 40
-    - _OtherY_Coordinate: 40
+    - _OtherX_Coordinate: 0
+    - _OtherY_Coordinate: 0
     - _Roundness: 0.008
     - _Smoothness: 0
     - _Smoothness0: 1

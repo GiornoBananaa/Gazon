@@ -300,7 +300,6 @@ GameObject:
   - component: {fileID: 6755010014020937343}
   - component: {fileID: 4186220437574716835}
   - component: {fileID: 2039091135873492254}
-  - component: {fileID: 4057738522254542008}
   - component: {fileID: 4836826627123332466}
   - component: {fileID: 1930057597457010043}
   m_Layer: 0
@@ -329,6 +328,7 @@ Transform:
   - {fileID: 6900599144064576124}
   - {fileID: 6676756033157340511}
   - {fileID: 5491463481077806391}
+  - {fileID: 1819127108905116291}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4186220437574716835
@@ -343,7 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 029c3c01abf248e7bb98c4524f7a2dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game.Runtime::Game.Runtime.Installers.PianoContainerInjector
-  _piano: {fileID: 2039091135873492254}
+  _musicInstrument: {fileID: 2039091135873492254}
 --- !u!114 &2039091135873492254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,18 +359,7 @@ MonoBehaviour:
   PianoKeysConfig: {fileID: 11400000, guid: 1f1573fbd315c3f4a9c49de293d8f6c5, type: 2}
   SeatPoint: {fileID: 6900599144064576124}
   MaxViewAngle: 90
---- !u!114 &4057738522254542008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8013183114595760909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45e9017001554a73b676a5017fc2e033, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Game.Runtime::Game.Runtime.PianoFeature.Piano
+  _sheetVisualizer: {fileID: 5176187851591197385}
 --- !u!114 &4836826627123332466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,3 +519,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: Game.Runtime::Game.Runtime.ObjectCulling.RoundWorldCullingBounds
   _renderer: {fileID: 5968858695607223190}
   _filter: {fileID: 4505735540751591791}
+--- !u!1 &9201947564514474628
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1819127108905116291}
+  - component: {fileID: 5176187851591197385}
+  m_Layer: 0
+  m_Name: PianoSheet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1819127108905116291
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9201947564514474628}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.5096, z: -0.45}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6755010014020937343}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5176187851591197385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9201947564514474628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d234527dec94d0c9a73bb0ec91791e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game.Runtime::Game.Runtime.PianoRhythmSystem.RhythmSheetVisualizer
+  _notePrefab: {fileID: -3851842219123256997, guid: d9c9fa5e0bfc94c4d83fa53bc0873b4f, type: 3}
+  _trackPrefab: {fileID: 2215962434898177249, guid: e16a0ceeb1b110049a1aeafaf45d963f, type: 3}
+  _lengthInMeters: 1.4
+  _distanceBetweenTracks: 0.12
+  _noteHeight: 0.1

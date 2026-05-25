@@ -17,7 +17,7 @@ namespace Game.Runtime.StateMachineSystem
         {
             if(_currentState != null)
                 _currentState.Exit();
-            state.Enter();
+            state?.Enter();
             _currentState = state;
             _hasState = true;
         }

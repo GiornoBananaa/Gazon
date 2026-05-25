@@ -18,7 +18,7 @@ namespace Game.Runtime.Installers
         {
             builder.RegisterValue(_boidsPianoBindConfig);
             builder.RegisterValue(_boidsGravityPoints);
-            builder.RegisterType(typeof(BirdsPianoBinder),  new[] { typeof(IPianoStatisticBinder) }, Lifetime.Singleton, Resolution.Eager);
+            builder.RegisterType(typeof(BirdsInstrumentBinder),  new[] { typeof(IInstrumentStatisticBinder) }, Lifetime.Singleton, Resolution.Eager);
         }
     }
 }

@@ -7,11 +7,13 @@ namespace Game.Runtime.Installers
 {
     public class SelfSubContainerInjector : MonoBehaviour
     {
+        private Container _container;
+        
         public void Awake()
         {
             var parentContainer = gameObject.scene.GetSceneContainer();
-            using var container = parentContainer.Scope(BuilderExtend);
-            GameObjectInjector.InjectRecursive(gameObject, container);
+            _container = parentContainer.Scope(BuilderExtend);
+            GameObjectInjector.InjectRecursive(gameObject, _container);
         }
 
         protected virtual void BuilderExtend(ContainerBuilder builder) { }

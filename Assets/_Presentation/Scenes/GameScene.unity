@@ -1418,6 +1418,7 @@ GameObject:
   - component: {fileID: 1576700659}
   - component: {fileID: 1576700660}
   - component: {fileID: 1576700661}
+  - component: {fileID: 1576700662}
   m_Layer: 0
   m_Name: SceneScope
   m_TagString: Untagged
@@ -1542,6 +1543,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Game.Runtime::Game.Runtime.Installers.BoidsInstaller
   _boidsPianoBindConfig: {fileID: 11400000, guid: fff309a4a7636ec49a4457c9f0dfcd08, type: 2}
   _boidsGravityPoints: {fileID: 1101818752}
+--- !u!114 &1576700662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576700650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f18d90fe58a3463ba2d12a4697115b5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game.Runtime::Game.Runtime.Installers.ServiceInstaller
+  _serviceUpdater: {fileID: 304230414}
 --- !u!4 &1612621125 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6431885408251773575, guid: c0155423b3a49bb40a4d8e69f93b7c75, type: 3}
@@ -1733,6 +1747,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6431885408251773575, guid: c0155423b3a49bb40a4d8e69f93b7c75, type: 3}
   m_PrefabInstance: {fileID: 2076412652057516260}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2016558901
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2016558903}
+  - component: {fileID: 2016558902}
+  m_Layer: 0
+  m_Name: Bootstrap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2016558902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016558901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3e012da11524eb09c09351fdd325434, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game.Runtime::Game.Runtime.Installers.Bootstrap
+--- !u!4 &2016558903
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016558901}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 20.89204, y: 0.05458, z: 22.84653}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2064101104
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2022,3 +2080,4 @@ SceneRoots:
   - {fileID: 1576700652}
   - {fileID: 304230415}
   - {fileID: 1101818750}
+  - {fileID: 2016558903}

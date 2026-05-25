@@ -1743,6 +1743,174 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""PianoRhythm"",
+            ""id"": ""a3afab27-c431-4341-8119-77d1bf041248"",
+            ""actions"": [
+                {
+                    ""name"": ""Key1"",
+                    ""type"": ""Button"",
+                    ""id"": ""381a6a2d-c343-4092-b23c-e38b3485a0af"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Key2"",
+                    ""type"": ""Button"",
+                    ""id"": ""f2257ac3-a911-4c6a-a8cb-ce7e0d8671ec"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Key3"",
+                    ""type"": ""Button"",
+                    ""id"": ""036b42c6-59ec-4867-8d4e-ca4db855da11"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Key4"",
+                    ""type"": ""Button"",
+                    ""id"": ""b9602e95-3c1f-4eb5-9157-9396973be61c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Key5"",
+                    ""type"": ""Button"",
+                    ""id"": ""dc7c586f-6c91-4035-bafd-26598662c910"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Key6"",
+                    ""type"": ""Button"",
+                    ""id"": ""1fd0ef88-d13e-4d3a-b996-0b8a656c1a60"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Key7"",
+                    ""type"": ""Button"",
+                    ""id"": ""da3873ca-7f71-42d7-816c-134f6db781c2"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Key8"",
+                    ""type"": ""Button"",
+                    ""id"": ""f09aa048-7780-4593-b22d-4cb47b4aa57f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""0ef3be7b-a9e6-434f-8b9a-8195cc844fd1"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Key1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3de5f33c-2d8d-4d77-8b1b-423c885cc92b"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Key2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""24850e8f-f5cc-49fd-8136-05921615800c"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Key3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e984bb98-25ca-469c-a9a7-a6d17ec6c638"",
+                    ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Key4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""148953c2-aeda-4af7-aea4-bba0e1c43ea4"",
+                    ""path"": ""<Keyboard>/h"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Key5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""74f55396-21c4-4ec1-a8cd-6358d2781436"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Key6"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d6624914-b8ef-4982-9b6c-883af5537c2c"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Key7"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3867090a-2724-4c62-ac15-9cb647bf39bc"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Key8"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -1868,6 +2036,16 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         m_Navigation_Exit = m_Navigation.FindAction("Exit", throwIfNotFound: true);
         m_Navigation_Back = m_Navigation.FindAction("Back", throwIfNotFound: true);
         m_Navigation_Submit = m_Navigation.FindAction("Submit", throwIfNotFound: true);
+        // PianoRhythm
+        m_PianoRhythm = asset.FindActionMap("PianoRhythm", throwIfNotFound: true);
+        m_PianoRhythm_Key1 = m_PianoRhythm.FindAction("Key1", throwIfNotFound: true);
+        m_PianoRhythm_Key2 = m_PianoRhythm.FindAction("Key2", throwIfNotFound: true);
+        m_PianoRhythm_Key3 = m_PianoRhythm.FindAction("Key3", throwIfNotFound: true);
+        m_PianoRhythm_Key4 = m_PianoRhythm.FindAction("Key4", throwIfNotFound: true);
+        m_PianoRhythm_Key5 = m_PianoRhythm.FindAction("Key5", throwIfNotFound: true);
+        m_PianoRhythm_Key6 = m_PianoRhythm.FindAction("Key6", throwIfNotFound: true);
+        m_PianoRhythm_Key7 = m_PianoRhythm.FindAction("Key7", throwIfNotFound: true);
+        m_PianoRhythm_Key8 = m_PianoRhythm.FindAction("Key8", throwIfNotFound: true);
     }
 
     ~@GameInputActions()
@@ -1877,6 +2055,7 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, GameInputActions.UI.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Piano.enabled, "This will cause a leak and performance issues, GameInputActions.Piano.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Navigation.enabled, "This will cause a leak and performance issues, GameInputActions.Navigation.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_PianoRhythm.enabled, "This will cause a leak and performance issues, GameInputActions.PianoRhythm.Disable() has not been called.");
     }
 
     /// <summary>
@@ -2923,6 +3102,179 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="NavigationActions" /> instance referencing this action map.
     /// </summary>
     public NavigationActions @Navigation => new NavigationActions(this);
+
+    // PianoRhythm
+    private readonly InputActionMap m_PianoRhythm;
+    private List<IPianoRhythmActions> m_PianoRhythmActionsCallbackInterfaces = new List<IPianoRhythmActions>();
+    private readonly InputAction m_PianoRhythm_Key1;
+    private readonly InputAction m_PianoRhythm_Key2;
+    private readonly InputAction m_PianoRhythm_Key3;
+    private readonly InputAction m_PianoRhythm_Key4;
+    private readonly InputAction m_PianoRhythm_Key5;
+    private readonly InputAction m_PianoRhythm_Key6;
+    private readonly InputAction m_PianoRhythm_Key7;
+    private readonly InputAction m_PianoRhythm_Key8;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "PianoRhythm".
+    /// </summary>
+    public struct PianoRhythmActions
+    {
+        private @GameInputActions m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public PianoRhythmActions(@GameInputActions wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "PianoRhythm/Key1".
+        /// </summary>
+        public InputAction @Key1 => m_Wrapper.m_PianoRhythm_Key1;
+        /// <summary>
+        /// Provides access to the underlying input action "PianoRhythm/Key2".
+        /// </summary>
+        public InputAction @Key2 => m_Wrapper.m_PianoRhythm_Key2;
+        /// <summary>
+        /// Provides access to the underlying input action "PianoRhythm/Key3".
+        /// </summary>
+        public InputAction @Key3 => m_Wrapper.m_PianoRhythm_Key3;
+        /// <summary>
+        /// Provides access to the underlying input action "PianoRhythm/Key4".
+        /// </summary>
+        public InputAction @Key4 => m_Wrapper.m_PianoRhythm_Key4;
+        /// <summary>
+        /// Provides access to the underlying input action "PianoRhythm/Key5".
+        /// </summary>
+        public InputAction @Key5 => m_Wrapper.m_PianoRhythm_Key5;
+        /// <summary>
+        /// Provides access to the underlying input action "PianoRhythm/Key6".
+        /// </summary>
+        public InputAction @Key6 => m_Wrapper.m_PianoRhythm_Key6;
+        /// <summary>
+        /// Provides access to the underlying input action "PianoRhythm/Key7".
+        /// </summary>
+        public InputAction @Key7 => m_Wrapper.m_PianoRhythm_Key7;
+        /// <summary>
+        /// Provides access to the underlying input action "PianoRhythm/Key8".
+        /// </summary>
+        public InputAction @Key8 => m_Wrapper.m_PianoRhythm_Key8;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_PianoRhythm; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="PianoRhythmActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(PianoRhythmActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="PianoRhythmActions" />
+        public void AddCallbacks(IPianoRhythmActions instance)
+        {
+            if (instance == null || m_Wrapper.m_PianoRhythmActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_PianoRhythmActionsCallbackInterfaces.Add(instance);
+            @Key1.started += instance.OnKey1;
+            @Key1.performed += instance.OnKey1;
+            @Key1.canceled += instance.OnKey1;
+            @Key2.started += instance.OnKey2;
+            @Key2.performed += instance.OnKey2;
+            @Key2.canceled += instance.OnKey2;
+            @Key3.started += instance.OnKey3;
+            @Key3.performed += instance.OnKey3;
+            @Key3.canceled += instance.OnKey3;
+            @Key4.started += instance.OnKey4;
+            @Key4.performed += instance.OnKey4;
+            @Key4.canceled += instance.OnKey4;
+            @Key5.started += instance.OnKey5;
+            @Key5.performed += instance.OnKey5;
+            @Key5.canceled += instance.OnKey5;
+            @Key6.started += instance.OnKey6;
+            @Key6.performed += instance.OnKey6;
+            @Key6.canceled += instance.OnKey6;
+            @Key7.started += instance.OnKey7;
+            @Key7.performed += instance.OnKey7;
+            @Key7.canceled += instance.OnKey7;
+            @Key8.started += instance.OnKey8;
+            @Key8.performed += instance.OnKey8;
+            @Key8.canceled += instance.OnKey8;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="PianoRhythmActions" />
+        private void UnregisterCallbacks(IPianoRhythmActions instance)
+        {
+            @Key1.started -= instance.OnKey1;
+            @Key1.performed -= instance.OnKey1;
+            @Key1.canceled -= instance.OnKey1;
+            @Key2.started -= instance.OnKey2;
+            @Key2.performed -= instance.OnKey2;
+            @Key2.canceled -= instance.OnKey2;
+            @Key3.started -= instance.OnKey3;
+            @Key3.performed -= instance.OnKey3;
+            @Key3.canceled -= instance.OnKey3;
+            @Key4.started -= instance.OnKey4;
+            @Key4.performed -= instance.OnKey4;
+            @Key4.canceled -= instance.OnKey4;
+            @Key5.started -= instance.OnKey5;
+            @Key5.performed -= instance.OnKey5;
+            @Key5.canceled -= instance.OnKey5;
+            @Key6.started -= instance.OnKey6;
+            @Key6.performed -= instance.OnKey6;
+            @Key6.canceled -= instance.OnKey6;
+            @Key7.started -= instance.OnKey7;
+            @Key7.performed -= instance.OnKey7;
+            @Key7.canceled -= instance.OnKey7;
+            @Key8.started -= instance.OnKey8;
+            @Key8.performed -= instance.OnKey8;
+            @Key8.canceled -= instance.OnKey8;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="PianoRhythmActions.UnregisterCallbacks(IPianoRhythmActions)" />.
+        /// </summary>
+        /// <seealso cref="PianoRhythmActions.UnregisterCallbacks(IPianoRhythmActions)" />
+        public void RemoveCallbacks(IPianoRhythmActions instance)
+        {
+            if (m_Wrapper.m_PianoRhythmActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="PianoRhythmActions.AddCallbacks(IPianoRhythmActions)" />
+        /// <seealso cref="PianoRhythmActions.RemoveCallbacks(IPianoRhythmActions)" />
+        /// <seealso cref="PianoRhythmActions.UnregisterCallbacks(IPianoRhythmActions)" />
+        public void SetCallbacks(IPianoRhythmActions instance)
+        {
+            foreach (var item in m_Wrapper.m_PianoRhythmActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_PianoRhythmActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="PianoRhythmActions" /> instance referencing this action map.
+    /// </summary>
+    public PianoRhythmActions @PianoRhythm => new PianoRhythmActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     /// <summary>
     /// Provides access to the input control scheme.
@@ -3377,5 +3729,69 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSubmit(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "PianoRhythm" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="PianoRhythmActions.AddCallbacks(IPianoRhythmActions)" />
+    /// <seealso cref="PianoRhythmActions.RemoveCallbacks(IPianoRhythmActions)" />
+    public interface IPianoRhythmActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "Key1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnKey1(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Key2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnKey2(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Key3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnKey3(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Key4" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnKey4(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Key5" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnKey5(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Key6" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnKey6(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Key7" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnKey7(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Key8" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnKey8(InputAction.CallbackContext context);
     }
 }

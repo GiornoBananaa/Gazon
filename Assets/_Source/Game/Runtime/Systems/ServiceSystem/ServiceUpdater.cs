@@ -6,10 +6,19 @@ namespace Game.Runtime.ServiceSystem
 {
     public class ServiceUpdater: MonoBehaviour
     {
-        [Inject] private IEnumerable<IUpdatable> _updatables;
-        [Inject] private IEnumerable<IFixedUpdatable> _fixedUpdatables;
-        [Inject] private IEnumerable<ILateUpdatable> _lateUpdatables;
+        private List<IUpdatable> _updatables;
+        private List<IFixedUpdatable> _fixedUpdatables;
+        private List<ILateUpdatable> _lateUpdatables;
 
+        [Inject]
+        private void Construct(IEnumerable<IUpdatable> updatables, 
+            IEnumerable<IFixedUpdatable> fixedUpdatables, IEnumerable<ILateUpdatable> lateUpdatables)
+        {
+            _updatables = new List<IUpdatable>(updatables);
+            _fixedUpdatables = new List<IFixedUpdatable>(fixedUpdatables);
+            _lateUpdatables = new List<ILateUpdatable>(lateUpdatables);
+        }
+        
         private void Update()
         {
             foreach (var updatable in _updatables)
@@ -32,6 +41,21 @@ namespace Game.Runtime.ServiceSystem
             {
                 updatable.LateUpdate();
             }
+        }
+
+        public void Add(IUpdatable updatable)
+        {
+            _updatables.Add(updatable);
+        }
+        
+        public void Add(IFixedUpdatable updatable)
+        {
+            _fixedUpdatables.Add(updatable);
+        }
+        
+        public void Add(ILateUpdatable updatable)
+        {
+            _lateUpdatables.Add(updatable);
         }
     }
 }

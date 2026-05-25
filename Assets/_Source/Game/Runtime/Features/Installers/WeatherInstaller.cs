@@ -19,7 +19,7 @@ namespace Game.Runtime.Installers
             builder.RegisterType(typeof(WeatherTweener), Lifetime.Singleton, Resolution.Lazy);
             builder.RegisterType(typeof(WeatherPropertyBlender), Lifetime.Singleton, Resolution.Lazy);
             builder.RegisterType(typeof(WeatherBiomeSetter),  new[] { typeof(WeatherBiomeSetter), typeof(IUpdatable) }, Lifetime.Singleton, Resolution.Lazy);
-            builder.RegisterType(typeof(WindPianoBinder),  new[] { typeof(IPianoStatisticBinder) }, Lifetime.Singleton, Resolution.Eager);
+            builder.RegisterType(typeof(WindInstrumentBinder),  new[] { typeof(IInstrumentStatisticBinder) }, Lifetime.Singleton, Resolution.Eager);
             builder.RegisterType(typeof(WindPositionMover),  new[] { typeof(WindPositionMover), typeof(IUpdatable) }, Lifetime.Singleton, Resolution.Lazy);
         }
     }
