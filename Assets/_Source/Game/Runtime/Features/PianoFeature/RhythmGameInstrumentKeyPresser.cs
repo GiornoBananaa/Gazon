@@ -13,6 +13,7 @@ namespace Game.Runtime.PianoFeature
             _rhythmSheet = rhythmSheet;
         }
 
+        public int KeysCount => _keysCount;
         public event Action<int, int> OnPressedKeyNoteIndexes;
         public event Action<int, int> OnReleasedKeyNoteIndexes;
 

@@ -2,5 +2,5 @@
 
 namespace Game.Runtime.PianoFeature
 {
-    public interface IPianoState : IState { }
+    public interface IInstrumentState : IState { }
 }

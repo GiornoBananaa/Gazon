@@ -102,37 +102,10 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Look"",
-                    ""type"": ""Value"",
-                    ""id"": ""6b444451-8a00-4d00-a97e-f47457f736a8"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Attack"",
-                    ""type"": ""Button"",
-                    ""id"": ""6c2ab1b8-8984-453a-af3d-a3c78ae1679a"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Interact"",
-                    ""type"": ""Button"",
-                    ""id"": ""852140f2-7766-474d-8707-702459ba45f3"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Crouch"",
                     ""type"": ""Button"",
                     ""id"": ""27c5f898-bc57-4ee1-8800-db469aca5fe3"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -147,27 +120,18 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Previous"",
-                    ""type"": ""Button"",
-                    ""id"": ""2776c80d-3c14-4091-8c56-d04ced07a2b0"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Next"",
-                    ""type"": ""Button"",
-                    ""id"": ""b7230bb6-fc9b-4f52-8b25-f5e19cb2c2ba"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Sprint"",
                     ""type"": ""Button"",
                     ""id"": ""641cd816-40e6-41b4-8c3d-04687c349290"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""852140f2-7766-474d-8707-702459ba45f3"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -309,127 +273,6 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c1f7a91b-d0fd-4a62-997e-7fb9b69bf235"",
-                    ""path"": ""<Gamepad>/rightStick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Gamepad"",
-                    ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8c8e490b-c610-4785-884f-f04217b23ca4"",
-                    ""path"": ""<Pointer>/delta"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse;Touch"",
-                    ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3e5f5442-8668-4b27-a940-df99bad7e831"",
-                    ""path"": ""<Joystick>/{Hatswitch}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Joystick"",
-                    ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""143bb1cd-cc10-4eca-a2f0-a3664166fe91"",
-                    ""path"": ""<Gamepad>/buttonWest"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Gamepad"",
-                    ""action"": ""Attack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""05f6913d-c316-48b2-a6bb-e225f14c7960"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Attack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""886e731e-7071-4ae4-95c0-e61739dad6fd"",
-                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Touch"",
-                    ""action"": ""Attack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ee3d0cd2-254e-47a7-a8cb-bc94d9658c54"",
-                    ""path"": ""<Joystick>/trigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Joystick"",
-                    ""action"": ""Attack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8255d333-5683-4943-a58a-ccb207ff1dce"",
-                    ""path"": ""<XRController>/{PrimaryAction}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""XR"",
-                    ""action"": ""Attack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b3c1c7f0-bd20-4ee7-a0f1-899b24bca6d7"",
-                    ""path"": ""<Keyboard>/enter"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Attack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""cbac6039-9c09-46a1-b5f2-4e5124ccb5ed"",
-                    ""path"": ""<Keyboard>/2"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Next"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e15ca19d-e649-4852-97d5-7fe8ccc44e94"",
-                    ""path"": ""<Gamepad>/dpad/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Next"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""f2e9ba44-c423-42a7-ad56-f20975884794"",
                     ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": """",
@@ -491,28 +334,6 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""XR"",
                     ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""1534dc16-a6aa-499d-9c3a-22b47347b52a"",
-                    ""path"": ""<Keyboard>/1"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Previous"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""25060bbd-a3a6-476e-8fba-45ae484aad05"",
-                    ""path"": ""<Gamepad>/dpad/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Previous"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1374,6 +1195,798 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteC1"",
+                    ""type"": ""Button"",
+                    ""id"": ""226dc5b4-66f7-48b4-8ab9-beb1b73039ef"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteC2"",
+                    ""type"": ""Button"",
+                    ""id"": ""101686da-46f3-4aea-bd29-d4829fd6c744"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteC3"",
+                    ""type"": ""Button"",
+                    ""id"": ""8921f8cf-1a38-4216-82b6-8c608cd25de0"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteC4"",
+                    ""type"": ""Button"",
+                    ""id"": ""6677955e-9fee-4331-9965-a72de2807a59"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteC5"",
+                    ""type"": ""Button"",
+                    ""id"": ""8ad1feb1-aada-4c32-aadd-ebb497786b83"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteC6"",
+                    ""type"": ""Button"",
+                    ""id"": ""0b9a8a60-511b-47fe-b191-413652f89a2c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteC7"",
+                    ""type"": ""Button"",
+                    ""id"": ""5b02b04e-59c3-4d4d-b1ca-7199c889c348"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteC8"",
+                    ""type"": ""Button"",
+                    ""id"": ""8ea5e16c-b064-448c-97e7-9bed9dc19534"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteCS1"",
+                    ""type"": ""Button"",
+                    ""id"": ""b503440d-f0ac-4de2-bbf9-cf752c948a46"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteCS2"",
+                    ""type"": ""Button"",
+                    ""id"": ""638a5fba-e8d7-4c41-b04a-ec1bac6ec505"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteCS3"",
+                    ""type"": ""Button"",
+                    ""id"": ""bab1cf47-a6aa-4094-80cb-1b49c804e110"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteCS4"",
+                    ""type"": ""Button"",
+                    ""id"": ""dcb53d75-a28c-45cd-9352-773f75b9edf5"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteCS5"",
+                    ""type"": ""Button"",
+                    ""id"": ""150d9dd0-90ce-427b-8705-029cb25440b7"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteCS6"",
+                    ""type"": ""Button"",
+                    ""id"": ""4e232b3b-e0fa-4e03-a5b4-6cc6b6482aab"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteCS7"",
+                    ""type"": ""Button"",
+                    ""id"": ""a6477249-bc78-4ff2-babb-8eccc8b15513"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteD1"",
+                    ""type"": ""Button"",
+                    ""id"": ""ffa1a136-8eb7-4404-980e-bd03fe9cb83d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteD2"",
+                    ""type"": ""Button"",
+                    ""id"": ""13b5fa68-5738-426a-8bfe-b3893df551d7"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteD3"",
+                    ""type"": ""Button"",
+                    ""id"": ""04d5b0f6-e918-4bea-8fb8-28b1201d9506"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteD4"",
+                    ""type"": ""Button"",
+                    ""id"": ""37087d0e-afb0-4e20-b6eb-5815d6f8099c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteD5"",
+                    ""type"": ""Button"",
+                    ""id"": ""bd9f43ad-758c-42e8-bb87-f0fe3310346f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteD6"",
+                    ""type"": ""Button"",
+                    ""id"": ""34f2e6fd-6f83-4562-a175-24c9e573622b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteD7"",
+                    ""type"": ""Button"",
+                    ""id"": ""6827cda2-c3a9-45d3-a8e6-0be7305617ad"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteDS1"",
+                    ""type"": ""Button"",
+                    ""id"": ""4bb2b468-f9f1-4596-b31e-5780c6518a58"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteDS2"",
+                    ""type"": ""Button"",
+                    ""id"": ""708bd4fc-9fc2-4476-a62c-9d7952c6c205"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteDS3"",
+                    ""type"": ""Button"",
+                    ""id"": ""017e28e3-4b48-4df4-a602-7743d97baa8d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteDS4"",
+                    ""type"": ""Button"",
+                    ""id"": ""f91569c6-fa29-4be5-8948-eedf5f4edbe5"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteDS5"",
+                    ""type"": ""Button"",
+                    ""id"": ""b55fd216-b19f-4bcc-9b9c-cc682b3c4fa1"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteDS6"",
+                    ""type"": ""Button"",
+                    ""id"": ""998b67c6-eafa-4b09-9d24-3a1c236409b0"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteDS7"",
+                    ""type"": ""Button"",
+                    ""id"": ""de6aa2a0-2223-43d3-a783-3a02e972356c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteE1"",
+                    ""type"": ""Button"",
+                    ""id"": ""10a060ca-5f38-4174-8087-8ed5a2e24145"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteE2"",
+                    ""type"": ""Button"",
+                    ""id"": ""9be8c123-a6fe-4388-bdc4-e2e09ffc6b75"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteE3"",
+                    ""type"": ""Button"",
+                    ""id"": ""60fcb64e-ecc5-4ad7-97b1-c43c15c9c2d4"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteE4"",
+                    ""type"": ""Button"",
+                    ""id"": ""0c65b261-9c24-4ba5-b782-d9d53d6bddd6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteE5"",
+                    ""type"": ""Button"",
+                    ""id"": ""252274e7-ea03-4de0-a716-175aaf2e0c27"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteE6"",
+                    ""type"": ""Button"",
+                    ""id"": ""b34c66dc-f178-47d1-acd4-6229614818b3"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteE7"",
+                    ""type"": ""Button"",
+                    ""id"": ""5bad8b9b-156b-45e9-a85c-734ab5feef5f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteF1"",
+                    ""type"": ""Button"",
+                    ""id"": ""b3b4f4be-42ae-44fa-99be-b1101b5143aa"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteF2"",
+                    ""type"": ""Button"",
+                    ""id"": ""ab0a44e4-4854-4bae-9354-4fd099b04026"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteF3"",
+                    ""type"": ""Button"",
+                    ""id"": ""2b79e5c5-324a-47f0-8ce1-6c76ef4a9c3d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteF4"",
+                    ""type"": ""Button"",
+                    ""id"": ""8e6cba05-e71f-480e-bdea-270052fdc4ed"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteF5"",
+                    ""type"": ""Button"",
+                    ""id"": ""e26282d0-9407-4f1a-865a-f2a7db60dfe0"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteF6"",
+                    ""type"": ""Button"",
+                    ""id"": ""bdd8b7a5-d7ec-4bbc-a56c-5e8f60668244"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteF7"",
+                    ""type"": ""Button"",
+                    ""id"": ""2ec0f51f-77c0-4db0-ad88-0859e75596b9"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteFS1"",
+                    ""type"": ""Button"",
+                    ""id"": ""8b5b5f53-0a56-4bb2-8e17-45d1801b9c83"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteFS2"",
+                    ""type"": ""Button"",
+                    ""id"": ""7268bc7a-724d-4e7f-b8f1-bed31e87ae2f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteFS3"",
+                    ""type"": ""Button"",
+                    ""id"": ""62241c57-54f3-47cf-99dc-b448365d0e4c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteFS4"",
+                    ""type"": ""Button"",
+                    ""id"": ""67f2a232-5c71-43c1-9eb5-c0fc69c82f1f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteFS5"",
+                    ""type"": ""Button"",
+                    ""id"": ""408f2934-de63-4bd8-a34c-39419415d85d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteFS6"",
+                    ""type"": ""Button"",
+                    ""id"": ""20808ed7-f47a-481f-a47e-6b70cc2845e7"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteFS7"",
+                    ""type"": ""Button"",
+                    ""id"": ""fe5fa840-124d-4da5-8b03-436390add05d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteG1"",
+                    ""type"": ""Button"",
+                    ""id"": ""c35fbc1e-be69-440f-975e-82b6696868ce"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteG2"",
+                    ""type"": ""Button"",
+                    ""id"": ""e0a4941b-544c-4be3-a34b-3bcbf1a4a794"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteG3"",
+                    ""type"": ""Button"",
+                    ""id"": ""3079735e-5fb8-48d0-8211-b7966863e2dd"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteG4"",
+                    ""type"": ""Button"",
+                    ""id"": ""c806e4e0-4f8f-4b81-81dc-22d67184927b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteG5"",
+                    ""type"": ""Button"",
+                    ""id"": ""dd41778c-deab-4cda-8e4c-c68f7a7afa4e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteG6"",
+                    ""type"": ""Button"",
+                    ""id"": ""14c73479-031d-4fe7-a956-db11c600291e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteG7"",
+                    ""type"": ""Button"",
+                    ""id"": ""8c88502b-d22a-4d38-9ae7-76df6aeddfc9"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteGS1"",
+                    ""type"": ""Button"",
+                    ""id"": ""af99c09a-59d6-4379-9a44-8ec2c4f4962e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteGS2"",
+                    ""type"": ""Button"",
+                    ""id"": ""a0cf2b9d-6eed-4c46-aa27-271e80f57c96"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteGS3"",
+                    ""type"": ""Button"",
+                    ""id"": ""efa97377-122d-4562-a27b-b9cb9d30219b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteGS4"",
+                    ""type"": ""Button"",
+                    ""id"": ""7a5c035f-21ad-4a67-809a-5187add9954b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteGS5"",
+                    ""type"": ""Button"",
+                    ""id"": ""0a39cf51-b0c1-48d7-a76d-0c93aa855b10"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteGS6"",
+                    ""type"": ""Button"",
+                    ""id"": ""df579ac0-8972-4919-9441-db3c71b609f9"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteGS7"",
+                    ""type"": ""Button"",
+                    ""id"": ""1db15ff6-1a6e-42b2-9bce-5094f0799b35"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteA0"",
+                    ""type"": ""Button"",
+                    ""id"": ""49acd99b-c4b8-4a4e-84e3-0f756bc35fbd"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteA1"",
+                    ""type"": ""Button"",
+                    ""id"": ""170a024a-a261-47d9-8a63-fa2cd1bafc3e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteA2"",
+                    ""type"": ""Button"",
+                    ""id"": ""295c312e-0ec3-4a47-ae1d-11933bfabd17"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteA3"",
+                    ""type"": ""Button"",
+                    ""id"": ""e115e595-41dc-4cdb-a027-471dbcd0e30f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteA4"",
+                    ""type"": ""Button"",
+                    ""id"": ""e00b71fe-a23e-441f-89bb-71ba4da8155c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteA5"",
+                    ""type"": ""Button"",
+                    ""id"": ""115d234e-20a7-4cdf-ad70-45a784abe994"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteA6"",
+                    ""type"": ""Button"",
+                    ""id"": ""3316a9a3-391d-43b4-8daf-ca6d5c599c71"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteA7"",
+                    ""type"": ""Button"",
+                    ""id"": ""30351db7-f201-45b3-963e-8c3597ed79e7"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteAS0"",
+                    ""type"": ""Button"",
+                    ""id"": ""c7474f61-d8db-4ab9-8c60-10d1024df09b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteAS1"",
+                    ""type"": ""Button"",
+                    ""id"": ""cfa8fe64-dae7-4d46-ae14-3954ad8f7a12"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteAS2"",
+                    ""type"": ""Button"",
+                    ""id"": ""e2be22dd-9af2-4c26-9191-8c33aa52cc6c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteAS3"",
+                    ""type"": ""Button"",
+                    ""id"": ""5d598efd-2401-4e59-8acf-ec0a42db701a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteAS4"",
+                    ""type"": ""Button"",
+                    ""id"": ""d599f609-23aa-41e7-9cc0-93d389685bcb"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteAS5"",
+                    ""type"": ""Button"",
+                    ""id"": ""e639e9ea-71a4-47a8-8fc5-1b21619b8abe"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteAS6"",
+                    ""type"": ""Button"",
+                    ""id"": ""c95f89fd-f780-4606-8f23-c430a20ac839"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteAS7"",
+                    ""type"": ""Button"",
+                    ""id"": ""80b0a5b6-51ec-45aa-98ef-7a5c6860d38c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteB0"",
+                    ""type"": ""Button"",
+                    ""id"": ""ce4ca28f-c213-4036-844a-1d67d1a43841"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteB1"",
+                    ""type"": ""Button"",
+                    ""id"": ""eab3cd60-7c60-4b79-b62f-9ad1877dc9a2"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteB2"",
+                    ""type"": ""Button"",
+                    ""id"": ""1e46d4b2-ca78-48c8-afb9-233c8ba6f2d1"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteB3"",
+                    ""type"": ""Button"",
+                    ""id"": ""859c7bc5-e57f-4263-9978-0373d44cbddf"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteB4"",
+                    ""type"": ""Button"",
+                    ""id"": ""4d2d0710-e743-4828-a57b-6fe4783fa61d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteB5"",
+                    ""type"": ""Button"",
+                    ""id"": ""c79f02eb-d92b-401a-85cc-bbcf75969979"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteB6"",
+                    ""type"": ""Button"",
+                    ""id"": ""fe2203f1-afd1-45b8-8b93-d769d68d4e07"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteB7"",
+                    ""type"": ""Button"",
+                    ""id"": ""914346ac-20d6-4a72-b5ba-9ac4e028d1f2"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1385,6 +1998,974 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""Key1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d859f6dc-163a-4e57-b8f6-623de0a269fd"",
+                    ""path"": ""<MidiDevice>/note025"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteCS1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""52d28ad2-e9da-4dfa-b922-1960b41afeac"",
+                    ""path"": ""<MidiDevice>/note037"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteCS2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3a509cbf-663a-4ced-aa7b-89d1b9d52708"",
+                    ""path"": ""<MidiDevice>/note049"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteCS3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bd78dd3e-4090-4279-a8d5-e3779ecb57c6"",
+                    ""path"": ""<MidiDevice>/note061"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteCS4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""376d0c52-77f6-4041-afc6-f6c66e6a8943"",
+                    ""path"": ""<MidiDevice>/note073"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteCS5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1ad6b61b-466c-4c1f-9a5e-3929d5ae30e9"",
+                    ""path"": ""<MidiDevice>/note085"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteCS6"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7dc0fa34-b890-4a7f-98e8-80b6eb31cc32"",
+                    ""path"": ""<MidiDevice>/note097"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteCS7"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8bb74127-0f02-4246-8c6a-5f90e9166d98"",
+                    ""path"": ""<MidiDevice>/note026"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteD1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""612262cc-aca9-4c2b-ac3e-d27dd5c020b4"",
+                    ""path"": ""<MidiDevice>/note038"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteD2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""64033a23-0d83-4069-a5d0-39e0f7ebad1e"",
+                    ""path"": ""<MidiDevice>/note050"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteD3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2eb76660-3af3-49f9-af94-5ef3f65e7c0a"",
+                    ""path"": ""<MidiDevice>/note062"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteD4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3589c713-9cb6-457f-af19-8ce82fee3e0f"",
+                    ""path"": ""<MidiDevice>/note074"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteD5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0b17ea1e-81f8-40a2-8173-21c2b0bccdc4"",
+                    ""path"": ""<MidiDevice>/note086"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteD6"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b874521c-1000-4fb4-8c74-0179bd70c760"",
+                    ""path"": ""<MidiDevice>/note098"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteD7"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a6c94563-0fb2-44d6-b357-21a361d7088f"",
+                    ""path"": ""<MidiDevice>/note027"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteDS1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0fd16fef-7bef-45fd-85f8-04637c3e1647"",
+                    ""path"": ""<MidiDevice>/note039"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteDS2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f9267024-3797-40e2-8d12-c2e5e430c59f"",
+                    ""path"": ""<MidiDevice>/note051"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteDS3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""21ae7755-6c86-4c45-a214-5e83ee688c30"",
+                    ""path"": ""<MidiDevice>/note063"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteDS4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8434b5f9-a164-483a-acae-f4c1dd923f91"",
+                    ""path"": ""<MidiDevice>/note075"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteDS5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cde7088f-98b3-4cfd-86c4-4e3ecf08c30d"",
+                    ""path"": ""<MidiDevice>/note087"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteDS6"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a545e5c1-2774-44eb-9e08-cfb2b078c893"",
+                    ""path"": ""<MidiDevice>/note099"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteDS7"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7d0346ee-b6e3-416e-b6de-65c2bd726b2b"",
+                    ""path"": ""<MidiDevice>/note028"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteE1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""92a53a0b-e901-4a55-862c-34f76e76c359"",
+                    ""path"": ""<MidiDevice>/note040"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteE2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""209c61b9-af3b-4cae-8ae2-4bd09f5d214c"",
+                    ""path"": ""<MidiDevice>/note052"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteE3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ea37b78d-b485-4953-9dd6-a2537b5ada35"",
+                    ""path"": ""<MidiDevice>/note064"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteE4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""18b2b810-e56e-4f7f-b907-d4baa648bf10"",
+                    ""path"": ""<MidiDevice>/note076"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteE5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b890488a-6dd3-4e81-b6c3-695bbfbda8c2"",
+                    ""path"": ""<MidiDevice>/note088"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteE6"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5115e345-1d31-42da-a685-a8c8443f2137"",
+                    ""path"": ""<MidiDevice>/note100"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteE7"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fd31700e-cd05-4115-8f47-26c23d5409ac"",
+                    ""path"": ""<Keyboard>/f1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteF1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e81db8cb-451d-4efb-8139-994071911e38"",
+                    ""path"": ""<Keyboard>/f2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteF2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2e92aca6-6611-40db-8c46-53eec91a2e76"",
+                    ""path"": ""<MidiDevice>/note053"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteF3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""002d873f-da29-4a35-b3c8-ba320580cccf"",
+                    ""path"": ""<MidiDevice>/note065"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteF4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""08e38922-8cb2-476d-b0c5-2c246456d591"",
+                    ""path"": ""<MidiDevice>/note077"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteF5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e1cdfdb0-fb3a-4027-b309-0e0bcc518b30"",
+                    ""path"": ""<MidiDevice>/note089"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteF6"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4d37e3f5-189f-4afb-82dc-c39758537cbf"",
+                    ""path"": ""<MidiDevice>/note101"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteF7"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0fd864c5-7b98-498c-a07b-7ce2b6e3aa74"",
+                    ""path"": ""<MidiDevice>/note030"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteFS1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""83eb4a9c-39f9-4f7d-ae12-c5b456968d53"",
+                    ""path"": ""<MidiDevice>/note042"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteFS2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3f27ca68-9ea5-4578-ba2d-017f20b36ed9"",
+                    ""path"": ""<MidiDevice>/note054"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteFS3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""370e16d9-2c0e-4fac-aa7d-8393fd03db11"",
+                    ""path"": ""<MidiDevice>/note066"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteFS4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a58d9bf9-97d1-47b2-aa4c-feec1fa32bd4"",
+                    ""path"": ""<MidiDevice>/note078"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteFS5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5b2b8dc4-cb91-44b7-9ab0-4b297cd75dcc"",
+                    ""path"": ""<MidiDevice>/note090"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteFS6"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0b3ce254-d2e2-4480-807e-c98485956ed8"",
+                    ""path"": ""<MidiDevice>/note102"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteFS7"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f5a0e4a1-194f-4bb7-b53f-e6dd21cb350a"",
+                    ""path"": ""<MidiDevice>/note031"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteG1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cf67a986-32fb-46a3-883b-53fccda5c59f"",
+                    ""path"": ""<MidiDevice>/note043"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteG2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c1b42225-964d-4a52-ae02-eb552a8b1831"",
+                    ""path"": ""<MidiDevice>/note055"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteG3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f8d48b16-8eb3-47bc-86e3-427a8d80bc50"",
+                    ""path"": ""<MidiDevice>/note067"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteG4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""238e874e-3b75-433b-863e-6ecb45ce5a64"",
+                    ""path"": ""<MidiDevice>/note079"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteG5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3b073a31-358e-4d74-863d-6614d5f37aef"",
+                    ""path"": ""<MidiDevice>/note091"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteG6"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0b432904-452c-451e-94a2-f97a68b9d735"",
+                    ""path"": ""<MidiDevice>/note103"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteG7"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d0a5609c-cd74-4add-bc99-fce23ac3ee39"",
+                    ""path"": ""<MidiDevice>/note032"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteGS1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e8a59b5a-3681-458f-a02f-424fd84e9609"",
+                    ""path"": ""<MidiDevice>/note044"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteGS2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a53564f0-ccc7-4ac3-90c1-0c1638f8a2d2"",
+                    ""path"": ""<MidiDevice>/note056"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteGS3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cf447fa5-5f67-46ed-a02f-8e3495b2a625"",
+                    ""path"": ""<MidiDevice>/note068"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteGS4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c2745249-61df-4c98-b411-80599c9e7fb6"",
+                    ""path"": ""<MidiDevice>/note080"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteGS5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3c6d06b9-579c-41e8-9130-35344682c202"",
+                    ""path"": ""<MidiDevice>/note092"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteGS6"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3298bc4d-85a6-4a12-ba98-94f6f39e06b5"",
+                    ""path"": ""<MidiDevice>/note104"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteGS7"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""65adbbcb-19bc-46f3-bdac-4dc7132ec095"",
+                    ""path"": ""<MidiDevice>/note021"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteA0"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""412a6358-b01a-4e64-924d-040139c97df3"",
+                    ""path"": ""<MidiDevice>/note033"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteA1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9db417e8-b963-4ae2-8bdb-39e8ca830a94"",
+                    ""path"": ""<MidiDevice>/note045"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteA2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""334af1da-7916-4212-b218-bce109c532c1"",
+                    ""path"": ""<MidiDevice>/note057"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteA3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ec30a5ae-89d8-4758-97ec-5801487dd05a"",
+                    ""path"": ""<MidiDevice>/note069"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteA4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f7b81096-2c00-4e8a-a62b-f230f7f65a48"",
+                    ""path"": ""<MidiDevice>/note081"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteA5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d8b3b86a-2d50-4d11-bea8-45b0d5c897b4"",
+                    ""path"": ""<MidiDevice>/note093"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteA6"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""60bfa907-0c6c-43fb-8cc4-59a6f55e9e5c"",
+                    ""path"": ""<MidiDevice>/note105"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteA7"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""87cca1b5-a500-445d-992d-0e1fb1332d44"",
+                    ""path"": ""<MidiDevice>/note022"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteAS0"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c70da0ba-85af-4434-886c-a16c4dd9b5a4"",
+                    ""path"": ""<MidiDevice>/note034"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteAS1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a1e2fad0-0fbd-43b7-a58d-635b7433df6d"",
+                    ""path"": ""<MidiDevice>/note046"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteAS2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""46af6d29-490a-4235-859d-bb2280f1e488"",
+                    ""path"": ""<MidiDevice>/note058"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteAS3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4aaed8a1-303d-4b98-9b75-3a99c245d2a2"",
+                    ""path"": ""<MidiDevice>/note070"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteAS4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""39010880-4a30-40eb-b03f-fbfb73511a66"",
+                    ""path"": ""<MidiDevice>/note082"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteAS5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c7a87c00-3129-4dec-aca9-cd26e6ea36da"",
+                    ""path"": ""<MidiDevice>/note094"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteAS6"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2d2f407b-cc25-449f-a59a-e4d8ee73b983"",
+                    ""path"": ""<MidiDevice>/note106"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteAS7"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ae6eebf0-fcff-4065-894e-9c98abba9fb3"",
+                    ""path"": ""<MidiDevice>/note023"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteB0"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""74c0c7cd-83e1-4111-9db4-7f57b2599c17"",
+                    ""path"": ""<MidiDevice>/note035"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteB1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0d2a3d3d-206f-4c21-894f-cea22b113d97"",
+                    ""path"": ""<MidiDevice>/note047"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteB2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2b8895c7-d6a5-4320-b07c-bb30e970375e"",
+                    ""path"": ""<MidiDevice>/note059"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteB3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""469c9ad8-2e85-45cd-922e-c685de61e189"",
+                    ""path"": ""<MidiDevice>/note071"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteB4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""de6a3664-4507-41a9-aaac-3f200236969c"",
+                    ""path"": ""<MidiDevice>/note083"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteB5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5010cb18-2a01-4529-9497-60870c94dcc3"",
+                    ""path"": ""<MidiDevice>/note095"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteB6"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""94e9075e-cb4b-4ca3-b0b6-4a413077e898"",
+                    ""path"": ""<MidiDevice>/note107"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteB7"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c849ffa0-759f-4c89-815e-053fc8faaad7"",
+                    ""path"": ""<MidiDevice>/note024"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteC1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d200443a-2d31-4450-92a0-f0c74709930b"",
+                    ""path"": ""<MidiDevice>/note036"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteC2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d742f3b7-853c-4514-b63b-90a8bcd9f5e8"",
+                    ""path"": ""<MidiDevice>/note048"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteC3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b28e5aad-03fc-4a62-bf26-ef39d8ca7979"",
+                    ""path"": ""<MidiDevice>/note060"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteC4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""17458fdf-148f-42bf-bab4-5bdded4672ca"",
+                    ""path"": ""<MidiDevice>/note072"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteC5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f4225731-c91d-40a0-8334-7e7c8d841dcc"",
+                    ""path"": ""<MidiDevice>/note084"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteC6"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""668af0de-595b-4df0-a1ef-0e1a27eb76bd"",
+                    ""path"": ""<MidiDevice>/note096"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteC7"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4dd520ab-51cd-4a1d-9fa9-0329a2e40efe"",
+                    ""path"": ""<MidiDevice>/note108"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""NoteC8"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1706,6 +3287,15 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ContinuousInteraction"",
+                    ""type"": ""Button"",
+                    ""id"": ""72fd4e47-ea93-47a2-8f78-cc44bbe54791"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1739,6 +3329,17 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Submit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fa7368ce-6244-4bf7-b6b5-59096dd44cb2"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""ContinuousInteraction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1835,8 +3436,30 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""27c03690-d00a-4f40-b4e5-83f911dbb926"",
+                    ""path"": ""<MidiDevice>/note060"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Key1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""3de5f33c-2d8d-4d77-8b1b-423c885cc92b"",
                     ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Key2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e3ff3bc0-6b1a-40d2-bcfb-d511c0ae5e19"",
+                    ""path"": ""<MidiDevice>/note062"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
@@ -1857,8 +3480,30 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""8e002cd9-8246-43bc-a9c8-6bf5064790bd"",
+                    ""path"": ""<MidiDevice>/note064"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Key3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""e984bb98-25ca-469c-a9a7-a6d17ec6c638"",
                     ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Key4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5dc34087-e1b5-439a-b801-895eed5c584b"",
+                    ""path"": ""<Keyboard>/f4"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
@@ -1879,8 +3524,30 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""8b460415-239f-457d-bfdc-250fdaf822b5"",
+                    ""path"": ""<MidiDevice>/note067"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Key5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""74f55396-21c4-4ec1-a8cd-6358d2781436"",
                     ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Key6"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a2d74802-d87a-45a5-9dfb-ddf4a6735ea4"",
+                    ""path"": ""<MidiDevice>/note069"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
@@ -1901,8 +3568,30 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""07fd32b9-a1c3-4ac6-b34a-02748706a239"",
+                    ""path"": ""<MidiDevice>/note071"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Key7"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""3867090a-2724-4c62-ac15-9cb647bf39bc"",
                     ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Key8"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""61c04ca9-1d8e-4570-a915-d5ebfefac4a6"",
+                    ""path"": ""<MidiDevice>/note072"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
@@ -1979,14 +3668,10 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-        m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
-        m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
-        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
-        m_Player_Previous = m_Player.FindAction("Previous", throwIfNotFound: true);
-        m_Player_Next = m_Player.FindAction("Next", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
+        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         // Camera
         m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
         m_Camera_Look = m_Camera.FindAction("Look", throwIfNotFound: true);
@@ -2031,11 +3716,100 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         m_Piano_Pedal = m_Piano.FindAction("Pedal", throwIfNotFound: true);
         m_Piano_OctaveUp = m_Piano.FindAction("OctaveUp", throwIfNotFound: true);
         m_Piano_OctaveDown = m_Piano.FindAction("OctaveDown", throwIfNotFound: true);
+        m_Piano_NoteC1 = m_Piano.FindAction("NoteC1", throwIfNotFound: true);
+        m_Piano_NoteC2 = m_Piano.FindAction("NoteC2", throwIfNotFound: true);
+        m_Piano_NoteC3 = m_Piano.FindAction("NoteC3", throwIfNotFound: true);
+        m_Piano_NoteC4 = m_Piano.FindAction("NoteC4", throwIfNotFound: true);
+        m_Piano_NoteC5 = m_Piano.FindAction("NoteC5", throwIfNotFound: true);
+        m_Piano_NoteC6 = m_Piano.FindAction("NoteC6", throwIfNotFound: true);
+        m_Piano_NoteC7 = m_Piano.FindAction("NoteC7", throwIfNotFound: true);
+        m_Piano_NoteC8 = m_Piano.FindAction("NoteC8", throwIfNotFound: true);
+        m_Piano_NoteCS1 = m_Piano.FindAction("NoteCS1", throwIfNotFound: true);
+        m_Piano_NoteCS2 = m_Piano.FindAction("NoteCS2", throwIfNotFound: true);
+        m_Piano_NoteCS3 = m_Piano.FindAction("NoteCS3", throwIfNotFound: true);
+        m_Piano_NoteCS4 = m_Piano.FindAction("NoteCS4", throwIfNotFound: true);
+        m_Piano_NoteCS5 = m_Piano.FindAction("NoteCS5", throwIfNotFound: true);
+        m_Piano_NoteCS6 = m_Piano.FindAction("NoteCS6", throwIfNotFound: true);
+        m_Piano_NoteCS7 = m_Piano.FindAction("NoteCS7", throwIfNotFound: true);
+        m_Piano_NoteD1 = m_Piano.FindAction("NoteD1", throwIfNotFound: true);
+        m_Piano_NoteD2 = m_Piano.FindAction("NoteD2", throwIfNotFound: true);
+        m_Piano_NoteD3 = m_Piano.FindAction("NoteD3", throwIfNotFound: true);
+        m_Piano_NoteD4 = m_Piano.FindAction("NoteD4", throwIfNotFound: true);
+        m_Piano_NoteD5 = m_Piano.FindAction("NoteD5", throwIfNotFound: true);
+        m_Piano_NoteD6 = m_Piano.FindAction("NoteD6", throwIfNotFound: true);
+        m_Piano_NoteD7 = m_Piano.FindAction("NoteD7", throwIfNotFound: true);
+        m_Piano_NoteDS1 = m_Piano.FindAction("NoteDS1", throwIfNotFound: true);
+        m_Piano_NoteDS2 = m_Piano.FindAction("NoteDS2", throwIfNotFound: true);
+        m_Piano_NoteDS3 = m_Piano.FindAction("NoteDS3", throwIfNotFound: true);
+        m_Piano_NoteDS4 = m_Piano.FindAction("NoteDS4", throwIfNotFound: true);
+        m_Piano_NoteDS5 = m_Piano.FindAction("NoteDS5", throwIfNotFound: true);
+        m_Piano_NoteDS6 = m_Piano.FindAction("NoteDS6", throwIfNotFound: true);
+        m_Piano_NoteDS7 = m_Piano.FindAction("NoteDS7", throwIfNotFound: true);
+        m_Piano_NoteE1 = m_Piano.FindAction("NoteE1", throwIfNotFound: true);
+        m_Piano_NoteE2 = m_Piano.FindAction("NoteE2", throwIfNotFound: true);
+        m_Piano_NoteE3 = m_Piano.FindAction("NoteE3", throwIfNotFound: true);
+        m_Piano_NoteE4 = m_Piano.FindAction("NoteE4", throwIfNotFound: true);
+        m_Piano_NoteE5 = m_Piano.FindAction("NoteE5", throwIfNotFound: true);
+        m_Piano_NoteE6 = m_Piano.FindAction("NoteE6", throwIfNotFound: true);
+        m_Piano_NoteE7 = m_Piano.FindAction("NoteE7", throwIfNotFound: true);
+        m_Piano_NoteF1 = m_Piano.FindAction("NoteF1", throwIfNotFound: true);
+        m_Piano_NoteF2 = m_Piano.FindAction("NoteF2", throwIfNotFound: true);
+        m_Piano_NoteF3 = m_Piano.FindAction("NoteF3", throwIfNotFound: true);
+        m_Piano_NoteF4 = m_Piano.FindAction("NoteF4", throwIfNotFound: true);
+        m_Piano_NoteF5 = m_Piano.FindAction("NoteF5", throwIfNotFound: true);
+        m_Piano_NoteF6 = m_Piano.FindAction("NoteF6", throwIfNotFound: true);
+        m_Piano_NoteF7 = m_Piano.FindAction("NoteF7", throwIfNotFound: true);
+        m_Piano_NoteFS1 = m_Piano.FindAction("NoteFS1", throwIfNotFound: true);
+        m_Piano_NoteFS2 = m_Piano.FindAction("NoteFS2", throwIfNotFound: true);
+        m_Piano_NoteFS3 = m_Piano.FindAction("NoteFS3", throwIfNotFound: true);
+        m_Piano_NoteFS4 = m_Piano.FindAction("NoteFS4", throwIfNotFound: true);
+        m_Piano_NoteFS5 = m_Piano.FindAction("NoteFS5", throwIfNotFound: true);
+        m_Piano_NoteFS6 = m_Piano.FindAction("NoteFS6", throwIfNotFound: true);
+        m_Piano_NoteFS7 = m_Piano.FindAction("NoteFS7", throwIfNotFound: true);
+        m_Piano_NoteG1 = m_Piano.FindAction("NoteG1", throwIfNotFound: true);
+        m_Piano_NoteG2 = m_Piano.FindAction("NoteG2", throwIfNotFound: true);
+        m_Piano_NoteG3 = m_Piano.FindAction("NoteG3", throwIfNotFound: true);
+        m_Piano_NoteG4 = m_Piano.FindAction("NoteG4", throwIfNotFound: true);
+        m_Piano_NoteG5 = m_Piano.FindAction("NoteG5", throwIfNotFound: true);
+        m_Piano_NoteG6 = m_Piano.FindAction("NoteG6", throwIfNotFound: true);
+        m_Piano_NoteG7 = m_Piano.FindAction("NoteG7", throwIfNotFound: true);
+        m_Piano_NoteGS1 = m_Piano.FindAction("NoteGS1", throwIfNotFound: true);
+        m_Piano_NoteGS2 = m_Piano.FindAction("NoteGS2", throwIfNotFound: true);
+        m_Piano_NoteGS3 = m_Piano.FindAction("NoteGS3", throwIfNotFound: true);
+        m_Piano_NoteGS4 = m_Piano.FindAction("NoteGS4", throwIfNotFound: true);
+        m_Piano_NoteGS5 = m_Piano.FindAction("NoteGS5", throwIfNotFound: true);
+        m_Piano_NoteGS6 = m_Piano.FindAction("NoteGS6", throwIfNotFound: true);
+        m_Piano_NoteGS7 = m_Piano.FindAction("NoteGS7", throwIfNotFound: true);
+        m_Piano_NoteA0 = m_Piano.FindAction("NoteA0", throwIfNotFound: true);
+        m_Piano_NoteA1 = m_Piano.FindAction("NoteA1", throwIfNotFound: true);
+        m_Piano_NoteA2 = m_Piano.FindAction("NoteA2", throwIfNotFound: true);
+        m_Piano_NoteA3 = m_Piano.FindAction("NoteA3", throwIfNotFound: true);
+        m_Piano_NoteA4 = m_Piano.FindAction("NoteA4", throwIfNotFound: true);
+        m_Piano_NoteA5 = m_Piano.FindAction("NoteA5", throwIfNotFound: true);
+        m_Piano_NoteA6 = m_Piano.FindAction("NoteA6", throwIfNotFound: true);
+        m_Piano_NoteA7 = m_Piano.FindAction("NoteA7", throwIfNotFound: true);
+        m_Piano_NoteAS0 = m_Piano.FindAction("NoteAS0", throwIfNotFound: true);
+        m_Piano_NoteAS1 = m_Piano.FindAction("NoteAS1", throwIfNotFound: true);
+        m_Piano_NoteAS2 = m_Piano.FindAction("NoteAS2", throwIfNotFound: true);
+        m_Piano_NoteAS3 = m_Piano.FindAction("NoteAS3", throwIfNotFound: true);
+        m_Piano_NoteAS4 = m_Piano.FindAction("NoteAS4", throwIfNotFound: true);
+        m_Piano_NoteAS5 = m_Piano.FindAction("NoteAS5", throwIfNotFound: true);
+        m_Piano_NoteAS6 = m_Piano.FindAction("NoteAS6", throwIfNotFound: true);
+        m_Piano_NoteAS7 = m_Piano.FindAction("NoteAS7", throwIfNotFound: true);
+        m_Piano_NoteB0 = m_Piano.FindAction("NoteB0", throwIfNotFound: true);
+        m_Piano_NoteB1 = m_Piano.FindAction("NoteB1", throwIfNotFound: true);
+        m_Piano_NoteB2 = m_Piano.FindAction("NoteB2", throwIfNotFound: true);
+        m_Piano_NoteB3 = m_Piano.FindAction("NoteB3", throwIfNotFound: true);
+        m_Piano_NoteB4 = m_Piano.FindAction("NoteB4", throwIfNotFound: true);
+        m_Piano_NoteB5 = m_Piano.FindAction("NoteB5", throwIfNotFound: true);
+        m_Piano_NoteB6 = m_Piano.FindAction("NoteB6", throwIfNotFound: true);
+        m_Piano_NoteB7 = m_Piano.FindAction("NoteB7", throwIfNotFound: true);
         // Navigation
         m_Navigation = asset.FindActionMap("Navigation", throwIfNotFound: true);
         m_Navigation_Exit = m_Navigation.FindAction("Exit", throwIfNotFound: true);
         m_Navigation_Back = m_Navigation.FindAction("Back", throwIfNotFound: true);
         m_Navigation_Submit = m_Navigation.FindAction("Submit", throwIfNotFound: true);
+        m_Navigation_ContinuousInteraction = m_Navigation.FindAction("ContinuousInteraction", throwIfNotFound: true);
         // PianoRhythm
         m_PianoRhythm = asset.FindActionMap("PianoRhythm", throwIfNotFound: true);
         m_PianoRhythm_Key1 = m_PianoRhythm.FindAction("Key1", throwIfNotFound: true);
@@ -2132,14 +3906,10 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
-    private readonly InputAction m_Player_Look;
-    private readonly InputAction m_Player_Attack;
-    private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Crouch;
     private readonly InputAction m_Player_Jump;
-    private readonly InputAction m_Player_Previous;
-    private readonly InputAction m_Player_Next;
     private readonly InputAction m_Player_Sprint;
+    private readonly InputAction m_Player_Interact;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -2156,18 +3926,6 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Move => m_Wrapper.m_Player_Move;
         /// <summary>
-        /// Provides access to the underlying input action "Player/Look".
-        /// </summary>
-        public InputAction @Look => m_Wrapper.m_Player_Look;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/Attack".
-        /// </summary>
-        public InputAction @Attack => m_Wrapper.m_Player_Attack;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/Interact".
-        /// </summary>
-        public InputAction @Interact => m_Wrapper.m_Player_Interact;
-        /// <summary>
         /// Provides access to the underlying input action "Player/Crouch".
         /// </summary>
         public InputAction @Crouch => m_Wrapper.m_Player_Crouch;
@@ -2176,17 +3934,13 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         /// <summary>
-        /// Provides access to the underlying input action "Player/Previous".
-        /// </summary>
-        public InputAction @Previous => m_Wrapper.m_Player_Previous;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/Next".
-        /// </summary>
-        public InputAction @Next => m_Wrapper.m_Player_Next;
-        /// <summary>
         /// Provides access to the underlying input action "Player/Sprint".
         /// </summary>
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Interact".
+        /// </summary>
+        public InputAction @Interact => m_Wrapper.m_Player_Interact;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -2216,30 +3970,18 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
-            @Look.started += instance.OnLook;
-            @Look.performed += instance.OnLook;
-            @Look.canceled += instance.OnLook;
-            @Attack.started += instance.OnAttack;
-            @Attack.performed += instance.OnAttack;
-            @Attack.canceled += instance.OnAttack;
-            @Interact.started += instance.OnInteract;
-            @Interact.performed += instance.OnInteract;
-            @Interact.canceled += instance.OnInteract;
             @Crouch.started += instance.OnCrouch;
             @Crouch.performed += instance.OnCrouch;
             @Crouch.canceled += instance.OnCrouch;
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
-            @Previous.started += instance.OnPrevious;
-            @Previous.performed += instance.OnPrevious;
-            @Previous.canceled += instance.OnPrevious;
-            @Next.started += instance.OnNext;
-            @Next.performed += instance.OnNext;
-            @Next.canceled += instance.OnNext;
             @Sprint.started += instance.OnSprint;
             @Sprint.performed += instance.OnSprint;
             @Sprint.canceled += instance.OnSprint;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
         }
 
         /// <summary>
@@ -2254,30 +3996,18 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
-            @Look.started -= instance.OnLook;
-            @Look.performed -= instance.OnLook;
-            @Look.canceled -= instance.OnLook;
-            @Attack.started -= instance.OnAttack;
-            @Attack.performed -= instance.OnAttack;
-            @Attack.canceled -= instance.OnAttack;
-            @Interact.started -= instance.OnInteract;
-            @Interact.performed -= instance.OnInteract;
-            @Interact.canceled -= instance.OnInteract;
             @Crouch.started -= instance.OnCrouch;
             @Crouch.performed -= instance.OnCrouch;
             @Crouch.canceled -= instance.OnCrouch;
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
-            @Previous.started -= instance.OnPrevious;
-            @Previous.performed -= instance.OnPrevious;
-            @Previous.canceled -= instance.OnPrevious;
-            @Next.started -= instance.OnNext;
-            @Next.performed -= instance.OnNext;
-            @Next.canceled -= instance.OnNext;
             @Sprint.started -= instance.OnSprint;
             @Sprint.performed -= instance.OnSprint;
             @Sprint.canceled -= instance.OnSprint;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
         }
 
         /// <summary>
@@ -2633,6 +4363,94 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Piano_Pedal;
     private readonly InputAction m_Piano_OctaveUp;
     private readonly InputAction m_Piano_OctaveDown;
+    private readonly InputAction m_Piano_NoteC1;
+    private readonly InputAction m_Piano_NoteC2;
+    private readonly InputAction m_Piano_NoteC3;
+    private readonly InputAction m_Piano_NoteC4;
+    private readonly InputAction m_Piano_NoteC5;
+    private readonly InputAction m_Piano_NoteC6;
+    private readonly InputAction m_Piano_NoteC7;
+    private readonly InputAction m_Piano_NoteC8;
+    private readonly InputAction m_Piano_NoteCS1;
+    private readonly InputAction m_Piano_NoteCS2;
+    private readonly InputAction m_Piano_NoteCS3;
+    private readonly InputAction m_Piano_NoteCS4;
+    private readonly InputAction m_Piano_NoteCS5;
+    private readonly InputAction m_Piano_NoteCS6;
+    private readonly InputAction m_Piano_NoteCS7;
+    private readonly InputAction m_Piano_NoteD1;
+    private readonly InputAction m_Piano_NoteD2;
+    private readonly InputAction m_Piano_NoteD3;
+    private readonly InputAction m_Piano_NoteD4;
+    private readonly InputAction m_Piano_NoteD5;
+    private readonly InputAction m_Piano_NoteD6;
+    private readonly InputAction m_Piano_NoteD7;
+    private readonly InputAction m_Piano_NoteDS1;
+    private readonly InputAction m_Piano_NoteDS2;
+    private readonly InputAction m_Piano_NoteDS3;
+    private readonly InputAction m_Piano_NoteDS4;
+    private readonly InputAction m_Piano_NoteDS5;
+    private readonly InputAction m_Piano_NoteDS6;
+    private readonly InputAction m_Piano_NoteDS7;
+    private readonly InputAction m_Piano_NoteE1;
+    private readonly InputAction m_Piano_NoteE2;
+    private readonly InputAction m_Piano_NoteE3;
+    private readonly InputAction m_Piano_NoteE4;
+    private readonly InputAction m_Piano_NoteE5;
+    private readonly InputAction m_Piano_NoteE6;
+    private readonly InputAction m_Piano_NoteE7;
+    private readonly InputAction m_Piano_NoteF1;
+    private readonly InputAction m_Piano_NoteF2;
+    private readonly InputAction m_Piano_NoteF3;
+    private readonly InputAction m_Piano_NoteF4;
+    private readonly InputAction m_Piano_NoteF5;
+    private readonly InputAction m_Piano_NoteF6;
+    private readonly InputAction m_Piano_NoteF7;
+    private readonly InputAction m_Piano_NoteFS1;
+    private readonly InputAction m_Piano_NoteFS2;
+    private readonly InputAction m_Piano_NoteFS3;
+    private readonly InputAction m_Piano_NoteFS4;
+    private readonly InputAction m_Piano_NoteFS5;
+    private readonly InputAction m_Piano_NoteFS6;
+    private readonly InputAction m_Piano_NoteFS7;
+    private readonly InputAction m_Piano_NoteG1;
+    private readonly InputAction m_Piano_NoteG2;
+    private readonly InputAction m_Piano_NoteG3;
+    private readonly InputAction m_Piano_NoteG4;
+    private readonly InputAction m_Piano_NoteG5;
+    private readonly InputAction m_Piano_NoteG6;
+    private readonly InputAction m_Piano_NoteG7;
+    private readonly InputAction m_Piano_NoteGS1;
+    private readonly InputAction m_Piano_NoteGS2;
+    private readonly InputAction m_Piano_NoteGS3;
+    private readonly InputAction m_Piano_NoteGS4;
+    private readonly InputAction m_Piano_NoteGS5;
+    private readonly InputAction m_Piano_NoteGS6;
+    private readonly InputAction m_Piano_NoteGS7;
+    private readonly InputAction m_Piano_NoteA0;
+    private readonly InputAction m_Piano_NoteA1;
+    private readonly InputAction m_Piano_NoteA2;
+    private readonly InputAction m_Piano_NoteA3;
+    private readonly InputAction m_Piano_NoteA4;
+    private readonly InputAction m_Piano_NoteA5;
+    private readonly InputAction m_Piano_NoteA6;
+    private readonly InputAction m_Piano_NoteA7;
+    private readonly InputAction m_Piano_NoteAS0;
+    private readonly InputAction m_Piano_NoteAS1;
+    private readonly InputAction m_Piano_NoteAS2;
+    private readonly InputAction m_Piano_NoteAS3;
+    private readonly InputAction m_Piano_NoteAS4;
+    private readonly InputAction m_Piano_NoteAS5;
+    private readonly InputAction m_Piano_NoteAS6;
+    private readonly InputAction m_Piano_NoteAS7;
+    private readonly InputAction m_Piano_NoteB0;
+    private readonly InputAction m_Piano_NoteB1;
+    private readonly InputAction m_Piano_NoteB2;
+    private readonly InputAction m_Piano_NoteB3;
+    private readonly InputAction m_Piano_NoteB4;
+    private readonly InputAction m_Piano_NoteB5;
+    private readonly InputAction m_Piano_NoteB6;
+    private readonly InputAction m_Piano_NoteB7;
     /// <summary>
     /// Provides access to input actions defined in input action map "Piano".
     /// </summary>
@@ -2753,6 +4571,358 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @OctaveDown => m_Wrapper.m_Piano_OctaveDown;
         /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteC1".
+        /// </summary>
+        public InputAction @NoteC1 => m_Wrapper.m_Piano_NoteC1;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteC2".
+        /// </summary>
+        public InputAction @NoteC2 => m_Wrapper.m_Piano_NoteC2;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteC3".
+        /// </summary>
+        public InputAction @NoteC3 => m_Wrapper.m_Piano_NoteC3;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteC4".
+        /// </summary>
+        public InputAction @NoteC4 => m_Wrapper.m_Piano_NoteC4;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteC5".
+        /// </summary>
+        public InputAction @NoteC5 => m_Wrapper.m_Piano_NoteC5;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteC6".
+        /// </summary>
+        public InputAction @NoteC6 => m_Wrapper.m_Piano_NoteC6;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteC7".
+        /// </summary>
+        public InputAction @NoteC7 => m_Wrapper.m_Piano_NoteC7;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteC8".
+        /// </summary>
+        public InputAction @NoteC8 => m_Wrapper.m_Piano_NoteC8;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteCS1".
+        /// </summary>
+        public InputAction @NoteCS1 => m_Wrapper.m_Piano_NoteCS1;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteCS2".
+        /// </summary>
+        public InputAction @NoteCS2 => m_Wrapper.m_Piano_NoteCS2;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteCS3".
+        /// </summary>
+        public InputAction @NoteCS3 => m_Wrapper.m_Piano_NoteCS3;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteCS4".
+        /// </summary>
+        public InputAction @NoteCS4 => m_Wrapper.m_Piano_NoteCS4;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteCS5".
+        /// </summary>
+        public InputAction @NoteCS5 => m_Wrapper.m_Piano_NoteCS5;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteCS6".
+        /// </summary>
+        public InputAction @NoteCS6 => m_Wrapper.m_Piano_NoteCS6;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteCS7".
+        /// </summary>
+        public InputAction @NoteCS7 => m_Wrapper.m_Piano_NoteCS7;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteD1".
+        /// </summary>
+        public InputAction @NoteD1 => m_Wrapper.m_Piano_NoteD1;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteD2".
+        /// </summary>
+        public InputAction @NoteD2 => m_Wrapper.m_Piano_NoteD2;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteD3".
+        /// </summary>
+        public InputAction @NoteD3 => m_Wrapper.m_Piano_NoteD3;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteD4".
+        /// </summary>
+        public InputAction @NoteD4 => m_Wrapper.m_Piano_NoteD4;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteD5".
+        /// </summary>
+        public InputAction @NoteD5 => m_Wrapper.m_Piano_NoteD5;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteD6".
+        /// </summary>
+        public InputAction @NoteD6 => m_Wrapper.m_Piano_NoteD6;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteD7".
+        /// </summary>
+        public InputAction @NoteD7 => m_Wrapper.m_Piano_NoteD7;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteDS1".
+        /// </summary>
+        public InputAction @NoteDS1 => m_Wrapper.m_Piano_NoteDS1;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteDS2".
+        /// </summary>
+        public InputAction @NoteDS2 => m_Wrapper.m_Piano_NoteDS2;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteDS3".
+        /// </summary>
+        public InputAction @NoteDS3 => m_Wrapper.m_Piano_NoteDS3;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteDS4".
+        /// </summary>
+        public InputAction @NoteDS4 => m_Wrapper.m_Piano_NoteDS4;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteDS5".
+        /// </summary>
+        public InputAction @NoteDS5 => m_Wrapper.m_Piano_NoteDS5;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteDS6".
+        /// </summary>
+        public InputAction @NoteDS6 => m_Wrapper.m_Piano_NoteDS6;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteDS7".
+        /// </summary>
+        public InputAction @NoteDS7 => m_Wrapper.m_Piano_NoteDS7;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteE1".
+        /// </summary>
+        public InputAction @NoteE1 => m_Wrapper.m_Piano_NoteE1;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteE2".
+        /// </summary>
+        public InputAction @NoteE2 => m_Wrapper.m_Piano_NoteE2;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteE3".
+        /// </summary>
+        public InputAction @NoteE3 => m_Wrapper.m_Piano_NoteE3;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteE4".
+        /// </summary>
+        public InputAction @NoteE4 => m_Wrapper.m_Piano_NoteE4;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteE5".
+        /// </summary>
+        public InputAction @NoteE5 => m_Wrapper.m_Piano_NoteE5;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteE6".
+        /// </summary>
+        public InputAction @NoteE6 => m_Wrapper.m_Piano_NoteE6;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteE7".
+        /// </summary>
+        public InputAction @NoteE7 => m_Wrapper.m_Piano_NoteE7;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteF1".
+        /// </summary>
+        public InputAction @NoteF1 => m_Wrapper.m_Piano_NoteF1;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteF2".
+        /// </summary>
+        public InputAction @NoteF2 => m_Wrapper.m_Piano_NoteF2;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteF3".
+        /// </summary>
+        public InputAction @NoteF3 => m_Wrapper.m_Piano_NoteF3;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteF4".
+        /// </summary>
+        public InputAction @NoteF4 => m_Wrapper.m_Piano_NoteF4;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteF5".
+        /// </summary>
+        public InputAction @NoteF5 => m_Wrapper.m_Piano_NoteF5;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteF6".
+        /// </summary>
+        public InputAction @NoteF6 => m_Wrapper.m_Piano_NoteF6;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteF7".
+        /// </summary>
+        public InputAction @NoteF7 => m_Wrapper.m_Piano_NoteF7;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteFS1".
+        /// </summary>
+        public InputAction @NoteFS1 => m_Wrapper.m_Piano_NoteFS1;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteFS2".
+        /// </summary>
+        public InputAction @NoteFS2 => m_Wrapper.m_Piano_NoteFS2;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteFS3".
+        /// </summary>
+        public InputAction @NoteFS3 => m_Wrapper.m_Piano_NoteFS3;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteFS4".
+        /// </summary>
+        public InputAction @NoteFS4 => m_Wrapper.m_Piano_NoteFS4;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteFS5".
+        /// </summary>
+        public InputAction @NoteFS5 => m_Wrapper.m_Piano_NoteFS5;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteFS6".
+        /// </summary>
+        public InputAction @NoteFS6 => m_Wrapper.m_Piano_NoteFS6;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteFS7".
+        /// </summary>
+        public InputAction @NoteFS7 => m_Wrapper.m_Piano_NoteFS7;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteG1".
+        /// </summary>
+        public InputAction @NoteG1 => m_Wrapper.m_Piano_NoteG1;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteG2".
+        /// </summary>
+        public InputAction @NoteG2 => m_Wrapper.m_Piano_NoteG2;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteG3".
+        /// </summary>
+        public InputAction @NoteG3 => m_Wrapper.m_Piano_NoteG3;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteG4".
+        /// </summary>
+        public InputAction @NoteG4 => m_Wrapper.m_Piano_NoteG4;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteG5".
+        /// </summary>
+        public InputAction @NoteG5 => m_Wrapper.m_Piano_NoteG5;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteG6".
+        /// </summary>
+        public InputAction @NoteG6 => m_Wrapper.m_Piano_NoteG6;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteG7".
+        /// </summary>
+        public InputAction @NoteG7 => m_Wrapper.m_Piano_NoteG7;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteGS1".
+        /// </summary>
+        public InputAction @NoteGS1 => m_Wrapper.m_Piano_NoteGS1;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteGS2".
+        /// </summary>
+        public InputAction @NoteGS2 => m_Wrapper.m_Piano_NoteGS2;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteGS3".
+        /// </summary>
+        public InputAction @NoteGS3 => m_Wrapper.m_Piano_NoteGS3;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteGS4".
+        /// </summary>
+        public InputAction @NoteGS4 => m_Wrapper.m_Piano_NoteGS4;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteGS5".
+        /// </summary>
+        public InputAction @NoteGS5 => m_Wrapper.m_Piano_NoteGS5;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteGS6".
+        /// </summary>
+        public InputAction @NoteGS6 => m_Wrapper.m_Piano_NoteGS6;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteGS7".
+        /// </summary>
+        public InputAction @NoteGS7 => m_Wrapper.m_Piano_NoteGS7;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteA0".
+        /// </summary>
+        public InputAction @NoteA0 => m_Wrapper.m_Piano_NoteA0;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteA1".
+        /// </summary>
+        public InputAction @NoteA1 => m_Wrapper.m_Piano_NoteA1;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteA2".
+        /// </summary>
+        public InputAction @NoteA2 => m_Wrapper.m_Piano_NoteA2;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteA3".
+        /// </summary>
+        public InputAction @NoteA3 => m_Wrapper.m_Piano_NoteA3;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteA4".
+        /// </summary>
+        public InputAction @NoteA4 => m_Wrapper.m_Piano_NoteA4;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteA5".
+        /// </summary>
+        public InputAction @NoteA5 => m_Wrapper.m_Piano_NoteA5;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteA6".
+        /// </summary>
+        public InputAction @NoteA6 => m_Wrapper.m_Piano_NoteA6;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteA7".
+        /// </summary>
+        public InputAction @NoteA7 => m_Wrapper.m_Piano_NoteA7;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteAS0".
+        /// </summary>
+        public InputAction @NoteAS0 => m_Wrapper.m_Piano_NoteAS0;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteAS1".
+        /// </summary>
+        public InputAction @NoteAS1 => m_Wrapper.m_Piano_NoteAS1;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteAS2".
+        /// </summary>
+        public InputAction @NoteAS2 => m_Wrapper.m_Piano_NoteAS2;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteAS3".
+        /// </summary>
+        public InputAction @NoteAS3 => m_Wrapper.m_Piano_NoteAS3;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteAS4".
+        /// </summary>
+        public InputAction @NoteAS4 => m_Wrapper.m_Piano_NoteAS4;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteAS5".
+        /// </summary>
+        public InputAction @NoteAS5 => m_Wrapper.m_Piano_NoteAS5;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteAS6".
+        /// </summary>
+        public InputAction @NoteAS6 => m_Wrapper.m_Piano_NoteAS6;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteAS7".
+        /// </summary>
+        public InputAction @NoteAS7 => m_Wrapper.m_Piano_NoteAS7;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteB0".
+        /// </summary>
+        public InputAction @NoteB0 => m_Wrapper.m_Piano_NoteB0;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteB1".
+        /// </summary>
+        public InputAction @NoteB1 => m_Wrapper.m_Piano_NoteB1;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteB2".
+        /// </summary>
+        public InputAction @NoteB2 => m_Wrapper.m_Piano_NoteB2;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteB3".
+        /// </summary>
+        public InputAction @NoteB3 => m_Wrapper.m_Piano_NoteB3;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteB4".
+        /// </summary>
+        public InputAction @NoteB4 => m_Wrapper.m_Piano_NoteB4;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteB5".
+        /// </summary>
+        public InputAction @NoteB5 => m_Wrapper.m_Piano_NoteB5;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteB6".
+        /// </summary>
+        public InputAction @NoteB6 => m_Wrapper.m_Piano_NoteB6;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/NoteB7".
+        /// </summary>
+        public InputAction @NoteB7 => m_Wrapper.m_Piano_NoteB7;
+        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_Piano; }
@@ -2859,6 +5029,270 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
             @OctaveDown.started += instance.OnOctaveDown;
             @OctaveDown.performed += instance.OnOctaveDown;
             @OctaveDown.canceled += instance.OnOctaveDown;
+            @NoteC1.started += instance.OnNoteC1;
+            @NoteC1.performed += instance.OnNoteC1;
+            @NoteC1.canceled += instance.OnNoteC1;
+            @NoteC2.started += instance.OnNoteC2;
+            @NoteC2.performed += instance.OnNoteC2;
+            @NoteC2.canceled += instance.OnNoteC2;
+            @NoteC3.started += instance.OnNoteC3;
+            @NoteC3.performed += instance.OnNoteC3;
+            @NoteC3.canceled += instance.OnNoteC3;
+            @NoteC4.started += instance.OnNoteC4;
+            @NoteC4.performed += instance.OnNoteC4;
+            @NoteC4.canceled += instance.OnNoteC4;
+            @NoteC5.started += instance.OnNoteC5;
+            @NoteC5.performed += instance.OnNoteC5;
+            @NoteC5.canceled += instance.OnNoteC5;
+            @NoteC6.started += instance.OnNoteC6;
+            @NoteC6.performed += instance.OnNoteC6;
+            @NoteC6.canceled += instance.OnNoteC6;
+            @NoteC7.started += instance.OnNoteC7;
+            @NoteC7.performed += instance.OnNoteC7;
+            @NoteC7.canceled += instance.OnNoteC7;
+            @NoteC8.started += instance.OnNoteC8;
+            @NoteC8.performed += instance.OnNoteC8;
+            @NoteC8.canceled += instance.OnNoteC8;
+            @NoteCS1.started += instance.OnNoteCS1;
+            @NoteCS1.performed += instance.OnNoteCS1;
+            @NoteCS1.canceled += instance.OnNoteCS1;
+            @NoteCS2.started += instance.OnNoteCS2;
+            @NoteCS2.performed += instance.OnNoteCS2;
+            @NoteCS2.canceled += instance.OnNoteCS2;
+            @NoteCS3.started += instance.OnNoteCS3;
+            @NoteCS3.performed += instance.OnNoteCS3;
+            @NoteCS3.canceled += instance.OnNoteCS3;
+            @NoteCS4.started += instance.OnNoteCS4;
+            @NoteCS4.performed += instance.OnNoteCS4;
+            @NoteCS4.canceled += instance.OnNoteCS4;
+            @NoteCS5.started += instance.OnNoteCS5;
+            @NoteCS5.performed += instance.OnNoteCS5;
+            @NoteCS5.canceled += instance.OnNoteCS5;
+            @NoteCS6.started += instance.OnNoteCS6;
+            @NoteCS6.performed += instance.OnNoteCS6;
+            @NoteCS6.canceled += instance.OnNoteCS6;
+            @NoteCS7.started += instance.OnNoteCS7;
+            @NoteCS7.performed += instance.OnNoteCS7;
+            @NoteCS7.canceled += instance.OnNoteCS7;
+            @NoteD1.started += instance.OnNoteD1;
+            @NoteD1.performed += instance.OnNoteD1;
+            @NoteD1.canceled += instance.OnNoteD1;
+            @NoteD2.started += instance.OnNoteD2;
+            @NoteD2.performed += instance.OnNoteD2;
+            @NoteD2.canceled += instance.OnNoteD2;
+            @NoteD3.started += instance.OnNoteD3;
+            @NoteD3.performed += instance.OnNoteD3;
+            @NoteD3.canceled += instance.OnNoteD3;
+            @NoteD4.started += instance.OnNoteD4;
+            @NoteD4.performed += instance.OnNoteD4;
+            @NoteD4.canceled += instance.OnNoteD4;
+            @NoteD5.started += instance.OnNoteD5;
+            @NoteD5.performed += instance.OnNoteD5;
+            @NoteD5.canceled += instance.OnNoteD5;
+            @NoteD6.started += instance.OnNoteD6;
+            @NoteD6.performed += instance.OnNoteD6;
+            @NoteD6.canceled += instance.OnNoteD6;
+            @NoteD7.started += instance.OnNoteD7;
+            @NoteD7.performed += instance.OnNoteD7;
+            @NoteD7.canceled += instance.OnNoteD7;
+            @NoteDS1.started += instance.OnNoteDS1;
+            @NoteDS1.performed += instance.OnNoteDS1;
+            @NoteDS1.canceled += instance.OnNoteDS1;
+            @NoteDS2.started += instance.OnNoteDS2;
+            @NoteDS2.performed += instance.OnNoteDS2;
+            @NoteDS2.canceled += instance.OnNoteDS2;
+            @NoteDS3.started += instance.OnNoteDS3;
+            @NoteDS3.performed += instance.OnNoteDS3;
+            @NoteDS3.canceled += instance.OnNoteDS3;
+            @NoteDS4.started += instance.OnNoteDS4;
+            @NoteDS4.performed += instance.OnNoteDS4;
+            @NoteDS4.canceled += instance.OnNoteDS4;
+            @NoteDS5.started += instance.OnNoteDS5;
+            @NoteDS5.performed += instance.OnNoteDS5;
+            @NoteDS5.canceled += instance.OnNoteDS5;
+            @NoteDS6.started += instance.OnNoteDS6;
+            @NoteDS6.performed += instance.OnNoteDS6;
+            @NoteDS6.canceled += instance.OnNoteDS6;
+            @NoteDS7.started += instance.OnNoteDS7;
+            @NoteDS7.performed += instance.OnNoteDS7;
+            @NoteDS7.canceled += instance.OnNoteDS7;
+            @NoteE1.started += instance.OnNoteE1;
+            @NoteE1.performed += instance.OnNoteE1;
+            @NoteE1.canceled += instance.OnNoteE1;
+            @NoteE2.started += instance.OnNoteE2;
+            @NoteE2.performed += instance.OnNoteE2;
+            @NoteE2.canceled += instance.OnNoteE2;
+            @NoteE3.started += instance.OnNoteE3;
+            @NoteE3.performed += instance.OnNoteE3;
+            @NoteE3.canceled += instance.OnNoteE3;
+            @NoteE4.started += instance.OnNoteE4;
+            @NoteE4.performed += instance.OnNoteE4;
+            @NoteE4.canceled += instance.OnNoteE4;
+            @NoteE5.started += instance.OnNoteE5;
+            @NoteE5.performed += instance.OnNoteE5;
+            @NoteE5.canceled += instance.OnNoteE5;
+            @NoteE6.started += instance.OnNoteE6;
+            @NoteE6.performed += instance.OnNoteE6;
+            @NoteE6.canceled += instance.OnNoteE6;
+            @NoteE7.started += instance.OnNoteE7;
+            @NoteE7.performed += instance.OnNoteE7;
+            @NoteE7.canceled += instance.OnNoteE7;
+            @NoteF1.started += instance.OnNoteF1;
+            @NoteF1.performed += instance.OnNoteF1;
+            @NoteF1.canceled += instance.OnNoteF1;
+            @NoteF2.started += instance.OnNoteF2;
+            @NoteF2.performed += instance.OnNoteF2;
+            @NoteF2.canceled += instance.OnNoteF2;
+            @NoteF3.started += instance.OnNoteF3;
+            @NoteF3.performed += instance.OnNoteF3;
+            @NoteF3.canceled += instance.OnNoteF3;
+            @NoteF4.started += instance.OnNoteF4;
+            @NoteF4.performed += instance.OnNoteF4;
+            @NoteF4.canceled += instance.OnNoteF4;
+            @NoteF5.started += instance.OnNoteF5;
+            @NoteF5.performed += instance.OnNoteF5;
+            @NoteF5.canceled += instance.OnNoteF5;
+            @NoteF6.started += instance.OnNoteF6;
+            @NoteF6.performed += instance.OnNoteF6;
+            @NoteF6.canceled += instance.OnNoteF6;
+            @NoteF7.started += instance.OnNoteF7;
+            @NoteF7.performed += instance.OnNoteF7;
+            @NoteF7.canceled += instance.OnNoteF7;
+            @NoteFS1.started += instance.OnNoteFS1;
+            @NoteFS1.performed += instance.OnNoteFS1;
+            @NoteFS1.canceled += instance.OnNoteFS1;
+            @NoteFS2.started += instance.OnNoteFS2;
+            @NoteFS2.performed += instance.OnNoteFS2;
+            @NoteFS2.canceled += instance.OnNoteFS2;
+            @NoteFS3.started += instance.OnNoteFS3;
+            @NoteFS3.performed += instance.OnNoteFS3;
+            @NoteFS3.canceled += instance.OnNoteFS3;
+            @NoteFS4.started += instance.OnNoteFS4;
+            @NoteFS4.performed += instance.OnNoteFS4;
+            @NoteFS4.canceled += instance.OnNoteFS4;
+            @NoteFS5.started += instance.OnNoteFS5;
+            @NoteFS5.performed += instance.OnNoteFS5;
+            @NoteFS5.canceled += instance.OnNoteFS5;
+            @NoteFS6.started += instance.OnNoteFS6;
+            @NoteFS6.performed += instance.OnNoteFS6;
+            @NoteFS6.canceled += instance.OnNoteFS6;
+            @NoteFS7.started += instance.OnNoteFS7;
+            @NoteFS7.performed += instance.OnNoteFS7;
+            @NoteFS7.canceled += instance.OnNoteFS7;
+            @NoteG1.started += instance.OnNoteG1;
+            @NoteG1.performed += instance.OnNoteG1;
+            @NoteG1.canceled += instance.OnNoteG1;
+            @NoteG2.started += instance.OnNoteG2;
+            @NoteG2.performed += instance.OnNoteG2;
+            @NoteG2.canceled += instance.OnNoteG2;
+            @NoteG3.started += instance.OnNoteG3;
+            @NoteG3.performed += instance.OnNoteG3;
+            @NoteG3.canceled += instance.OnNoteG3;
+            @NoteG4.started += instance.OnNoteG4;
+            @NoteG4.performed += instance.OnNoteG4;
+            @NoteG4.canceled += instance.OnNoteG4;
+            @NoteG5.started += instance.OnNoteG5;
+            @NoteG5.performed += instance.OnNoteG5;
+            @NoteG5.canceled += instance.OnNoteG5;
+            @NoteG6.started += instance.OnNoteG6;
+            @NoteG6.performed += instance.OnNoteG6;
+            @NoteG6.canceled += instance.OnNoteG6;
+            @NoteG7.started += instance.OnNoteG7;
+            @NoteG7.performed += instance.OnNoteG7;
+            @NoteG7.canceled += instance.OnNoteG7;
+            @NoteGS1.started += instance.OnNoteGS1;
+            @NoteGS1.performed += instance.OnNoteGS1;
+            @NoteGS1.canceled += instance.OnNoteGS1;
+            @NoteGS2.started += instance.OnNoteGS2;
+            @NoteGS2.performed += instance.OnNoteGS2;
+            @NoteGS2.canceled += instance.OnNoteGS2;
+            @NoteGS3.started += instance.OnNoteGS3;
+            @NoteGS3.performed += instance.OnNoteGS3;
+            @NoteGS3.canceled += instance.OnNoteGS3;
+            @NoteGS4.started += instance.OnNoteGS4;
+            @NoteGS4.performed += instance.OnNoteGS4;
+            @NoteGS4.canceled += instance.OnNoteGS4;
+            @NoteGS5.started += instance.OnNoteGS5;
+            @NoteGS5.performed += instance.OnNoteGS5;
+            @NoteGS5.canceled += instance.OnNoteGS5;
+            @NoteGS6.started += instance.OnNoteGS6;
+            @NoteGS6.performed += instance.OnNoteGS6;
+            @NoteGS6.canceled += instance.OnNoteGS6;
+            @NoteGS7.started += instance.OnNoteGS7;
+            @NoteGS7.performed += instance.OnNoteGS7;
+            @NoteGS7.canceled += instance.OnNoteGS7;
+            @NoteA0.started += instance.OnNoteA0;
+            @NoteA0.performed += instance.OnNoteA0;
+            @NoteA0.canceled += instance.OnNoteA0;
+            @NoteA1.started += instance.OnNoteA1;
+            @NoteA1.performed += instance.OnNoteA1;
+            @NoteA1.canceled += instance.OnNoteA1;
+            @NoteA2.started += instance.OnNoteA2;
+            @NoteA2.performed += instance.OnNoteA2;
+            @NoteA2.canceled += instance.OnNoteA2;
+            @NoteA3.started += instance.OnNoteA3;
+            @NoteA3.performed += instance.OnNoteA3;
+            @NoteA3.canceled += instance.OnNoteA3;
+            @NoteA4.started += instance.OnNoteA4;
+            @NoteA4.performed += instance.OnNoteA4;
+            @NoteA4.canceled += instance.OnNoteA4;
+            @NoteA5.started += instance.OnNoteA5;
+            @NoteA5.performed += instance.OnNoteA5;
+            @NoteA5.canceled += instance.OnNoteA5;
+            @NoteA6.started += instance.OnNoteA6;
+            @NoteA6.performed += instance.OnNoteA6;
+            @NoteA6.canceled += instance.OnNoteA6;
+            @NoteA7.started += instance.OnNoteA7;
+            @NoteA7.performed += instance.OnNoteA7;
+            @NoteA7.canceled += instance.OnNoteA7;
+            @NoteAS0.started += instance.OnNoteAS0;
+            @NoteAS0.performed += instance.OnNoteAS0;
+            @NoteAS0.canceled += instance.OnNoteAS0;
+            @NoteAS1.started += instance.OnNoteAS1;
+            @NoteAS1.performed += instance.OnNoteAS1;
+            @NoteAS1.canceled += instance.OnNoteAS1;
+            @NoteAS2.started += instance.OnNoteAS2;
+            @NoteAS2.performed += instance.OnNoteAS2;
+            @NoteAS2.canceled += instance.OnNoteAS2;
+            @NoteAS3.started += instance.OnNoteAS3;
+            @NoteAS3.performed += instance.OnNoteAS3;
+            @NoteAS3.canceled += instance.OnNoteAS3;
+            @NoteAS4.started += instance.OnNoteAS4;
+            @NoteAS4.performed += instance.OnNoteAS4;
+            @NoteAS4.canceled += instance.OnNoteAS4;
+            @NoteAS5.started += instance.OnNoteAS5;
+            @NoteAS5.performed += instance.OnNoteAS5;
+            @NoteAS5.canceled += instance.OnNoteAS5;
+            @NoteAS6.started += instance.OnNoteAS6;
+            @NoteAS6.performed += instance.OnNoteAS6;
+            @NoteAS6.canceled += instance.OnNoteAS6;
+            @NoteAS7.started += instance.OnNoteAS7;
+            @NoteAS7.performed += instance.OnNoteAS7;
+            @NoteAS7.canceled += instance.OnNoteAS7;
+            @NoteB0.started += instance.OnNoteB0;
+            @NoteB0.performed += instance.OnNoteB0;
+            @NoteB0.canceled += instance.OnNoteB0;
+            @NoteB1.started += instance.OnNoteB1;
+            @NoteB1.performed += instance.OnNoteB1;
+            @NoteB1.canceled += instance.OnNoteB1;
+            @NoteB2.started += instance.OnNoteB2;
+            @NoteB2.performed += instance.OnNoteB2;
+            @NoteB2.canceled += instance.OnNoteB2;
+            @NoteB3.started += instance.OnNoteB3;
+            @NoteB3.performed += instance.OnNoteB3;
+            @NoteB3.canceled += instance.OnNoteB3;
+            @NoteB4.started += instance.OnNoteB4;
+            @NoteB4.performed += instance.OnNoteB4;
+            @NoteB4.canceled += instance.OnNoteB4;
+            @NoteB5.started += instance.OnNoteB5;
+            @NoteB5.performed += instance.OnNoteB5;
+            @NoteB5.canceled += instance.OnNoteB5;
+            @NoteB6.started += instance.OnNoteB6;
+            @NoteB6.performed += instance.OnNoteB6;
+            @NoteB6.canceled += instance.OnNoteB6;
+            @NoteB7.started += instance.OnNoteB7;
+            @NoteB7.performed += instance.OnNoteB7;
+            @NoteB7.canceled += instance.OnNoteB7;
         }
 
         /// <summary>
@@ -2951,6 +5385,270 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
             @OctaveDown.started -= instance.OnOctaveDown;
             @OctaveDown.performed -= instance.OnOctaveDown;
             @OctaveDown.canceled -= instance.OnOctaveDown;
+            @NoteC1.started -= instance.OnNoteC1;
+            @NoteC1.performed -= instance.OnNoteC1;
+            @NoteC1.canceled -= instance.OnNoteC1;
+            @NoteC2.started -= instance.OnNoteC2;
+            @NoteC2.performed -= instance.OnNoteC2;
+            @NoteC2.canceled -= instance.OnNoteC2;
+            @NoteC3.started -= instance.OnNoteC3;
+            @NoteC3.performed -= instance.OnNoteC3;
+            @NoteC3.canceled -= instance.OnNoteC3;
+            @NoteC4.started -= instance.OnNoteC4;
+            @NoteC4.performed -= instance.OnNoteC4;
+            @NoteC4.canceled -= instance.OnNoteC4;
+            @NoteC5.started -= instance.OnNoteC5;
+            @NoteC5.performed -= instance.OnNoteC5;
+            @NoteC5.canceled -= instance.OnNoteC5;
+            @NoteC6.started -= instance.OnNoteC6;
+            @NoteC6.performed -= instance.OnNoteC6;
+            @NoteC6.canceled -= instance.OnNoteC6;
+            @NoteC7.started -= instance.OnNoteC7;
+            @NoteC7.performed -= instance.OnNoteC7;
+            @NoteC7.canceled -= instance.OnNoteC7;
+            @NoteC8.started -= instance.OnNoteC8;
+            @NoteC8.performed -= instance.OnNoteC8;
+            @NoteC8.canceled -= instance.OnNoteC8;
+            @NoteCS1.started -= instance.OnNoteCS1;
+            @NoteCS1.performed -= instance.OnNoteCS1;
+            @NoteCS1.canceled -= instance.OnNoteCS1;
+            @NoteCS2.started -= instance.OnNoteCS2;
+            @NoteCS2.performed -= instance.OnNoteCS2;
+            @NoteCS2.canceled -= instance.OnNoteCS2;
+            @NoteCS3.started -= instance.OnNoteCS3;
+            @NoteCS3.performed -= instance.OnNoteCS3;
+            @NoteCS3.canceled -= instance.OnNoteCS3;
+            @NoteCS4.started -= instance.OnNoteCS4;
+            @NoteCS4.performed -= instance.OnNoteCS4;
+            @NoteCS4.canceled -= instance.OnNoteCS4;
+            @NoteCS5.started -= instance.OnNoteCS5;
+            @NoteCS5.performed -= instance.OnNoteCS5;
+            @NoteCS5.canceled -= instance.OnNoteCS5;
+            @NoteCS6.started -= instance.OnNoteCS6;
+            @NoteCS6.performed -= instance.OnNoteCS6;
+            @NoteCS6.canceled -= instance.OnNoteCS6;
+            @NoteCS7.started -= instance.OnNoteCS7;
+            @NoteCS7.performed -= instance.OnNoteCS7;
+            @NoteCS7.canceled -= instance.OnNoteCS7;
+            @NoteD1.started -= instance.OnNoteD1;
+            @NoteD1.performed -= instance.OnNoteD1;
+            @NoteD1.canceled -= instance.OnNoteD1;
+            @NoteD2.started -= instance.OnNoteD2;
+            @NoteD2.performed -= instance.OnNoteD2;
+            @NoteD2.canceled -= instance.OnNoteD2;
+            @NoteD3.started -= instance.OnNoteD3;
+            @NoteD3.performed -= instance.OnNoteD3;
+            @NoteD3.canceled -= instance.OnNoteD3;
+            @NoteD4.started -= instance.OnNoteD4;
+            @NoteD4.performed -= instance.OnNoteD4;
+            @NoteD4.canceled -= instance.OnNoteD4;
+            @NoteD5.started -= instance.OnNoteD5;
+            @NoteD5.performed -= instance.OnNoteD5;
+            @NoteD5.canceled -= instance.OnNoteD5;
+            @NoteD6.started -= instance.OnNoteD6;
+            @NoteD6.performed -= instance.OnNoteD6;
+            @NoteD6.canceled -= instance.OnNoteD6;
+            @NoteD7.started -= instance.OnNoteD7;
+            @NoteD7.performed -= instance.OnNoteD7;
+            @NoteD7.canceled -= instance.OnNoteD7;
+            @NoteDS1.started -= instance.OnNoteDS1;
+            @NoteDS1.performed -= instance.OnNoteDS1;
+            @NoteDS1.canceled -= instance.OnNoteDS1;
+            @NoteDS2.started -= instance.OnNoteDS2;
+            @NoteDS2.performed -= instance.OnNoteDS2;
+            @NoteDS2.canceled -= instance.OnNoteDS2;
+            @NoteDS3.started -= instance.OnNoteDS3;
+            @NoteDS3.performed -= instance.OnNoteDS3;
+            @NoteDS3.canceled -= instance.OnNoteDS3;
+            @NoteDS4.started -= instance.OnNoteDS4;
+            @NoteDS4.performed -= instance.OnNoteDS4;
+            @NoteDS4.canceled -= instance.OnNoteDS4;
+            @NoteDS5.started -= instance.OnNoteDS5;
+            @NoteDS5.performed -= instance.OnNoteDS5;
+            @NoteDS5.canceled -= instance.OnNoteDS5;
+            @NoteDS6.started -= instance.OnNoteDS6;
+            @NoteDS6.performed -= instance.OnNoteDS6;
+            @NoteDS6.canceled -= instance.OnNoteDS6;
+            @NoteDS7.started -= instance.OnNoteDS7;
+            @NoteDS7.performed -= instance.OnNoteDS7;
+            @NoteDS7.canceled -= instance.OnNoteDS7;
+            @NoteE1.started -= instance.OnNoteE1;
+            @NoteE1.performed -= instance.OnNoteE1;
+            @NoteE1.canceled -= instance.OnNoteE1;
+            @NoteE2.started -= instance.OnNoteE2;
+            @NoteE2.performed -= instance.OnNoteE2;
+            @NoteE2.canceled -= instance.OnNoteE2;
+            @NoteE3.started -= instance.OnNoteE3;
+            @NoteE3.performed -= instance.OnNoteE3;
+            @NoteE3.canceled -= instance.OnNoteE3;
+            @NoteE4.started -= instance.OnNoteE4;
+            @NoteE4.performed -= instance.OnNoteE4;
+            @NoteE4.canceled -= instance.OnNoteE4;
+            @NoteE5.started -= instance.OnNoteE5;
+            @NoteE5.performed -= instance.OnNoteE5;
+            @NoteE5.canceled -= instance.OnNoteE5;
+            @NoteE6.started -= instance.OnNoteE6;
+            @NoteE6.performed -= instance.OnNoteE6;
+            @NoteE6.canceled -= instance.OnNoteE6;
+            @NoteE7.started -= instance.OnNoteE7;
+            @NoteE7.performed -= instance.OnNoteE7;
+            @NoteE7.canceled -= instance.OnNoteE7;
+            @NoteF1.started -= instance.OnNoteF1;
+            @NoteF1.performed -= instance.OnNoteF1;
+            @NoteF1.canceled -= instance.OnNoteF1;
+            @NoteF2.started -= instance.OnNoteF2;
+            @NoteF2.performed -= instance.OnNoteF2;
+            @NoteF2.canceled -= instance.OnNoteF2;
+            @NoteF3.started -= instance.OnNoteF3;
+            @NoteF3.performed -= instance.OnNoteF3;
+            @NoteF3.canceled -= instance.OnNoteF3;
+            @NoteF4.started -= instance.OnNoteF4;
+            @NoteF4.performed -= instance.OnNoteF4;
+            @NoteF4.canceled -= instance.OnNoteF4;
+            @NoteF5.started -= instance.OnNoteF5;
+            @NoteF5.performed -= instance.OnNoteF5;
+            @NoteF5.canceled -= instance.OnNoteF5;
+            @NoteF6.started -= instance.OnNoteF6;
+            @NoteF6.performed -= instance.OnNoteF6;
+            @NoteF6.canceled -= instance.OnNoteF6;
+            @NoteF7.started -= instance.OnNoteF7;
+            @NoteF7.performed -= instance.OnNoteF7;
+            @NoteF7.canceled -= instance.OnNoteF7;
+            @NoteFS1.started -= instance.OnNoteFS1;
+            @NoteFS1.performed -= instance.OnNoteFS1;
+            @NoteFS1.canceled -= instance.OnNoteFS1;
+            @NoteFS2.started -= instance.OnNoteFS2;
+            @NoteFS2.performed -= instance.OnNoteFS2;
+            @NoteFS2.canceled -= instance.OnNoteFS2;
+            @NoteFS3.started -= instance.OnNoteFS3;
+            @NoteFS3.performed -= instance.OnNoteFS3;
+            @NoteFS3.canceled -= instance.OnNoteFS3;
+            @NoteFS4.started -= instance.OnNoteFS4;
+            @NoteFS4.performed -= instance.OnNoteFS4;
+            @NoteFS4.canceled -= instance.OnNoteFS4;
+            @NoteFS5.started -= instance.OnNoteFS5;
+            @NoteFS5.performed -= instance.OnNoteFS5;
+            @NoteFS5.canceled -= instance.OnNoteFS5;
+            @NoteFS6.started -= instance.OnNoteFS6;
+            @NoteFS6.performed -= instance.OnNoteFS6;
+            @NoteFS6.canceled -= instance.OnNoteFS6;
+            @NoteFS7.started -= instance.OnNoteFS7;
+            @NoteFS7.performed -= instance.OnNoteFS7;
+            @NoteFS7.canceled -= instance.OnNoteFS7;
+            @NoteG1.started -= instance.OnNoteG1;
+            @NoteG1.performed -= instance.OnNoteG1;
+            @NoteG1.canceled -= instance.OnNoteG1;
+            @NoteG2.started -= instance.OnNoteG2;
+            @NoteG2.performed -= instance.OnNoteG2;
+            @NoteG2.canceled -= instance.OnNoteG2;
+            @NoteG3.started -= instance.OnNoteG3;
+            @NoteG3.performed -= instance.OnNoteG3;
+            @NoteG3.canceled -= instance.OnNoteG3;
+            @NoteG4.started -= instance.OnNoteG4;
+            @NoteG4.performed -= instance.OnNoteG4;
+            @NoteG4.canceled -= instance.OnNoteG4;
+            @NoteG5.started -= instance.OnNoteG5;
+            @NoteG5.performed -= instance.OnNoteG5;
+            @NoteG5.canceled -= instance.OnNoteG5;
+            @NoteG6.started -= instance.OnNoteG6;
+            @NoteG6.performed -= instance.OnNoteG6;
+            @NoteG6.canceled -= instance.OnNoteG6;
+            @NoteG7.started -= instance.OnNoteG7;
+            @NoteG7.performed -= instance.OnNoteG7;
+            @NoteG7.canceled -= instance.OnNoteG7;
+            @NoteGS1.started -= instance.OnNoteGS1;
+            @NoteGS1.performed -= instance.OnNoteGS1;
+            @NoteGS1.canceled -= instance.OnNoteGS1;
+            @NoteGS2.started -= instance.OnNoteGS2;
+            @NoteGS2.performed -= instance.OnNoteGS2;
+            @NoteGS2.canceled -= instance.OnNoteGS2;
+            @NoteGS3.started -= instance.OnNoteGS3;
+            @NoteGS3.performed -= instance.OnNoteGS3;
+            @NoteGS3.canceled -= instance.OnNoteGS3;
+            @NoteGS4.started -= instance.OnNoteGS4;
+            @NoteGS4.performed -= instance.OnNoteGS4;
+            @NoteGS4.canceled -= instance.OnNoteGS4;
+            @NoteGS5.started -= instance.OnNoteGS5;
+            @NoteGS5.performed -= instance.OnNoteGS5;
+            @NoteGS5.canceled -= instance.OnNoteGS5;
+            @NoteGS6.started -= instance.OnNoteGS6;
+            @NoteGS6.performed -= instance.OnNoteGS6;
+            @NoteGS6.canceled -= instance.OnNoteGS6;
+            @NoteGS7.started -= instance.OnNoteGS7;
+            @NoteGS7.performed -= instance.OnNoteGS7;
+            @NoteGS7.canceled -= instance.OnNoteGS7;
+            @NoteA0.started -= instance.OnNoteA0;
+            @NoteA0.performed -= instance.OnNoteA0;
+            @NoteA0.canceled -= instance.OnNoteA0;
+            @NoteA1.started -= instance.OnNoteA1;
+            @NoteA1.performed -= instance.OnNoteA1;
+            @NoteA1.canceled -= instance.OnNoteA1;
+            @NoteA2.started -= instance.OnNoteA2;
+            @NoteA2.performed -= instance.OnNoteA2;
+            @NoteA2.canceled -= instance.OnNoteA2;
+            @NoteA3.started -= instance.OnNoteA3;
+            @NoteA3.performed -= instance.OnNoteA3;
+            @NoteA3.canceled -= instance.OnNoteA3;
+            @NoteA4.started -= instance.OnNoteA4;
+            @NoteA4.performed -= instance.OnNoteA4;
+            @NoteA4.canceled -= instance.OnNoteA4;
+            @NoteA5.started -= instance.OnNoteA5;
+            @NoteA5.performed -= instance.OnNoteA5;
+            @NoteA5.canceled -= instance.OnNoteA5;
+            @NoteA6.started -= instance.OnNoteA6;
+            @NoteA6.performed -= instance.OnNoteA6;
+            @NoteA6.canceled -= instance.OnNoteA6;
+            @NoteA7.started -= instance.OnNoteA7;
+            @NoteA7.performed -= instance.OnNoteA7;
+            @NoteA7.canceled -= instance.OnNoteA7;
+            @NoteAS0.started -= instance.OnNoteAS0;
+            @NoteAS0.performed -= instance.OnNoteAS0;
+            @NoteAS0.canceled -= instance.OnNoteAS0;
+            @NoteAS1.started -= instance.OnNoteAS1;
+            @NoteAS1.performed -= instance.OnNoteAS1;
+            @NoteAS1.canceled -= instance.OnNoteAS1;
+            @NoteAS2.started -= instance.OnNoteAS2;
+            @NoteAS2.performed -= instance.OnNoteAS2;
+            @NoteAS2.canceled -= instance.OnNoteAS2;
+            @NoteAS3.started -= instance.OnNoteAS3;
+            @NoteAS3.performed -= instance.OnNoteAS3;
+            @NoteAS3.canceled -= instance.OnNoteAS3;
+            @NoteAS4.started -= instance.OnNoteAS4;
+            @NoteAS4.performed -= instance.OnNoteAS4;
+            @NoteAS4.canceled -= instance.OnNoteAS4;
+            @NoteAS5.started -= instance.OnNoteAS5;
+            @NoteAS5.performed -= instance.OnNoteAS5;
+            @NoteAS5.canceled -= instance.OnNoteAS5;
+            @NoteAS6.started -= instance.OnNoteAS6;
+            @NoteAS6.performed -= instance.OnNoteAS6;
+            @NoteAS6.canceled -= instance.OnNoteAS6;
+            @NoteAS7.started -= instance.OnNoteAS7;
+            @NoteAS7.performed -= instance.OnNoteAS7;
+            @NoteAS7.canceled -= instance.OnNoteAS7;
+            @NoteB0.started -= instance.OnNoteB0;
+            @NoteB0.performed -= instance.OnNoteB0;
+            @NoteB0.canceled -= instance.OnNoteB0;
+            @NoteB1.started -= instance.OnNoteB1;
+            @NoteB1.performed -= instance.OnNoteB1;
+            @NoteB1.canceled -= instance.OnNoteB1;
+            @NoteB2.started -= instance.OnNoteB2;
+            @NoteB2.performed -= instance.OnNoteB2;
+            @NoteB2.canceled -= instance.OnNoteB2;
+            @NoteB3.started -= instance.OnNoteB3;
+            @NoteB3.performed -= instance.OnNoteB3;
+            @NoteB3.canceled -= instance.OnNoteB3;
+            @NoteB4.started -= instance.OnNoteB4;
+            @NoteB4.performed -= instance.OnNoteB4;
+            @NoteB4.canceled -= instance.OnNoteB4;
+            @NoteB5.started -= instance.OnNoteB5;
+            @NoteB5.performed -= instance.OnNoteB5;
+            @NoteB5.canceled -= instance.OnNoteB5;
+            @NoteB6.started -= instance.OnNoteB6;
+            @NoteB6.performed -= instance.OnNoteB6;
+            @NoteB6.canceled -= instance.OnNoteB6;
+            @NoteB7.started -= instance.OnNoteB7;
+            @NoteB7.performed -= instance.OnNoteB7;
+            @NoteB7.canceled -= instance.OnNoteB7;
         }
 
         /// <summary>
@@ -2991,6 +5689,7 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Navigation_Exit;
     private readonly InputAction m_Navigation_Back;
     private readonly InputAction m_Navigation_Submit;
+    private readonly InputAction m_Navigation_ContinuousInteraction;
     /// <summary>
     /// Provides access to input actions defined in input action map "Navigation".
     /// </summary>
@@ -3014,6 +5713,10 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Navigation/Submit".
         /// </summary>
         public InputAction @Submit => m_Wrapper.m_Navigation_Submit;
+        /// <summary>
+        /// Provides access to the underlying input action "Navigation/ContinuousInteraction".
+        /// </summary>
+        public InputAction @ContinuousInteraction => m_Wrapper.m_Navigation_ContinuousInteraction;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -3049,6 +5752,9 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
             @Submit.started += instance.OnSubmit;
             @Submit.performed += instance.OnSubmit;
             @Submit.canceled += instance.OnSubmit;
+            @ContinuousInteraction.started += instance.OnContinuousInteraction;
+            @ContinuousInteraction.performed += instance.OnContinuousInteraction;
+            @ContinuousInteraction.canceled += instance.OnContinuousInteraction;
         }
 
         /// <summary>
@@ -3069,6 +5775,9 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
             @Submit.started -= instance.OnSubmit;
             @Submit.performed -= instance.OnSubmit;
             @Submit.canceled -= instance.OnSubmit;
+            @ContinuousInteraction.started -= instance.OnContinuousInteraction;
+            @ContinuousInteraction.performed -= instance.OnContinuousInteraction;
+            @ContinuousInteraction.canceled -= instance.OnContinuousInteraction;
         }
 
         /// <summary>
@@ -3355,27 +6064,6 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMove(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "Look" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnLook(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Attack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnAttack(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnInteract(InputAction.CallbackContext context);
-        /// <summary>
         /// Method invoked when associated input action "Crouch" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
@@ -3390,26 +6078,19 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnJump(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "Previous" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnPrevious(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Next" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnNext(InputAction.CallbackContext context);
-        /// <summary>
         /// Method invoked when associated input action "Sprint" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSprint(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnInteract(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Camera" which allows adding and removing callbacks.
@@ -3700,6 +6381,622 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnOctaveDown(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteC1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteC1(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteC2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteC2(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteC3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteC3(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteC4" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteC4(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteC5" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteC5(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteC6" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteC6(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteC7" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteC7(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteC8" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteC8(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteCS1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteCS1(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteCS2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteCS2(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteCS3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteCS3(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteCS4" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteCS4(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteCS5" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteCS5(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteCS6" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteCS6(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteCS7" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteCS7(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteD1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteD1(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteD2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteD2(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteD3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteD3(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteD4" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteD4(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteD5" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteD5(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteD6" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteD6(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteD7" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteD7(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteDS1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteDS1(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteDS2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteDS2(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteDS3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteDS3(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteDS4" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteDS4(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteDS5" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteDS5(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteDS6" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteDS6(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteDS7" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteDS7(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteE1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteE1(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteE2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteE2(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteE3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteE3(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteE4" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteE4(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteE5" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteE5(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteE6" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteE6(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteE7" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteE7(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteF1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteF1(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteF2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteF2(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteF3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteF3(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteF4" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteF4(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteF5" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteF5(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteF6" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteF6(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteF7" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteF7(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteFS1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteFS1(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteFS2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteFS2(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteFS3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteFS3(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteFS4" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteFS4(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteFS5" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteFS5(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteFS6" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteFS6(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteFS7" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteFS7(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteG1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteG1(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteG2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteG2(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteG3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteG3(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteG4" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteG4(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteG5" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteG5(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteG6" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteG6(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteG7" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteG7(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteGS1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteGS1(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteGS2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteGS2(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteGS3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteGS3(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteGS4" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteGS4(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteGS5" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteGS5(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteGS6" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteGS6(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteGS7" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteGS7(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteA0" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteA0(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteA1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteA1(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteA2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteA2(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteA3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteA3(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteA4" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteA4(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteA5" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteA5(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteA6" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteA6(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteA7" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteA7(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteAS0" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteAS0(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteAS1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteAS1(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteAS2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteAS2(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteAS3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteAS3(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteAS4" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteAS4(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteAS5" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteAS5(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteAS6" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteAS6(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteAS7" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteAS7(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteB0" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteB0(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteB1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteB1(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteB2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteB2(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteB3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteB3(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteB4" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteB4(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteB5" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteB5(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteB6" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteB6(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteB7" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteB7(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Navigation" which allows adding and removing callbacks.
@@ -3729,6 +7026,13 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSubmit(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ContinuousInteraction" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnContinuousInteraction(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "PianoRhythm" which allows adding and removing callbacks.

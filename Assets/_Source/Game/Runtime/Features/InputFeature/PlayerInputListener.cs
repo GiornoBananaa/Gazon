@@ -21,6 +21,9 @@ namespace Game.Runtime.InputFeature
             _playerActions.Move.performed += OnMove;
             _playerActions.Move.canceled += OnMoveCanceled;
             _playerActions.Interact.performed += OnInteract;
+            
+            Cursor.lockState = CursorLockMode.Locked; 
+            Cursor.visible = false;
         }
         
         public void Dispose()

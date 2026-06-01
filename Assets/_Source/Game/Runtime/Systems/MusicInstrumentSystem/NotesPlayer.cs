@@ -16,6 +16,7 @@ namespace Game.Runtime.MusicInstrumentSystem
         private readonly HashSet<Note> _mutedNotes = new();
         private readonly Dictionary<Note, Note> _forcedChangedNotes = new();
         private float _time;
+        private float _speed = 1;
         private bool _isPlaying;
         
         public event Action<float> OnTimeChanged;
@@ -28,11 +29,15 @@ namespace Game.Runtime.MusicInstrumentSystem
             serviceUpdater.Add(this);
         }
 
-        public void Play(Note[] notes, float delay = 0)
+        public void Play(Note[] notes, float delay = 0, float speed = 1)
         {
             _remainingNotes.Clear();
+            _mutedNotes.Clear();
+            _forcedChangedNotes.Clear();
+            _pressedNotes.Clear();
             _remainingNotes.AddRange(notes);
             _isPlaying = true;
+            _speed = speed;
             _time = -delay;
         }
         
@@ -82,15 +87,25 @@ namespace Game.Runtime.MusicInstrumentSystem
             _forcedChangedNotes[note] = newNote;
         }
         
-        public void ForceStopNote(Note note)
+        public void ForceStopNote(Note note, bool muteUnpressed)
         {
+            bool pressed = false;
             for (int i = 0; i < _pressedNotes.Count; i++)
             {
-                if(_mutedNotes.Contains(_remainingNotes[i])) continue;
-                if(!_pressedNotes[i].Equals(_forcedChangedNotes[note]) && !_pressedNotes[i].Equals(note)) continue;
-                OnNoteEnded(_remainingNotes[i]);
+                if(_mutedNotes.Contains(_pressedNotes[i])) continue;
+                if(!(_forcedChangedNotes.TryGetValue(note, out var changedNote) && _pressedNotes[i].Equals(changedNote)) && !_pressedNotes[i].Equals(note))
+                    continue;
+                OnNoteEnded(_pressedNotes[i]);
                 _pressedNotes.RemoveAt(i);
+                pressed = true;
                 break;
+            }
+            if(!pressed && muteUnpressed)
+            {
+                if(_forcedChangedNotes.TryGetValue(note, out var changedNote))
+                    _mutedNotes.Add(changedNote);
+                else
+                    _mutedNotes.Add(note);
             }
         }
         
@@ -121,7 +136,7 @@ namespace Game.Runtime.MusicInstrumentSystem
                 Stop();
             }
             
-            _time += Time.deltaTime;
+            _time += Time.deltaTime * _speed;
             OnTimeChanged?.Invoke(_time);
         }
         

@@ -29,7 +29,7 @@ namespace Game.Runtime.Installers
             builder.RegisterType(typeof(NotesPlayer), new[] { typeof(NotesPlayer) }, Lifetime.Scoped, Resolution.Lazy);
             builder.RegisterType(typeof(InstrumentNoteTweener), new[] { typeof(IInstrumentNoteTweener) }, Lifetime.Scoped, Resolution.Lazy);
             builder.RegisterType(typeof(Orchestra), Lifetime.Singleton, Resolution.Lazy);
-            builder.RegisterType(typeof(BaseStateMachine<IPianoState>), new[] { typeof(IStateMachine<IPianoState>) }, Lifetime.Scoped, Resolution.Lazy);
+            builder.RegisterType(typeof(BaseStateMachine<IInstrumentState>), new[] { typeof(IStateMachine<IInstrumentState>) }, Lifetime.Scoped, Resolution.Lazy);
             
             //Free mode
             builder.RegisterType(typeof(FreeInstrumentState), Lifetime.Scoped, Resolution.Lazy);
@@ -43,7 +43,7 @@ namespace Game.Runtime.Installers
             builder.RegisterType(typeof(RhythmInstrumentState), Lifetime.Scoped, Resolution.Lazy);
             builder.RegisterType(typeof(RhythmKeyGenerator), new[] { typeof(IRhythmKeyGenerator) }, Lifetime.Singleton, Resolution.Lazy);
             builder.RegisterType(typeof(RhythmSheet), new[] { typeof(IRhythmSheet) }, Lifetime.Scoped, Resolution.Lazy);
-            builder.RegisterType(typeof(RhythmPianoSettings), Lifetime.Singleton, Resolution.Lazy);
+            builder.RegisterType(typeof(RhythmGameSettings), Lifetime.Singleton, Resolution.Lazy);
             
             //Music magic
             builder.RegisterType(typeof(InstrumentPlayStatistics),  new[] { typeof(InstrumentPlayStatistics), typeof(IUpdatable) }, Lifetime.Singleton, Resolution.Lazy);

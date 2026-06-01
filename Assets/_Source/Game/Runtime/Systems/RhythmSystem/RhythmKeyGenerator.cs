@@ -8,10 +8,10 @@ namespace Game.Runtime.RhythmSystem
 {
     public class RhythmKeyGenerator : IRhythmKeyGenerator
     {
-        public List<RhythmKey>[] Generate(Note[] notes, int keyCount, int maxSpeed)
+        public List<RhythmKey>[] Generate(Note[] notes, int keyCount, float maxNotesPerSecond)
         {
             //TODO: optimize key generation
-            //TODO: set keys count per second to max speed
+            //TODO: set keys count per second as max speed
             List<RhythmKey>[] keys = new List<RhythmKey>[keyCount];
             for (int i = 0; i < keyCount; i++)
             {
@@ -20,22 +20,48 @@ namespace Game.Runtime.RhythmSystem
             
             foreach (var note in notes)
             {
-                float numberCenter = GetAverageNumber(notes, note.StartTime, 1.5f);
-                Vector2 spread = GetNumberSpread(notes, note.StartTime, 1.5f);
+                float numberCenter = GetAverageNumber(notes, note.StartTime, 0.8f);
+                Vector2 spread = GetNumberSpread(notes, note.StartTime, 0.8f);
                 float centerAndSpreadDiff = numberCenter - (spread.y + spread.x) / 2;
                 
                 int key = Mathf.Clamp(Mathf.RoundToInt(Mathf.Lerp(0, keyCount - 1, Mathf.InverseLerp(spread.x + centerAndSpreadDiff, spread.y + centerAndSpreadDiff, note.NoteNumber))), 0, keyCount - 1);
-                bool overlapped = false;
                 
-                for (int i = 0; i < keys[key].Count; i++)
-                {
-                    if(!MathUtils.IsOverlapped(keys[key][i].StartTime, keys[key][i].EndTime, note.StartTime, note.EndTime)) continue;
-                    keys[key][i].Notes.Add(note);
-                    overlapped = true;
-                    break;
-                }
-                if(!overlapped)
+                if(keys[key].Count > 0 && MathUtils.IsOverlapped(keys[key][^1].StartTime, keys[key][^1].EndTime, note.StartTime, note.EndTime))
+                    keys[key][^1].Notes.Add(note);
+                else
                     keys[key].Add(new RhythmKey(key, new List<Note> { note }));
+            }
+            
+            // squeeze note sequences
+            foreach (var track in keys)
+            {
+                for (int i = 1; i < track.Count; i++)
+                {
+                    int countOnTrack = 0;
+                    int countAll = 0;
+
+                    for (int trackIndex = 0; trackIndex < keys.Length; trackIndex++)
+                    {
+                        for (int keyIndex = 0; keyIndex < keys[trackIndex].Count; keyIndex++)
+                        {
+                            if (Mathf.Abs(track[i].StartTime - keys[trackIndex][keyIndex].StartTime) > 0.4f)
+                            {
+                                if (keys[trackIndex][keyIndex].StartTime > track[i].StartTime + 0.4f) break;
+                                continue;
+                            }
+                            if(track == keys[trackIndex])
+                                countOnTrack++;
+                            countAll++;
+                        }
+                    }
+
+                    float maxNotes = (float)countOnTrack / countAll * maxNotesPerSecond;
+
+                    if(track[i].StartTime - track[i - 1].StartTime > 1 / maxNotes) continue;
+                    track[i - 1].Notes.AddRange(track[i].Notes);
+                    track.RemoveAt(i);
+                    i--;
+                }
             }
             
             // disconnect small and near notes
@@ -101,7 +127,7 @@ namespace Game.Runtime.RhythmSystem
             
             return keys;
         }
-
+        
         private bool IsSequenceOfSmall(IEnumerable<RhythmKey> notes, float time, float radius)
         {
             int smallNoteNearCount = 0;
@@ -204,7 +230,7 @@ namespace Game.Runtime.RhythmSystem
             {
                 if(TimeSubtract(time, note.StartTime, note.EndTime) > radius)
                 {
-                    if(note.StartTime > time) break;
+                    if(note.StartTime > time + radius) break;
                     continue;
                 }
                 yield return note;
@@ -217,11 +243,28 @@ namespace Game.Runtime.RhythmSystem
             {
                 if(TimeSubtract(time, note.StartTime, note.EndTime) > radius)
                 {
-                    if(note.StartTime > time) break;
+                    if(note.StartTime > time + radius) break;
                     continue;
                 }
                 yield return note;
             }
+        }
+        
+        private int GetKeysCountInRange(IEnumerable<RhythmKey> notes, float time, float radius)
+        {
+            int count = 0;
+            foreach (var note in notes)
+            {
+                if(TimeSubtract(time, note.StartTime, note.EndTime) > radius)
+                {
+                    if(note.StartTime > time + radius) break;
+                    continue;
+                }
+
+                count++;
+            }
+
+            return count;
         }
         
         private float TimeSubtract(float time, float start, float end)

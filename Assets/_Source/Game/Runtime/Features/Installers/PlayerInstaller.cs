@@ -27,6 +27,7 @@ namespace Game.Runtime.Installers
             builder.RegisterType(typeof(CameraFreeState), Lifetime.Singleton, Resolution.Lazy);
             builder.RegisterType(typeof(PlayerFreeWalkState), Lifetime.Singleton, Resolution.Lazy);
             builder.RegisterType(typeof(PlayerInstrumentSeatState), Lifetime.Scoped, Resolution.Lazy);
+            builder.RegisterType(typeof(GeneralNavigationInputListener), new[] { typeof(IInputListener), typeof(GeneralNavigationInputListener) }, Lifetime.Singleton, Resolution.Eager);
         }
     }
 }

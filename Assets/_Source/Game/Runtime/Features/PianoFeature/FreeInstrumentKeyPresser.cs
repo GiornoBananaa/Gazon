@@ -19,6 +19,7 @@ namespace Game.Runtime.PianoFeature
         private int _octavesCount;
         private int _octavesInKeysCount;
         
+        public int KeysCount => _keysCount;
         public event Action<int, int> OnPressedKeyNoteIndexes;
         public event Action<int, int> OnReleasedKeyNoteIndexes;
         
@@ -28,7 +29,6 @@ namespace Game.Runtime.PianoFeature
             _notes = pianoKeysConfig.Notes;
             _startKeyInFirstOctave = pianoKeysConfig.StartKeyInFirstOctave;
             SetKeysCount(pianoKeysConfig.FreeKeysCount);
-            SetOctave(_octavesCount / 2 - _octavesCount % 2);
         } 
         
         public void PressKey(int keyIndex)
@@ -67,12 +67,13 @@ namespace Game.Runtime.PianoFeature
             _noteTweener.DisableSustain();
         }
         
-        private void SetKeysCount(int count)
+        public void SetKeysCount(int count)
         {
             _keysCount = count;
             int firstOctaveKeysCount = GlobalConstants.OCTAVE_NOTES_COUNT - _startKeyInFirstOctave;
             _octavesCount = (_notes.Length - firstOctaveKeysCount) / GlobalConstants.OCTAVE_NOTES_COUNT;
             _octavesInKeysCount = _keysCount / GlobalConstants.OCTAVE_NOTES_COUNT;
+            SetOctave(_octavesCount / 2 - _octavesCount % 2);
         }
         
         private void SetOctave(int octave)

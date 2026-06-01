@@ -11,6 +11,7 @@ namespace Game.Runtime.Configs
         
         [Header("Interaction")]
         public float InteractionRange = 2f;
+        public float SphereCastRadius = 0.1f;
         public LayerMask InteractableLayer;
     }
 }

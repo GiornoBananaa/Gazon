@@ -7,18 +7,16 @@ namespace Game.Runtime.RhythmSystem
     public readonly struct RhythmKey : IEquatable<RhythmKey>
     {
         public readonly int KeyIndex;
-        public readonly float StartTime;
-        public readonly float EndTime;
         public readonly List<Note> Notes;
 
         public RhythmKey(int keyIndex, List<Note> notes)
         {
             KeyIndex = keyIndex;
-            StartTime = notes[0].StartTime;
-            EndTime = notes[^1].EndTime;
             Notes = notes;
         }
 
+        public float StartTime => Notes[0].StartTime;
+        public float EndTime => Notes[^1].EndTime;
         public float Length => EndTime - StartTime;
 
         public bool Equals(RhythmKey other)

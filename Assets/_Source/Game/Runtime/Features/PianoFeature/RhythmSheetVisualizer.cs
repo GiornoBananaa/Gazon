@@ -28,7 +28,7 @@ namespace Game.Runtime.PianoFeature
         {
             _sheet = sheet;
             _pool = new ObjectPool<RhythmNoteView>(
-                () => Instantiate(_notePrefab),
+                () => Instantiate(_notePrefab, transform),
                 note =>
                 {
                     note.ResetTrack();
@@ -40,6 +40,7 @@ namespace Game.Runtime.PianoFeature
                 });
 
             sheet.OnRhythmResult += OnRhythmResult;
+            sheet.OnRhythmEndResult += OnRhythmResult;
         }
 
         private void Update()
@@ -84,6 +85,7 @@ namespace Game.Runtime.PianoFeature
         private void OnDestroy()
         {
             _sheet.OnRhythmResult -= OnRhythmResult;
+            _sheet.OnRhythmEndResult -= OnRhythmResult;
         }
 
         public void SetLengthInSeconds(float seconds)
@@ -97,7 +99,7 @@ namespace Game.Runtime.PianoFeature
             _show = true;
             for (int i = _tracks.Count; i < _trackCount; i++)
             {
-                _tracks.Add(Instantiate(_trackPrefab));
+                _tracks.Add(Instantiate(_trackPrefab, transform));
             }
             
             for (int i = 0; i < _tracks.Count; i++)
@@ -121,6 +123,15 @@ namespace Game.Runtime.PianoFeature
         public void Hide()
         {
             _show = false;
+            foreach (var note in _showedNotes.Values)
+            {
+                _pool.Release(note);
+            }
+            _showedNotes.Clear();
+            foreach (var track in _tracks)
+            {
+                track.gameObject.SetActive(false);
+            }
         }
 
         private void OnRhythmResult(RhythmKey rhythmKey, RhythmResult rhythmResult)
@@ -134,7 +145,7 @@ namespace Game.Runtime.PianoFeature
                         view.Highlight(true);
                         break;
                     case RhythmResult.Miss:
-                        view.SetHighlightColor(Color.softYellow);
+                        view.SetHighlightColor(new(0.85f, 0.74f, 0.015686275f, 1f));
                         view.Highlight(true);
                         break;
                     case RhythmResult.Fail:

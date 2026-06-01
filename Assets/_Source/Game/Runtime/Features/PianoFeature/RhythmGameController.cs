@@ -18,14 +18,19 @@ namespace Game.Runtime.PianoFeature
             _orchestra = orchestra;
         }
         
-        public void Start(int keysCount, int maxSpeed)
+        public void Start(int id, int keysCount, float maxSpeed, float maxNotesPerSecond)
         {
-            Note[] notes = _musicLibrary.GetNotes(0);
-            List<RhythmKey>[] rhythmKeys = _keyGenerator.Generate(notes, keysCount, maxSpeed);
+            _orchestra.ClearTracks();
+            var notes = _musicLibrary.GetMusicTrack(id).Notes;
+            foreach (var typeNotesPair in notes)
+            {
+                List<RhythmKey>[] rhythmKeys = _keyGenerator.Generate(typeNotesPair.Value, keysCount, maxNotesPerSecond);
             
-            _orchestra.SetSheet(MusicalInstrumentType.MainPiano, rhythmKeys);
-            _orchestra.AddTrack(MusicalInstrumentType.MainPiano, notes); //TODO: Multiple tracks with different instruments
-            _orchestra.Play(2);
+                _orchestra.AddTrack(typeNotesPair.Key, typeNotesPair.Value);
+                _orchestra.Play(2, maxSpeed);
+                if(typeNotesPair.Key == MusicalInstrumentType.MainPiano)
+                    _orchestra.SetSheet(typeNotesPair.Key, rhythmKeys);
+            }
             
             _orchestra.OnCompleted += Quit;
         }
@@ -33,6 +38,7 @@ namespace Game.Runtime.PianoFeature
         public void Quit()
         {
             _orchestra.OnCompleted -= Quit;
+            _orchestra.Finish();
         }
     }
 }

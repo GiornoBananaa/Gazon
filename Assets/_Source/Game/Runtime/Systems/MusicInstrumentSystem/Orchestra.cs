@@ -45,7 +45,7 @@ namespace Game.Runtime.MusicInstrumentSystem
             }
         }
         
-        public void Play(float delay = 0)
+        public void Play(float delay = 0, float speed = 1)
         {
             _usedInstruments.Clear();
             _finishedTracks = 0;
@@ -57,7 +57,7 @@ namespace Game.Runtime.MusicInstrumentSystem
                 {
                     if (instrument.Type == track.Type && !_usedInstruments.Contains(instrument))
                     {
-                        instrument.NotesPlayer.Play(track.Notes, delay);
+                        instrument.NotesPlayer.Play(track.Notes, delay, speed);
                         track.Instrument = instrument;
                         _usedInstruments.Add(instrument);
                         instrument.NotesPlayer.OnCompleted += OnFinishedInstrument;
@@ -82,6 +82,17 @@ namespace Game.Runtime.MusicInstrumentSystem
             {
                 instrument.NotesPlayer.Stop();
             }
+        }
+        
+        public void Finish()
+        {
+            foreach (var instrument in _usedInstruments)
+            {
+                instrument.NotesPlayer.OnCompleted -= OnFinishedInstrument;
+                instrument.SheetVisualizer.Hide();
+            }
+            Stop();
+            OnCompleted?.Invoke();
         }
         
         public void ClearTracks()

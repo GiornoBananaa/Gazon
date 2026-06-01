@@ -12,7 +12,6 @@ namespace Game.Runtime.Installers
         {
             builder.RegisterType(typeof(GameInputActions), Lifetime.Singleton, Resolution.Lazy);
             builder.RegisterType(typeof(InputManager), Lifetime.Singleton, Resolution.Lazy);
-            builder.RegisterType(typeof(GeneralNavigationInputListener), new[] { typeof(IInputListener), typeof(GeneralNavigationInputListener) }, Lifetime.Singleton, Resolution.Eager);
         }
     }
 }

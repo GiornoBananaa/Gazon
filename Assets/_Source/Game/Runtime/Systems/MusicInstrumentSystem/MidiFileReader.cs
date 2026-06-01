@@ -7,42 +7,35 @@ namespace Game.Runtime.MusicInstrumentSystem
 {
     public class MidiFileReader : IMusicFileReader
     {
-        private MidiFile _midiFile;
-        private string _pathFile;
         private const int NOTE_NUMBER_START = 21;
         
         public bool FileIsValid(string path)
         {
-            _pathFile = path;
-            _midiFile = MidiFile.Read(path);
-            return IsValid(_midiFile);
+            return path.EndsWith(".mid");
         }
         
         public IEnumerable<Note> GetNotes(string path)
         {
-            if(_midiFile != null && _pathFile != path)
+            var midiFile = MidiFile.Read(path, new ReadingSettings
             {
-                _midiFile = MidiFile.Read(path, new ReadingSettings
-                {
-                    UnknownChunkIdPolicy = UnknownChunkIdPolicy.Skip
-                });
-            }
+                UnknownChunkIdPolicy = UnknownChunkIdPolicy.Skip,
+                NotEnoughBytesPolicy = NotEnoughBytesPolicy.Abort,
+                SilentNoteOnPolicy = SilentNoteOnPolicy.NoteOff
+            });
             
-            if(!IsValid(_midiFile)) throw new ArgumentNullException(nameof(path));
-            foreach (var note in _midiFile.GetNotes())
+            if(midiFile == null) throw new ArgumentException(nameof(path));
+            
+            var tempoMap = midiFile.GetTempoMap();
+            
+            foreach (var note in midiFile.GetNotes())
             {
                 yield return new Note
                 {
                     NoteNumber = note.NoteNumber - NOTE_NUMBER_START,
-                    StartTime = (float)TimeConverter.ConvertTo<MetricTimeSpan>(note.Time, _midiFile.GetTempoMap()).TotalSeconds,
-                    EndTime = (float)TimeConverter.ConvertTo<MetricTimeSpan>(note.EndTime, _midiFile.GetTempoMap()).TotalSeconds
+                    StartTime = (float)TimeConverter.ConvertTo<MetricTimeSpan>(note.Time, tempoMap).TotalSeconds,
+                    EndTime = (float)TimeConverter.ConvertTo<MetricTimeSpan>(note.EndTime, tempoMap).TotalSeconds
                 };
             }
-        }
-
-        private bool IsValid(MidiFile midiFile)
-        {
-            return midiFile != null;
         }
     }
 }

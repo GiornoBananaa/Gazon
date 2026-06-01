@@ -18,13 +18,13 @@ namespace Game.Runtime.PianoFeature
         private IPlayerState _playerState;
         private IPlayerState _playerExitState;
         
-        private IStateMachine<IPianoState> _pianoStateMachine;
-        private IPianoState _pianoState;
+        private IStateMachine<IInstrumentState> _pianoStateMachine;
+        private IInstrumentState _instrumentState;
         
         [Inject]
         public void Construct(GeneralNavigationInputListener generalNavigationInputListener,
             IStateMachine<IPlayerState> playerStateMachine, PlayerFreeWalkState playerFreeState, 
-            PlayerInstrumentSeatState playerInstrumentSeatState, IStateMachine<IPianoState> pianoStateMachine, RhythmInstrumentState freeInstrumentState)
+            PlayerInstrumentSeatState playerInstrumentSeatState, IStateMachine<IInstrumentState> pianoStateMachine, FreeInstrumentState freeInstrumentState)
         {
             _generalNavigationInputListener = generalNavigationInputListener;
             _playerStateMachine = playerStateMachine;
@@ -32,7 +32,7 @@ namespace Game.Runtime.PianoFeature
             _playerState = playerInstrumentSeatState;
             _playerExitState =  playerFreeState;
             _pianoStateMachine = pianoStateMachine;
-            _pianoState = freeInstrumentState;
+            _instrumentState = freeInstrumentState;
         }
 
         public void Interact()
@@ -45,7 +45,7 @@ namespace Game.Runtime.PianoFeature
             _interactableCollider.enabled = false;
             _generalNavigationInputListener.Exit += GetUp;
             _playerStateMachine.ChangeState(_playerState);
-            _pianoStateMachine.ChangeState(_pianoState);
+            _pianoStateMachine.ChangeState(_instrumentState);
         }
 
         private void GetUp()

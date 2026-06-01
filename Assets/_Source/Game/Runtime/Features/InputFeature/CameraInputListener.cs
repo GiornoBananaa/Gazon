@@ -1,5 +1,6 @@
 ﻿using System;
 using Game.Runtime.CameraSystem;
+using Game.Runtime.PlayerInteractionSystem;
 using Game.Runtime.PlayerMovementSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,12 +11,14 @@ namespace Game.Runtime.InputFeature
     {
         private readonly ICameraRotator _cameraInputRotator;
         private readonly IPlayerMovement _playerMovement;
+        private readonly IPlayerInteraction _playerInteraction;
         private GameInputActions.CameraActions _cameraActions;
         
-        public CameraInputListener(GameInputActions actionMap, ICameraRotator cameraInputRotator)
+        public CameraInputListener(GameInputActions actionMap, ICameraRotator cameraInputRotator, IPlayerInteraction playerInteraction)
         {
             _cameraInputRotator = cameraInputRotator;
             _cameraActions = actionMap.Camera;
+            _playerInteraction = playerInteraction;
             EnableInput();
 
             _cameraActions.Look.performed += OnLook;
@@ -33,7 +36,9 @@ namespace Game.Runtime.InputFeature
         
         private void OnLook(InputAction.CallbackContext callbackContext)
         {
-            _cameraInputRotator.InputLook(callbackContext.ReadValue<Vector2>());
+            var value = callbackContext.ReadValue<Vector2>();
+            _cameraInputRotator.InputLook(value);
+            _playerInteraction.OnLookChanged(value);
         }
     }
 }
