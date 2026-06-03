@@ -142,7 +142,7 @@ namespace Game.Runtime.MusicInstrumentSystem
         
         private void OnNoteStarted(Note note)
         {
-            _instrumentNoteTweener.StartNote(note.NoteNumber, _sounds[note.NoteNumber]);
+            _instrumentNoteTweener.StartNote(note.NoteNumber, _sounds[note.NoteNumber], note.Velocity);
         }
         
         private void OnNoteEnded(Note note)

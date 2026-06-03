@@ -5,12 +5,14 @@ namespace Game.Runtime.MusicInstrumentSystem
     public struct Note : IEquatable<Note>
     {
         public int NoteNumber;
+        public float Velocity;
         public float StartTime;
         public float EndTime;
 
-        public Note(int noteNumber, float startTime, float endTime)
+        public Note(int noteNumber, float velocity, float startTime, float endTime)
         {
             NoteNumber = noteNumber;
+            Velocity = velocity;
             StartTime = startTime;
             EndTime = endTime;
         }

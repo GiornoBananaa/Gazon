@@ -10,12 +10,15 @@ namespace Game.Runtime.MusicInstrumentSystem
     {
         private readonly IAudioPlayer _audioPlayer;
         private readonly Dictionary<int, AudioSoundSource> _pressedSources = new();
+        private readonly Dictionary<int, AudioSoundSource> _sustainedSources = new();
         private readonly Dictionary<AudioSoundSource, Tween> _sourceTweens = new();
         
         private readonly float _noteEndDuration;
-        private readonly float _noteEndSustainDuration;
         private readonly float _noteTransitionFadingDuration;
         private readonly int _notesCount;
+        private readonly float _minLowPassFrequency;
+        private readonly float _maxLowPassFrequency;
+        private readonly float _maxVelocity;
         
         private Vector3 _pianoLineStart;
         private Vector3 _pianoLineEnd;
@@ -27,19 +30,16 @@ namespace Game.Runtime.MusicInstrumentSystem
         {
             _audioPlayer = audioPlayer;
             _noteEndDuration = data.NoteEndDuration;
-            _noteEndSustainDuration = data.PedalNoteEndDuration;
             _noteTransitionFadingDuration = data.NoteTransitionFadingDuration;
+            _minLowPassFrequency = data.MinLowPassFrequency;
+            _maxLowPassFrequency = data.MaxLowPassFrequency;
             _notesCount = data.Notes.Length;
+            _maxVelocity = data.MaxKeyVelocity;
         }
 
         public void SetMaxVolume(float value)
         {
             _maxVolume = value;
-
-            foreach (var source in _pressedSources.Values)
-            {
-                _audioPlayer.SetSoundVolume(source, value);
-            }
         }
 
         public void SetPianoWorldPosition(Vector3 start, Vector3 end)
@@ -57,8 +57,9 @@ namespace Game.Runtime.MusicInstrumentSystem
             }
         }
         
-        public void StartNote(int id, AudioSound sound)
+        public void StartNote(int id, AudioSound sound, float velocity)
         {
+            velocity *= _maxVelocity;
             if(_pressedSources.TryGetValue(id, out var pressedSource))
             {
                 var pressedSourceCopy = pressedSource;
@@ -69,7 +70,7 @@ namespace Game.Runtime.MusicInstrumentSystem
                     _sourceTweens.Remove(pressedSourceCopy);
                 }
                 
-                Tween tween = DOTween.To(() => _audioPlayer.GetSoundVolume(pressedSourceCopy), v => _audioPlayer.SetSoundVolume(pressedSourceCopy, v), 0, _noteTransitionFadingDuration * _audioPlayer.GetSoundVolume(pressedSourceCopy));
+                Tween tween = DOTween.To(() => _audioPlayer.GetSoundVolume(pressedSourceCopy), v => SetNoteVolume(pressedSourceCopy, v), 0, _noteTransitionFadingDuration * _audioPlayer.GetSoundVolume(pressedSourceCopy));
                 tween.OnComplete(() =>
                 {
                     _audioPlayer.Stop(pressedSourceCopy);
@@ -78,21 +79,36 @@ namespace Game.Runtime.MusicInstrumentSystem
                 });
                 _sourceTweens[pressedSourceCopy] = tween;
             }
-            AudioSoundSource source = _audioPlayer.Play(sound, Vector3.Lerp(_pianoLineStart, _pianoLineEnd, (float)id/_notesCount), _maxVolume, _spatialBlend);
+
+            float velocityKoef = (1 - (1 - velocity) * (1 - velocity));
             
+            float volume = _maxVolume * velocityKoef;
+            float maxLowCutFrequency = Mathf.Lerp(_minLowPassFrequency, _maxLowPassFrequency, velocityKoef);
+            AudioSoundSource source = _audioPlayer.Play(sound, Vector3.Lerp(_pianoLineStart, _pianoLineEnd, (float)id / _notesCount), volume, _spatialBlend, 1, maxLowCutFrequency);
             _pressedSources[id] = source;
+            _sustainedSources.Remove(id);
         }
      
         public void EndNote(int id)
         {
             if(!_pressedSources.TryGetValue(id, out var source)) return;
-            float endDuration = _sustain ? _noteEndSustainDuration : _noteEndDuration;
-            Tween tween = DOTween.To(() => _audioPlayer.GetSoundVolume(source), v => _audioPlayer.SetSoundVolume(source, v), 0, endDuration * _audioPlayer.GetSoundVolume(source));
+            
+            if (_sustain)
+            {
+                _sustainedSources.Add(id, source);
+                return;
+            }
+            
+            float volume = _audioPlayer.GetSoundVolume(source);
+            float endDuration = _noteEndDuration * (1 - (1 - volume) * (1 - volume));
+            Tween tween = DOTween.To(() => _audioPlayer.GetSoundVolume(source), v => SetNoteVolume(source, v), 0, endDuration);
             tween.OnComplete(() =>
             {
                 _audioPlayer.Stop(source);
                 if(_pressedSources.TryGetValue(id, out var pressedSource) && pressedSource.GetHashCode() == source.GetHashCode())
                     _pressedSources.Remove(id);
+                if(_sustainedSources.ContainsKey(id))
+                    _sustainedSources.Remove(id);
             });
             _sourceTweens[source] = tween;
         }
@@ -105,6 +121,26 @@ namespace Game.Runtime.MusicInstrumentSystem
         public void DisableSustain()
         {
             _sustain = false;
+            foreach (var pair in _sustainedSources)
+            {
+                if(_sourceTweens.TryGetValue(pair.Value, out var sourceTween))
+                    sourceTween.Kill();
+                float volume = _audioPlayer.GetSoundVolume(pair.Value);
+                float endDuration = _noteEndDuration * (1 - (1 - volume) * (1 - volume));
+                Tween tween = DOTween.To(() => _audioPlayer.GetSoundVolume(pair.Value), v => SetNoteVolume(pair.Value, v), 0, endDuration);
+                tween.OnComplete(() =>
+                {
+                    _audioPlayer.Stop(pair.Value);
+                    if(_pressedSources.TryGetValue(pair.Key, out var pressedSource) && pressedSource.GetHashCode() == pair.Value.GetHashCode())
+                        _pressedSources.Remove(pair.Key);
+                });
+            }
+            _sustainedSources.Clear();
+        }
+        
+        private void SetNoteVolume(AudioSoundSource sound, float volume)
+        {
+            _audioPlayer.SetSoundVolume(sound, volume);
         }
     }
 }

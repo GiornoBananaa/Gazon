@@ -1,4 +1,5 @@
-﻿using Game.Runtime.InputFeature;
+﻿using System.Collections.Generic;
+using Game.Runtime.InputFeature;
 
 namespace Game.Runtime.PianoFeature
 {
@@ -6,21 +7,21 @@ namespace Game.Runtime.PianoFeature
     {
         private readonly FreeInstrumentInputListener _inputListener;
         private readonly InstrumentPlayStatistics _instrumentPlayStatistics;
-        private readonly FreeInstrumentKeyPresser _instrumentKeyPresser;
+        private readonly IEnumerable<IInstrumentKeyPresser> _instrumentKeyPressers;
         private readonly IInstrumentMenu _instrumentMenu;
         
         public FreeInstrumentState(FreeInstrumentInputListener inputListener, InstrumentPlayStatistics instrumentPlayStatistics,
-            FreeInstrumentKeyPresser instrumentKeyPresser, IInstrumentMenu instrumentMenu)
+            IEnumerable<IInstrumentKeyPresser> instrumentKeyPressers, IInstrumentMenu instrumentMenu)
         {
             _inputListener  = inputListener;
             _instrumentPlayStatistics  = instrumentPlayStatistics;
-            _instrumentKeyPresser  = instrumentKeyPresser;
+            _instrumentKeyPressers  = instrumentKeyPressers;
             _instrumentMenu = instrumentMenu;
         }
         
         public void Enter()
         {
-            _instrumentPlayStatistics.SetPianoComponents(_instrumentKeyPresser, null);
+            _instrumentPlayStatistics.SetPianoComponents(_instrumentKeyPressers, null);
             _inputListener.EnableInput();
             _instrumentMenu.Show();
         }

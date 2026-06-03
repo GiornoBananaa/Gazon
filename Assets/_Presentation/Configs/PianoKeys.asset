@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: PianoKeys
   m_EditorClassIdentifier: Game.Runtime::Game.Runtime.PianoRhythmSystem.PianoKeysConfig
   FreeKeysCount: 24
+  MaxKeyVelocity: 0.5
   PedalNoteEndDuration: 6
   MinRhythmKeys: 4
-  MaxRhythmKeys: 7
+  MaxRhythmKeys: 8
   NoteEndDuration: 1.5
   NoteTransitionFadingDuration: 1
   StartKeyInFirstOctave: 10
@@ -108,4 +109,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d9059f0ef891100449ff6750c6e2e4b5, type: 2}
   - {fileID: 11400000, guid: 1f0efdac42d31ee41b0668f4d7589dce, type: 2}
   - {fileID: 11400000, guid: 7fe4babfff9a9374eaf505b591deddba, type: 2}
+  MinLowPassFrequency: 1500
+  MaxLowPassFrequency: 22000
   StatisticTimeSpan: 1

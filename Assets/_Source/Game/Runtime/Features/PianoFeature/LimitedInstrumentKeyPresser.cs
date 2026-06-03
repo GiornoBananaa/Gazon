@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Game.Runtime.PianoFeature
 {
-    public class FreeInstrumentKeyPresser : IInstrumentKeyPresser
+    public class LimitedInstrumentKeyPresser : IInstrumentKeyPresser
     {
         private readonly AudioSound[] _notes;
         private readonly IInstrumentNoteTweener _noteTweener;
@@ -23,7 +23,7 @@ namespace Game.Runtime.PianoFeature
         public event Action<int, int> OnPressedKeyNoteIndexes;
         public event Action<int, int> OnReleasedKeyNoteIndexes;
         
-        public FreeInstrumentKeyPresser(IInstrumentNoteTweener noteTweener, PianoKeysConfig pianoKeysConfig)
+        public LimitedInstrumentKeyPresser(IInstrumentNoteTweener noteTweener, PianoKeysConfig pianoKeysConfig)
         {
             _noteTweener = noteTweener;
             _notes = pianoKeysConfig.Notes;
@@ -34,7 +34,7 @@ namespace Game.Runtime.PianoFeature
         public void PressKey(int keyIndex)
         {
             int noteIndex = Mathf.Clamp(keyIndex + _startIndex, 0, _notes.Length - 1);
-            _noteTweener.StartNote(noteIndex, _notes[noteIndex]);
+            _noteTweener.StartNote(noteIndex, _notes[noteIndex], 1);
             OnPressedKeyNoteIndexes?.Invoke(keyIndex, noteIndex);
         }
         
@@ -53,7 +53,7 @@ namespace Game.Runtime.PianoFeature
 
         public void OctaveDown()
         {
-            if(_startOctave - 1 < (GlobalConstants.OCTAVE_NOTES_COUNT - _startKeyInFirstOctave > 0 ? -1 : 0)) return;
+            if(_startOctave - 1 < (_startKeyInFirstOctave > 0 ? -1 : 0)) return;
             SetOctave(_startOctave - 1);
         }
         
@@ -72,8 +72,10 @@ namespace Game.Runtime.PianoFeature
             _keysCount = count;
             int firstOctaveKeysCount = GlobalConstants.OCTAVE_NOTES_COUNT - _startKeyInFirstOctave;
             _octavesCount = (_notes.Length - firstOctaveKeysCount) / GlobalConstants.OCTAVE_NOTES_COUNT;
+            if (firstOctaveKeysCount > 0)
+                _octavesCount++;
             _octavesInKeysCount = _keysCount / GlobalConstants.OCTAVE_NOTES_COUNT;
-            SetOctave(_octavesCount / 2 - _octavesCount % 2);
+            SetOctave((_octavesCount - _octavesInKeysCount) / 2 - (_octavesCount - _octavesInKeysCount) % 2);
         }
         
         private void SetOctave(int octave)

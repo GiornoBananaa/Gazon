@@ -1,4 +1,6 @@
-﻿using Game.Runtime.PianoFeature;
+﻿using System;
+using Game.Runtime.PianoFeature;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Game.Runtime.InputFeature
@@ -7,15 +9,19 @@ namespace Game.Runtime.InputFeature
     {
         private readonly InputAction[] _keyActions;
         private readonly InputAction[] _noteActions;
-        private readonly FreeInstrumentKeyPresser _instrumentKeyPresser;
+        private readonly LimitedInstrumentKeyPresser _instrumentKeyPresser;
+        private readonly DirectNoteInstrumentKeyPresser _directNoteInstrumentKeyPresser;
         private GameInputActions.PianoActions _pianoActions;
 
         private bool _enabled = true;
+        private bool _sustain;
+        private bool _sustainControl;
         
-        public FreeInstrumentInputListener(GameInputActions actionMap, FreeInstrumentKeyPresser instrumentKeyPresser)
+        public FreeInstrumentInputListener(GameInputActions actionMap, LimitedInstrumentKeyPresser instrumentKeyPresser, DirectNoteInstrumentKeyPresser directNoteInstrumentKeyPresser)
         {
             _pianoActions = actionMap.Piano;
             _instrumentKeyPresser = instrumentKeyPresser;
+            _directNoteInstrumentKeyPresser = directNoteInstrumentKeyPresser;
             
             _keyActions = new[]
             {
@@ -167,6 +173,7 @@ namespace Game.Runtime.InputFeature
             _pianoActions.OctaveDown.performed += OnOctaveDown;
             _pianoActions.Pedal.started += OnPressPedal;
             _pianoActions.Pedal.canceled += OnReleasePedal;
+            _pianoActions.PedalControl.performed += OnPressPedalControl;
             _enabled = true;
         }
     
@@ -178,6 +185,7 @@ namespace Game.Runtime.InputFeature
             _pianoActions.OctaveDown.performed -= OnOctaveDown;
             _pianoActions.Pedal.started -= OnPressPedal;
             _pianoActions.Pedal.canceled -= OnReleasePedal;
+            _pianoActions.PedalControl.performed -= OnPressPedalControl;
             _enabled = false;
         }
 
@@ -185,12 +193,12 @@ namespace Game.Runtime.InputFeature
         {
             if(_instrumentKeyPresser.KeysCount != _noteActions.Length)
                 _instrumentKeyPresser.SetKeysCount(_noteActions.Length);
-            _instrumentKeyPresser.PressKey(keyNumber);
+            _directNoteInstrumentKeyPresser.PressKey(keyNumber, context.ReadValue<float>());
         }
         
         private void OnNoteCanceled(InputAction.CallbackContext context, int keyNumber)
         {
-            _instrumentKeyPresser.ReleaseKey(keyNumber);
+            _directNoteInstrumentKeyPresser.ReleaseKey(keyNumber);
         }
         
         private void OnKeyStarted(InputAction.CallbackContext context, int keyNumber)
@@ -215,14 +223,44 @@ namespace Game.Runtime.InputFeature
             _instrumentKeyPresser.OctaveDown();
         }
         
+        private void OnPressPedalControl(InputAction.CallbackContext context)
+        {
+            bool sustain = context.ReadValue<float>() >= 0.5f;
+            
+            if (_sustain)
+            {
+                _sustainControl = sustain;
+                return;
+            }
+            
+            if(!_sustainControl && sustain)
+            {
+                _instrumentKeyPresser.PressPedal();
+                _directNoteInstrumentKeyPresser.PressPedal();
+            }
+            else if (_sustainControl && !sustain)
+            {
+                _instrumentKeyPresser.ReleasePedal();
+                _directNoteInstrumentKeyPresser.ReleasePedal();
+            }
+            
+            _sustainControl = sustain;
+        }
+        
         private void OnPressPedal(InputAction.CallbackContext context)
         {
+            _sustain = true;
+            if(_sustainControl) return;
             _instrumentKeyPresser.PressPedal();
+            _directNoteInstrumentKeyPresser.PressPedal();
         }
         
         private void OnReleasePedal(InputAction.CallbackContext context)
         {
+            _sustain = false;
+            if(_sustainControl) return;
             _instrumentKeyPresser.ReleasePedal();
+            _directNoteInstrumentKeyPresser.ReleasePedal();
         }
     }
 }

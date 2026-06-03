@@ -1093,6 +1093,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "PedalControl",
+                    "type": "PassThrough",
+                    "id": "5ba0142b-e4eb-4c8c-bf75-95060982a1bf",
+                    "expectedControlType": "MidiValue",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "OctaveUp",
                     "type": "Button",
                     "id": "a1c3de2f-8000-435c-a71e-c5946b4b821e",
@@ -2226,7 +2235,7 @@
                 {
                     "name": "",
                     "id": "fd31700e-cd05-4115-8f47-26c23d5409ac",
-                    "path": "<Keyboard>/f1",
+                    "path": "<MidiDevice>/note029",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
@@ -2237,7 +2246,7 @@
                 {
                     "name": "",
                     "id": "e81db8cb-451d-4efb-8139-994071911e38",
-                    "path": "<Keyboard>/f2",
+                    "path": "<MidiDevice>/note041",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
@@ -3144,6 +3153,17 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "Pedal",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e98cfc5c-3dc3-458f-8523-228c4bf56c72",
+                    "path": "<MidiDevice>/control064",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "PedalControl",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

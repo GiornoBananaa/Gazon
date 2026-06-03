@@ -8,6 +8,7 @@ namespace Game.Runtime.Configs
     {
         [Header("Free piano")]
         public int FreeKeysCount = 14;
+        public float MaxKeyVelocity = 0.7f;
         public float PedalNoteEndDuration = 4;
         
         [Header("Rhythm game")]
@@ -20,6 +21,10 @@ namespace Game.Runtime.Configs
         [Range(1, 12)] public int StartKeyInFirstOctave = 10;
         public AudioSound[] Notes;
 
+        [Header("Frequency")]
+        public float MinLowPassFrequency = 1500f;
+        public float MaxLowPassFrequency = 22000f;
+        
         [Header("Statistics")]
         public float StatisticTimeSpan;
     }

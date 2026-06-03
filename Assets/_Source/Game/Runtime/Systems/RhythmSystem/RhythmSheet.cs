@@ -92,7 +92,7 @@ namespace Game.Runtime.RhythmSystem
                 if(offset <= 0.3f)
                     time = Mathf.Lerp(_time + offset, note.StartTime, Mathf.InverseLerp(0, 0.3f, offset));
                 _notesPlayer.UnmuteNote(note);
-                _notesPlayer.ForceNoteChange(note, new Note(note.NoteNumber, time, time + note.Length));
+                _notesPlayer.ForceNoteChange(note, new Note(note.NoteNumber, note.Velocity, time, time + note.Length));
             }
             OnRhythmResult?.Invoke(rhythmKey, result);
         }

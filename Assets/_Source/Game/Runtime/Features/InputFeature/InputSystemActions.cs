@@ -1179,6 +1179,15 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""PedalControl"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""5ba0142b-e4eb-4c8c-bf75-95060982a1bf"",
+                    ""expectedControlType"": ""MidiValue"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""OctaveUp"",
                     ""type"": ""Button"",
                     ""id"": ""a1c3de2f-8000-435c-a71e-c5946b4b821e"",
@@ -2312,7 +2321,7 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""fd31700e-cd05-4115-8f47-26c23d5409ac"",
-                    ""path"": ""<Keyboard>/f1"",
+                    ""path"": ""<MidiDevice>/note029"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
@@ -2323,7 +2332,7 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e81db8cb-451d-4efb-8139-994071911e38"",
-                    ""path"": ""<Keyboard>/f2"",
+                    ""path"": ""<MidiDevice>/note041"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
@@ -3235,6 +3244,17 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""e98cfc5c-3dc3-458f-8523-228c4bf56c72"",
+                    ""path"": ""<MidiDevice>/control064"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""PedalControl"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""dc535637-7e6d-492b-b635-967726814a2d"",
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
@@ -3714,6 +3734,7 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         m_Piano_BlackKey9 = m_Piano.FindAction("BlackKey9", throwIfNotFound: true);
         m_Piano_BlackKey10 = m_Piano.FindAction("BlackKey10", throwIfNotFound: true);
         m_Piano_Pedal = m_Piano.FindAction("Pedal", throwIfNotFound: true);
+        m_Piano_PedalControl = m_Piano.FindAction("PedalControl", throwIfNotFound: true);
         m_Piano_OctaveUp = m_Piano.FindAction("OctaveUp", throwIfNotFound: true);
         m_Piano_OctaveDown = m_Piano.FindAction("OctaveDown", throwIfNotFound: true);
         m_Piano_NoteC1 = m_Piano.FindAction("NoteC1", throwIfNotFound: true);
@@ -4361,6 +4382,7 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Piano_BlackKey9;
     private readonly InputAction m_Piano_BlackKey10;
     private readonly InputAction m_Piano_Pedal;
+    private readonly InputAction m_Piano_PedalControl;
     private readonly InputAction m_Piano_OctaveUp;
     private readonly InputAction m_Piano_OctaveDown;
     private readonly InputAction m_Piano_NoteC1;
@@ -4562,6 +4584,10 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Piano/Pedal".
         /// </summary>
         public InputAction @Pedal => m_Wrapper.m_Piano_Pedal;
+        /// <summary>
+        /// Provides access to the underlying input action "Piano/PedalControl".
+        /// </summary>
+        public InputAction @PedalControl => m_Wrapper.m_Piano_PedalControl;
         /// <summary>
         /// Provides access to the underlying input action "Piano/OctaveUp".
         /// </summary>
@@ -5023,6 +5049,9 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
             @Pedal.started += instance.OnPedal;
             @Pedal.performed += instance.OnPedal;
             @Pedal.canceled += instance.OnPedal;
+            @PedalControl.started += instance.OnPedalControl;
+            @PedalControl.performed += instance.OnPedalControl;
+            @PedalControl.canceled += instance.OnPedalControl;
             @OctaveUp.started += instance.OnOctaveUp;
             @OctaveUp.performed += instance.OnOctaveUp;
             @OctaveUp.canceled += instance.OnOctaveUp;
@@ -5379,6 +5408,9 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
             @Pedal.started -= instance.OnPedal;
             @Pedal.performed -= instance.OnPedal;
             @Pedal.canceled -= instance.OnPedal;
+            @PedalControl.started -= instance.OnPedalControl;
+            @PedalControl.performed -= instance.OnPedalControl;
+            @PedalControl.canceled -= instance.OnPedalControl;
             @OctaveUp.started -= instance.OnOctaveUp;
             @OctaveUp.performed -= instance.OnOctaveUp;
             @OctaveUp.canceled -= instance.OnOctaveUp;
@@ -6367,6 +6399,13 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPedal(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "PedalControl" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPedalControl(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "OctaveUp" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>

@@ -30,11 +30,12 @@ namespace Game.Runtime.MusicInstrumentSystem
             foreach (var note in midiFile.GetNotes())
             {
                 yield return new Note
-                {
-                    NoteNumber = note.NoteNumber - NOTE_NUMBER_START,
-                    StartTime = (float)TimeConverter.ConvertTo<MetricTimeSpan>(note.Time, tempoMap).TotalSeconds,
-                    EndTime = (float)TimeConverter.ConvertTo<MetricTimeSpan>(note.EndTime, tempoMap).TotalSeconds
-                };
+                (
+                    note.NoteNumber - NOTE_NUMBER_START,
+                    note.Velocity / 127f,
+                    (float)TimeConverter.ConvertTo<MetricTimeSpan>(note.Time, tempoMap).TotalSeconds,
+                    (float)TimeConverter.ConvertTo<MetricTimeSpan>(note.EndTime, tempoMap).TotalSeconds
+                );
             }
         }
     }

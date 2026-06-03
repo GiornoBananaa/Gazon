@@ -1,4 +1,5 @@
 ﻿using Game.Runtime.PianoFeature;
+using Game.Runtime.RhythmSystem;
 using UnityEngine.InputSystem;
 
 namespace Game.Runtime.InputFeature
@@ -6,15 +7,16 @@ namespace Game.Runtime.InputFeature
     public class RhythmInstrumentInputListener : IInputListener
     {
         private readonly InputAction[] _noteActions;
-        private readonly IInstrumentKeyPresser _instrumentKeyPresser;
         private GameInputActions.PianoRhythmActions _pianoActions;
-
+        private readonly IRhythmSheet _rhythmSheet;
+        private int _keysCount;
+        
         private bool _enabled = true;
         
-        public RhythmInstrumentInputListener(GameInputActions actionMap, RhythmGameInstrumentKeyPresser keysPresser)
+        public RhythmInstrumentInputListener(GameInputActions actionMap, IRhythmSheet rhythmSheet)
         {
             _pianoActions = actionMap.PianoRhythm;
-            _instrumentKeyPresser = keysPresser;
+            _rhythmSheet = rhythmSheet;
             
             _noteActions = new[]
             {
@@ -52,14 +54,23 @@ namespace Game.Runtime.InputFeature
             _enabled = false;
         }
 
+        public void SetKeysCount(int count)
+        {
+            _keysCount = count;
+        }
+        
         private void OnKeyStarted(InputAction.CallbackContext context, int keyNumber)
         {
-            _instrumentKeyPresser.PressKey(keyNumber);
+            keyNumber -= (GlobalConstants.MAX_KEYS_COUNT - _keysCount) / 2;
+            if(keyNumber < 0 || keyNumber >= _keysCount) return;
+            _rhythmSheet.StartKey(keyNumber);
         }
         
         private void OnKeyCanceled(InputAction.CallbackContext context, int keyNumber)
         {
-            _instrumentKeyPresser.ReleaseKey(keyNumber);
+            keyNumber -= (GlobalConstants.MAX_KEYS_COUNT - _keysCount) / 2;
+            if(keyNumber < 0 || keyNumber >= _keysCount) return;
+            _rhythmSheet.StopKey(keyNumber);
         }
     }
 }

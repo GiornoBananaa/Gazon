@@ -51,7 +51,7 @@ namespace Game.Runtime.PianoFeature
         private readonly HashSet<int> _currentPressedNotes = new();
         private int _maxNotes;
         
-        private IInstrumentKeyPresser _instrumentKeyPresser;
+        private IEnumerable<IInstrumentKeyPresser> _instrumentKeyPressers;
         private IRhythmSheet _rhythmSheet;
         
         public float MaxTimeSpan { get; private set; }
@@ -63,15 +63,18 @@ namespace Game.Runtime.PianoFeature
             _maxNotes = config.Notes.Length;
         }
         
-        public void SetPianoComponents(IInstrumentKeyPresser instrumentKeyPresser, IRhythmSheet rhythmSheet)
+        public void SetPianoComponents(IEnumerable<IInstrumentKeyPresser> instrumentKeyPressers, IRhythmSheet rhythmSheet)
         {
-            if (_instrumentKeyPresser != null || rhythmSheet != null)
-                UnsubscribeEvents();
-            _instrumentKeyPresser = instrumentKeyPresser;
-            if(_instrumentKeyPresser != null)
+            UnsubscribeEvents();
+            _instrumentKeyPressers = instrumentKeyPressers;
+
+            if(_instrumentKeyPressers != null)
             {
-                _instrumentKeyPresser.OnPressedKeyNoteIndexes += OnPressedKeyNote;
-                _instrumentKeyPresser.OnReleasedKeyNoteIndexes += OnReleasedKeyNote;
+                foreach (var keyPresser in _instrumentKeyPressers)
+                {
+                    keyPresser.OnPressedKeyNoteIndexes += OnPressedKeyNote;
+                    keyPresser.OnReleasedKeyNoteIndexes += OnReleasedKeyNote;
+                }
             }
             _rhythmSheet = rhythmSheet;
             if(_rhythmSheet != null)
@@ -189,10 +192,13 @@ namespace Game.Runtime.PianoFeature
         
         private void UnsubscribeEvents()
         {
-            if(_instrumentKeyPresser != null)
+            if(_instrumentKeyPressers != null)
             {
-                _instrumentKeyPresser.OnPressedKeyNoteIndexes -= OnPressedKeyNote;
-                _instrumentKeyPresser.OnReleasedKeyNoteIndexes -= OnReleasedKeyNote;
+                foreach (var keyPresser in _instrumentKeyPressers)
+                {
+                    keyPresser.OnPressedKeyNoteIndexes -= OnPressedKeyNote;
+                    keyPresser.OnReleasedKeyNoteIndexes -= OnReleasedKeyNote;
+                }
             }
             if (_rhythmSheet != null)
             {
@@ -203,7 +209,7 @@ namespace Game.Runtime.PianoFeature
 
         public void Dispose()
         {
-            if(_instrumentKeyPresser != null)
+            if(_instrumentKeyPressers != null)
                 UnsubscribeEvents();
         }
     }

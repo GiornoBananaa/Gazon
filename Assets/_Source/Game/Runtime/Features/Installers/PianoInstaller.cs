@@ -34,11 +34,11 @@ namespace Game.Runtime.Installers
             //Free mode
             builder.RegisterType(typeof(FreeInstrumentState), Lifetime.Scoped, Resolution.Lazy);
             builder.RegisterType(typeof(FreeInstrumentInputListener), new[] { typeof(IInputListener), typeof(FreeInstrumentInputListener) }, Lifetime.Scoped, Resolution.Lazy);
-            builder.RegisterType(typeof(FreeInstrumentKeyPresser), new[] { typeof(IInstrumentKeyPresser), typeof(FreeInstrumentKeyPresser) }, Lifetime.Scoped, Resolution.Lazy);
+            builder.RegisterType(typeof(LimitedInstrumentKeyPresser), new[] { typeof(IInstrumentKeyPresser), typeof(LimitedInstrumentKeyPresser) }, Lifetime.Scoped, Resolution.Lazy);
+            builder.RegisterType(typeof(DirectNoteInstrumentKeyPresser), new[] { typeof(IInstrumentKeyPresser), typeof(DirectNoteInstrumentKeyPresser) }, Lifetime.Scoped, Resolution.Lazy);
             
             //Rhythm mode
             builder.RegisterType(typeof(RhythmInstrumentInputListener), new[] { typeof(IInputListener), typeof(RhythmInstrumentInputListener) }, Lifetime.Scoped, Resolution.Lazy);
-            builder.RegisterType(typeof(RhythmGameInstrumentKeyPresser), new[] { typeof(IInstrumentKeyPresser), typeof(RhythmGameInstrumentKeyPresser) }, Lifetime.Scoped, Resolution.Lazy);
             builder.RegisterType(typeof(RhythmGameController), Lifetime.Scoped, Resolution.Lazy);
             builder.RegisterType(typeof(RhythmInstrumentState), Lifetime.Scoped, Resolution.Lazy);
             builder.RegisterType(typeof(RhythmKeyGenerator), new[] { typeof(IRhythmKeyGenerator) }, Lifetime.Singleton, Resolution.Lazy);
