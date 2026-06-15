@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13c7448bedda41d7b5e0b38ad935024b, type: 3}
+  m_Name: Orchestra
+  m_EditorClassIdentifier: Game.Runtime::Game.Runtime.Configs.OrchestraConfig
+  Instruments:
+  - Type: 0
+    Prefab: {fileID: 7947918508259761074, guid: 18b985c6a5f6e0d44bb2a1a9d2a1a318, type: 3}
+  - Type: 1
+    Prefab: {fileID: 2039091135873492254, guid: e668f183219f6f749997e0b97b69bc86, type: 3}
+  StatisticTimeSpan: 1

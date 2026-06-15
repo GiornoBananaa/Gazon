@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-using Game.Runtime.AudioSystem;
-using Game.Runtime.Plugins.Array2D;
+﻿using Game.Runtime.AudioSystem;
 using UnityEditor;
 using UnityEngine;
 
@@ -13,6 +11,7 @@ namespace Game.Editor
         //private SerializedProperty _biomeSize;
 
         private static AudioSource _audioSource;
+        private static AudioLowPassFilter _lowPassFilter;
         private static GameObject _audioSourceGameObject;
         
         private void OnEnable()
@@ -29,13 +28,13 @@ namespace Game.Editor
             using (new EditorGUILayout.HorizontalScope())
             {
                 if (GUILayout.Button("Play"))
-                    Play(config.AudioClip, config.MaxVolume);
+                    Play(config.AudioClip, config.MaxVolume, config.Pitch , config.MaxLowPassFrequency);
                 if (GUILayout.Button("Stop"))
                     Stop();
             }
         }
         
-        public static void Play(AudioClip clip, float volume = 1f, float pitch = 1f)
+        public static void Play(AudioClip clip, float volume = 1f, float pitch = 1f, float cutOffFrequency = 22000f)
         {
             if (clip == null) return;
 
@@ -43,17 +42,17 @@ namespace Game.Editor
                 Stop();
             
             GameObject tempGo = new GameObject("TempAudio");
-            tempGo.hideFlags = HideFlags.HideAndDontSave; 
+            tempGo.hideFlags = HideFlags.HideAndDontSave;
             _audioSourceGameObject = tempGo;
             
-            AudioSource source = tempGo.AddComponent<AudioSource>();
-            source.clip = clip;
-            source.volume = volume;
-            source.pitch = pitch;
-            source.playOnAwake = false;
-            _audioSource = source;
-            
-            source.Play();
+            _audioSource = tempGo.AddComponent<AudioSource>();
+            _lowPassFilter = tempGo.AddComponent<AudioLowPassFilter>();
+            _audioSource.clip = clip;
+            _audioSource.volume = volume;
+            _audioSource.pitch = pitch;
+            _audioSource.playOnAwake = false;
+            _lowPassFilter.cutoffFrequency = cutOffFrequency;
+            _audioSource.Play();
             
             EditorApplication.update -= UpdateSound;
             EditorApplication.update += UpdateSound;

@@ -57,17 +57,17 @@ namespace Game.Runtime.PianoFeature
         public float MaxTimeSpan { get; private set; }
 
         
-        public InstrumentPlayStatistics(PianoKeysConfig config)
+        public InstrumentPlayStatistics(OrchestraConfig config)
         {
             MaxTimeSpan = config.StatisticTimeSpan;
-            _maxNotes = config.Notes.Length;
         }
         
-        public void SetPianoComponents(IEnumerable<IInstrumentKeyPresser> instrumentKeyPressers, IRhythmSheet rhythmSheet)
+        public void SetPianoComponents(int maxNotes, IEnumerable<IInstrumentKeyPresser> instrumentKeyPressers, IRhythmSheet rhythmSheet)
         {
             UnsubscribeEvents();
             _instrumentKeyPressers = instrumentKeyPressers;
-
+            _maxNotes = maxNotes;
+            
             if(_instrumentKeyPressers != null)
             {
                 foreach (var keyPresser in _instrumentKeyPressers)

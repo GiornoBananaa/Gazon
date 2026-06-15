@@ -1,6 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using Game.Runtime.Configs;
+using Game.Runtime.PianoFeature;
 using Game.Runtime.RhythmSystem;
+using UnityEngine;
+using UnityEngine.Pool;
+using Object = UnityEngine.Object;
 
 namespace Game.Runtime.MusicInstrumentSystem
 {
@@ -14,31 +19,63 @@ namespace Game.Runtime.MusicInstrumentSystem
             public Note[] Notes;
         }
         
-        private readonly List<IInstrument> _instruments = new();
-        private readonly HashSet<IInstrument> _usedInstruments = new();
+        private readonly List<MainMusicInstrument> _mainInstruments = new();
+        private readonly Dictionary<InstrumentId,IInstrument> _usedInstruments = new();
         private readonly List<InstrumentTrack> _tracks = new();
-
+        private readonly List<MusicInstrument> _spawnedInstruments = new();
+        private readonly Dictionary<MusicalInstrumentType, ObjectPool<MusicInstrument>> _instrumentPools = new();
+        private readonly Dictionary<MusicalInstrumentType, MusicInstrument> _prefabs = new();
+        private readonly IRhythmSheet _rhythmSheet;
+        
+        
+        private List<RhythmKey>[] _rhythmKeys = null;
         private int _activeTracks;
         private int _finishedTracks;
         
         public event Action OnCompleted;
-        
-        public void AddInstrument(IInstrument instrument)
-        {
-            _instruments.Add(instrument);
-        }
 
-        public void AddTrack(MusicalInstrumentType musicalInstrumentType, Note[] notes)
+        public Orchestra(IRhythmSheet rhythmSheet, OrchestraConfig orchestraConfig)
         {
-            _tracks.Add(new InstrumentTrack { Type = musicalInstrumentType, Notes = notes });
-        }
-
-        public void SetSheet(MusicalInstrumentType musicalInstrumentType, List<RhythmKey>[] keys)
-        {
-            foreach (var instrument in _instruments)
+            _rhythmSheet = rhythmSheet;
+            foreach (var instrument in orchestraConfig.Instruments)
             {
-                if(instrument.Type != musicalInstrumentType) continue;
-                instrument.RhythmSheet.SetKeys(keys);
+                _prefabs.Add(instrument.Type, instrument.Prefab);
+                if(!_instrumentPools.ContainsKey(instrument.Type))
+                    _instrumentPools.Add(instrument.Type, new ObjectPool<MusicInstrument>(() => CreateInstrument(instrument.Type), OnGetInstrument, OnReleaseInstrument));
+            }
+        }
+        
+        public void AddInstrument(MainMusicInstrument instrument)
+        {
+            _mainInstruments.Add(instrument);
+        }
+
+        public void AddTrack(InstrumentId instrumentId, Note[] notes)
+        {
+            IInstrument trackInstrument = null;
+            foreach (var instrument in _mainInstruments)
+            {
+                if (instrument.Type == instrumentId.Type && !_usedInstruments.ContainsValue(instrument))
+                {
+                    trackInstrument = instrument;
+                    break;
+                }
+            }
+
+            if (trackInstrument == null)
+                trackInstrument = _instrumentPools[instrumentId.Type].Get();
+            
+            _usedInstruments.Add(instrumentId, trackInstrument);
+            
+            _tracks.Add(new InstrumentTrack { Type = instrumentId.Type, Notes = notes, Instrument = trackInstrument});
+        }
+
+        public void SetSheet(List<RhythmKey>[] keys)
+        {
+            _rhythmKeys = keys;
+            _rhythmSheet.SetKeys(_rhythmKeys, _usedInstruments);
+            foreach (var instrument in _mainInstruments)
+            {
                 instrument.SheetVisualizer.SetLengthInSeconds(1.5f);
                 instrument.SheetVisualizer.Show();
                 break;
@@ -47,30 +84,20 @@ namespace Game.Runtime.MusicInstrumentSystem
         
         public void Play(float delay = 0, float speed = 1)
         {
-            _usedInstruments.Clear();
             _finishedTracks = 0;
             _activeTracks = 0;
             foreach (var track in _tracks)
             {
-                track.Instrument = null;
-                foreach (var instrument in _instruments)
-                {
-                    if (instrument.Type == track.Type && !_usedInstruments.Contains(instrument))
-                    {
-                        instrument.NotesPlayer.Play(track.Notes, delay, speed);
-                        track.Instrument = instrument;
-                        _usedInstruments.Add(instrument);
-                        instrument.NotesPlayer.OnCompleted += OnFinishedInstrument;
-                        _activeTracks++;
-                        break;
-                    }
-                }
+                if(track.Instrument == null) continue;
+                track.Instrument.NotesPlayer.Play(track.Notes, delay, speed);
+                track.Instrument.NotesPlayer.OnCompleted += OnFinishedInstrument;
+                _activeTracks++;
             }
         }
 
         public void Continue()
         {
-            foreach (var instrument in _usedInstruments)
+            foreach (var instrument in _usedInstruments.Values)
             {
                 instrument.NotesPlayer.Continue();
             }
@@ -78,7 +105,7 @@ namespace Game.Runtime.MusicInstrumentSystem
         
         public void Stop()
         {
-            foreach (var instrument in _usedInstruments)
+            foreach (var instrument in _usedInstruments.Values)
             {
                 instrument.NotesPlayer.Stop();
             }
@@ -86,11 +113,18 @@ namespace Game.Runtime.MusicInstrumentSystem
         
         public void Finish()
         {
-            foreach (var instrument in _usedInstruments)
+            foreach (var instrument in _usedInstruments.Values)
             {
                 instrument.NotesPlayer.OnCompleted -= OnFinishedInstrument;
-                instrument.SheetVisualizer.Hide();
+                if(instrument is MainMusicInstrument mainInstrument)
+                    mainInstrument.SheetVisualizer.Hide();
             }
+            
+            foreach (var spawned in _spawnedInstruments.ToArray())
+            {
+                _instrumentPools[spawned.Type].Release(spawned);
+            }
+            
             Stop();
             OnCompleted?.Invoke();
         }
@@ -99,6 +133,11 @@ namespace Game.Runtime.MusicInstrumentSystem
         {
             _tracks.Clear();
             _usedInstruments.Clear();
+            _rhythmKeys = null;
+            foreach (var spawned in _spawnedInstruments.ToArray())
+            {
+                _instrumentPools[spawned.Type].Release(spawned);
+            }
         }
 
         private void OnFinishedInstrument()
@@ -106,14 +145,25 @@ namespace Game.Runtime.MusicInstrumentSystem
             _finishedTracks++;
             if (_finishedTracks >= _activeTracks)
             {
-                foreach (var instrument in _usedInstruments)
-                {
-                    instrument.NotesPlayer.OnCompleted -= OnFinishedInstrument;
-                    instrument.SheetVisualizer.Hide();
-                }
-                Stop();
-                OnCompleted?.Invoke();
+                Finish();
             }
+        }
+
+        private MusicInstrument CreateInstrument(MusicalInstrumentType musicalInstrumentType)
+        {
+            return Object.Instantiate(_prefabs[musicalInstrumentType]);
+        }
+        
+        private void OnGetInstrument(MusicInstrument instrument)
+        {
+            _spawnedInstruments.Add(instrument);
+            instrument.gameObject.SetActive(true);
+        }
+        
+        private void OnReleaseInstrument(MusicInstrument instrument)
+        {
+            _spawnedInstruments.Remove(instrument);
+            instrument.gameObject.SetActive(false);
         }
     }
 }

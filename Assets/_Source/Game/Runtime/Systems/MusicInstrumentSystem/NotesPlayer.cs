@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Game.Runtime.AudioSystem;
+using System.Linq;
 using Game.Runtime.Configs;
 using Game.Runtime.ServiceSystem;
 using UnityEngine;
@@ -9,7 +9,7 @@ namespace Game.Runtime.MusicInstrumentSystem
 {
     public class NotesPlayer : IUpdatable
     {
-        private readonly AudioSound[] _sounds;
+        private readonly Dictionary<int, NoteConfig> _sounds;
         private readonly IInstrumentNoteTweener _instrumentNoteTweener;
         private readonly List<Note> _pressedNotes = new();
         private readonly List<Note> _remainingNotes = new();
@@ -22,9 +22,9 @@ namespace Game.Runtime.MusicInstrumentSystem
         public event Action<float> OnTimeChanged;
         public event Action OnCompleted;
         
-        public NotesPlayer(IInstrumentNoteTweener noteTweener, ServiceUpdater serviceUpdater, PianoKeysConfig pianoKeysConfig)
+        public NotesPlayer(IInstrumentNoteTweener noteTweener, ServiceUpdater serviceUpdater, InstrumentKeysConfig instrumentKeysConfig)
         {
-            _sounds = pianoKeysConfig.Notes;
+            _sounds = instrumentKeysConfig.Notes.ToDictionary(n => n.GetHashCode());
             _instrumentNoteTweener = noteTweener;
             serviceUpdater.Add(this);
         }
@@ -49,6 +49,11 @@ namespace Game.Runtime.MusicInstrumentSystem
         public void Stop()
         {
             _isPlaying = false;
+
+            foreach (var pressed in _pressedNotes)
+            {
+                OnNoteEnded(pressed);
+            }
         }
 
         public void MuteNote(Note note)
@@ -142,7 +147,13 @@ namespace Game.Runtime.MusicInstrumentSystem
         
         private void OnNoteStarted(Note note)
         {
-            _instrumentNoteTweener.StartNote(note.NoteNumber, _sounds[note.NoteNumber], note.Velocity);
+            int hash = HashCode.Combine((int)note.NoteType, note.Octave);
+            if (!_sounds.ContainsKey(hash))
+            {
+                Debug.LogWarning($"Sound not found: { note.NoteType }{ note.Octave }");
+                return;
+            }
+            _instrumentNoteTweener.StartNote(note.NoteNumber, _sounds[hash].Sound, note.Velocity);
         }
         
         private void OnNoteEnded(Note note)

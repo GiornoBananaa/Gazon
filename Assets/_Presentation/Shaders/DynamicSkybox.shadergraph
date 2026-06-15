@@ -3223,8 +3223,8 @@
     "m_ObjectId": "94a6804621854973bcda26b6aa1cde6f",
     "m_Title": "Cloud Density",
     "m_Position": {
-        "x": -4724.0,
-        "y": 359.0
+        "x": 0.0,
+        "y": 0.0
     }
 }
 
@@ -3798,8 +3798,8 @@
     "m_ObjectId": "b5ceb29a30ae40c3ad025b9cbc0798c8",
     "m_Title": "Sky",
     "m_Position": {
-        "x": -2292.0,
-        "y": -748.0
+        "x": 0.0,
+        "y": 0.0
     }
 }
 
@@ -3809,8 +3809,8 @@
     "m_ObjectId": "b8d803e6332c42a495eb74f3df055c61",
     "m_Title": "Cloud Color",
     "m_Position": {
-        "x": -2529.0,
-        "y": -266.0
+        "x": 0.0,
+        "y": 0.0
     }
 }
 

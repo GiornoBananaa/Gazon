@@ -8,7 +8,7 @@ namespace Game.Runtime.PianoFeature
 {
     public class DirectNoteInstrumentKeyPresser : IInstrumentKeyPresser
     {
-        private readonly AudioSound[] _notes;
+        private readonly NoteConfig[] _notes;
         private readonly IInstrumentNoteTweener _noteTweener;
         
         private int _keysCount;
@@ -16,19 +16,22 @@ namespace Game.Runtime.PianoFeature
         private int _startOctave;
         private int _octavesCount;
         private int _octavesInKeysCount;
+        private float _velocityRange;
         
         public event Action<int, int> OnPressedKeyNoteIndexes;
         public event Action<int, int> OnReleasedKeyNoteIndexes;
         
-        public DirectNoteInstrumentKeyPresser(IInstrumentNoteTweener noteTweener, PianoKeysConfig pianoKeysConfig)
+        public DirectNoteInstrumentKeyPresser(IInstrumentNoteTweener noteTweener, InstrumentKeysConfig instrumentKeysConfig)
         {
             _noteTweener = noteTweener;
-            _notes = pianoKeysConfig.Notes;
+            _notes = instrumentKeysConfig.Notes;
+            _velocityRange = instrumentKeysConfig.VelocityRangeOnDevice;
         } 
         
         public void PressKey(int keyIndex, float velocity)
         {
-            _noteTweener.StartNote(keyIndex, _notes[keyIndex], velocity);
+            velocity = Mathf.InverseLerp(0, _velocityRange, velocity);
+            _noteTweener.StartNote(keyIndex, _notes[keyIndex].Sound, velocity);
             OnPressedKeyNoteIndexes?.Invoke(keyIndex, keyIndex);
         }
 

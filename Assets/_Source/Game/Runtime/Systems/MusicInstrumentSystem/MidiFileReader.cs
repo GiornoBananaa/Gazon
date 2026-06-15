@@ -7,8 +7,6 @@ namespace Game.Runtime.MusicInstrumentSystem
 {
     public class MidiFileReader : IMusicFileReader
     {
-        private const int NOTE_NUMBER_START = 21;
-        
         public bool FileIsValid(string path)
         {
             return path.EndsWith(".mid");
@@ -31,7 +29,7 @@ namespace Game.Runtime.MusicInstrumentSystem
             {
                 yield return new Note
                 (
-                    note.NoteNumber - NOTE_NUMBER_START,
+                    note.NoteNumber,
                     note.Velocity / 127f,
                     (float)TimeConverter.ConvertTo<MetricTimeSpan>(note.Time, tempoMap).TotalSeconds,
                     (float)TimeConverter.ConvertTo<MetricTimeSpan>(note.EndTime, tempoMap).TotalSeconds

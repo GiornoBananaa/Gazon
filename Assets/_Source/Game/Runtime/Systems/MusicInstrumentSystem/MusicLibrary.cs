@@ -16,6 +16,7 @@ namespace Game.Runtime.MusicInstrumentSystem
         {
             public string Name;
             public int Difficulty;
+            public string[] InstrumentsInSheet;
         }
         
         private readonly IEnumerable<IMusicFileReader> _musicFileReaders;
@@ -33,11 +34,13 @@ namespace Game.Runtime.MusicInstrumentSystem
             DirectoryInfo dirInfo = new DirectoryInfo(Path.Combine(Application.streamingAssetsPath, "MusicLibrary"));
             DirectoryInfo[] folders = dirInfo.GetDirectories();
 
-            Dictionary<MusicalInstrumentType, Note[]> notes = new();
+            Dictionary<InstrumentId, Note[]> notes = new();
+            Dictionary<MusicalInstrumentType, int> ids = new();
             int musicTrackId = 0;
             for (int folderIndex = 0; folderIndex < folders.Length; folderIndex++)
             {
                 notes.Clear();
+                ids.Clear();
                 
                 FileInfo[] tracks = folders[folderIndex].GetFiles();
                 MusicInfo info = null;
@@ -68,15 +71,49 @@ namespace Game.Runtime.MusicInstrumentSystem
                     {
                         continue;
                     }
+                    
+                    ids.TryAdd(musicalInstrumentType, 0);
+                    InstrumentId instrumentId = new InstrumentId(musicalInstrumentType, ids[musicalInstrumentType]);
+                    
                     foreach (var fileReader in _musicFileReaders)
                     {
                         if (!fileReader.FileIsValid(filePath)) continue;
-                        notes.Add(musicalInstrumentType, fileReader.GetNotes(filePath).ToArray());
+                        Note[] trackNotes = fileReader.GetNotes(filePath).ToArray();
+                        for (int i = 0; i < trackNotes.Length; i++)
+                        {
+                            trackNotes[i].InstrumentId = instrumentId;
+                        }
+                        notes.Add(instrumentId, trackNotes);
                         break;
                     }
+
+                    ids[musicalInstrumentType]++;
                 }
-                if (notes.Count == 0 || info == null) return;
-                var musicTrack = new MusicTrack(musicTrackId, info.Name, info.Difficulty);
+                if (notes.Count == 0 || info == null) continue;
+                List<MusicalInstrumentType> instrumentsInSheet = new List<MusicalInstrumentType>();
+                if(info.InstrumentsInSheet != null)
+                {
+                    foreach (var instrumentType in info.InstrumentsInSheet)
+                    {
+                        try
+                        {
+                            instrumentsInSheet.Add(
+                                Enum.Parse<MusicalInstrumentType>(Path.GetFileNameWithoutExtension(instrumentType), false));
+                        }
+                        catch
+                        {
+                            continue;
+                        }
+                    }
+                }
+                if(instrumentsInSheet.Count == 0)
+                {
+                    foreach (var id in notes.Keys)
+                    {
+                        instrumentsInSheet.Add(id.Type);
+                    }
+                }
+                var musicTrack = new MusicTrack(musicTrackId, info.Name, info.Difficulty, instrumentsInSheet.ToArray());
                 foreach (var typeNotesPair in notes)
                 {
                     musicTrack.Notes.Add(typeNotesPair.Key, typeNotesPair.Value);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Game.Runtime.MusicInstrumentSystem;
 
 namespace Game.Runtime.RhythmSystem
 {
@@ -11,7 +12,7 @@ namespace Game.Runtime.RhythmSystem
         public event Action<RhythmKey, RhythmResult> OnRhythmResult;
         public event Action<RhythmKey, RhythmResult> OnRhythmEndResult;
         
-        void SetKeys(List<RhythmKey>[] rhythmKeys);
+        void SetKeys(List<RhythmKey>[] rhythmKeys, Dictionary<InstrumentId, IInstrument> instruments);
         void StartKey(int id);
         void StopKey(int id);
     }

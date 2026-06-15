@@ -19,6 +19,7 @@ namespace Game.Runtime.MusicInstrumentSystem
         private readonly float _minLowPassFrequency;
         private readonly float _maxLowPassFrequency;
         private readonly float _maxVelocity;
+        private readonly bool _loopNote;
         
         private Vector3 _pianoLineStart;
         private Vector3 _pianoLineEnd;
@@ -26,7 +27,7 @@ namespace Game.Runtime.MusicInstrumentSystem
         private float _maxVolume;
         private bool _sustain;
         
-        public InstrumentNoteTweener(IAudioPlayer audioPlayer, PianoKeysConfig data)
+        public InstrumentNoteTweener(IAudioPlayer audioPlayer, InstrumentKeysConfig data)
         {
             _audioPlayer = audioPlayer;
             _noteEndDuration = data.NoteEndDuration;
@@ -35,6 +36,7 @@ namespace Game.Runtime.MusicInstrumentSystem
             _maxLowPassFrequency = data.MaxLowPassFrequency;
             _notesCount = data.Notes.Length;
             _maxVelocity = data.MaxKeyVelocity;
+            _loopNote = data.LoopNote;
         }
 
         public void SetMaxVolume(float value)
@@ -81,10 +83,9 @@ namespace Game.Runtime.MusicInstrumentSystem
             }
 
             float velocityKoef = (1 - (1 - velocity) * (1 - velocity));
-            
-            float volume = _maxVolume * velocityKoef;
+            float volume = _maxVolume * velocity;
             float maxLowCutFrequency = Mathf.Lerp(_minLowPassFrequency, _maxLowPassFrequency, velocityKoef);
-            AudioSoundSource source = _audioPlayer.Play(sound, Vector3.Lerp(_pianoLineStart, _pianoLineEnd, (float)id / _notesCount), volume, _spatialBlend, 1, maxLowCutFrequency);
+            AudioSoundSource source = _audioPlayer.Play(sound, Vector3.Lerp(_pianoLineStart, _pianoLineEnd, (float)id / _notesCount), volume, _spatialBlend, 1, maxLowCutFrequency, _loopNote);
             _pressedSources[id] = source;
             _sustainedSources.Remove(id);
         }

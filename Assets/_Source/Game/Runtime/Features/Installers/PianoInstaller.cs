@@ -10,18 +10,19 @@ using Game.Runtime.StateMachineSystem;
 using Reflex.Core;
 using Reflex.Enums;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Resolution = Reflex.Enums.Resolution;
 
 namespace Game.Runtime.Installers
 {
     public class PianoInstaller: MonoBehaviour, IInstaller
     {
-        [SerializeField] private PianoKeysConfig _pianoKeysConfig;
+        [SerializeField] private OrchestraConfig _orchestraConfig;
         [SerializeField] private WeatherPianoBindConfig _weatherPianoBindConfig;
         
         public void InstallBindings(ContainerBuilder builder)
         {
-            builder.RegisterValue(_pianoKeysConfig);
+            builder.RegisterValue(_orchestraConfig);
             builder.RegisterValue(_weatherPianoBindConfig);
             
             builder.RegisterType(typeof(MusicLibrary), Lifetime.Singleton, Resolution.Lazy);
@@ -42,7 +43,7 @@ namespace Game.Runtime.Installers
             builder.RegisterType(typeof(RhythmGameController), Lifetime.Scoped, Resolution.Lazy);
             builder.RegisterType(typeof(RhythmInstrumentState), Lifetime.Scoped, Resolution.Lazy);
             builder.RegisterType(typeof(RhythmKeyGenerator), new[] { typeof(IRhythmKeyGenerator) }, Lifetime.Singleton, Resolution.Lazy);
-            builder.RegisterType(typeof(RhythmSheet), new[] { typeof(IRhythmSheet) }, Lifetime.Scoped, Resolution.Lazy);
+            builder.RegisterType(typeof(RhythmSheet), new[] { typeof(IRhythmSheet) }, Lifetime.Singleton, Resolution.Lazy);
             builder.RegisterType(typeof(RhythmGameSettings), Lifetime.Singleton, Resolution.Lazy);
             
             //Music magic

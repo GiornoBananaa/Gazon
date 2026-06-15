@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Game.Runtime.MusicInstrumentSystem;
 using Game.Runtime.RhythmSystem;
+using UnityEngine;
 
 namespace Game.Runtime.PianoFeature
 {
@@ -21,16 +23,25 @@ namespace Game.Runtime.PianoFeature
         public void Start(int id, int keysCount, float maxSpeed, float maxNotesPerSecond)
         {
             _orchestra.ClearTracks();
-            var notes = _musicLibrary.GetMusicTrack(id).Notes;
-            foreach (var typeNotesPair in notes)
-            {
-                List<RhythmKey>[] rhythmKeys = _keyGenerator.Generate(typeNotesPair.Value, keysCount, maxNotesPerSecond);
+            var track = _musicLibrary.GetMusicTrack(id);
+            List<Note> sheetNotes = new List<Note>();
             
+            foreach (var typeNotesPair in track.Notes)
+            {
                 _orchestra.AddTrack(typeNotesPair.Key, typeNotesPair.Value);
-                _orchestra.Play(2, maxSpeed);
-                if(typeNotesPair.Key == MusicalInstrumentType.MainPiano)
-                    _orchestra.SetSheet(typeNotesPair.Key, rhythmKeys);
+                if(track.InstrumentsInSheet.Contains(typeNotesPair.Key.Type))
+                {
+                    sheetNotes.AddRange(typeNotesPair.Value);
+                }
             }
+            
+            sheetNotes = sheetNotes.OrderBy(n=>n.StartTime).ToList();
+            
+            _orchestra.Play(2, maxSpeed);
+
+            List<RhythmKey>[] rhythmKeys = _keyGenerator.Generate(sheetNotes.ToArray(), keysCount, maxNotesPerSecond);
+            
+            _orchestra.SetSheet(rhythmKeys);
             
             _orchestra.OnCompleted += Quit;
         }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Game.Runtime.MusicInstrumentSystem
 {
@@ -7,14 +8,16 @@ namespace Game.Runtime.MusicInstrumentSystem
         public readonly int Id;
         public readonly string Name;
         public readonly int Difficulty;
-        public readonly Dictionary<MusicalInstrumentType, Note[]> Notes;
+        public readonly Dictionary<InstrumentId, Note[]> Notes;
+        public readonly MusicalInstrumentType[] InstrumentsInSheet;
 
-        public MusicTrack(int id, string name, int difficulty)
+        public MusicTrack(int id, string name, int difficulty, MusicalInstrumentType[] instrumentsInSheet)
         {
             Id = id;
             Name = name;
             Difficulty = difficulty;
-            Notes = new Dictionary<MusicalInstrumentType, Note[]>();
+            InstrumentsInSheet = instrumentsInSheet;
+            Notes = new Dictionary<InstrumentId, Note[]>();
         }
     }
 }

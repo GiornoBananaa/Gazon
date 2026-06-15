@@ -8,7 +8,7 @@ namespace Game.Runtime.PianoFeature
 {
     public class LimitedInstrumentKeyPresser : IInstrumentKeyPresser
     {
-        private readonly AudioSound[] _notes;
+        private readonly NoteConfig[] _notes;
         private readonly IInstrumentNoteTweener _noteTweener;
         
         private readonly int _startKeyInFirstOctave;
@@ -18,23 +18,25 @@ namespace Game.Runtime.PianoFeature
         private int _startOctave;
         private int _octavesCount;
         private int _octavesInKeysCount;
+        private float _velocity;
         
         public int KeysCount => _keysCount;
         public event Action<int, int> OnPressedKeyNoteIndexes;
         public event Action<int, int> OnReleasedKeyNoteIndexes;
         
-        public LimitedInstrumentKeyPresser(IInstrumentNoteTweener noteTweener, PianoKeysConfig pianoKeysConfig)
+        public LimitedInstrumentKeyPresser(IInstrumentNoteTweener noteTweener, InstrumentKeysConfig instrumentKeysConfig)
         {
             _noteTweener = noteTweener;
-            _notes = pianoKeysConfig.Notes;
-            _startKeyInFirstOctave = pianoKeysConfig.StartKeyInFirstOctave;
-            SetKeysCount(pianoKeysConfig.FreeKeysCount);
+            _notes = instrumentKeysConfig.Notes;
+            _startKeyInFirstOctave = instrumentKeysConfig.StartKeyInFirstOctave;
+            _velocity = instrumentKeysConfig.DefaultVelocity;
+            SetKeysCount(instrumentKeysConfig.FreeKeysCount);
         } 
         
         public void PressKey(int keyIndex)
         {
             int noteIndex = Mathf.Clamp(keyIndex + _startIndex, 0, _notes.Length - 1);
-            _noteTweener.StartNote(noteIndex, _notes[noteIndex], 1);
+            _noteTweener.StartNote(noteIndex, _notes[noteIndex].Sound, _velocity);
             OnPressedKeyNoteIndexes?.Invoke(keyIndex, noteIndex);
         }
         

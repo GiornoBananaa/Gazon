@@ -1,0 +1,182 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91e191f222524ed78601a9c2923fbd97, type: 3}
+  m_Name: ViolinKeys
+  m_EditorClassIdentifier: Game.Runtime::Game.Runtime.PianoRhythmSystem.PianoKeysConfig
+  FreeKeysCount: 23
+  MaxKeyVelocity: 1
+  VelocityRangeOnDevice: 0.7
+  DefaultVelocity: 0.5
+  PedalNoteEndDuration: 6
+  MinRhythmKeys: 4
+  MaxRhythmKeys: 8
+  NoteEndDuration: 0.2
+  NoteTransitionFadingDuration: 0.1
+  StartKeyInFirstOctave: 11
+  StartNoteNumber: 55
+  LoopNote: 1
+  Notes:
+  - Note: 7
+    Octave: 3
+    Sound: {fileID: 11400000, guid: 251439fcd3ec5ff4d8bbd9c20ae458dd, type: 2}
+  - Note: 8
+    Octave: 3
+    Sound: {fileID: 11400000, guid: cb72e87b79868a446a39525061fcdb50, type: 2}
+  - Note: 9
+    Octave: 3
+    Sound: {fileID: 11400000, guid: 30b7c5cf5a46cda41b7cab5a5f99e79f, type: 2}
+  - Note: 10
+    Octave: 3
+    Sound: {fileID: 11400000, guid: 01f9d3b0dce1d604b801fe0f3db8928e, type: 2}
+  - Note: 11
+    Octave: 3
+    Sound: {fileID: 11400000, guid: 44dbbfd7222c0f3449c95223bb26f9f7, type: 2}
+  - Note: 0
+    Octave: 4
+    Sound: {fileID: 11400000, guid: 9e07ee7ab36657143b9b0223874fca65, type: 2}
+  - Note: 1
+    Octave: 4
+    Sound: {fileID: 11400000, guid: b62608dbe4944a04daf1c27bd5c92b00, type: 2}
+  - Note: 2
+    Octave: 4
+    Sound: {fileID: 11400000, guid: 648a68fcf8a54984e899bb384555bd96, type: 2}
+  - Note: 3
+    Octave: 4
+    Sound: {fileID: 11400000, guid: 7517bc5301159ad41a4f0c83ab91e77d, type: 2}
+  - Note: 4
+    Octave: 4
+    Sound: {fileID: 11400000, guid: b5a3ce8a79c742a47ac3d67cd90ff48b, type: 2}
+  - Note: 5
+    Octave: 4
+    Sound: {fileID: 11400000, guid: 2d05027c7d961ba4ca8fcde01fbf19dc, type: 2}
+  - Note: 6
+    Octave: 4
+    Sound: {fileID: 11400000, guid: 818e677b53de31f439964682bc7ea47c, type: 2}
+  - Note: 7
+    Octave: 4
+    Sound: {fileID: 11400000, guid: ba70974928d7fac4686fb92ab629d38a, type: 2}
+  - Note: 8
+    Octave: 4
+    Sound: {fileID: 11400000, guid: a0b7e9f13db9fae4bb63816dea14a116, type: 2}
+  - Note: 9
+    Octave: 4
+    Sound: {fileID: 11400000, guid: bbad8c11d3546134b995daa9318a358f, type: 2}
+  - Note: 10
+    Octave: 4
+    Sound: {fileID: 11400000, guid: b5f566f8761658c428e0591e9895b06d, type: 2}
+  - Note: 11
+    Octave: 4
+    Sound: {fileID: 11400000, guid: 2842ac517a3bf85438ce421378d429e1, type: 2}
+  - Note: 0
+    Octave: 5
+    Sound: {fileID: 11400000, guid: 0805231282a644b4694c193728bff04f, type: 2}
+  - Note: 1
+    Octave: 5
+    Sound: {fileID: 11400000, guid: e11c165bd63ee1648a4ceab02d719f8d, type: 2}
+  - Note: 2
+    Octave: 5
+    Sound: {fileID: 11400000, guid: abffb95d1ebbe1248af51b17d914274a, type: 2}
+  - Note: 3
+    Octave: 5
+    Sound: {fileID: 11400000, guid: 8ba1a9edd54af304f8b5cbee94907acd, type: 2}
+  - Note: 4
+    Octave: 5
+    Sound: {fileID: 11400000, guid: d267733e77f3aa94080182e51c2eb821, type: 2}
+  - Note: 5
+    Octave: 5
+    Sound: {fileID: 11400000, guid: dd78429f161d9a2498d051760c688b87, type: 2}
+  - Note: 6
+    Octave: 5
+    Sound: {fileID: 11400000, guid: f520a0f66bce3ad41a0c0a17d442c86f, type: 2}
+  - Note: 7
+    Octave: 5
+    Sound: {fileID: 11400000, guid: 9a037600393d48a49ac57f6babf739ac, type: 2}
+  - Note: 8
+    Octave: 5
+    Sound: {fileID: 11400000, guid: 3e145348f3e152849a8c8a84b9f52a73, type: 2}
+  - Note: 9
+    Octave: 5
+    Sound: {fileID: 11400000, guid: a14e7ea40fbd55f4c9c7660585c5b409, type: 2}
+  - Note: 10
+    Octave: 5
+    Sound: {fileID: 11400000, guid: 85ba2c9092039aa4c909975b1d909d0d, type: 2}
+  - Note: 11
+    Octave: 5
+    Sound: {fileID: 11400000, guid: b11e200112ad336479176e08ac37fa23, type: 2}
+  - Note: 0
+    Octave: 6
+    Sound: {fileID: 11400000, guid: 65858f37c6d08a648af49ac2cc90a551, type: 2}
+  - Note: 1
+    Octave: 6
+    Sound: {fileID: 11400000, guid: cf033ba1b63007f449965b19e8990c5a, type: 2}
+  - Note: 2
+    Octave: 6
+    Sound: {fileID: 11400000, guid: c4d1168ba78f06748856e1b22edf7380, type: 2}
+  - Note: 3
+    Octave: 6
+    Sound: {fileID: 11400000, guid: 74de54e4e4815f647a6a35a5be04a631, type: 2}
+  - Note: 4
+    Octave: 6
+    Sound: {fileID: 11400000, guid: cff78c7a3c6ae82439a263dee3b8b916, type: 2}
+  - Note: 5
+    Octave: 6
+    Sound: {fileID: 11400000, guid: 597eed237a0f2384fb8b49b3897fa760, type: 2}
+  - Note: 6
+    Octave: 6
+    Sound: {fileID: 11400000, guid: 24e0910bf855e5c47850f9d4b23aaf81, type: 2}
+  - Note: 7
+    Octave: 6
+    Sound: {fileID: 11400000, guid: d5327351fd4f2254ab0f8e304c4adb80, type: 2}
+  - Note: 8
+    Octave: 6
+    Sound: {fileID: 11400000, guid: e9fa927453e4c5e42a7252c126d64691, type: 2}
+  - Note: 9
+    Octave: 6
+    Sound: {fileID: 11400000, guid: eac363d356bbf214ebef5f9a3df8b28d, type: 2}
+  - Note: 10
+    Octave: 6
+    Sound: {fileID: 11400000, guid: 4ce2fce005f7af3469dc6ab4686884c4, type: 2}
+  - Note: 11
+    Octave: 6
+    Sound: {fileID: 11400000, guid: 1cb9b834245b4014fb3ef62546379371, type: 2}
+  - Note: 0
+    Octave: 7
+    Sound: {fileID: 11400000, guid: b5d60840c9696ee48afea5977758a54d, type: 2}
+  - Note: 1
+    Octave: 7
+    Sound: {fileID: 11400000, guid: a8e8de81d45874b40a6e1d5793e11bab, type: 2}
+  - Note: 2
+    Octave: 7
+    Sound: {fileID: 11400000, guid: 1ee549a073cca29419f79742383a1098, type: 2}
+  - Note: 3
+    Octave: 7
+    Sound: {fileID: 11400000, guid: 0216202a22aa49f41a40549d053b57cf, type: 2}
+  - Note: 4
+    Octave: 7
+    Sound: {fileID: 11400000, guid: 3885fcf54fcbecd4bb69a259554d38b3, type: 2}
+  - Note: 5
+    Octave: 7
+    Sound: {fileID: 11400000, guid: 7e13432d91ea5ba48a914f9479fd5bc7, type: 2}
+  - Note: 6
+    Octave: 7
+    Sound: {fileID: 11400000, guid: df1b3c18c9893a3488b165175115b2cd, type: 2}
+  - Note: 7
+    Octave: 7
+    Sound: {fileID: 11400000, guid: 2e5d65b0f43ebf142a27b30eab5aef83, type: 2}
+  - Note: 8
+    Octave: 7
+    Sound: {fileID: 11400000, guid: 1cb1a8d1937fde3409f21b7b8231e07f, type: 2}
+  - Note: 9
+    Octave: 7
+    Sound: {fileID: 11400000, guid: cfe2c41927c6cd547a350e9468012ea8, type: 2}
+  MinLowPassFrequency: 250
+  MaxLowPassFrequency: 12000

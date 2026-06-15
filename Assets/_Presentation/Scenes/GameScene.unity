@@ -1705,7 +1705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f648eb950f35478a9f76876a49f40ffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game.Runtime::Game.Runtime.Installers.PianoInstaller
-  _pianoKeysConfig: {fileID: 11400000, guid: 1f1573fbd315c3f4a9c49de293d8f6c5, type: 2}
+  _orchestraConfig: {fileID: 11400000, guid: e5c472e6bb2fc194eae042ce8bdd543e, type: 2}
   _weatherPianoBindConfig: {fileID: 11400000, guid: b6a5e04d99d95b245b80bd07c9fabf5d, type: 2}
 --- !u!114 &1576700661
 MonoBehaviour:

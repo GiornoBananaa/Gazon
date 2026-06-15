@@ -68,7 +68,7 @@ namespace Game.Runtime.PianoFeature
             float rotation = Mathf.Lerp(_minRotation, _maxRotation, _value);
             transform.localRotation = _defaultLocalRotation * Quaternion.AngleAxis(rotation, _localForward);
 
-            int newValue = (int)Mathf.Lerp(_inverted ? Max : Min, _inverted ? Min : Max + 0.9f, _value);
+            int newValue = Mathf.RoundToInt(Mathf.Lerp(_inverted ? Max : Min, _inverted ? Min : Max + 0.9f, _value));
             
             if(newValue != Value)
             {
