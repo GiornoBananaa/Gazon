@@ -15,8 +15,8 @@ namespace Game.Runtime.RhythmSystem
 
     public class RhythmSheet : IRhythmSheet, IDisposable
     {
-        private Dictionary<InstrumentId, IInstrument> _instruments;
-        private List<RhythmKey>[] _mergedRhythmKeys;
+        private readonly Dictionary<InstrumentId, NotesPlayer> _notesPlayers = new();
+        private readonly List<List<RhythmKey>> _mergedRhythmKeys = new();
         private int[] _indexes;
         private int[] _noteInRhythmIndexes;
         private bool[] _pressedKeys;
@@ -30,41 +30,58 @@ namespace Game.Runtime.RhythmSystem
 
         public event Action<RhythmKey, RhythmResult> OnRhythmResult;
         public event Action<RhythmKey, RhythmResult> OnRhythmEndResult;
-        
-        public void SetKeys(List<RhythmKey>[] rhythmKeys, Dictionary<InstrumentId, IInstrument> instruments)
+
+        public void SetInstrument(InstrumentId id, IInstrument instrument)
         {
-            if(_instruments != null)
-            {
-                foreach (var instrument in _instruments.Values)
-                {
-                    instrument.NotesPlayer.OnTimeChanged -= OnTimeChanged;
-                }
-            }
-            
-            _instruments = instruments;
-            _mergedRhythmKeys = rhythmKeys;
-            _tracksCount = rhythmKeys.Length;
-            _indexes = new int[_tracksCount];
-            _noteInRhythmIndexes = new int[_tracksCount];
-            _pressedKeys = new bool[_tracksCount];
+            _notesPlayers.Add(id, instrument.NotesPlayer);
+        }
+        
+        public void SetKeys(IEnumerable<IEnumerable<RhythmKey>> rhythmKeys)
+        {
+            _tracksCount = 0;
             
             foreach (var track in rhythmKeys)
             {
+                _tracksCount++;
+                _mergedRhythmKeys.Add(new List<RhythmKey>(track));
+            }
+            
+            _indexes = new int[_tracksCount];
+            _noteInRhythmIndexes = new int[_tracksCount];
+            _pressedKeys = new bool[_tracksCount];
+        }
+
+        public void StartSheet()
+        {
+            foreach (var track in _mergedRhythmKeys)
+            {
                 foreach (var rhythmKey in track)
                 {
-                    foreach (var note in rhythmKey.Notes)
+                    for (int i = 0; i < rhythmKey.Notes.Count; i++)
                     {
-                        instruments[note.InstrumentId].NotesPlayer.MuteNote(note);
+                        _notesPlayers[rhythmKey.InstrumentIds[i]].MuteNote(rhythmKey.Notes[i]);
                     }
                 }
             }
-            
-            foreach (var instrument in _instruments.Values)
+
+            foreach (var notePlayer in _notesPlayers.Values)
             {
-                instrument.NotesPlayer.OnTimeChanged += OnTimeChanged;
+                notePlayer.OnTimeChanged += OnTimeChanged;
+                break;
             }
         }
-
+        
+        public void Clear()
+        {
+            foreach (var notePlayer in _notesPlayers.Values)
+            {
+                notePlayer.OnTimeChanged -= OnTimeChanged;
+                break;
+            }
+            _notesPlayers.Clear();
+            _mergedRhythmKeys.Clear();
+        }
+        
         public void StartKey(int id)
         {
             if(_indexes[id] >= _mergedRhythmKeys[id].Count) return;
@@ -82,8 +99,8 @@ namespace Game.Runtime.RhythmSystem
                 float time = note.StartTime;
                 if(offset <= 0.3f)
                     time = Mathf.Lerp(_time + offset, note.StartTime, Mathf.InverseLerp(0, 0.3f, offset));
-                _instruments[note.InstrumentId].NotesPlayer.UnmuteNote(note);
-                _instruments[note.InstrumentId].NotesPlayer.ForceNoteChange(note, new Note(note.NoteNumber, note.Velocity, time, time + note.Length, note.InstrumentId));
+                _notesPlayers[rhythmKey.InstrumentIds[i]].UnmuteNote(note);
+                _notesPlayers[rhythmKey.InstrumentIds[i]].ForceNoteChange(note, new Note(note.NoteNumber, note.Velocity, time, time + note.Length));
             }
             OnRhythmResult?.Invoke(rhythmKey, result);
         }
@@ -94,9 +111,9 @@ namespace Game.Runtime.RhythmSystem
             RhythmKey rhythmKey = _mergedRhythmKeys[id][_indexes[id]];
             var result = rhythmKey.Notes[^1].StartTime - _time < 0 ? RhythmResult.Success : RhythmResult.Miss;
             _pressedKeys[id] = false;
-            foreach (var note in rhythmKey.Notes)
+            for (int i = 0; i < rhythmKey.Notes.Count; i++)
             {
-                _instruments[note.InstrumentId].NotesPlayer.ForceStopNote(note, true);
+                _notesPlayers[rhythmKey.InstrumentIds[i]].ForceStopNote(rhythmKey.Notes[i], true);
             }
             OnRhythmEndResult?.Invoke(rhythmKey, result);
         }
@@ -104,7 +121,7 @@ namespace Game.Runtime.RhythmSystem
         private void OnTimeChanged(float time)
         {
             _time = time;
-            for (int track = 0; track < _mergedRhythmKeys.Length; track++)
+            for (int track = 0; track < _mergedRhythmKeys.Count; track++)
             {
                 for (int i = _indexes[track]; i < _mergedRhythmKeys[track].Count; i++)
                 {
@@ -133,9 +150,10 @@ namespace Game.Runtime.RhythmSystem
         
         public void Dispose()
         {
-            foreach (var instrument in _instruments.Values)
+            foreach (var notePlayer in _notesPlayers.Values)
             {
-                instrument.NotesPlayer.OnTimeChanged -= OnTimeChanged;
+                notePlayer.OnTimeChanged -= OnTimeChanged;
+                break;
             }
         }
     }

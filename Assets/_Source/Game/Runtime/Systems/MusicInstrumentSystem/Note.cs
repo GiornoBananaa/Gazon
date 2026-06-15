@@ -11,9 +11,8 @@ namespace Game.Runtime.MusicInstrumentSystem
         public readonly float Velocity;
         public readonly float StartTime;
         public readonly float EndTime;
-        public InstrumentId InstrumentId;
 
-        public Note(int noteNumber, float velocity, float startTime, float endTime, InstrumentId instrumentId = default)
+        public Note(int noteNumber, float velocity, float startTime, float endTime)
         {
             NoteNumber = noteNumber;
             NoteType = (NoteType)(noteNumber % 12);
@@ -21,7 +20,6 @@ namespace Game.Runtime.MusicInstrumentSystem
             Velocity = velocity;
             StartTime = startTime;
             EndTime = endTime;
-            InstrumentId = instrumentId;
         }
 
         public float Length => EndTime - StartTime;

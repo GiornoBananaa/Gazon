@@ -23,25 +23,20 @@ namespace Game.Runtime.PianoFeature
         public void Start(int id, int keysCount, float maxSpeed, float maxNotesPerSecond)
         {
             _orchestra.ClearTracks();
+            _keyGenerator.Clear();
             var track = _musicLibrary.GetMusicTrack(id);
-            List<Note> sheetNotes = new List<Note>();
             
             foreach (var typeNotesPair in track.Notes)
             {
                 _orchestra.AddTrack(typeNotesPair.Key, typeNotesPair.Value);
                 if(track.InstrumentsInSheet.Contains(typeNotesPair.Key.Type))
-                {
-                    sheetNotes.AddRange(typeNotesPair.Value);
-                }
+                    _keyGenerator.AddNotes(typeNotesPair.Key, typeNotesPair.Value);
             }
             
-            sheetNotes = sheetNotes.OrderBy(n=>n.StartTime).ToList();
+            List<RhythmKey>[] rhythmKeys = _keyGenerator.Generate(keysCount, maxNotesPerSecond);
+            _orchestra.SetSheet(rhythmKeys);
             
             _orchestra.Play(2, maxSpeed);
-
-            List<RhythmKey>[] rhythmKeys = _keyGenerator.Generate(sheetNotes.ToArray(), keysCount, maxNotesPerSecond);
-            
-            _orchestra.SetSheet(rhythmKeys);
             
             _orchestra.OnCompleted += Quit;
         }

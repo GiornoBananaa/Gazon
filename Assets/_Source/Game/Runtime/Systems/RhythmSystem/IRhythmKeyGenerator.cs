@@ -5,6 +5,8 @@ namespace Game.Runtime.RhythmSystem
 {
     public interface IRhythmKeyGenerator
     {
-        List<RhythmKey>[] Generate(Note[] notes, int keyCount, float maxNotesPerSecond);
+        void AddNotes(InstrumentId id, IEnumerable<Note> notes);
+        public void Clear();
+        List<RhythmKey>[] Generate(int keyCount, float maxNotesPerSecond);
     }
 }

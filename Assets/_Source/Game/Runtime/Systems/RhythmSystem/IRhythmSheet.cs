@@ -11,8 +11,11 @@ namespace Game.Runtime.RhythmSystem
         
         public event Action<RhythmKey, RhythmResult> OnRhythmResult;
         public event Action<RhythmKey, RhythmResult> OnRhythmEndResult;
-        
-        void SetKeys(List<RhythmKey>[] rhythmKeys, Dictionary<InstrumentId, IInstrument> instruments);
+
+        void SetInstrument(InstrumentId id, IInstrument instrument);
+        void SetKeys(IEnumerable<IEnumerable<RhythmKey>> rhythmKeys);
+        void StartSheet();
+        void Clear();
         void StartKey(int id);
         void StopKey(int id);
     }

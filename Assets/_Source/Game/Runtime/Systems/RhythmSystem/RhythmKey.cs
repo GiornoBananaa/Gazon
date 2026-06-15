@@ -8,11 +8,13 @@ namespace Game.Runtime.RhythmSystem
     {
         public readonly int KeyIndex;
         public readonly List<Note> Notes;
+        public readonly List<InstrumentId> InstrumentIds;
 
-        public RhythmKey(int keyIndex, List<Note> notes)
+        public RhythmKey(int keyIndex, List<Note> notes, List<InstrumentId> instrumentIds)
         {
             KeyIndex = keyIndex;
             Notes = notes;
+            InstrumentIds = instrumentIds;
         }
 
         public float StartTime => Notes[0].StartTime;

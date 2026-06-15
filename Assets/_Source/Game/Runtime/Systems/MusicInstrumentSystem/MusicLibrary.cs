@@ -79,10 +79,6 @@ namespace Game.Runtime.MusicInstrumentSystem
                     {
                         if (!fileReader.FileIsValid(filePath)) continue;
                         Note[] trackNotes = fileReader.GetNotes(filePath).ToArray();
-                        for (int i = 0; i < trackNotes.Length; i++)
-                        {
-                            trackNotes[i].InstrumentId = instrumentId;
-                        }
                         notes.Add(instrumentId, trackNotes);
                         break;
                     }

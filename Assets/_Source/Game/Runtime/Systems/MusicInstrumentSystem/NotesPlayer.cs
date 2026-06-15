@@ -32,8 +32,6 @@ namespace Game.Runtime.MusicInstrumentSystem
         public void Play(Note[] notes, float delay = 0, float speed = 1)
         {
             _remainingNotes.Clear();
-            _mutedNotes.Clear();
-            _forcedChangedNotes.Clear();
             _pressedNotes.Clear();
             _remainingNotes.AddRange(notes);
             _isPlaying = true;
@@ -56,6 +54,12 @@ namespace Game.Runtime.MusicInstrumentSystem
             }
         }
 
+        public void ClearModifications()
+        {
+            _mutedNotes.Clear();
+            _forcedChangedNotes.Clear();
+        }
+        
         public void MuteNote(Note note)
         {
             _mutedNotes.Add(note);

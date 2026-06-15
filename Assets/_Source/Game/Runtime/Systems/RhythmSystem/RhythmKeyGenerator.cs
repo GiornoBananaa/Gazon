@@ -8,29 +8,94 @@ namespace Game.Runtime.RhythmSystem
 {
     public class RhythmKeyGenerator : IRhythmKeyGenerator
     {
-        public List<RhythmKey>[] Generate(Note[] notes, int keyCount, float maxNotesPerSecond)
+        private readonly List<Note[]> _notes = new();
+        private readonly List<Note> _notesMerged = new();
+        private readonly List<InstrumentId> _instrumentIds = new();
+        private readonly List<int> _indexes = new();
+        private int _notesCount;
+        
+        public void AddNotes(InstrumentId id, IEnumerable<Note> notes)
+        {
+            var notesArray = notes.ToArray();
+            _notesCount += notesArray.Length;
+            _notes.Add(notesArray);
+            _instrumentIds.Add(id);
+            _indexes.Add(0);
+            int index = 0;
+            foreach (var note in notesArray)
+            {
+                for (int i = index; i <= _notesMerged.Count; i++)
+                {
+                    if(i >= _notesMerged.Count)
+                    {
+                        _notesMerged.Add(note);
+                        index = i;
+                        break;
+                    }
+                    if(note.StartTime < _notesMerged[i].StartTime)
+                    {
+                        _notesMerged.Insert(i, note);
+                        index = i;
+                        break;
+                    }
+                }
+            }
+        }
+
+        public void Clear()
+        {
+            _notes.Clear();
+            _notesMerged.Clear();
+            _instrumentIds.Clear();
+            _indexes.Clear();
+            _notesCount = 0;
+        }
+        
+        public List<RhythmKey>[] Generate(int keyCount, float maxNotesPerSecond)
         {
             //TODO: optimize key generation
-            //TODO: set keys count per second as max speed
+            
             List<RhythmKey>[] keys = new List<RhythmKey>[keyCount];
             for (int i = 0; i < keyCount; i++)
             {
                 keys[i] = new List<RhythmKey>();
             }
             
-            foreach (var note in notes)
+            for (int i = 0; i < _notesCount; i++)
             {
-                float numberCenter = GetAverageNumber(notes, note.StartTime, 0.8f);
-                Vector2 spread = GetNumberSpread(notes, note.StartTime, 0.8f);
+                int instrumentIndex = 0;
+                bool first = true;
+                for (int j = 0; j < _notes.Count; j++)
+                {
+                    if (first && _indexes[j] < _notes[j].Length)
+                    {
+                        instrumentIndex = j;
+                        first = false;
+                        continue;
+                    }
+                    if(_indexes[j] < _notes[j].Length && _notes[j][_indexes[j]].StartTime < _notes[instrumentIndex][_indexes[instrumentIndex]].StartTime)
+                        instrumentIndex = j;
+                }
+                
+                var instrumentId = _instrumentIds[instrumentIndex];
+                var note =  _notes[instrumentIndex][_indexes[instrumentIndex]];
+                float numberCenter = GetAverageNumber(_notesMerged, note.StartTime, 0.8f);
+                Vector2 spread = GetNumberSpread(_notesMerged, note.StartTime, 0.8f);
                 float centerAndSpreadDiff = numberCenter - (spread.y + spread.x) / 2;
-                
+            
                 int key = Mathf.Clamp(Mathf.RoundToInt(Mathf.Lerp(0, keyCount - 1, Mathf.InverseLerp(spread.x + centerAndSpreadDiff, spread.y + centerAndSpreadDiff, note.NoteNumber))), 0, keyCount - 1);
-                
+            
                 if(keys[key].Count > 0 && MathUtils.IsOverlapped(keys[key][^1].StartTime, keys[key][^1].EndTime, note.StartTime, note.EndTime))
+                {
                     keys[key][^1].Notes.Add(note);
+                    keys[key][^1].InstrumentIds.Add(instrumentId);
+                }
                 else
-                    keys[key].Add(new RhythmKey(key, new List<Note> { note }));
+                    keys[key].Add(new RhythmKey(key, new List<Note> { note }, new List<InstrumentId> { instrumentId }));
+
+                _indexes[instrumentIndex]++;
             }
+            
             
             // squeeze note sequences
             foreach (var track in keys)
@@ -59,6 +124,7 @@ namespace Game.Runtime.RhythmSystem
 
                     if(track[i].StartTime - track[i - 1].StartTime > 1 / maxNotes) continue;
                     track[i - 1].Notes.AddRange(track[i].Notes);
+                    track[i - 1].InstrumentIds.AddRange(track[i].InstrumentIds);
                     track.RemoveAt(i);
                     i--;
                 }
@@ -67,7 +133,7 @@ namespace Game.Runtime.RhythmSystem
             // disconnect small and near notes
             int[] indexes = new int[keyCount];
             
-            foreach (var note in notes)
+            foreach (var note in _notesMerged)
             {
                 for (int j = 0; j < indexes.Length; j++)
                 {
