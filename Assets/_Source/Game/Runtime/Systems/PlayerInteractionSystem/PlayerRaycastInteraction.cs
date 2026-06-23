@@ -1,6 +1,7 @@
 ﻿using Game.Runtime.CameraSystem;
 using Game.Runtime.Configs;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Game.Runtime.PlayerInteractionSystem
 {
@@ -26,9 +27,7 @@ namespace Game.Runtime.PlayerInteractionSystem
         
         public void TryInteract()
         {
-            var cameraTransform = _currentCamera.GetCurrentCamera().transform;
-            
-            Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
+            Ray ray = _currentCamera.GetCurrentCamera().ScreenPointToRay(Mouse.current.position.ReadValue());
             if (!Physics.SphereCast(ray, _radius, out RaycastHit hit, _interactionRange, _interactableLayer, QueryTriggerInteraction.Collide)) return;
             
             IInteractable interactable = hit.collider.GetComponent<IInteractable>();
@@ -38,9 +37,7 @@ namespace Game.Runtime.PlayerInteractionSystem
         
         public void TryStartContinuousInteraction()
         {
-            var cameraTransform = _currentCamera.GetCurrentCamera().transform;
-            
-            Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
+            Ray ray = _currentCamera.GetCurrentCamera().ScreenPointToRay(Mouse.current.position.ReadValue());
             if (!Physics.SphereCast(ray, _radius, out RaycastHit hit, _interactionRange, _interactableLayer, QueryTriggerInteraction.Collide)) return;
             
             _currentInteractable = hit.collider.GetComponent<IContinuousInteractable>();

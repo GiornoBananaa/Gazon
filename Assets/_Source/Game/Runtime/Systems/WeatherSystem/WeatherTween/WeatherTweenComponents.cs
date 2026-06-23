@@ -69,5 +69,7 @@ namespace Game.Runtime.WeatherSystem.WeatherTween
         Light = 6,
         Fog = 7,
         Stars = 8,
+        Precipitation = 9,
+        Temperature = 10,
     }
 }

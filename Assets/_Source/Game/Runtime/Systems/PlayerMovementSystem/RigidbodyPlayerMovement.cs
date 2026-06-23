@@ -37,6 +37,7 @@ namespace Game.Runtime.PlayerMovementSystem
             
             Vector3 move = _cameraHandle.YRotationPivot.TransformDirection(_localVelocity) * Time.fixedDeltaTime;
             move = new Vector3(move.x, 0, move.z);
+            _rigidbody.linearVelocity = Vector3.zero;
             _rigidbody.MovePosition(_rigidbody.position + move);
         }
     }

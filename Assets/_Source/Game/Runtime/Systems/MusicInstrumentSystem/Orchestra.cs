@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Game.Runtime.Configs;
 using Game.Runtime.PianoFeature;
 using Game.Runtime.RhythmSystem;
+using Game.Runtime.Utils;
+using UnityEngine;
 using UnityEngine.Pool;
 using Object = UnityEngine.Object;
 
@@ -13,18 +16,21 @@ namespace Game.Runtime.MusicInstrumentSystem
         private class InstrumentTrack
         {
             public IInstrument Instrument;
+            public InstrumentId Id;
             public bool Finished;
             public Note[] Notes;
         }
         
         private readonly List<MainMusicInstrument> _mainInstruments = new();
-        private readonly Dictionary<InstrumentId,IInstrument> _usedInstruments = new();
         private readonly List<InstrumentTrack> _tracks = new();
         private readonly List<MusicInstrument> _spawnedInstruments = new();
         private readonly Dictionary<MusicalInstrumentType, ObjectPool<MusicInstrument>> _instrumentPools = new();
         private readonly Dictionary<MusicalInstrumentType, MusicInstrument> _prefabs = new();
         private readonly IRhythmSheet _rhythmSheet;
+        private readonly float _arcRadius;
+        private readonly float _arcAngle;
         
+        private MainMusicInstrument _currentMainInstrument;
         private int _activeTracks;
         private int _finishedTracks;
         
@@ -33,6 +39,8 @@ namespace Game.Runtime.MusicInstrumentSystem
         public Orchestra(IRhythmSheet rhythmSheet, OrchestraConfig orchestraConfig)
         {
             _rhythmSheet = rhythmSheet;
+            _arcRadius = orchestraConfig.MinArcRadius;
+            _arcAngle = orchestraConfig.MaxArcAngle;
             foreach (var instrument in orchestraConfig.Instruments)
             {
                 _prefabs.Add(instrument.Type, instrument.Prefab);
@@ -51,7 +59,7 @@ namespace Game.Runtime.MusicInstrumentSystem
             IInstrument trackInstrument = null;
             foreach (var instrument in _mainInstruments)
             {
-                if (instrument.Type == instrumentId.Type && !_usedInstruments.ContainsValue(instrument))
+                if (instrument.Type == instrumentId.Type && _tracks.All(t => !ReferenceEquals(t.Instrument, instrument)))
                 {
                     trackInstrument = instrument;
                     break;
@@ -61,9 +69,10 @@ namespace Game.Runtime.MusicInstrumentSystem
             if (trackInstrument == null)
                 trackInstrument = _instrumentPools[instrumentId.Type].Get();
             
-            _usedInstruments.Add(instrumentId, trackInstrument);
+            if(_currentMainInstrument == null && trackInstrument is MainMusicInstrument musicInstrument)
+                _currentMainInstrument = musicInstrument;
             
-            _tracks.Add(new InstrumentTrack { Notes = notes, Instrument = trackInstrument});
+            _tracks.Add(new InstrumentTrack { Notes = notes, Instrument = trackInstrument, Id = instrumentId });
         }
 
         public void SetSheet(IEnumerable<IEnumerable<RhythmKey>> rhythmKeys)
@@ -83,9 +92,35 @@ namespace Game.Runtime.MusicInstrumentSystem
                 _activeTracks++;
             }
 
-            foreach (var usedInstrument in _usedInstruments)
+            float maxFirstNoteNumber = float.MinValue;
+            float minFirstNoteNumber = float.MaxValue;
+            int supportInstrumentsCount = 0;
+            
+            foreach (var track in _tracks)
             {
-                _rhythmSheet.SetInstrument(usedInstrument.Key, usedInstrument.Value);
+                int note = track.Notes[0].NoteNumber;
+                if(note > maxFirstNoteNumber)
+                    maxFirstNoteNumber = note;
+                if(note < minFirstNoteNumber)
+                    minFirstNoteNumber = note;
+                if (track.Instrument is MusicInstrument && !ReferenceEquals(track.Instrument, _currentMainInstrument))
+                    supportInstrumentsCount++;
+            }
+
+            float angleStep = _arcAngle / supportInstrumentsCount;
+            float angle = -(_arcAngle / 2) + 90 + angleStep / 2;
+            Vector3 center = _currentMainInstrument.transform.position;
+            
+            foreach (var track in _tracks)
+            {
+                _rhythmSheet.SetInstrument(track.Id, track.Instrument);
+                if (track.Instrument is MusicInstrument musicInstrument && !ReferenceEquals(track.Instrument, _currentMainInstrument))
+                {
+                    Vector2 circlePos = MathUtils.PointOnCircle(_arcRadius, angle - Mathf.Lerp(-angle / 2, angle / 2,Mathf.InverseLerp(minFirstNoteNumber, maxFirstNoteNumber, track.Notes[0].NoteNumber)));
+                    musicInstrument.transform.position = center + circlePos.GetVectorXZ();
+                    musicInstrument.transform.rotation = Quaternion.LookRotation(center - musicInstrument.transform.position);
+                    angle += angleStep;
+                }
             }
             
             _rhythmSheet.StartSheet();
@@ -99,26 +134,26 @@ namespace Game.Runtime.MusicInstrumentSystem
 
         public void Continue()
         {
-            foreach (var instrument in _usedInstruments.Values)
+            foreach (var track in _tracks)
             {
-                instrument.NotesPlayer.Continue();
+                track.Instrument.NotesPlayer.Continue();
             }
         }
         
         public void Stop()
         {
-            foreach (var instrument in _usedInstruments.Values)
+            foreach (var track in _tracks)
             {
-                instrument.NotesPlayer.Stop();
+                track.Instrument.NotesPlayer.Stop();
             }
         }
         
         public void Finish()
         {
-            foreach (var instrument in _usedInstruments.Values)
+            foreach (var track in _tracks)
             {
-                instrument.NotesPlayer.OnCompleted -= OnFinishedInstrument;
-                if(instrument is MainMusicInstrument mainInstrument)
+                track.Instrument.NotesPlayer.OnCompleted -= OnFinishedInstrument;
+                if(track.Instrument is MainMusicInstrument mainInstrument)
                     mainInstrument.SheetVisualizer.Hide();
             }
             
@@ -139,11 +174,12 @@ namespace Game.Runtime.MusicInstrumentSystem
             }
             _rhythmSheet?.Clear();
             _tracks.Clear();
-            _usedInstruments.Clear();
             foreach (var spawned in _spawnedInstruments.ToArray())
             {
                 _instrumentPools[spawned.Type].Release(spawned);
             }
+
+            _currentMainInstrument = null;
         }
 
         private void OnFinishedInstrument()

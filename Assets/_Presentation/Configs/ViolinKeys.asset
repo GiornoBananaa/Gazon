@@ -21,6 +21,7 @@ MonoBehaviour:
   MaxRhythmKeys: 8
   NoteEndDuration: 0.2
   NoteTransitionFadingDuration: 0.1
+  NoteMinVelocityVolumeStartFadeDuration: 0.3
   StartKeyInFirstOctave: 11
   StartNoteNumber: 55
   LoopNote: 1
@@ -179,4 +180,4 @@ MonoBehaviour:
     Octave: 7
     Sound: {fileID: 11400000, guid: cfe2c41927c6cd547a350e9468012ea8, type: 2}
   MinLowPassFrequency: 250
-  MaxLowPassFrequency: 12000
+  MaxLowPassFrequency: 8000

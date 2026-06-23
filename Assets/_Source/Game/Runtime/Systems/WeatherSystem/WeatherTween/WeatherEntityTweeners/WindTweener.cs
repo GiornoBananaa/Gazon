@@ -4,7 +4,7 @@ using DG.Tweening;
 using Game.Runtime.Configs;
 using UnityEngine;
 
-namespace Game.Runtime.WeatherSystem.WeatherTween.Tweeners
+namespace Game.Runtime.WeatherSystem.WeatherTween.WeatherEntityTweeners
 {
     public class WindTweener : WeatherEntityTweener
     {

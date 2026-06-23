@@ -41,3 +41,11 @@ MonoBehaviour:
   MaxBendForce: 0.6
   MinSpeed: 6
   MaxSpeed: 10
+  SnowEffect: {fileID: 8926484042661614526, guid: 89e25120c086fad40bb192f370129ed2, type: 3}
+  SnowMaxDensity: 5000
+  SnowFallSpeed: 1
+  SnowWindSpeedBlend: 0.01
+  RainEffect: {fileID: 8926484042661614526, guid: f14c2594fe88da446bc802ecd5bf1c7c, type: 3}
+  RainMaxDensity: 5000
+  RainFallSpeed: 9.81
+  RainWindSpeedBlend: 0.2

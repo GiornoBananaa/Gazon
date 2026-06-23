@@ -1,5 +1,6 @@
 ﻿using Game.Runtime.WeatherSystem.WeatherTween;
 using UnityEngine;
+using UnityEngine.VFX;
 
 namespace Game.Runtime.Configs
 {
@@ -16,5 +17,17 @@ namespace Game.Runtime.Configs
         public float MaxBendForce;
         public float MinSpeed = 6;
         public float MaxSpeed = 10;
+        
+        [Header("Snow")]
+        public VisualEffectAsset SnowEffect;
+        public float SnowMaxDensity = 10000;
+        public float SnowFallSpeed = 0.03f;
+        public float SnowWindSpeedBlend = 0.2f;
+        
+        [Header("Rain")]
+        public VisualEffectAsset RainEffect;
+        public float RainMaxDensity = 10000;
+        public float RainFallSpeed = 0.2f;
+        public float RainWindSpeedBlend = 0.2f;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Game.Runtime.CameraSystem;
 using Game.Runtime.PianoFeature;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Game.Runtime.CameraFeature
 {
@@ -25,8 +26,10 @@ namespace Game.Runtime.CameraFeature
             _rotator.Enable();
             
             _mover.SetTarget(_targetTransform);
-            _rotator.SetLimitY(_targetTransform, _rotationLimitY);
+            _rotator.SetLimitY(_targetTransform, 0, 0);
             
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
 
         public void Exit()
@@ -36,6 +39,9 @@ namespace Game.Runtime.CameraFeature
             
             _mover.SetTarget(null);
             _rotator.RemoveLimit();
+            
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 }

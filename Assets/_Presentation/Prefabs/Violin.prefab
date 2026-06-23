@@ -159,9 +159,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb8ece79a6041d7a70ffd53d65674f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game.Runtime::Game.Runtime.PianoFeature.Piano
-  SeatPoint: {fileID: 6900599144064576124}
-  MaxViewAngle: 90
+  <SeatPoint>k__BackingField: {fileID: 6900599144064576124}
+  <MaxViewAngle>k__BackingField: 90
   <Type>k__BackingField: 1
+  <Area>k__BackingField: {x: 0.6, y: 0.3}
 --- !u!114 &4836826627123332466
 MonoBehaviour:
   m_ObjectHideFlags: 0

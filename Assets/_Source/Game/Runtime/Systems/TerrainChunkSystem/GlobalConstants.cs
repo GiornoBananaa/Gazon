@@ -2,6 +2,6 @@
 {
     public static class GlobalConstants
     {
-        public const float ROUND_WORLD_VALUE = 0.008f;
+        public const float ROUND_WORLD_VALUE = 0.01f;
     }
 }

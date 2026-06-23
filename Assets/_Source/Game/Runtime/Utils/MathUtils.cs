@@ -1,4 +1,5 @@
 ﻿using Game.Runtime.TerrainChunkSystem;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace Game.Runtime.Utils
@@ -27,9 +28,9 @@ namespace Game.Runtime.Utils
             return new Vector2(position.x, position.z);
         }
         
-        public static Vector3 GetVectorXZ(this Vector2 position)
+        public static Vector3 GetVectorXZ(this Vector2 position, float y = 0)
         {
-            return new Vector3(position.x, 0, position.y);
+            return new Vector3(position.x, y, position.y);
         }
         
         public static float Repeat(float t, float min, float max)
@@ -40,6 +41,15 @@ namespace Game.Runtime.Utils
         public static bool IsOverlapped(float start1, float end1, float start2, float end2)
         {
             return start1 < end2 && start2 < end1;
+        }
+        
+        public static Vector2 PointOnCircle(float radius, float angle)
+        {
+            angle *= Mathf.Deg2Rad;
+            float x = radius * Mathf.Cos(angle);
+            float y = radius * Mathf.Sin(angle);
+
+            return new Vector2(x, y);
         }
     }
 }

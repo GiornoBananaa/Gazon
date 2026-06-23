@@ -1,5 +1,4 @@
-﻿using Game.Runtime.CameraFeature;
-using Game.Runtime.ServiceSystem;
+﻿using Game.Runtime.ServiceSystem;
 using UnityEngine;
 
 namespace Game.Runtime.CameraSystem

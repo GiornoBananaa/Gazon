@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e97193c860bb4774b29c69b236529464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game.Runtime::Game.Runtime.CameraFeature.CameraHandle
+  _currentCamera: {fileID: 6806604619636260313}
   <Config>k__BackingField: {fileID: 11400000, guid: a6a203caecfb98e44a2b8b7a8a5b1b0d, type: 2}
   <XRotationPivot>k__BackingField: {fileID: 8797244367389628835}
   <YRotationPivot>k__BackingField: {fileID: 914064561078947272}

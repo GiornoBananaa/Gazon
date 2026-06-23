@@ -3,7 +3,7 @@ using Game.Runtime.ServiceSystem;
 using Game.Runtime.WeatherFeature;
 using Game.Runtime.WeatherSystem;
 using Game.Runtime.WeatherSystem.WeatherTween;
-using Game.Runtime.WeatherSystem.WeatherTween.Tweeners;
+using Game.Runtime.WeatherSystem.WeatherTween.WeatherEntityTweeners;
 using Reflex.Core;
 using Reflex.Enums;
 using UnityEngine;
@@ -16,11 +16,14 @@ namespace Game.Runtime.Installers
         public void InstallBindings(ContainerBuilder builder)
         {
             builder.RegisterType(typeof(WindTweener), new[] { typeof(WeatherEntityTweener) }, Lifetime.Singleton, Resolution.Lazy);
+            builder.RegisterType(typeof(PrecipitationTweener), new[] { typeof(WeatherEntityTweener) }, Lifetime.Singleton, Resolution.Lazy);
+            builder.RegisterType(typeof(TemperatureTweener), new[] { typeof(WeatherEntityTweener) }, Lifetime.Singleton, Resolution.Lazy);
             builder.RegisterType(typeof(WeatherTweener), Lifetime.Singleton, Resolution.Lazy);
             builder.RegisterType(typeof(WeatherPropertyBlender), Lifetime.Singleton, Resolution.Lazy);
             builder.RegisterType(typeof(WeatherBiomeSetter),  new[] { typeof(WeatherBiomeSetter), typeof(IUpdatable) }, Lifetime.Singleton, Resolution.Lazy);
             builder.RegisterType(typeof(WindInstrumentBinder),  new[] { typeof(IInstrumentStatisticBinder) }, Lifetime.Singleton, Resolution.Eager);
             builder.RegisterType(typeof(WindPositionMover),  new[] { typeof(WindPositionMover), typeof(IUpdatable) }, Lifetime.Singleton, Resolution.Lazy);
+            builder.RegisterType(typeof(PrecipitationController),  new[] { typeof(PrecipitationController), typeof(IUpdatable) }, Lifetime.Singleton, Resolution.Lazy);
         }
     }
 }

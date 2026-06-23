@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1892964288848088572}
   - component: {fileID: 57534121314943609}
   - component: {fileID: 2959828201585421094}
+  - component: {fileID: 4398759608763982207}
   m_Layer: 6
   m_Name: CircularList
   m_TagString: Untagged
@@ -74,6 +75,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.4, y: 0.3, z: 0.05}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4398759608763982207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143206597265879478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de4861bc23714626a50cbc86c9cfa61c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game.Runtime::Game.Runtime.PlanetFeature.RoundWorldPositionSetter
 --- !u!1 &871619566007113830
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,7 +354,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: fc7a44cd3e21ec64fbcd7a9c93322c8d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -473,7 +486,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: fc7a44cd3e21ec64fbcd7a9c93322c8d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -602,7 +615,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: fc7a44cd3e21ec64fbcd7a9c93322c8d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -692,7 +705,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: fc7a44cd3e21ec64fbcd7a9c93322c8d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -785,7 +798,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: fc7a44cd3e21ec64fbcd7a9c93322c8d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -917,7 +930,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: fc7a44cd3e21ec64fbcd7a9c93322c8d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1046,7 +1059,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: fc7a44cd3e21ec64fbcd7a9c93322c8d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1094,13 +1107,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4752217826627569707}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
   m_LocalPosition: {x: 0, y: 2.2, z: -1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6755010014020937343}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!1 &5347925469843111359
 GameObject:
   m_ObjectHideFlags: 0
@@ -1167,7 +1180,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: fc7a44cd3e21ec64fbcd7a9c93322c8d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1257,7 +1270,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: fc7a44cd3e21ec64fbcd7a9c93322c8d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1419,7 +1432,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: fc7a44cd3e21ec64fbcd7a9c93322c8d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1699,7 +1712,7 @@ GameObject:
   - component: {fileID: 4186220437574716835}
   - component: {fileID: 7947918508259761074}
   - component: {fileID: 4836826627123332466}
-  - component: {fileID: 1930057597457010043}
+  - component: {fileID: 2910671107299884290}
   m_Layer: 0
   m_Name: PlayerPiano
   m_TagString: Untagged
@@ -1758,9 +1771,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90f46fd254af4001892823be061229d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game.Runtime::Game.Runtime.PianoFeature.MainMusicInstrument
-  SeatPoint: {fileID: 6900599144064576124}
-  MaxViewAngle: 90
+  <SeatPoint>k__BackingField: {fileID: 6900599144064576124}
+  <MaxViewAngle>k__BackingField: 90
   <Type>k__BackingField: 0
+  <Area>k__BackingField: {x: 3, y: 2}
   <SheetVisualizer>k__BackingField: {fileID: 5176187851591197385}
 --- !u!114 &4836826627123332466
 MonoBehaviour:
@@ -1779,7 +1793,7 @@ MonoBehaviour:
   _minAudioDistance: 1
   _maxAudioDistance: 20
   _minVolume: 0.2
---- !u!114 &1930057597457010043
+--- !u!114 &2910671107299884290
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1788,12 +1802,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8013183114595760909}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 058aae33754f4ba4bc85371fb210d717, type: 3}
+  m_Script: {fileID: 11500000, guid: 158d1d9c080c4f0e93bc768d9af0606e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Game.Runtime::Game.Runtime.TerrainChunkSystem.AllBiomesLinker
-  _animatedTeleport: 1
-  _hideHeight: -2
-  _animationTime: 1
+  m_EditorClassIdentifier: Game.Runtime::Game.Runtime.TerrainChunkSystem.PositionLinker
 --- !u!1 &8204978698710402619
 GameObject:
   m_ObjectHideFlags: 0

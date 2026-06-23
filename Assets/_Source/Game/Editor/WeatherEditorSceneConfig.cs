@@ -1,7 +1,7 @@
 using System;
 using Game.Runtime.Configs;
 using Game.Runtime.WeatherSystem.WeatherTween;
-using Game.Runtime.WeatherSystem.WeatherTween.Tweeners;
+using Game.Runtime.WeatherSystem.WeatherTween.WeatherEntityTweeners;
 using UnityEngine;
 
 namespace Game.Editor

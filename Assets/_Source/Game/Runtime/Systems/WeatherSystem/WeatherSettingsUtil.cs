@@ -25,6 +25,10 @@ namespace Game.Runtime.WeatherSystem
                     return new[]{WeatherParameterType.Force, WeatherParameterType.Color};
                 case WeatherEntityType.Stars:
                     return new[]{WeatherParameterType.Force, WeatherParameterType.Color};
+                case WeatherEntityType.Precipitation:
+                    return new[]{WeatherParameterType.Force};
+                case WeatherEntityType.Temperature:
+                    return new[]{WeatherParameterType.Force};
                 default:
                     return Array.Empty<WeatherParameterType>();
             }

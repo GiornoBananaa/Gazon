@@ -2,7 +2,7 @@
 using Game.Runtime.ServiceSystem;
 using UnityEngine;
 
-namespace Game.Runtime.WeatherSystem.WeatherTween.Tweeners
+namespace Game.Runtime.WeatherSystem.WeatherTween.WeatherEntityTweeners
 {
     public class WindPositionMover : IUpdatable
     {
@@ -11,10 +11,10 @@ namespace Game.Runtime.WeatherSystem.WeatherTween.Tweeners
         private Material[] _materials;
         
         private Vector2 _windPosition;
-        private Vector2 _windDirection = Vector2.up;
         private float _angleInDegrees = 135;
 
         public float WindSpeed { get; private set; } = 6f;
+        public Vector2 WindDirection { get; private set; } = Vector2.up;
 
         public WindPositionMover()
         {
@@ -23,13 +23,13 @@ namespace Game.Runtime.WeatherSystem.WeatherTween.Tweeners
 
         public void SetWindSpeed(float speed) => WindSpeed = speed;
         
-        public void SetWindDirection(Vector2 direction) => _windDirection = direction;
+        public void SetWindDirection(Vector2 direction) => WindDirection = direction.normalized;
         
         public void Update()
         {
             if(_materials == null) return;
-            _windPosition += _windDirection * (WindSpeed * Time.deltaTime);
-            float angleInRadians = Mathf.Atan2(_windDirection.x, _windDirection.y);
+            _windPosition += WindDirection * (WindSpeed * Time.deltaTime);
+            float angleInRadians = Mathf.Atan2(WindDirection.x, WindDirection.y);
             _angleInDegrees = Mathf.LerpAngle(_angleInDegrees, 135 + angleInRadians * Mathf.Rad2Deg,2 * Time.deltaTime);
             
             foreach (var material in _materials)
