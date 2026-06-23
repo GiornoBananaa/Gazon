@@ -53,14 +53,13 @@ namespace Game.Runtime.RhythmSystem
         
         public List<RhythmKey>[] Generate(int keyCount, float maxNotesPerSecond)
         {
-            //TODO: optimize key generation
-            
             List<RhythmKey>[] keys = new List<RhythmKey>[keyCount];
             for (int i = 0; i < keyCount; i++)
             {
                 keys[i] = new List<RhythmKey>();
             }
             
+            int iteratorStartIndex = 0;
             for (int i = 0; i < _notesCount; i++)
             {
                 int instrumentIndex = 0;
@@ -78,9 +77,29 @@ namespace Game.Runtime.RhythmSystem
                 }
                 
                 var instrumentId = _instrumentIds[instrumentIndex];
-                var note =  _notes[instrumentIndex][_indexes[instrumentIndex]];
-                float numberCenter = GetAverageNumber(_notesMerged, note.StartTime, 0.8f);
-                Vector2 spread = GetNumberSpread(_notesMerged, note.StartTime, 0.8f);
+                var note = _notes[instrumentIndex][_indexes[instrumentIndex]];
+                
+                float averageNumber = 0;
+                int noteNearCount = 0;
+                float min = float.MaxValue;
+                float max = float.MinValue;
+                bool firstNote = true;
+                foreach (var noteInRange in GetNoteIndexesInRange(_notesMerged, note.StartTime, 0.8f, iteratorStartIndex))
+                {
+                    if(firstNote)
+                    {
+                        iteratorStartIndex = noteInRange;
+                        firstNote = false;
+                    }
+                    averageNumber += _notesMerged[noteInRange].NoteNumber;
+                    noteNearCount++;
+                    
+                    if (_notesMerged[noteInRange].NoteNumber < min) min = _notesMerged[noteInRange].NoteNumber;
+                    if (_notesMerged[noteInRange].NoteNumber > max) max = _notesMerged[noteInRange].NoteNumber;
+                }
+                float numberCenter = averageNumber / noteNearCount;
+                Vector2 spread = new Vector2(min, max);
+                
                 float centerAndSpreadDiff = numberCenter - (spread.y + spread.x) / 2;
             
                 int key = Mathf.Clamp(Mathf.RoundToInt(Mathf.Lerp(0, keyCount - 1, Mathf.InverseLerp(spread.x + centerAndSpreadDiff, spread.y + centerAndSpreadDiff, note.NoteNumber))), 0, keyCount - 1);
@@ -96,24 +115,26 @@ namespace Game.Runtime.RhythmSystem
                 _indexes[instrumentIndex]++;
             }
             
-            
             // squeeze note sequences
             foreach (var track in keys)
             {
+                int[] minIndexes = new int[track.Count];
                 for (int i = 1; i < track.Count; i++)
                 {
                     int countOnTrack = 0;
                     int countAll = 0;
-
+                    
                     for (int trackIndex = 0; trackIndex < keys.Length; trackIndex++)
                     {
-                        for (int keyIndex = 0; keyIndex < keys[trackIndex].Count; keyIndex++)
+                        for (int keyIndex = minIndexes[trackIndex]; keyIndex < keys[trackIndex].Count; keyIndex++)
                         {
-                            if (Mathf.Abs(track[i].StartTime - keys[trackIndex][keyIndex].StartTime) > 0.4f)
+                            if (keys[trackIndex][keyIndex].StartTime < track[i].StartTime - 0.4f)
                             {
-                                if (keys[trackIndex][keyIndex].StartTime > track[i].StartTime + 0.4f) break;
+                                minIndexes[trackIndex] = keyIndex + 1;
                                 continue;
                             }
+                            if (keys[trackIndex][keyIndex].StartTime > track[i].StartTime + 0.4f) break;
+                            
                             if(track == keys[trackIndex])
                                 countOnTrack++;
                             countAll++;
@@ -132,13 +153,36 @@ namespace Game.Runtime.RhythmSystem
             
             // disconnect small and near notes
             int[] indexes = new int[keyCount];
+            int[] minIndexesMerged = new int[keyCount];
             
             foreach (var note in _notesMerged)
             {
                 for (int j = 0; j < indexes.Length; j++)
                 {
                     if(indexes[j] >= keys[j].Count || !keys[j][indexes[j]].Notes.Contains(note)) continue;
-                    if (indexes[j] - 1 >= 0 && IsSequenceOfSmall(keys[j], keys[j][indexes[j]].StartTime, 0.8f))
+                    
+                    int smallNoteNearCount = 0;
+                    bool passTime = false;
+                    float lastTime = 0;
+                    bool firstKey = true;
+                    foreach (var noteInRange in GetKeyIndexesInRange(keys[j], keys[j][indexes[j]].StartTime, 0.8f, minIndexesMerged[j]))
+                    {
+                        if (firstKey)
+                        {
+                            firstKey = false;
+                            minIndexesMerged[j] = noteInRange;
+                        }
+                        if (MathUtils.InRange(keys[j][indexes[j]].StartTime, keys[j][noteInRange].StartTime, keys[j][noteInRange].EndTime))
+                            passTime = true;
+                        if(keys[j][noteInRange].Length < 0.3f && keys[j][noteInRange].StartTime - lastTime < 0.25f)
+                            smallNoteNearCount++;
+                        else if (passTime) break;
+                        else smallNoteNearCount = 0;
+                    
+                        lastTime = keys[j][noteInRange].EndTime;
+                    }
+                    
+                    if (indexes[j] - 1 >= 0 && smallNoteNearCount > 2)
                     {
                         float diff = keys[j][indexes[j]].Notes[0].NoteNumber - keys[j][indexes[j] - 1].Notes[^1].NoteNumber;
                         
@@ -146,11 +190,17 @@ namespace Game.Runtime.RhythmSystem
                         int newTrack = j;
                         if(diff > 0 && j + 1 < indexes.Length)
                         {
-                            foreach (var nearKey in GetKeysInRange(keys[j + 1], keys[j][indexes[j]].StartTime, 0.8f))
+                            bool firstNearKey = true;
+                            foreach (var nearKey in GetKeyIndexesInRange(keys[j + 1], keys[j][indexes[j]].StartTime, 0.8f, minIndexesMerged[j]))
                             {
+                                if (firstNearKey)
+                                {
+                                    firstNearKey = false;
+                                    minIndexesMerged[j + 1] = nearKey;
+                                }
                                 if (Mathf.Min(
-                                        TimeSubtract(keys[j][indexes[j]].StartTime, nearKey.StartTime, nearKey.EndTime),
-                                        TimeSubtract(keys[j][indexes[j]].EndTime, nearKey.StartTime, nearKey.EndTime)) <
+                                        TimeSubtract(keys[j][indexes[j]].StartTime, keys[j + 1][nearKey].StartTime, keys[j + 1][nearKey].EndTime),
+                                        TimeSubtract(keys[j][indexes[j]].EndTime, keys[j + 1][nearKey].StartTime, keys[j + 1][nearKey].EndTime)) <
                                     0.25f)
                                 {
                                     overlapped = true;
@@ -164,11 +214,17 @@ namespace Game.Runtime.RhythmSystem
                         if (diff < 0 && overlapped && j - 1 >= 0)
                         {
                             overlapped = false;
-                            foreach (var nearKey in GetKeysInRange(keys[j - 1], keys[j][indexes[j]].StartTime, 0.8f))
+                            bool firstNearKey = true;
+                            foreach (var nearKey in GetKeyIndexesInRange(keys[j - 1], keys[j][indexes[j]].StartTime, 0.8f, minIndexesMerged[j]))
                             {
+                                if (firstNearKey)
+                                {
+                                    firstNearKey = false;
+                                    minIndexesMerged[j - 1] = nearKey;
+                                }
                                 if (Mathf.Min(
-                                        TimeSubtract(keys[j][indexes[j]].StartTime, nearKey.StartTime, nearKey.EndTime),
-                                        TimeSubtract(keys[j][indexes[j]].EndTime, nearKey.StartTime, nearKey.EndTime)) < 0.25f)
+                                        TimeSubtract(keys[j][indexes[j]].StartTime, keys[j - 1][nearKey].StartTime, keys[j - 1][nearKey].EndTime),
+                                        TimeSubtract(keys[j][indexes[j]].EndTime, keys[j - 1][nearKey].StartTime, keys[j - 1][nearKey].EndTime)) < 0.25f)
                                 {
                                     overlapped = true;
                                     break;
@@ -188,149 +244,38 @@ namespace Game.Runtime.RhythmSystem
                     }
 
                     indexes[j]++;
+                    break;
                 }
             }
-            
             return keys;
         }
         
-        private bool IsSequenceOfSmall(IEnumerable<RhythmKey> notes, float time, float radius)
+        private IEnumerable<int> GetNoteIndexesInRange(IList<Note> notes, float time, float radius, int startIndex = 0)
         {
-            int smallNoteNearCount = 0;
-            bool passTime = false;
-            float lastTime = 0;
-            foreach (var note in GetKeysInRange(notes, time, radius))
+            for (int i = startIndex; i < notes.Count; i++)
             {
-                if (MathUtils.InRange(time, note.StartTime, note.EndTime))
-                    passTime = true;
-                if(note.Length < 0.3f && note.StartTime - lastTime < 0.25f)
-                    smallNoteNearCount++;
-                else if (passTime) break;
-                else smallNoteNearCount = 0;
-                    
-                lastTime = note.EndTime;
-            }
-            return smallNoteNearCount > 2;
-        }
-        
-        private float GetAverageNumber(IEnumerable<Note> notes, float time, float radius)
-        {
-            float averageNumber = 0;
-            int noteNearCount = 0;
-            foreach (var note in GetNotesInRange(notes, time, radius))
-            {
-                averageNumber += note.NoteNumber;
-                noteNearCount++;
-            }
-            return averageNumber / noteNearCount;
-        }
-        
-        private Vector2 GetNumberSpread(IEnumerable<Note> notes, float time, float radius)
-        {
-            float min = float.MaxValue;
-            float max = float.MinValue;
-            foreach (var note in GetNotesInRange(notes, time, radius))
-            {
-                if (note.NoteNumber < min) min = note.NoteNumber;
-                if (note.NoteNumber > max) max = note.NoteNumber;
-            }
-            return new Vector2(min, max);
-        }
-        
-        private float GetAveragePressedCountAtOnce(IEnumerable<Note> notes, float time, float radius)
-        {
-            int pressedInGroupCount = 0;
-            int groupsCount = 0;
-            float lastTime = 0;
-            foreach (var note in GetNotesInRange(notes, time, radius))
-            {
-                pressedInGroupCount++;
-                if (note.StartTime - lastTime > 0.1f)
-                    groupsCount++;
-                lastTime = note.StartTime;
-            }
-            return (float)pressedInGroupCount / groupsCount;
-        }
-
-        private int HandsNumber(Note[] notes, float time, float radius)
-        {
-            int lastNote = -1;
-            int handsNumber = 0;
-            int maxRadiusOfHand = 12;
-            
-            foreach (var note in GetNotesInRange(notes, time, radius).OrderBy(note => note.NoteNumber))
-            {
-                if (lastNote != -1 && note.NoteNumber - lastNote > maxRadiusOfHand)
-                    handsNumber++;
-                
-                lastNote = note.NoteNumber;
-            }
-            
-            return handsNumber;
-        }
-        
-        private List<List<Note>> GetHandsGroup(IEnumerable<Note> notes, float time, float radius)
-        {
-            int lastNote = -1;
-            float lastNoteStartTime = 0;
-            int maxRadiusOfHand = 12;
-            float maxTimeDiff = 0.2f;
-            List<List<Note>> handsGroup = new List<List<Note>>();
-            
-            foreach (var note in GetNotesInRange(notes, time, radius).OrderBy(note => note.NoteNumber))
-            {
-                if (lastNote == -1 || note.NoteNumber - lastNote > maxRadiusOfHand && note.StartTime - lastNoteStartTime < maxTimeDiff)
-                    handsGroup.Add(new List<Note> { note });
-                else
-                    handsGroup[^1].Add(note);
-                
-                lastNote = note.NoteNumber;
-            }
-            
-            return handsGroup;
-        }
-        
-        private IEnumerable<Note> GetNotesInRange(IEnumerable<Note> notes, float time, float radius)
-        {
-            foreach (var note in notes)
-            {
+                var note = notes[i];
                 if(TimeSubtract(time, note.StartTime, note.EndTime) > radius)
                 {
                     if(note.StartTime > time + radius) break;
                     continue;
                 }
-                yield return note;
+                yield return i;
             }
         }
         
-        private IEnumerable<RhythmKey> GetKeysInRange(IEnumerable<RhythmKey> notes, float time, float radius)
+        private IEnumerable<int> GetKeyIndexesInRange(IList<RhythmKey> notes, float time, float radius, int startIndex = 0)
         {
-            foreach (var note in notes)
+            for (int i = startIndex; i < notes.Count; i++)
             {
+                var note = notes[i];
                 if(TimeSubtract(time, note.StartTime, note.EndTime) > radius)
                 {
                     if(note.StartTime > time + radius) break;
                     continue;
                 }
-                yield return note;
+                yield return i;
             }
-        }
-        
-        private int GetKeysCountInRange(IEnumerable<RhythmKey> notes, float time, float radius)
-        {
-            int count = 0;
-            foreach (var note in notes)
-            {
-                if(TimeSubtract(time, note.StartTime, note.EndTime) > radius)
-                {
-                    if(note.StartTime > time + radius) break;
-                    continue;
-                }
-
-                count++;
-            }
-
-            return count;
         }
         
         private float TimeSubtract(float time, float start, float end)

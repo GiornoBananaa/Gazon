@@ -44,7 +44,7 @@ namespace Game.Runtime.PianoFeature
         {
             int noteIndex = Mathf.Clamp(keyIndex + _startIndex, 0, _notes.Length - 1);
             _noteTweener.EndNote(noteIndex);
-            OnReleasedKeyNoteIndexes?.Invoke(keyIndex, noteIndex); //TODO: key == note after octave move
+            OnReleasedKeyNoteIndexes?.Invoke(keyIndex, noteIndex);
         }
         
         public void OctaveUp()
