@@ -22,6 +22,7 @@ namespace Game.Runtime.WeatherSystem
         
         private readonly Dictionary<WeatherPropertyType, Dictionary<IWeatherPropertySetter, BlendProperty>> _blendProperties = new();
         private readonly Dictionary<WeatherPropertyType, WeatherProperty> _properties = new();
+        private readonly Dictionary<WeatherPropertyType, float> _weights = new();
         private readonly TweenConfig _defaultTweenSettings;
         
         public WeatherPropertyBlender(WeatherTweener weatherTweener)
@@ -53,11 +54,35 @@ namespace Game.Runtime.WeatherSystem
                     
             if(!_properties.ContainsKey(weatherPropertyType))
                 _properties[weatherPropertyType] = new WeatherProperty(){Type = weatherPropertyType};
-
-            WeatherProperty result = _properties[weatherPropertyType];
             
             _blendProperties[weatherPropertyType][setter] = new BlendProperty(weatherProperty, weight);
+            _weights.TryAdd(weatherPropertyType, 0);
+            _weights[weatherPropertyType] += _blendProperties[weatherPropertyType][setter].Weight;
+            
+            UpdateProperty(weatherPropertyType);
+        }
+        
+        public void RemoveProperty(IWeatherPropertySetter setter, WeatherPropertyType type)
+        {
+            _weights[type] -= _blendProperties[type][setter].Weight;
+            _blendProperties[type].Remove(setter);
+            UpdateProperty(type);
+        }
+        
+        public void RemoveProperties(IWeatherPropertySetter setter)
+        {
+            foreach (var pair in _blendProperties)
+            {
+                _weights[pair.Key] -= _blendProperties[pair.Key][setter].Weight;
+                _blendProperties[pair.Key].Remove(setter);
+                UpdateProperty(pair.Key);
+            }
+        }
 
+        private void UpdateProperty(WeatherPropertyType weatherPropertyType)
+        {
+            WeatherProperty result = _properties[weatherPropertyType];
+            
             bool first = true;
             foreach (var blendProperty in _blendProperties[weatherPropertyType].Values)
             {
@@ -69,9 +94,9 @@ namespace Game.Runtime.WeatherSystem
                 }
                 else
                 {
-                    result.FloatValue = Mathf.Lerp(result.FloatValue, blendProperty.WeatherProperty.FloatValue, blendProperty.Weight);
-                    result.VectorValue = Vector3.Lerp(result.VectorValue, blendProperty.WeatherProperty.VectorValue, blendProperty.Weight);
-                    result.ColorValue = Color.Lerp(result.ColorValue, blendProperty.WeatherProperty.ColorValue, blendProperty.Weight);
+                    result.FloatValue = Mathf.Lerp(result.FloatValue, blendProperty.WeatherProperty.FloatValue, blendProperty.Weight / _weights[weatherPropertyType]);
+                    result.VectorValue = Vector3.Lerp(result.VectorValue, blendProperty.WeatherProperty.VectorValue, blendProperty.Weight / _weights[weatherPropertyType]);
+                    result.ColorValue = Color.Lerp(result.ColorValue, blendProperty.WeatherProperty.ColorValue, blendProperty.Weight / _weights[weatherPropertyType]);
                 }
 
                 first = false;
@@ -85,16 +110,6 @@ namespace Game.Runtime.WeatherSystem
                 ColorValue = result.ColorValue,
                 VectorValue = result.VectorValue,
             });
-        }
-        
-        public void RemoveProperty(IWeatherPropertySetter setter, WeatherPropertyType type)
-        {
-            
-        }
-        
-        public void RemoveProperties(IWeatherPropertySetter setter)
-        {
-            
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Game.Runtime.PlayerFeature
         private readonly ICameraState _cameraState;
         
         public PlayerInstrumentSeatState(PlayerInputListener playerInputListener, IStateMachine<ICameraState> cameraStateMachine, 
-            CameraPianoState cameraState, IPlayerMovement playerMovement)
+            CameraMusicInstrumentState cameraState, IPlayerMovement playerMovement)
         {
             _playerInputListener = playerInputListener;
             _cameraStateMachine = cameraStateMachine;

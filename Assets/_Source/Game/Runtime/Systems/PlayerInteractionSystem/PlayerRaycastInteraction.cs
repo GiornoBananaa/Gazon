@@ -46,7 +46,7 @@ namespace Game.Runtime.PlayerInteractionSystem
             if (_currentInteractable is ILookChangedListener listener)
                 _lookListener = listener;
             
-            _cameraInputRotator.Disable();
+            _cameraInputRotator.Disable(GetHashCode());
         }
         
         public void EndContinuousInteraction()
@@ -55,7 +55,7 @@ namespace Game.Runtime.PlayerInteractionSystem
             _currentInteractable.OnEndInteraction();
             _currentInteractable = null;
             _lookListener = null;
-            _cameraInputRotator.Enable();
+            _cameraInputRotator.Enable(GetHashCode());
         }
         
         public void OnLookChanged(Vector2 look)

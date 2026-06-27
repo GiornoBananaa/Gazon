@@ -1207,6 +1207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Game.Runtime::Game.Runtime.BoidsFeature.BoidsRoundWorldRender
   Boids: {fileID: 1101818749}
+  _roundWorldValue: 0.007
 --- !u!114 &1101818752
 MonoBehaviour:
   m_ObjectHideFlags: 0

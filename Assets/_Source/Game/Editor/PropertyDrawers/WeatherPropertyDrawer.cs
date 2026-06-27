@@ -67,20 +67,23 @@ namespace Game.Editor
                 if (_currentPropertyIndex > _currentParametersNameList.Length - 1)
                     _currentPropertyIndex = 0;
                 
-                _currentPropertyIndex =
-                    EditorGUILayout.Popup(Property.displayName, _currentPropertyIndex, _currentParametersNameList);
-                
-                Property.enumValueIndex = (int)_currentParametersTypeList[_currentPropertyIndex];
+                if(_currentParametersTypeList.Length != 0)
+                {
+                    _currentPropertyIndex =
+                        EditorGUILayout.Popup(Property.displayName, _currentPropertyIndex, _currentParametersNameList);
 
-                _currentParameterType = _currentParametersTypeList[_currentPropertyIndex];
-                
-                var propertyType = _currentParametersTypeList[_currentPropertyIndex].GetPropertyType();
-                if (propertyType == typeof(float))
-                    EditorGUILayout.PropertyField(FloatValue);
-                else if (propertyType == typeof(Vector2))
-                    EditorGUILayout.PropertyField(VectorValue);
-                else if (propertyType == typeof(Color))
-                    EditorGUILayout.PropertyField(ColorValue);
+                    Property.enumValueIndex = (int)_currentParametersTypeList[_currentPropertyIndex];
+
+                    _currentParameterType = _currentParametersTypeList[_currentPropertyIndex];
+
+                    var propertyType = _currentParametersTypeList[_currentPropertyIndex].GetPropertyType();
+                    if (propertyType == typeof(float))
+                        EditorGUILayout.PropertyField(FloatValue);
+                    else if (propertyType == typeof(Vector2))
+                        EditorGUILayout.PropertyField(VectorValue);
+                    else if (propertyType == typeof(Color))
+                        EditorGUILayout.PropertyField(ColorValue);
+                }
             }
             EditorGUI.EndProperty();
         }

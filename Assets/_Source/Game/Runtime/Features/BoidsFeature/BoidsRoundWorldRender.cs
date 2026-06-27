@@ -12,6 +12,8 @@ namespace Game.Runtime.BoidsFeature
 {
     public class BoidsRoundWorldRender : Boids.BoidsComponent
     {
+        [SerializeField] private float _roundWorldValue = 0.006f;
+        
         private ICurrentCamera _camera;
         private CancellationTokenSource _cancellationTokenSource;
         
@@ -64,7 +66,7 @@ namespace Game.Runtime.BoidsFeature
                 {
                     var entity = Boids.Entities[i];
                     entity.Renderer.localBounds = new Bounds(
-                        entity.transform.InverseTransformPoint(MathUtils.ConvertToRoundWorldPosition(entity.Renderer.transform.position + entity.Filter.mesh.bounds.center, cameraPosition, 0.006f)),
+                        entity.transform.InverseTransformPoint(MathUtils.ConvertToRoundWorldPosition(entity.Renderer.transform.position + entity.Filter.mesh.bounds.center, cameraPosition, _roundWorldValue)),
                         entity.Filter.mesh.bounds.size * 3);
                 }
 

@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Game.Runtime.MusicInstrumentSystem
 {
-    public class NotesPlayer : IUpdatable
+    public class NotesPlayer : IUpdatable, ITimer
     {
         private readonly Dictionary<int, NoteConfig> _sounds;
         private readonly IInstrumentNoteTweener _instrumentNoteTweener;
@@ -157,7 +157,7 @@ namespace Game.Runtime.MusicInstrumentSystem
                 Debug.LogWarning($"Sound not found: { note.NoteType }{ note.Octave }");
                 return;
             }
-            _instrumentNoteTweener.StartNote(note.NoteNumber, _sounds[hash].Sound, note.Velocity);
+            _instrumentNoteTweener.StartNote(note.NoteNumber, _sounds[hash].Sound, note.Velocity, note.Length);
         }
         
         private void OnNoteEnded(Note note)

@@ -18,20 +18,18 @@ namespace Game.Runtime.PianoFeature
         [SerializeField] private CircularList _trackList;
         
         private RhythmGameSettings _rhythmGameSettings;
-        private IStateMachine<IInstrumentState> _stateMachine;
-        private RhythmInstrumentState _rhythmInstrumentState;
         private MusicLibrary _library;
         private Tween _tween;
         private float _defaultHeight;
         private float _hideHeight;
+
+        public event Action OnPlayPressed;
         
         [Inject]
-        private void Construct(RhythmGameSettings settings, MusicLibrary library, IStateMachine<IInstrumentState> stateMachine, RhythmInstrumentState rhythmInstrumentState)
+        private void Construct(RhythmGameSettings settings, MusicLibrary library)
         {
             _library = library;
             _rhythmGameSettings = settings;
-            _stateMachine = stateMachine;
-            _rhythmInstrumentState = rhythmInstrumentState;
         }
 
         private void Awake()
@@ -89,7 +87,7 @@ namespace Game.Runtime.PianoFeature
         private void OnLaunchLever(int value)
         {
             if(value == 0) return;
-            _stateMachine?.ChangeState(_rhythmInstrumentState);
+            OnPlayPressed?.Invoke();
         }
         
         private void OnTrackChanged(int value)

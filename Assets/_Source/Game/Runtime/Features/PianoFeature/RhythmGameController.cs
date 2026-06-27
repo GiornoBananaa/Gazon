@@ -2,6 +2,7 @@
 using System.Linq;
 using Game.Runtime.MusicInstrumentSystem;
 using Game.Runtime.RhythmSystem;
+using Game.Runtime.ScenarioSystem;
 using UnityEngine;
 
 namespace Game.Runtime.PianoFeature
@@ -12,12 +13,14 @@ namespace Game.Runtime.PianoFeature
         private readonly Orchestra _orchestra;
         private readonly IRhythmKeyGenerator _keyGenerator;
         private readonly MusicLibrary _musicLibrary;
+        private readonly ScenarioPlayer _scenarioPlayer;
         
-        public RhythmGameController(MusicLibrary musicLibrary, Orchestra orchestra, IRhythmKeyGenerator keyGenerator)
+        public RhythmGameController(MusicLibrary musicLibrary, Orchestra orchestra, IRhythmKeyGenerator keyGenerator, ScenarioPlayer scenarioPlayer)
         {
             _musicLibrary = musicLibrary;
             _keyGenerator = keyGenerator;
             _orchestra = orchestra;
+            _scenarioPlayer = scenarioPlayer;
         }
         
         public void Start(int id, int keysCount, float maxSpeed, float maxNotesPerSecond)
@@ -35,8 +38,10 @@ namespace Game.Runtime.PianoFeature
             
             List<RhythmKey>[] rhythmKeys = _keyGenerator.Generate(keysCount, maxNotesPerSecond);
             _orchestra.SetSheet(rhythmKeys);
-            
             _orchestra.Play(2, maxSpeed);
+            
+            if(track.Scenario != null)
+                _scenarioPlayer.PlayScenario(track.Scenario, _orchestra);
             
             _orchestra.OnCompleted += Quit;
         }

@@ -15,17 +15,20 @@ namespace Game.Runtime.MusicInstrumentSystem
         
         private readonly float _noteEndDuration;
         private readonly float _noteTransitionFadingDuration;
-        private readonly float _noteMinVelocityVolumeStartFadeDuration;
+        private readonly float _noteMinVelocityVolumeStartFadeRatio;
         private readonly int _notesCount;
         private readonly float _minLowPassFrequency;
         private readonly float _maxLowPassFrequency;
         private readonly float _maxVelocity;
+        private readonly float _shortNoteVolumeThreshold;
         private readonly bool _loopNote;
         
         private Vector3 _pianoLineStart;
         private Vector3 _pianoLineEnd;
         private float _spatialBlend;
         private float _maxVolume;
+        private float _lastNoteTime;
+        private int _lastNoteId;
         private bool _sustain;
         
         public InstrumentNoteTweener(IAudioPlayer audioPlayer, InstrumentKeysConfig data)
@@ -33,7 +36,8 @@ namespace Game.Runtime.MusicInstrumentSystem
             _audioPlayer = audioPlayer;
             _noteEndDuration = data.NoteEndDuration;
             _noteTransitionFadingDuration = data.NoteTransitionFadingDuration;
-            _noteMinVelocityVolumeStartFadeDuration = data.NoteMinVelocityVolumeStartFadeDuration;
+            _noteMinVelocityVolumeStartFadeRatio = data.NoteMinVelocityVolumeStartFadeRatio;
+            _shortNoteVolumeThreshold = data.ShortNoteVolumeThreshold;
             _minLowPassFrequency = data.MinLowPassFrequency;
             _maxLowPassFrequency = data.MaxLowPassFrequency;
             _notesCount = data.Notes.Length;
@@ -61,9 +65,17 @@ namespace Game.Runtime.MusicInstrumentSystem
             }
         }
         
-        public void StartNote(int id, AudioSound sound, float velocity)
+        public void StartNote(int id, AudioSound sound, float velocity, float targetLength = 0)
         {
             velocity *= _maxVelocity;
+            
+            float velocityKoef = (1 - (1 - velocity) * (1 - velocity));
+            float volume = _maxVolume * velocity;
+            float maxLowCutFrequency = Mathf.Lerp(_minLowPassFrequency, _maxLowPassFrequency, velocityKoef);
+            bool continueNote = _lastNoteId == id && Time.time - _lastNoteTime > _noteEndDuration * (1 - (1 - volume) * (1 - volume));
+            bool fadeStart = !continueNote && _noteMinVelocityVolumeStartFadeRatio > 0 && targetLength > _shortNoteVolumeThreshold;
+            float startVolume = fadeStart ? 0 : volume;
+            
             if(_pressedSources.TryGetValue(id, out var pressedSource))
             {
                 var pressedSourceCopy = pressedSource;
@@ -74,7 +86,8 @@ namespace Game.Runtime.MusicInstrumentSystem
                     _sourceTweens.Remove(pressedSourceCopy);
                 }
                 
-                Tween tween = DOTween.To(() => _audioPlayer.GetSoundVolume(pressedSourceCopy), v => SetNoteVolume(pressedSourceCopy, v), 0, _noteTransitionFadingDuration * _audioPlayer.GetSoundVolume(pressedSourceCopy));
+                Tween tween = DOTween.To(() => _audioPlayer.GetSoundVolume(pressedSourceCopy), v => SetNoteVolume(pressedSourceCopy, v), 
+                    0, _noteTransitionFadingDuration * (continueNote ? 2 : 1) * _audioPlayer.GetSoundVolume(pressedSourceCopy));
                 tween.OnComplete(() =>
                 {
                     _audioPlayer.Stop(pressedSourceCopy);
@@ -83,27 +96,26 @@ namespace Game.Runtime.MusicInstrumentSystem
                 });
                 _sourceTweens[pressedSourceCopy] = tween;
             }
-
-            float velocityKoef = (1 - (1 - velocity) * (1 - velocity));
-            float volume = _maxVolume * velocity;
-            float maxLowCutFrequency = Mathf.Lerp(_minLowPassFrequency, _maxLowPassFrequency, velocityKoef);
-            AudioSoundSource source = _audioPlayer.Play(sound, Vector3.Lerp(_pianoLineStart, _pianoLineEnd, (float)id / _notesCount), _noteMinVelocityVolumeStartFadeDuration <= 0 ? volume : 0, _spatialBlend, 1, maxLowCutFrequency, _loopNote);
+            
+            AudioSoundSource source = _audioPlayer.Play(sound, Vector3.Lerp(_pianoLineStart, _pianoLineEnd, (float)id / _notesCount), 
+                startVolume, _spatialBlend, 1, maxLowCutFrequency, _loopNote);
             _pressedSources[id] = source;
             _sustainedSources.Remove(id);
             
-            if(_noteMinVelocityVolumeStartFadeDuration > 0)
+            if(fadeStart)
             {
                 if (_sourceTweens.ContainsKey(source))
                 {
                     _sourceTweens[source]?.Kill();
                     _sourceTweens.Remove(source);
                 }
-
-                float fadeDuration = Mathf.Lerp(_noteMinVelocityVolumeStartFadeDuration, 0, velocity);
-                Tween startTween = DOTween.To(() => _audioPlayer.GetSoundVolume(source), v => SetNoteVolume(source, v),
-                    volume, fadeDuration);
-                _sourceTweens[source] = startTween;
+                
+                float fadeDuration = Mathf.Lerp(targetLength * _noteMinVelocityVolumeStartFadeRatio, 0, velocity);
+                _sourceTweens[source] = DOTween.To(() => _audioPlayer.GetSoundVolume(source), v => SetNoteVolume(source, v), volume, fadeDuration);
             }
+
+            _lastNoteId = id;
+            _lastNoteTime = Time.time;
         }
      
         public void EndNote(int id)

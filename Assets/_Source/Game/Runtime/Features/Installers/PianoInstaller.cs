@@ -5,6 +5,7 @@ using Game.Runtime.InputFeature;
 using Game.Runtime.MusicInstrumentSystem;
 using Game.Runtime.PianoFeature;
 using Game.Runtime.RhythmSystem;
+using Game.Runtime.ScenarioSystem;
 using Game.Runtime.ServiceSystem;
 using Game.Runtime.StateMachineSystem;
 using Reflex.Core;
@@ -45,6 +46,9 @@ namespace Game.Runtime.Installers
             builder.RegisterType(typeof(RhythmKeyGenerator), new[] { typeof(IRhythmKeyGenerator) }, Lifetime.Singleton, Resolution.Lazy);
             builder.RegisterType(typeof(RhythmSheet), new[] { typeof(IRhythmSheet) }, Lifetime.Singleton, Resolution.Lazy);
             builder.RegisterType(typeof(RhythmGameSettings), Lifetime.Singleton, Resolution.Lazy);
+            builder.RegisterType(typeof(ScenarioPlayer), Lifetime.Singleton, Resolution.Lazy);
+            builder.RegisterType(typeof(WeatherEventHandler), new[] { typeof(IScenarioEventHandler) }, Lifetime.Singleton, Resolution.Lazy);
+            builder.RegisterType(typeof(SpawnEventHandler), new[] { typeof(IScenarioEventHandler) }, Lifetime.Singleton, Resolution.Lazy);
             
             //Music magic
             builder.RegisterType(typeof(InstrumentPlayStatistics),  new[] { typeof(InstrumentPlayStatistics), typeof(IUpdatable) }, Lifetime.Singleton, Resolution.Lazy);

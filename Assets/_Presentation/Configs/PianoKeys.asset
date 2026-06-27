@@ -21,7 +21,8 @@ MonoBehaviour:
   MaxRhythmKeys: 8
   NoteEndDuration: 1.5
   NoteTransitionFadingDuration: 1
-  NoteMinVelocityVolumeStartFadeDuration: 0
+  ShortNoteVolumeThreshold: 0.1
+  NoteMinVelocityVolumeStartFadeRatio: 0
   StartKeyInFirstOctave: 10
   StartNoteNumber: 21
   LoopNote: 0

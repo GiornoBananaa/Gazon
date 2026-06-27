@@ -1107,13 +1107,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4752217826627569707}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
+  m_LocalRotation: {x: 0.2164396, y: 0, z: 0, w: 0.97629607}
   m_LocalPosition: {x: 0, y: 2.2, z: -1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6755010014020937343}
-  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 25, y: 0, z: 0}
 --- !u!1 &5347925469843111359
 GameObject:
   m_ObjectHideFlags: 0
@@ -1772,7 +1772,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Game.Runtime::Game.Runtime.PianoFeature.MainMusicInstrument
   <SeatPoint>k__BackingField: {fileID: 6900599144064576124}
-  <MaxViewAngle>k__BackingField: 90
+  <SheetViewAngleY>k__BackingField: 20
+  <SheetViewAngleX>k__BackingField: 15
   <Type>k__BackingField: 0
   <Area>k__BackingField: {x: 3, y: 2}
   <SheetVisualizer>k__BackingField: {fileID: 5176187851591197385}

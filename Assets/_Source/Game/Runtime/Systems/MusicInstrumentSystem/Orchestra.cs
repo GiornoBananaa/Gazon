@@ -11,7 +11,7 @@ using Object = UnityEngine.Object;
 
 namespace Game.Runtime.MusicInstrumentSystem
 {
-    public class Orchestra
+    public class Orchestra : ITimer
     {
         private class InstrumentTrack
         {
@@ -33,7 +33,9 @@ namespace Game.Runtime.MusicInstrumentSystem
         private MainMusicInstrument _currentMainInstrument;
         private int _activeTracks;
         private int _finishedTracks;
+        private float _time;
         
+        public event Action<float> OnTimeChanged;
         public event Action OnCompleted;
 
         public Orchestra(IRhythmSheet rhythmSheet, OrchestraConfig orchestraConfig)
@@ -84,11 +86,13 @@ namespace Game.Runtime.MusicInstrumentSystem
         {
             _finishedTracks = 0;
             _activeTracks = 0;
+            _time = 0;
             foreach (var track in _tracks)
             {
                 if(track.Instrument == null) continue;
                 track.Instrument.NotesPlayer.Play(track.Notes, delay, speed);
                 track.Instrument.NotesPlayer.OnCompleted += OnFinishedInstrument;
+                track.Instrument.NotesPlayer.OnTimeChanged += OnTimeChange;;
                 _activeTracks++;
             }
 
@@ -153,6 +157,7 @@ namespace Game.Runtime.MusicInstrumentSystem
             foreach (var track in _tracks)
             {
                 track.Instrument.NotesPlayer.OnCompleted -= OnFinishedInstrument;
+                track.Instrument.NotesPlayer.OnTimeChanged -= OnTimeChange;
                 if(track.Instrument is MainMusicInstrument mainInstrument)
                     mainInstrument.SheetVisualizer.Hide();
             }
@@ -182,6 +187,12 @@ namespace Game.Runtime.MusicInstrumentSystem
             _currentMainInstrument = null;
         }
 
+        private void OnTimeChange(float time)
+        {
+            if(time > _time)
+                OnTimeChanged?.Invoke(time);
+        }
+        
         private void OnFinishedInstrument()
         {
             _finishedTracks++;

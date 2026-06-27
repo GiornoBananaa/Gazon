@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using Game.Runtime.ScenarioSystem;
 using UnityEngine;
 using Application = UnityEngine.Device.Application;
 using Debug = UnityEngine.Debug;
@@ -44,6 +45,7 @@ namespace Game.Runtime.MusicInstrumentSystem
                 
                 FileInfo[] tracks = folders[folderIndex].GetFiles();
                 MusicInfo info = null;
+                Scenario scenario = null;
                 for (int fileIndex = 0; fileIndex < tracks.Length; fileIndex++)
                 {
                     string filePath = tracks[fileIndex].ToString();
@@ -51,8 +53,10 @@ namespace Game.Runtime.MusicInstrumentSystem
                     {
                         try
                         {
-                            if(info == null)
+                            if(info == null && tracks[fileIndex].Name.StartsWith("Info"))
                                 info = JsonUtility.FromJson<MusicInfo>(File.ReadAllText(filePath));
+                            else if(scenario == null && tracks[fileIndex].Name.StartsWith("Events"))
+                                scenario = JsonUtility.FromJson<Scenario>(File.ReadAllText(filePath));
                         }
                         catch
                         {
@@ -109,7 +113,11 @@ namespace Game.Runtime.MusicInstrumentSystem
                         instrumentsInSheet.Add(id.Type);
                     }
                 }
-                var musicTrack = new MusicTrack(musicTrackId, info.Name, info.Difficulty, instrumentsInSheet.ToArray());
+
+                if (scenario == null)
+                    scenario = new Scenario();
+                
+                var musicTrack = new MusicTrack(musicTrackId, info.Name, info.Difficulty, instrumentsInSheet.ToArray(), scenario, folders[folderIndex].ToString());
                 foreach (var typeNotesPair in notes)
                 {
                     musicTrack.Notes.Add(typeNotesPair.Key, typeNotesPair.Value);

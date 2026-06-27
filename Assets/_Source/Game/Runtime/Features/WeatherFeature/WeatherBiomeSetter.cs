@@ -28,6 +28,7 @@ namespace Game.Runtime.WeatherFeature
         private readonly Dictionary<Biome, WeatherState> _biomeWeatherStates = new();
         
         private float _blendDistance;
+        private bool _firstUpdate = true;
         
         public WeatherBiomeSetter(WeatherPropertyBlender weatherPropertyBlender, PlanetMap planetMap, ICurrentCamera camera)
         {
@@ -127,7 +128,7 @@ namespace Game.Runtime.WeatherFeature
                 if(!property.Used) continue;
                 
                 var lastProperty = _lastProperties[property.WeatherProperty.Type].WeatherProperty;
-                if(Mathf.Approximately(lastProperty.FloatValue, property.WeatherProperty.FloatValue) 
+                if(!_firstUpdate && Mathf.Approximately(lastProperty.FloatValue, property.WeatherProperty.FloatValue) 
                    && lastProperty.VectorValue == property.WeatherProperty.VectorValue 
                    && lastProperty.ColorValue == property.WeatherProperty.ColorValue) continue;
                 
@@ -137,11 +138,13 @@ namespace Game.Runtime.WeatherFeature
                 lastProperty.VectorValue = property.WeatherProperty.VectorValue;
                 lastProperty.ColorValue = property.WeatherProperty.ColorValue;
             }
+
+            _firstUpdate = false;
         }
 
         private void ApplyProperty(WeatherProperty weatherProperty)
         {
-            _weatherPropertyBlender.ApplyProperty(this, weatherProperty, 1);
+            _weatherPropertyBlender.ApplyProperty(this, weatherProperty, 0);
         }
     }
 }

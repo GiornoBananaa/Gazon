@@ -23,7 +23,9 @@ namespace Game.Runtime.Installers
             builder.RegisterType(typeof(ObjectCuller), new[] { typeof(ObjectCuller), typeof(IUpdatable) }, Lifetime.Singleton, Resolution.Lazy);
             builder.RegisterType(typeof(CameraInputRotator), new[] { typeof(ICameraRotator), typeof(CameraInputRotator) }, Lifetime.Singleton, Resolution.Lazy);
             builder.RegisterType(typeof(CameraFollowTargetMover), new[] { typeof(ILateUpdatable), typeof(CameraFollowTargetMover) }, Lifetime.Singleton, Resolution.Lazy);
-            builder.RegisterType(typeof(CameraPianoState), Lifetime.Scoped, Resolution.Lazy);
+            builder.RegisterType(typeof(CameraMusicInstrumentState), Lifetime.Scoped, Resolution.Lazy);
+            builder.RegisterType(typeof(CameraFreeState), Lifetime.Singleton, Resolution.Lazy);
+            builder.RegisterType(typeof(CameraMenuState), Lifetime.Singleton, Resolution.Lazy);
         }
     }
 }

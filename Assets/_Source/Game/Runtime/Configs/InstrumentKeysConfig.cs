@@ -21,7 +21,8 @@ namespace Game.Runtime.Configs
         [Header("Notes")]
         public float NoteEndDuration = 1.5f;
         public float NoteTransitionFadingDuration = 0.05f;
-        public float NoteMinVelocityVolumeStartFadeDuration = 0.05f;
+        public float ShortNoteVolumeThreshold = 0.1f;
+        public float NoteMinVelocityVolumeStartFadeRatio = 0.30f;
         [Range(1, 12)] public int StartKeyInFirstOctave = 10;
         public int StartNoteNumber = 21;
         public bool LoopNote;

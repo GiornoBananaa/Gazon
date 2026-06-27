@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 namespace Game.Runtime.CameraSystem
@@ -9,6 +10,7 @@ namespace Game.Runtime.CameraSystem
         private readonly Transform _yRotationPivot;
         private readonly float _inputSensitivity;
         private readonly float _animationTimePer180;
+        private readonly HashSet<int> _users = new();
         private float _xRotation;
         private bool _enabled = true;
         private bool _animation;
@@ -26,24 +28,27 @@ namespace Game.Runtime.CameraSystem
             _animationTimePer180 = 0.5f;
         }
 
-        public void Enable()
+        public void Enable(int id = 0)
         {
-            _enabled = true;
+            _users.Remove(id);
+            if(_users.Count == 0)
+                _enabled = true;
         }
         
-        public void Disable()
+        public void Disable(int id = 0)
         {
+            _users.Add(id);
             _enabled = false;
         }
         
-        public void SetLimitY(Transform forwardLimitTransform, float rotationLimitY, float rotationLimitX)
+        public void SetLimit(Transform forwardLimitTransform, float rotationLimitY, float rotationLimitX)
         {
             _forwardLimitTransform = forwardLimitTransform;
             _rotationLimitY = rotationLimitY;
             _rotationLimitX = rotationLimitX;
 
-            float angleY = Vector3.SignedAngle(_forwardLimitTransform.forward, _yRotationPivot.forward, Vector3.up);
-            float angleX = Vector3.SignedAngle(_forwardLimitTransform.forward, _xRotationPivot.forward, Vector3.right);
+            float angleY = Mathf.DeltaAngle(_forwardLimitTransform.rotation.eulerAngles.y, _yRotationPivot.localRotation.eulerAngles.y);
+            float angleX = Mathf.DeltaAngle(_forwardLimitTransform.rotation.eulerAngles.x, _xRotationPivot.localRotation.eulerAngles.x);
             
             if(Mathf.Abs(angleY) > _rotationLimitY || Mathf.Abs(angleX) > _rotationLimitX)
             {
@@ -86,21 +91,23 @@ namespace Game.Runtime.CameraSystem
             
             if(_forwardLimitTransform != null)
             {
-                float angleY = Vector3.SignedAngle(_forwardLimitTransform.forward, _yRotationPivot.forward, Vector3.up);
-                float angleX = Vector3.SignedAngle(_forwardLimitTransform.forward, _xRotationPivot.forward, Vector3.right);
+                float angleY = Mathf.DeltaAngle(_forwardLimitTransform.rotation.eulerAngles.y, _yRotationPivot.localRotation.eulerAngles.y);
+                float angleX = Mathf.DeltaAngle(_forwardLimitTransform.rotation.eulerAngles.x, _xRotationPivot.localRotation.eulerAngles.x);
                 
                 if (angleY > _rotationLimitY)
                     _yRotationPivot.rotation = Quaternion.AngleAxis(_forwardLimitTransform.rotation.eulerAngles.y + _rotationLimitY, Vector3.up);
                 if (angleY < -_rotationLimitY)
-                    _yRotationPivot.rotation = Quaternion.AngleAxis(_forwardLimitTransform.rotation.eulerAngles.y + -_rotationLimitY, Vector3.up);
+                {
+                    _yRotationPivot.rotation = Quaternion.AngleAxis(_forwardLimitTransform.rotation.eulerAngles.y - _rotationLimitY, Vector3.up);
+                }
                 if (angleX > _rotationLimitX)
                 {
-                    _xRotationPivot.rotation = Quaternion.AngleAxis(_forwardLimitTransform.rotation.eulerAngles.x + _rotationLimitX, Vector3.right);
+                    _xRotationPivot.localRotation = Quaternion.AngleAxis(_forwardLimitTransform.rotation.eulerAngles.x + _rotationLimitX, Vector3.right);
                     _xRotation = _xRotationPivot.localRotation.eulerAngles.x;
                 }
                 if (angleX < -_rotationLimitX)
                 {
-                    _xRotationPivot.rotation = Quaternion.AngleAxis(_forwardLimitTransform.rotation.eulerAngles.x + -_rotationLimitX, Vector3.right);
+                    _xRotationPivot.localRotation = Quaternion.AngleAxis(_forwardLimitTransform.rotation.eulerAngles.x - _rotationLimitX, Vector3.right);
                     _xRotation = _xRotationPivot.localRotation.eulerAngles.x;
                 }
             }
