@@ -20,6 +20,8 @@ namespace Game.Runtime.MusicInstrumentSystem
         private bool _isPlaying;
         
         public event Action<float> OnTimeChanged;
+        public event Action<int> OnNoteStart;
+        public event Action<int> OnNoteEnd;
         public event Action OnCompleted;
         
         public NotesPlayer(IInstrumentNoteTweener noteTweener, ServiceUpdater serviceUpdater, InstrumentKeysConfig instrumentKeysConfig)
@@ -158,11 +160,13 @@ namespace Game.Runtime.MusicInstrumentSystem
                 return;
             }
             _instrumentNoteTweener.StartNote(note.NoteNumber, _sounds[hash].Sound, note.Velocity, note.Length);
+            OnNoteStart?.Invoke(note.NoteNumber);
         }
         
         private void OnNoteEnded(Note note)
         {
             _instrumentNoteTweener.EndNote(note.NoteNumber);
+            OnNoteEnd?.Invoke(note.NoteNumber);
         }
     }
 }

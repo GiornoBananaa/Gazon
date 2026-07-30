@@ -1,7 +1,7 @@
 ﻿using System;
 using Game.Runtime.BoidsSystem;
 using Game.Runtime.Configs;
-using Game.Runtime.PianoFeature;
+using Game.Runtime.MusicInstrumentFeature;
 using R3;
 using UnityEngine;
 

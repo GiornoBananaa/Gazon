@@ -1,5 +1,5 @@
 ﻿using Game.Runtime.CameraSystem;
-using Game.Runtime.PianoFeature;
+using Game.Runtime.MusicInstrumentFeature;
 using UnityEngine;
 
 namespace Game.Runtime.CameraFeature

@@ -1,5 +1,5 @@
 ﻿using System;
-using Game.Runtime.PianoFeature;
+using Game.Runtime.MusicInstrumentFeature.FreeMode;
 using UnityEngine;
 using UnityEngine.InputSystem;
 

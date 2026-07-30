@@ -1,5 +1,5 @@
 ﻿using Game.Runtime.Configs;
-using Game.Runtime.PianoFeature;
+using Game.Runtime.MusicInstrumentFeature;
 using Game.Runtime.WeatherSystem.WeatherTween;
 using R3;
 using UnityEngine;

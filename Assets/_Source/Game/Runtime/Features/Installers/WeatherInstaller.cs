@@ -1,4 +1,4 @@
-﻿using Game.Runtime.PianoFeature;
+﻿using Game.Runtime.MusicInstrumentFeature;
 using Game.Runtime.ServiceSystem;
 using Game.Runtime.WeatherFeature;
 using Game.Runtime.WeatherSystem;

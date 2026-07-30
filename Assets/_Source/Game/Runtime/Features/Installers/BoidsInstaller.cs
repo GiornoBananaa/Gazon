@@ -1,7 +1,7 @@
 ﻿using Game.Runtime.BoidsFeature;
 using Game.Runtime.BoidsSystem;
 using Game.Runtime.Configs;
-using Game.Runtime.PianoFeature;
+using Game.Runtime.MusicInstrumentFeature;
 using Reflex.Core;
 using Reflex.Enums;
 using UnityEngine;

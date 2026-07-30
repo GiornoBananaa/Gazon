@@ -15,6 +15,7 @@ MonoBehaviour:
   Speed: 6.5
   SprintSpeed: 10
   InteractionRange: 2
+  SphereCastRadius: 0.02
   InteractableLayer:
     serializedVersion: 2
     m_Bits: 64

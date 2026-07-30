@@ -2,8 +2,10 @@
 using Game.Runtime.BoidsFeature;
 using Game.Runtime.Configs;
 using Game.Runtime.InputFeature;
+using Game.Runtime.MusicInstrumentFeature;
+using Game.Runtime.MusicInstrumentFeature.FreeMode;
+using Game.Runtime.MusicInstrumentFeature.RhythmMode;
 using Game.Runtime.MusicInstrumentSystem;
-using Game.Runtime.PianoFeature;
 using Game.Runtime.RhythmSystem;
 using Game.Runtime.ScenarioSystem;
 using Game.Runtime.ServiceSystem;

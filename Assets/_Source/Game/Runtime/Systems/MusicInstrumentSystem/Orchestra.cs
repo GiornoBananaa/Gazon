@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Game.Runtime.Configs;
-using Game.Runtime.PianoFeature;
+using Game.Runtime.MusicInstrumentFeature;
 using Game.Runtime.RhythmSystem;
 using Game.Runtime.Utils;
 using UnityEngine;

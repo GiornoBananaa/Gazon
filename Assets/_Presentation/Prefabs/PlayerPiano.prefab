@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 143206597265879478}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 0, z: 0}
+  m_LocalPosition: {x: -0.283, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48,8 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Game.Runtime::Game.Runtime.PianoFeature.CircularList
   _horizontal: 0
   _inverted: 1
-  _step: 0.08
-  _size: {x: 0.4, y: 0.08, z: 0.05}
+  _step: 0.056
+  _size: {x: 0.28, y: 0.056, z: 0.035}
   _visibleOffset: 0.3
   _sensitivity: 0.01
   _animationMetersBySecond: 1
@@ -73,7 +73,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.4, y: 0.3, z: 0.05}
+  m_Size: {x: 0.32, y: 0.24, z: 0.04}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4398759608763982207
 MonoBehaviour:
@@ -113,7 +113,7 @@ Transform:
   m_GameObject: {fileID: 871619566007113830}
   serializedVersion: 2
   m_LocalRotation: {x: 0.15988116, y: 0, z: 0, w: 0.98713636}
-  m_LocalPosition: {x: 0, y: 1.5, z: -0.45}
+  m_LocalPosition: {x: 0, y: 1.021, z: -0.405}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -171,7 +171,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.6, y: 0.5, z: 0.03}
+  m_LocalScale: {x: 1, y: 0.3, z: 0.021}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8500645852667816031}
@@ -279,12 +279,84 @@ Transform:
   m_GameObject: {fileID: 1466637759773450997}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.25, y: 1, z: -0.75}
+  m_LocalPosition: {x: -0.647, y: 0.782, z: -0.532}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6755010014020937343}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1485841720339310085
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4230672976084641543}
+  - component: {fileID: 1244560603306781721}
+  - component: {fileID: 1378874951843194585}
+  m_Layer: 0
+  m_Name: Keys
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4230672976084641543
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485841720339310085}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.75, z: -0.462}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6755010014020937343}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1244560603306781721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485841720339310085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e49a62596c14a3480f90aac49d7f569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game.Runtime::Game.Runtime.MusicInstrumentFeature.Animations.PianoKeysAnimation
+  _whiteKey: {fileID: 8322052749437874515, guid: e08ab68ea4c1b9a4d9038b1320cbdefb, type: 3}
+  _blackKey: {fileID: 5160531898258083000, guid: 149dddff5f2bbf14eb67e7dd262c55eb, type: 3}
+  _keysCount: 88
+  _startIndexInOctave: 9
+  _whiteKeyWidth: 0.0235
+  _whiteKeyLength: 0.15
+  _keyGap: 0.002
+  _pressAngle: 5
+  _animationDuration: 0.1
+--- !u!114 &1378874951843194585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485841720339310085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 883706a089e24c2c9c85df088a750fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game.Runtime::Game.Runtime.MusicInstrumentFeature.Animations.HandsInstrumentAnimation
+  _leftPrefab: {fileID: 7858684405332192911, guid: 930b7a19d446f4b4c9c810e37e84e625, type: 3}
+  _rightPrefab: {fileID: 7858684405332192911, guid: c802329c27eab714a8b316cbc5ac4937, type: 3}
+  _fingerCount: 5
+  _maxDistanceOnOneHand: 0.211
+  _showAnimationSpeed: 0.8
+  _instrumentKeysAnimation: {fileID: 1244560603306781721}
 --- !u!1 &2293951828620833573
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,14 +385,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2293951828620833573}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.941, y: -0.053, z: -0.047}
-  m_LocalScale: {x: 0.099999994, y: 0.10000001, z: 0.10000001}
+  m_LocalRotation: {x: 0.50444937, y: 0.49551082, z: 0.50444925, w: 0.49551082}
+  m_LocalPosition: {x: -0.537, y: -0.1007, z: -0.0146}
+  m_LocalScale: {x: 0.06, y: 0.06, z: 0.06}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3291680469690930055}
   m_Father: {fileID: 6420005995529766128}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 91.024}
 --- !u!33 &8128946891052602183
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -446,8 +518,8 @@ Transform:
   m_GameObject: {fileID: 2382903895024222210}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.087, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalPosition: {x: -0.03, y: 0, z: 0}
+  m_LocalScale: {x: 0.06, y: 0.06, z: 0.06}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3144740673346114031}
@@ -615,7 +687,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fc7a44cd3e21ec64fbcd7a9c93322c8d, type: 2}
+  - {fileID: 2100000, guid: 2b6ef13008052cc479a47844e44539c4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -705,7 +777,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fc7a44cd3e21ec64fbcd7a9c93322c8d, type: 2}
+  - {fileID: 2100000, guid: 2b6ef13008052cc479a47844e44539c4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -758,8 +830,8 @@ Transform:
   m_GameObject: {fileID: 3432955132265494193}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.358, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalPosition: {x: 0.211, y: 0, z: 0}
+  m_LocalScale: {x: 0.06, y: 0.06, z: 0.06}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7520705224119997927}
@@ -890,8 +962,8 @@ Transform:
   m_GameObject: {fileID: 3813220830670069275}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.134, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalPosition: {x: 0.093, y: -0, z: 0}
+  m_LocalScale: {x: 0.06, y: 0.06, z: 0.06}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1115518195538119981}
@@ -1108,7 +1180,7 @@ Transform:
   m_GameObject: {fileID: 4752217826627569707}
   serializedVersion: 2
   m_LocalRotation: {x: 0.2164396, y: 0, z: 0, w: 0.97629607}
-  m_LocalPosition: {x: 0, y: 2.2, z: -1.5}
+  m_LocalPosition: {x: 0, y: 1.269, z: -1.107}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1270,7 +1342,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fc7a44cd3e21ec64fbcd7a9c93322c8d, type: 2}
+  - {fileID: 2100000, guid: 2b6ef13008052cc479a47844e44539c4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1346,8 +1418,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.50037646, y: 0.59692633, z: 1.4697056}
+  m_Center: {x: 0.0043512583, y: -0.20153683, z: 0.23485279}
 --- !u!114 &4758269262083982709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1362,6 +1434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Game.Runtime::Game.Runtime.PianoFeature.PianoSeat
   _interactableCollider: {fileID: 7577879935230439293}
   _seatPoint: {fileID: 6900599144064576124}
+  _handsInstrumentAnimation: {fileID: 1378874951843194585}
   _maxViewAngle: 90
 --- !u!1 &6540882935167555533
 GameObject:
@@ -1392,8 +1465,8 @@ Transform:
   m_GameObject: {fileID: 6540882935167555533}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.6420002, y: 0.0361, z: -0.0187}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalPosition: {x: 0.338, y: 0, z: -0.019}
+  m_LocalScale: {x: 0.06, y: 0.06, z: 0.06}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8126897806612308417}
@@ -1520,7 +1593,7 @@ Transform:
   m_GameObject: {fileID: 6682756943511209460}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.25, y: 1, z: -0.75}
+  m_LocalPosition: {x: 0.6391, y: 0.8011, z: -0.5309}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1555,8 +1628,8 @@ Transform:
   m_GameObject: {fileID: 7375928872577882350}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6, z: -0.5}
-  m_LocalScale: {x: 3, y: 1.2, z: 1}
+  m_LocalPosition: {x: 0, y: 0.375, z: -0.48000002}
+  m_LocalScale: {x: 1.45, y: 0.75, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6755010014020937343}
@@ -1679,7 +1752,7 @@ Transform:
   m_GameObject: {fileID: 7512475973473179923}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: -0.45}
+  m_LocalPosition: {x: 0, y: 1.026, z: -0.39499968}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1735,6 +1808,7 @@ Transform:
   m_Children:
   - {fileID: 2214449926077747949}
   - {fileID: 6393611497054684135}
+  - {fileID: 4230672976084641543}
   - {fileID: 3240027358453638748}
   - {fileID: 6900599144064576124}
   - {fileID: 6676756033157340511}
@@ -1835,8 +1909,8 @@ Transform:
   m_GameObject: {fileID: 8204978698710402619}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.529, z: 0.25}
-  m_LocalScale: {x: 3, y: 2, z: 1.4}
+  m_LocalPosition: {x: 0, y: 0.45, z: 0.25}
+  m_LocalScale: {x: 1.45, y: 0.9, z: 1.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6755010014020937343}
@@ -1959,7 +2033,7 @@ Transform:
   m_GameObject: {fileID: 9201947564514474628}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5096, z: -0.45}
+  m_LocalPosition: {x: 0, y: 0.91, z: -0.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1980,5 +2054,5 @@ MonoBehaviour:
   _notePrefab: {fileID: -3851842219123256997, guid: d9c9fa5e0bfc94c4d83fa53bc0873b4f, type: 3}
   _trackPrefab: {fileID: 2215962434898177249, guid: e16a0ceeb1b110049a1aeafaf45d963f, type: 3}
   _lengthInMeters: 1.4
-  _distanceBetweenTracks: 0.12
-  _noteHeight: 0.1
+  _distanceBetweenTracks: 0.084
+  _noteHeight: 0.06
