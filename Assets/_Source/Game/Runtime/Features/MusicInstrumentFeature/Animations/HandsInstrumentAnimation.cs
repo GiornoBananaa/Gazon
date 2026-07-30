@@ -118,13 +118,12 @@ namespace Game.Runtime.MusicInstrumentFeature.Animations
             List<HandNode> handNodes = new();
             List<HandRig> hands = new();
             int index = 0;
+            int lastNotFullHand = 0;
 
             while (index < _pressedKeys.Count)
             {
                 var handNode = new HandNode();
                 handNodes.Add(handNode);
-                
-                Vector3 averagePosition = Vector3.zero;
                 
                 for (int i = index; i < _pressedKeys.Count; i++)
                 {
@@ -132,18 +131,44 @@ namespace Game.Runtime.MusicInstrumentFeature.Animations
                     if (handNode.Keys.Count >= _fingerCount 
                         || (handNode.Keys.Count > 0 
                             && Vector3.Distance(pressPosition, _instrumentKeysAnimation.GetPressPosition(handNode.Keys[0])) > _maxDistanceOnOneHand)) break;
-                    
-                    if (handNode.Start < _pressedKeys[i])
-                        handNode.Start = _pressedKeys[i];
-                    if (handNode.End > _pressedKeys[i])
-                        handNode.End = _pressedKeys[i];
-
                     handNode.Keys.Add(_pressedKeys[i]);
-                    averagePosition += pressPosition;
                     index++;
                 }
+                if(handNode.Keys.Count < _fingerCount)
+                    lastNotFullHand = index-1;
+                handNode.Start = handNode.Keys[0];
+                handNode.End = handNode.Keys[^1];
+                handNode.AveragePosition = (_instrumentKeysAnimation.GetPressPosition(handNode.Start) + _instrumentKeysAnimation.GetPressPosition(handNode.End)) / 2f;
+            }
 
-                handNode.AveragePosition = averagePosition / handNode.Keys.Count;
+            lastNotFullHand = Mathf.Clamp(lastNotFullHand, 0, handNodes.Count - 1);
+            
+            for (int i = lastNotFullHand; i > 0; i--)
+            {
+                if(handNodes[i].Keys.Count >= _fingerCount) continue;
+                Vector3 middle = (_instrumentKeysAnimation.GetPressPosition(handNodes[i-1].Start) + _instrumentKeysAnimation.GetPressPosition(handNodes[i].End)) / 2f;
+                bool modified = false;
+                for (int j = handNodes[i-1].Keys.Count - 1; j > 0 ; j--)
+                {
+                    if(handNodes[i].Keys.Count >= _fingerCount
+                       || _instrumentKeysAnimation.GetPressPosition(handNodes[i-1].Keys[j]).x < middle.x
+                       || Vector3.Distance(_instrumentKeysAnimation.GetPressPosition(handNodes[i].Keys[^1]), _instrumentKeysAnimation.GetPressPosition(handNodes[i-1].Keys[j])) > _maxDistanceOnOneHand) break;
+                    
+                    handNodes[i].Keys.Add(handNodes[i-1].Keys[j]);
+                    handNodes[i-1].Keys.RemoveAt(j);
+                    modified = true;
+                }
+                
+                if (modified)
+                {
+                    handNodes[i].Start = handNodes[i].Keys[0];
+                    handNodes[i].End = handNodes[i].Keys[^1];
+                    handNodes[i].AveragePosition = (_instrumentKeysAnimation.GetPressPosition(handNodes[i].Start) + _instrumentKeysAnimation.GetPressPosition(handNodes[i].End)) / 2f;
+                    
+                    handNodes[i-1].Start = handNodes[i-1].Keys[0];
+                    handNodes[i-1].End = handNodes[i-1].Keys[^1];
+                    handNodes[i-1].AveragePosition = (_instrumentKeysAnimation.GetPressPosition(handNodes[i-1].Start) + _instrumentKeysAnimation.GetPressPosition(handNodes[i-1].End)) / 2f;
+                }
             }
             
             int startNodeIndex = 0;
@@ -180,7 +205,7 @@ namespace Game.Runtime.MusicInstrumentFeature.Animations
                 {
                     for (int i = 0; i < handNodes.Count; i++)
                     {
-                        bool right = handNodes.Count - i % 2 == 0;
+                        bool right = ((handNodes.Count - 1) - i) % 2 == 0;
                         if (handNodes.Count == 1)
                             right = handNodes[i].AveragePosition.x > transform.position.x;
                         hands.Add(GetNewHand(right, handNodes[i]));
@@ -311,7 +336,9 @@ namespace Game.Runtime.MusicInstrumentFeature.Animations
                     
                     _hands[i].ReleaseAll();
                     if(handNodes.Count < 2 && i >= _hands.Count - 2)
+                    {
                         _freeHands.Add(_hands[i]);
+                    }
                     else
                     {
                         HideHand(_hands[i]);
@@ -333,7 +360,7 @@ namespace Game.Runtime.MusicInstrumentFeature.Animations
                     {
                         hand.SetRelaxedPosition(
                             new Vector3(handNodes[0].AveragePosition.x + (hand.IsRight ? 0.12f : -0.12f),
-                                hand.transform.position.y, hand.transform.position.z));
+                                hand.transform.position.y, Mathf.Min(hand.transform.position.z, handNodes[0].AveragePosition.z - 0.3f)));
                     }
                 }
             }

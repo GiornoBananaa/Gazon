@@ -30,6 +30,8 @@ namespace Game.Runtime.MusicInstrumentFeature.Animations
         private bool _updateHand;
         private Vector3 _firstRootPosition;
         private Vector3 _lastRootPosition;
+        private Vector3 _handTargetPosition;
+        private Quaternion _handTargetRotation;
         private Tween _handTween;
         
         public bool IsRight => _isRight;
@@ -42,6 +44,8 @@ namespace Game.Runtime.MusicInstrumentFeature.Animations
                 fingerTarget.DefaultTargetLocalPosition = _rigRoot.InverseTransformPoint(fingerTarget.IKConstraint.data.target.position);
                 fingerTarget.TargetPosition = _rigRoot.InverseTransformPoint(fingerTarget.IKConstraint.data.target.position);
             }
+            _handTargetPosition = _rigRoot.position;
+            _handTargetRotation = _rigRoot.rotation;
         }
 
         private void Update()
@@ -84,8 +88,8 @@ namespace Game.Runtime.MusicInstrumentFeature.Animations
             _fingerTargets[finger].Released = true;
             //_fingerTargets[finger].ReleasedNow = true;
             _updateHand = true;
-            SetFingerPosition(finger, _rigRoot.InverseTransformPoint(_fingerTargets[finger].TargetPosition) + new Vector3(0,0.01f,0), true);
-        } 
+            SetFingerPosition(finger, CustomInverseTransformPoint(_handTargetPosition, _handTargetRotation, _rigRoot.lossyScale, _fingerTargets[finger].LastWorldTargetPosition) + new Vector3(0,0.01f,0), true);
+        }
         
         public void ReleaseAll()
         {
@@ -117,7 +121,22 @@ namespace Game.Runtime.MusicInstrumentFeature.Animations
                 last = i;
             }
             
+            for (int i = 0; i < _fingerTargets.Length; i++)
+            {
+                if(!_fingerTargets[i].Released)
+                {
+                    SetFingerPosition(i, _fingerTargets[i].TargetPosition, false);
+                    continue;
+                }
+
+                Vector3 scaledPoint = new Vector3(_fingerTargets[i].TargetPosition.x * _rigRoot.lossyScale.x, _fingerTargets[i].TargetPosition.y * _rigRoot.lossyScale.y, _fingerTargets[i].TargetPosition.z * _rigRoot.lossyScale.z);
+                float distanceToLastPosition = Vector3.Distance(_handTargetRotation * scaledPoint + _handTargetPosition, _fingerTargets[i].LastWorldTargetPosition);
+                if(distanceToLastPosition > 0.01f)
+                    SetFingerPosition(i, _fingerTargets[i].DefaultTargetLocalPosition, true);
+            }
+            
             if(first < 0) return;
+            
             
             Vector2 a = _fingerTargets[first].TargetPosition.GetVectorXY();
             Vector2 b = _fingerTargets[last].TargetPosition.GetVectorXY();
@@ -165,8 +184,7 @@ namespace Game.Runtime.MusicInstrumentFeature.Animations
             // Step 1: Calculate the object's current global position for localPoint1
             Vector3 currentGlobalPoint = _fingerTargets[ad > bc ? last : first].IKConstraint.data.root.position;
             Vector3 futureGlobalPoint = PredictChildPosition(_rigRoot, currentGlobalPoint,rotation);
-            
-            SetHandPosition(_rigRoot.position + targetPoint - futureGlobalPoint, rotation);
+            SetHandPosition(_rigRoot.position - futureGlobalPoint + targetPoint, rotation);
         }
         
         private Vector3 PredictChildPosition(Transform parentTransform, Vector3 position, Quaternion futureParentRotation)
@@ -179,46 +197,40 @@ namespace Game.Runtime.MusicInstrumentFeature.Animations
         
         private void SetHandPosition(Vector3 handPosition, Quaternion quaternion)
         {
-            for (int i = 0; i < _fingerTargets.Length; i++)
-            {
-                if(!_fingerTargets[i].Released)
-                {
-                    SetFingerPosition(i, _fingerTargets[i].TargetPosition, false);
-                    continue;
-                }
-
-                Vector3 scaledPoint = new Vector3(_fingerTargets[i].TargetPosition.x * _rigRoot.lossyScale.x, _fingerTargets[i].TargetPosition.y * _rigRoot.lossyScale.y, _fingerTargets[i].TargetPosition.z * _rigRoot.lossyScale.z);
-                float distanceToLastPosition = Vector3.Distance(quaternion * scaledPoint + handPosition, _fingerTargets[i].LastWorldTargetPosition);
-                SetFingerPosition(i, distanceToLastPosition > 0.01f ? _fingerTargets[i].DefaultTargetLocalPosition : _fingerTargets[i].TargetPosition, true);
-            }
             _handTween?.Kill();
-            if(Vector3.Distance(handPosition, _rigRoot.position) < 0.002f) return;
             var sequence = DOTween.Sequence();
             float distance = Vector3.Distance(_rigRoot.position, handPosition);
             float duration = distance / Mathf.Lerp(_moveSpeed / 10, _moveSpeed, Mathf.Clamp01(distance / 0.15f));
             duration = Mathf.Max(0.18f, duration);
-            sequence.Join(_rigRoot.DOJump(handPosition, 0.012f, 1, duration).SetEase(Ease.InOutSine));
+            if(Vector3.Distance(handPosition, _handTargetPosition) > 0.002f)
+                sequence.Join(_rigRoot.DOJump(handPosition, 0.012f, 1, duration).SetEase(Ease.InOutSine));
+            else
+                sequence.Join(_rigRoot.DOMove(handPosition, duration).SetEase(Ease.InOutSine));
             sequence.Join(_rigRoot.DORotateQuaternion(quaternion, duration).SetEase(Ease.Linear));
+            _handTargetPosition = handPosition;
+            _handTargetRotation = quaternion;
             _handTween = sequence;
         }
         
         private void SetFingerPosition(int finger, Vector3 position, bool local)
         {
-            _fingerTargets[finger]?.Tween.Kill();
             if(!_fingerTargets[finger].PositionIsLocal)
                 _fingerTargets[finger].LastWorldTargetPosition = _fingerTargets[finger].TargetPosition;
+            bool lastIsLocal = _fingerTargets[finger].PositionIsLocal;
             _fingerTargets[finger].PositionIsLocal = local;
             if (local)
                 _fingerTargets[finger].IKConstraint.data.target.parent = _rigRoot;
             else
                 _fingerTargets[finger].IKConstraint.data.target.parent = null;
             Transform target = _fingerTargets[finger].IKConstraint.data.target;
-            if((!local && Vector3.Distance(position, target.position) < 0.002f) 
-               || (local && Vector3.Distance(position, target.localPosition) < 0.002f))
+            if(local == lastIsLocal && ((!local && Vector3.Distance(position, target.position) < 0.002f) 
+                                        || (local && Vector3.Distance(position, target.localPosition) < 0.002f)))
             {
                 _fingerTargets[finger].TargetPosition = position;
                 return;
             }
+            _fingerTargets[finger]?.Tween.Kill();
+            
             var sequence = DOTween.Sequence();
             float distance = Vector3.Distance(target.position, local ? _rigRoot.TransformPoint(position) : position);
             float duration = distance / Mathf.Lerp(_moveSpeed / 10, _moveSpeed, Mathf.Clamp01(distance / 0.15f));
@@ -227,8 +239,21 @@ namespace Game.Runtime.MusicInstrumentFeature.Animations
                 sequence.Join(target.DOLocalMove(position, duration).SetEase(Ease.InOutSine));
             else
                 sequence.Join(target.DOJump(position, 0.012f, 1, duration).SetEase(Ease.Linear));
+            
             _fingerTargets[finger].Tween = sequence;
             _fingerTargets[finger].TargetPosition = position;
+        }
+        
+        private static Vector3 CustomInverseTransformPoint(Vector3 transformPosition, Quaternion transformRotation, Vector3 transformLossyScale, Vector3 worldPoint)
+        {
+            // 1. Create the Local-to-World matrix using Position, Rotation, and Scale
+            Matrix4x4 localToWorld = Matrix4x4.TRS(transformPosition, transformRotation, transformLossyScale);
+        
+            // 2. Invert the matrix to create a World-to-Local matrix
+            Matrix4x4 worldToLocal = localToWorld.inverse;
+        
+            // 3. Multiply the world point by the inverted matrix
+            return worldToLocal.MultiplyPoint3x4(worldPoint);
         }
     }
 }
