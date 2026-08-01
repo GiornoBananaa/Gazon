@@ -189,12 +189,17 @@ namespace Game.Runtime.MusicInstrumentFeature.Animations
                         startHandIndex = handNodes[0].AveragePosition.x > transform.position.x ? _hands.Count - 1 : _hands.Count - 2;
                     else
                     {
+                        startHandIndex = Mathf.Abs(handNodes.Count - _hands.Count);
+                        /*
                         for (int i = 0; i < Mathf.Abs(handNodes.Count - _hands.Count); i++)
                         {
+
+
                             if (handNodes[0].AveragePosition.x - _hands[startHandIndex].transform.position.x >
                                 handNodes[^1].AveragePosition.x - _hands[startHandIndex + handNodes.Count].transform.position.x)
                                 startHandIndex++;
                         }
+                        */
                     }
                 }
             }
@@ -403,8 +408,9 @@ namespace Game.Runtime.MusicInstrumentFeature.Animations
             if(_tweens.TryGetValue(handRig, out Tween tween))
                 tween?.Kill();
             handRig.KillTween();
-            handRig.transform.position = handNode.AveragePosition + new Vector3(0, 0, -0.4f);
+            handRig.transform.position = handNode.AveragePosition + new Vector3(0, 0.05f, -0.3f);
             handRig.gameObject.SetActive(true);
+            handRig.SetTransparency(1, 0.5f);
         }
         
         private void HideHand(HandRig handRig)
@@ -412,9 +418,11 @@ namespace Game.Runtime.MusicInstrumentFeature.Animations
             if(_tweens.TryGetValue(handRig, out Tween tween))
                 tween?.Kill();
             handRig.KillTween();
-            Vector3 offset = new Vector3(0, 0, -0.4f);
-            _tweens[handRig] = handRig.transform.DOMove(handRig.transform.position + offset,  offset.magnitude / _showAnimationSpeed)
+            Vector3 offset = new Vector3(0, 0, -0.3f);
+            float duration = offset.magnitude / _showAnimationSpeed;
+            _tweens[handRig] = handRig.transform.DOMove(handRig.transform.position + offset, duration)
                 .OnComplete(()=>handRig.gameObject.SetActive(false));
+            handRig.SetTransparency(0, duration);
         }
 
         private void HideAll()

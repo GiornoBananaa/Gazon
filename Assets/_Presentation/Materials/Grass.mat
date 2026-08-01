@@ -64,7 +64,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Rotation: 132.80484
+    - _Rotation: 124.12718
     - _Roundness: 0.01
     - _Smoothness: 0
     - _SrcBlend: 1
@@ -108,7 +108,7 @@ Material:
     - _WindDirection: {r: -1, g: -1, b: 0, a: 0}
     - _WindNoiseContrast: {r: 0.24, g: 1, b: 0, a: 0}
     - _WindNoiseScale: {r: 0.01, g: 0.01, b: 0, a: 0}
-    - _WindPosition: {r: 0.4604715, g: -85.993126, b: 0, a: 0}
+    - _WindPosition: {r: 1.541317, g: -62.81577, b: 0, a: 0}
     - _WindVelocity: {r: 0.3, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

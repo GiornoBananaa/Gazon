@@ -3,6 +3,7 @@ using DG.Tweening;
 using Game.Runtime.Utils;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
+using UnityEngine.Serialization;
 
 namespace Game.Runtime.MusicInstrumentFeature.Animations
 {
@@ -24,15 +25,18 @@ namespace Game.Runtime.MusicInstrumentFeature.Animations
         
         [SerializeField] private FingerConfig[] _fingerTargets;
         [SerializeField] private Transform _rigRoot;
+        [SerializeField] private Renderer _renderer;
         [SerializeField] private float _maxBodyAngle = 25f;
         [SerializeField] private float _moveSpeed = 5f;
         [SerializeField] private bool _isRight;
+        
         private bool _updateHand;
         private Vector3 _firstRootPosition;
         private Vector3 _lastRootPosition;
         private Vector3 _handTargetPosition;
         private Quaternion _handTargetRotation;
         private Tween _handTween;
+        private Tween _transparencyTween;
         
         public bool IsRight => _isRight;
         public int FingersCount => _fingerTargets.Length;
@@ -43,7 +47,15 @@ namespace Game.Runtime.MusicInstrumentFeature.Animations
             {
                 fingerTarget.DefaultTargetLocalPosition = _rigRoot.InverseTransformPoint(fingerTarget.IKConstraint.data.target.position);
                 fingerTarget.TargetPosition = _rigRoot.InverseTransformPoint(fingerTarget.IKConstraint.data.target.position);
+                fingerTarget.Released = true;
+                fingerTarget.PositionIsLocal = true;
             }
+            _handTargetPosition = _rigRoot.position;
+            _handTargetRotation = _rigRoot.rotation;
+        }
+
+        private void Start()
+        {
             _handTargetPosition = _rigRoot.position;
             _handTargetRotation = _rigRoot.rotation;
         }
@@ -86,7 +98,6 @@ namespace Game.Runtime.MusicInstrumentFeature.Animations
             if(finger >= _fingerTargets.Length || _fingerTargets[finger].Released) return;
             _fingerTargets[finger].IKConstraint.weight = 1;
             _fingerTargets[finger].Released = true;
-            //_fingerTargets[finger].ReleasedNow = true;
             _updateHand = true;
             SetFingerPosition(finger, CustomInverseTransformPoint(_handTargetPosition, _handTargetRotation, _rigRoot.lossyScale, _fingerTargets[finger].LastWorldTargetPosition) + new Vector3(0,0.01f,0), true);
         }
@@ -107,6 +118,12 @@ namespace Game.Runtime.MusicInstrumentFeature.Animations
         public void SetRelaxedPosition(Vector3 position)
         {
             SetHandPosition(position, Quaternion.identity);
+        }
+
+        public void SetTransparency(float value, float duration)
+        {
+            _transparencyTween?.Kill();
+            _transparencyTween = _renderer.material.DOFade(value, duration);
         }
         
         private void UpdateHand()
